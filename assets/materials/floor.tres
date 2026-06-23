@@ -5,12 +5,10 @@
 
 [resource]
 transparency = 1
+shading_mode = 0
 albedo_texture = ExtResource("1_g8uw3")
-emission_enabled = true
-emission = Color(0.21938857, 0.44576, 0.9999799, 1)
-emission_energy_multiplier = 1.48
-emission_texture = ExtResource("1_g8uw3")
 heightmap_texture = ExtResource("2_g8uw3")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true
 texture_filter = 4
 distance_fade_min_distance = 25.0

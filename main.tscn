@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://35fl5r4s2qv8" path="res://shaders/crt.gdshader" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d71n5obdy5ou" path="res://scenes/player.tscn" id="1_ig7tw"]
 [ext_resource type="Material" uid="uid://cw65bu2jitrap" path="res://assets/materials/floor.tres" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://b1plo7hh5o8y0" path="res://assets/models/arch.blend" id="4_1bvp3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
 shader = ExtResource("1_h2yge")
@@ -30,7 +31,8 @@ shader_parameter/glow_strength = 1.10000005225
 shader_parameter/glow_threshold = 0.65
 
 [sub_resource type="Environment" id="Environment_ig7tw"]
-glow_enabled = true
+background_mode = 1
+background_color = Color(1, 1, 1, 1)
 glow_levels/1 = 1.74
 glow_levels/2 = 1.35
 glow_levels/3 = 0.0
@@ -39,9 +41,14 @@ glow_normalized = true
 glow_strength = 1.38
 glow_bloom = 0.22
 glow_hdr_luminance_cap = 0.51
+fog_light_color = Color(0.92, 0.92, 0.92, 1)
+fog_density = 0.0648
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0235
+volumetric_fog_emission = Color(1, 1, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ig7tw"]
-size = Vector2(200, 200)
+size = Vector2(2000, 2000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ig7tw"]
 size = Vector3(200, 1, 200)
@@ -52,6 +59,7 @@ size = Vector3(200, 1, 200)
 layer = 10
 
 [node name="CRT" type="ColorRect" parent="CanvasLayer" unique_id=2141403137]
+visible = false
 material = SubResource("ShaderMaterial_0xm2m")
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,7 +75,6 @@ environment = SubResource("Environment_ig7tw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=573943481]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="MeshInstance" type="MeshInstance3D" parent="Floor" unique_id=1279610277]
 material_override = ExtResource("2_0xm2m")
@@ -77,3 +84,9 @@ mesh = SubResource("PlaneMesh_ig7tw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_ig7tw")
 debug_fill = false
+
+[node name="arch" parent="." unique_id=875778632 instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 600, 0, 0)
+
+[node name="arch2" parent="." unique_id=834901505 instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -600, 0, 0)
