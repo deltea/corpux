@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://b37fviso38m6s"]
+
+[ext_resource type="Shader" uid="uid://35fl5r4s2qv8" path="res://shaders/crt.gdshader" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://d71n5obdy5ou" path="res://scenes/player.tscn" id="1_ig7tw"]
+[ext_resource type="Material" uid="uid://cw65bu2jitrap" path="res://assets/materials/floor.tres" id="2_0xm2m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
+shader = ExtResource("1_h2yge")
+shader_parameter/brightness = 2.0
+shader_parameter/contrast = 1.08
+shader_parameter/saturation = 1.10000005225
+shader_parameter/gamma = 1.05
+shader_parameter/curvature = 0.026000001235
+shader_parameter/corner_soften = 0.06
+shader_parameter/vignette = 0.38
+shader_parameter/scanline_strength = 0.28800001368
+shader_parameter/scanline_density = 0.6520000072200001
+shader_parameter/interlace_strength = 0.0
+shader_parameter/mask_strength = 0.0
+shader_parameter/mask_scale = 1.0
+shader_parameter/chroma_offset_px = 0.10000000475
+shader_parameter/luma_smear_px = 2.50000011875
+shader_parameter/jitter_px = 0.2000000095
+shader_parameter/wobble_px = 0.570000027075
+shader_parameter/tape_noise = 0.0
+shader_parameter/tape_lines = 0.0
+shader_parameter/roll_speed = 0.1
+shader_parameter/roll_strength = 0.0
+shader_parameter/glow_strength = 1.10000005225
+shader_parameter/glow_threshold = 0.65
+
+[sub_resource type="Environment" id="Environment_ig7tw"]
+glow_enabled = true
+glow_levels/1 = 1.74
+glow_levels/2 = 1.35
+glow_levels/3 = 0.0
+glow_levels/4 = 0.0
+glow_normalized = true
+glow_strength = 1.38
+glow_bloom = 0.22
+glow_hdr_luminance_cap = 0.51
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ig7tw"]
+size = Vector2(200, 200)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ig7tw"]
+size = Vector3(200, 1, 200)
+
+[node name="Main" type="Node3D" unique_id=1091414758]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=181966258]
+layer = 10
+
+[node name="CRT" type="ColorRect" parent="CanvasLayer" unique_id=2141403137]
+material = SubResource("ShaderMaterial_0xm2m")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=198784697]
+environment = SubResource("Environment_ig7tw")
+
+[node name="Player" parent="." unique_id=1918663283 instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=573943481]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="MeshInstance" type="MeshInstance3D" parent="Floor" unique_id=1279610277]
+material_override = ExtResource("2_0xm2m")
+mesh = SubResource("PlaneMesh_ig7tw")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Floor" unique_id=1101215026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_ig7tw")
+debug_fill = false
