@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ctw65x6fsqs4u"]
+
+[resource]
+shading_mode = 2
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 3.35
+rim_tint = 0.31
