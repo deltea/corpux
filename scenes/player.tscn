@@ -8,15 +8,18 @@
 
 [node name="Player" type="CharacterBody3D" unique_id=1918663283]
 floor_max_angle = 1.0471976
+platform_on_leave = 2
 script = ExtResource("1_3vyb7")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=829310103]
 shape = SubResource("CapsuleShape3D_u8vuu")
 
 [node name="MeshInstance" type="MeshInstance3D" parent="." unique_id=498360032]
+cast_shadow = 0
 mesh = SubResource("CapsuleMesh_3vyb7")
 
-[node name="CameraPivot" type="Node3D" parent="." unique_id=485012755]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
+[node name="DashTimer" type="Timer" parent="." unique_id=557899028]
+wait_time = 0.1
+one_shot = true
 
-[node name="Camera" type="Camera3D" parent="CameraPivot" unique_id=992563016]
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

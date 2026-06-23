@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b6w12jypmalxi"]
+
+[ext_resource type="Script" uid="uid://cuj1wfhwnt04d" path="res://scenes/camera/camera.gd" id="1_xejhd"]
+
+[node name="CameraPivot" type="Node3D" unique_id=1792872926]
+script = ExtResource("1_xejhd")
+
+[node name="Camera" type="Camera3D" parent="." unique_id=1866224286]
