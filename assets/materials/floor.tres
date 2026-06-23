@@ -4,14 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="2_g8uw3"]
 
 [resource]
+shading_mode = 0
 albedo_texture = ExtResource("1_g8uw3")
-emission = Color(0.21938857, 0.44576, 0.9999799, 1)
-emission_energy_multiplier = 1.48
-emission_texture = ExtResource("1_g8uw3")
 heightmap_texture = ExtResource("2_g8uw3")
-uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_scale = Vector3(0.063, 0.063, 0.063)
 uv1_triplanar = true
 uv1_world_triplanar = true
 texture_filter = 4
 distance_fade_min_distance = 25.0
 distance_fade_max_distance = 5.0
+stencil_flags = 2
+stencil_color = Color(1, 0.07999998, 0.07999998, 1)
+stencil_outline_thickness = 0.048
