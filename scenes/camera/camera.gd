@@ -3,6 +3,7 @@ class_name Camera extends Node3D
 @export var cam_tilt = 0
 @export var player: Player
 @export var y_offset = 0.5
+@export var mouse_sens = 1.0
 
 @onready var cam: Camera3D = $Camera
 
@@ -33,4 +34,4 @@ func _unhandled_input(event: InputEvent):
 
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
-			mouse_delta += event.relative
+			mouse_delta += event.relative * mouse_sens
