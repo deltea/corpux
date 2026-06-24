@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://b37fviso38m6s"]
 
-[ext_resource type="Shader" uid="uid://35fl5r4s2qv8" path="res://shaders/crt.gdshader" id="1_h2yge"]
+[ext_resource type="Shader" uid="uid://bbtl5nq2gc7lt" path="res://shaders/motion_blur.gdshader" id="1_4c57u"]
 [ext_resource type="PackedScene" uid="uid://d71n5obdy5ou" path="res://scenes/player.tscn" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://b2tey6qrfw2fh" path="res://assets/textures/crosshair.png" id="2_7mycd"]
 [ext_resource type="Material" uid="uid://bv6skya2iyano" path="res://assets/materials/checkered.tres" id="3_lquwl"]
@@ -12,29 +12,11 @@
 [ext_resource type="Material" uid="uid://d2s5q102ekomd" path="res://assets/materials/wall.tres" id="10_4c57u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
-shader = ExtResource("1_h2yge")
-shader_parameter/brightness = 1.50000007125
-shader_parameter/contrast = 1.150000054625
-shader_parameter/saturation = 1.1
-shader_parameter/gamma = 1.05
-shader_parameter/curvature = 0.02000000095
-shader_parameter/corner_soften = 0.0350000016625
-shader_parameter/vignette = 0.0690000032775
-shader_parameter/scanline_strength = 0.0450000021375
-shader_parameter/scanline_density = 0.5
-shader_parameter/interlace_strength = 0.2
-shader_parameter/mask_strength = 0.0
-shader_parameter/mask_scale = 1.0
-shader_parameter/chroma_offset_px = 1.0000000475
-shader_parameter/luma_smear_px = 1.0000000475
-shader_parameter/jitter_px = 0.6000000285
-shader_parameter/wobble_px = 1.0000000475
-shader_parameter/tape_noise = 0.0
-shader_parameter/tape_lines = 0.0
-shader_parameter/roll_speed = 0.1
-shader_parameter/roll_strength = 0.0
-shader_parameter/glow_strength = 0.0
-shader_parameter/glow_threshold = 0.65
+shader = ExtResource("1_4c57u")
+shader_parameter/intensity = 0.0
+shader_parameter/falloff = 1.0
+shader_parameter/samples = 16
+shader_parameter/center = Vector2(0.5, 0.5)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_272bh"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -191,6 +173,15 @@ _surfaces = [{
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=181966258]
 layer = 10
+
+[node name="Blur" type="ColorRect" parent="CanvasLayer" unique_id=398455551]
+material = SubResource("ShaderMaterial_0xm2m")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
 
 [node name="CRT" type="ColorRect" parent="CanvasLayer" unique_id=2141403137]
 material = SubResource("ShaderMaterial_0xm2m")

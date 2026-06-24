@@ -17,11 +17,18 @@ class_name Player extends CharacterBody3D
 @export var wall_max_z_vel = 1.0
 @export var slam_velocity = 140.0
 
+@onready var crt: ColorRect = $"../CanvasLayer/CRT"
+@onready var blur: ColorRect = $"../CanvasLayer/Blur"
+
 var dir = Vector3.ZERO
 var dash_dir = Vector3.ZERO
 var is_dashing = false
 var is_super_dashing = false
 var is_slamming = false
+
+func _process(dt: float) -> void:
+	crt.material.set_shader_parameter("luma_smear_px", 1.0 + velocity.length() / 10.0)
+	blur.material.set_shader_parameter("intensity", velocity.length() / 50.0)
 
 func _physics_process(dt: float):
 	if not is_on_floor() and not is_slamming:
