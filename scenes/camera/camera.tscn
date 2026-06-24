@@ -4,5 +4,6 @@
 
 [node name="CameraPivot" type="Node3D" unique_id=1792872926]
 script = ExtResource("1_xejhd")
+y_offset = 0.75
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1866224286]
