@@ -4,10 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="2_ldkc1"]
 
 [resource]
-shading_mode = 0
+shading_mode = 2
 albedo_texture = ExtResource("1_svj85")
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.4
 heightmap_texture = ExtResource("2_ldkc1")
-uv1_scale = Vector3(0.063, 0.063, 0.063)
+uv1_scale = Vector3(0.2, 0.2, 0.2)
 uv1_triplanar = true
 uv1_world_triplanar = true
 texture_filter = 4

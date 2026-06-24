@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://b1plo7hh5o8y0" path="res://assets/models/arch.blend" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://d00u3lhgiphp0" path="res://assets/models/platform.blend" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://b6w12jypmalxi" path="res://scenes/camera/camera.tscn" id="8_5vw27"]
-[ext_resource type="Material" uid="uid://2cr1hmgrebl2" path="res://assets/materials/dark-outline.tres" id="9_efxa6"]
 [ext_resource type="PackedScene" uid="uid://cutslwwm5wmkt" path="res://assets/models/sun.blend" id="9_kek77"]
 [ext_resource type="Material" uid="uid://d2s5q102ekomd" path="res://assets/materials/wall.tres" id="10_4c57u"]
 
@@ -47,37 +46,31 @@ shader_parameter/glow_threshold = 0.65
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_272bh"]
 sky_top_color = Color(0.79688144, 0.767517, 1, 1)
 sky_horizon_color = Color(0.5058824, 0.6, 0.9882353, 1)
-sky_energy_multiplier = 1.1
+sky_energy_multiplier = 1.2
 ground_bottom_color = Color(0.19215687, 0.1764706, 0.42352942, 1)
 ground_horizon_color = Color(0.5058824, 0.6, 0.9882353, 1)
-ground_curve = 0.21112116
-sun_curve = 855.34247
+ground_curve = 0.18379155
+sun_angle_max = 51.6
+sun_curve = 1e-05
 energy_multiplier = 0.5
 
 [sub_resource type="Sky" id="Sky_7mycd"]
 sky_material = SubResource("ProceduralSkyMaterial_272bh")
 
 [sub_resource type="Environment" id="Environment_ig7tw"]
-background_mode = 1
+background_mode = 2
 background_color = Color(1, 1, 1, 1)
-background_energy_multiplier = 0.5
 sky = SubResource("Sky_7mycd")
-ambient_light_color = Color(1, 1, 1, 1)
-glow_levels/1 = 1.74
-glow_levels/2 = 1.35
-glow_levels/3 = 0.0
-glow_levels/4 = 0.0
-glow_normalized = true
-glow_intensity = 0.4
+glow_enabled = true
 glow_strength = 1.2
 glow_bloom = 0.5
-glow_hdr_luminance_cap = 0.51
 fog_enabled = true
 fog_mode = 1
-fog_light_color = Color(1, 1, 1, 1)
+fog_light_color = Color(0.83429325, 0.81407905, 0.9999991, 1)
 fog_density = 1.0
+fog_sky_affect = 0.589
 fog_height = 133.08
-fog_height_density = 0.016
+fog_height_density = 0.0055
 fog_depth_begin = 589.9
 fog_depth_end = 1889.7
 volumetric_fog_density = 0.0
@@ -92,19 +85,6 @@ size = Vector2(20000, 20000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ig7tw"]
 size = Vector3(1000, 1, 1000)
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_7mycd"]
-_surfaces = [{
-"aabb": AABB(-1.0173205, -1.0173205, -1.0173205, 2.034641, 2.034641, 2.034641),
-"attribute_data": PackedByteArray("wP6/PgAAgD+g/x8/wP8/P6D/Hz8AAIA/wP6/PsD/Pz/A/r8+wP8/P6D/Hz8A//8+oP8fP8D/Pz/A/r8+AP//PsD+vz4A//8+oP8fPwD9fz6g/x8/AP//PsD+vz4A/X8+wP6/PgD9fz6g/x8/AAAAAKD/Hz8A/X8+wP6/PgAAAAAA+f89AP//PsD+vz4A/X8+wP6/PgD//z4A+f89AP1/PqD/Hz8A//8+4P9fPwD9fz7g/18/AP//PqD/Hz8A/X8+"),
-"format": 34359742487,
-"index_count": 36,
-"index_data": PackedByteArray("AAACAAEAAAABAAMABAAGAAUABAAFAAcACAAKAAkACAAJAAsADAAOAA0ADAANAA8AEAASABEAEAARABMAFAAWABUAFAAVABcA"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("jzeCv483gr+PN4I/jzeCv483gj+PN4K/jzeCv483gj+PN4I/jzeCv483gr+PN4K/jzeCv483gr+PN4K/jzeCP483gj+PN4K/jzeCv483gj+PN4K/jzeCP483gr+PN4K/jzeCP483gr+PN4K/jzeCP483gj+PN4I/jzeCP483gj+PN4K/jzeCP483gr+PN4I/jzeCP483gr+PN4I/jzeCv483gj+PN4I/jzeCP483gj+PN4I/jzeCv483gr+PN4I/jzeCv483gr+PN4K/jzeCP483gr+PN4I/jzeCP483gr+PN4K/jzeCv483gr+PN4I/jzeCP483gj+PN4K/jzeCv483gj+PN4I/jzeCv483gj+PN4K/jzeCP483gj+PN4I/AgAEgAGA/P8CAASAAYD8/wIABIABgPz/AgAEgAGA/P/+//7//3/+//7//v//f/7//v/+//9//v/+//7//3/+//r/AID+f/7/+v8AgP5//v/6/wCA/n/+//r/AID+f/7//3//fwCA/v//f/9/AID+//9//38AgP7//3//fwCA/v8AgAEA/v//vwCAAQD+//+/AIABAP7//78AgAEA/v//v/5//v8AAP6//n/+/wAA/r/+f/7/AAD+v/5//v8AAP6/")
-}]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kek77"]
 depth_draw_mode = 1
@@ -229,19 +209,17 @@ player = NodePath("../Player")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=417587348]
 transform = Transform3D(-1, 8.7422784e-08, 0, -6.181724e-08, -0.7071068, -0.7071068, -6.181724e-08, -0.7071068, 0.7071068, 0, 167, 0)
-light_cull_mask = 4294967293
+visible = false
 shadow_enabled = true
 directional_shadow_split_1 = 0.0
 directional_shadow_split_2 = 1.0
 directional_shadow_max_distance = 60.0
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=2013117239]
-transform = Transform3D(-0.7071068, -0.49999994, -0.5, -6.181723e-08, -0.7071068, 0.7071068, -0.7071067, 0.50000006, 0.5, 0, 167, 0)
-light_cull_mask = 4294967293
+transform = Transform3D(0.7071066, -0.50000006, -0.50000024, -1.9670393e-08, -0.7071069, 0.70710677, -0.7071068, -0.4999999, -0.5, 0, 167, 0)
+light_energy = 0.5
 shadow_enabled = true
-directional_shadow_split_1 = 0.0
-directional_shadow_split_2 = 1.0
-directional_shadow_max_distance = 60.0
+shadow_blur = 0.0
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=573943481]
 visible = false
@@ -264,58 +242,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -600, 0, 0)
 [node name="platform" parent="." unique_id=1752160918 instance=ExtResource("5_lquwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="platform/Cube" parent_id_path=PackedInt32Array(1752160918, 1187212495) index="1" unique_id=1163816280]
-material_override = ExtResource("9_efxa6")
-mesh = SubResource("ArrayMesh_7mycd")
-
 [node name="platform3" parent="." unique_id=285254244 instance=ExtResource("5_lquwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14, -80)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="platform3/Cube" parent_id_path=PackedInt32Array(285254244, 1187212495) index="1" unique_id=163712270]
-material_override = ExtResource("9_efxa6")
-mesh = SubResource("ArrayMesh_7mycd")
 
 [node name="platform4" parent="." unique_id=564821775 instance=ExtResource("5_lquwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, -14, -80)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="platform4/Cube" parent_id_path=PackedInt32Array(564821775, 1187212495) index="1" unique_id=1815989437]
-material_override = ExtResource("9_efxa6")
-mesh = SubResource("ArrayMesh_7mycd")
-
 [node name="platform5" parent="." unique_id=1912680499 instance=ExtResource("5_lquwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, -14, -80)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="platform5/Cube" parent_id_path=PackedInt32Array(1912680499, 1187212495) index="1" unique_id=1484293213]
-material_override = ExtResource("9_efxa6")
-mesh = SubResource("ArrayMesh_7mycd")
 
 [node name="platform6" parent="." unique_id=707596360 instance=ExtResource("5_lquwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, -14, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="platform6/Cube" parent_id_path=PackedInt32Array(707596360, 1187212495) index="1" unique_id=698742747]
-material_override = ExtResource("9_efxa6")
-mesh = SubResource("ArrayMesh_7mycd")
-
 [node name="platform7" parent="." unique_id=543015261 instance=ExtResource("5_lquwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, -14, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="platform7/Cube" parent_id_path=PackedInt32Array(543015261, 1187212495) index="1" unique_id=585090795]
-material_override = ExtResource("9_efxa6")
-mesh = SubResource("ArrayMesh_7mycd")
 
 [node name="platform8" parent="." unique_id=1009316874 instance=ExtResource("5_lquwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, -14, -40)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="platform8/Cube" parent_id_path=PackedInt32Array(1009316874, 1187212495) index="1" unique_id=40037552]
-material_override = ExtResource("9_efxa6")
-mesh = SubResource("ArrayMesh_7mycd")
-
 [node name="platform9" parent="." unique_id=2012035384 instance=ExtResource("5_lquwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, -14, -40)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="platform9/Cube" parent_id_path=PackedInt32Array(2012035384, 1187212495) index="1" unique_id=693255539]
-material_override = ExtResource("9_efxa6")
-mesh = SubResource("ArrayMesh_7mycd")
 
 [node name="sun" parent="." unique_id=1983583855 instance=ExtResource("9_kek77")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 300, 1500, -2000)

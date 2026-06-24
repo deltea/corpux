@@ -4,8 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="2_g8uw3"]
 
 [resource]
-diffuse_mode = 2
-specular_mode = 2
+shading_mode = 2
 albedo_texture = ExtResource("1_g8uw3")
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.0

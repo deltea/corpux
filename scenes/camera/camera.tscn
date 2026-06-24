@@ -15,29 +15,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.655, -0.845, -1.805)
 [node name="pistol" parent="Camera/WeaponHolder" unique_id=317465073 instance=ExtResource("2_6m2n3")]
 transform = Transform3D(-0.021809712, -0.052214485, -0.49678767, 0, 0.49726096, -0.05226423, 0.49952412, -0.0022797356, -0.021690236, 0, 0, 0)
 
-[node name="Cube" parent="Camera/WeaponHolder/pistol" index="1" unique_id=1459150746]
-layers = 2
+[node name="Cube" parent="Camera/WeaponHolder/pistol" index="1" unique_id=1639742287]
 cast_shadow = 0
 
-[node name="Cube_001" parent="Camera/WeaponHolder/pistol" index="2" unique_id=712243478]
-layers = 2
+[node name="Cube_001" parent="Camera/WeaponHolder/pistol" index="2" unique_id=715735657]
 cast_shadow = 0
 
-[node name="Cube_002" parent="Camera/WeaponHolder/pistol" index="3" unique_id=948976190]
-layers = 2
+[node name="Cube_002" parent="Camera/WeaponHolder/pistol" index="3" unique_id=564245043]
 cast_shadow = 0
 
-[node name="Cube_003" parent="Camera/WeaponHolder/pistol" index="4" unique_id=1109348855]
-layers = 2
+[node name="Cube_003" parent="Camera/WeaponHolder/pistol" index="4" unique_id=639448706]
 cast_shadow = 0
 
-[node name="Cube_004" parent="Camera/WeaponHolder/pistol" index="5" unique_id=1013414019]
-layers = 2
+[node name="Cube_004" parent="Camera/WeaponHolder/pistol" index="5" unique_id=1164506862]
 cast_shadow = 0
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera/WeaponHolder" unique_id=1079347348]
-transform = Transform3D(0.7071067, 0.35355335, -0.61237246, 2.1855692e-08, 0.8660253, 0.49999997, 0.70710677, -0.35355335, 0.6123724, 0, 0, 0)
-light_energy = 0.41
-light_cull_mask = 4293918722
+[node name="Cube_005" parent="Camera/WeaponHolder/pistol" index="6" unique_id=1127407570]
+cast_shadow = 0
 
 [editable path="Camera/WeaponHolder/pistol"]

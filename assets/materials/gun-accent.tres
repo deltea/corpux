@@ -4,7 +4,8 @@
 
 [resource]
 shading_mode = 2
-albedo_color = Color(0.9529412, 0.7529412, 0.80784315, 1)
+diffuse_mode = 2
+albedo_color = Color(0.6745098, 0.69411767, 0.9529412, 1)
 heightmap_texture = ExtResource("1_tsmhs")
 uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true

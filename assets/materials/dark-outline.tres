@@ -1,6 +1,0 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://2cr1hmgrebl2"]
-
-[resource]
-depth_draw_mode = 1
-shading_mode = 0
-texture_filter = 5
