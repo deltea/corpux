@@ -2,7 +2,6 @@
 
 [ext_resource type="Shader" uid="uid://35fl5r4s2qv8" path="res://shaders/crt.gdshader" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d71n5obdy5ou" path="res://scenes/player.tscn" id="1_ig7tw"]
-[ext_resource type="Material" uid="uid://cw65bu2jitrap" path="res://assets/materials/floor.tres" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://b2tey6qrfw2fh" path="res://assets/textures/crosshair.png" id="2_7mycd"]
 [ext_resource type="Material" uid="uid://bv6skya2iyano" path="res://assets/materials/checkered.tres" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://b1plo7hh5o8y0" path="res://assets/models/arch.blend" id="4_1bvp3"]
@@ -10,6 +9,7 @@
 [ext_resource type="Material" uid="uid://glrruhf5jut" path="res://assets/materials/outline.tres" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://b6w12jypmalxi" path="res://scenes/camera/camera.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://cutslwwm5wmkt" path="res://assets/models/sun.blend" id="9_kek77"]
+[ext_resource type="Material" uid="uid://d2s5q102ekomd" path="res://assets/materials/wall.tres" id="10_4c57u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
 shader = ExtResource("1_h2yge")
@@ -336,7 +336,7 @@ material_override = ExtResource("7_272bh")
 mesh = SubResource("ArrayMesh_7mycd")
 
 [node name="Cube" type="RigidBody3D" parent="." unique_id=1603001235]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 151, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 151, -42)
 
 [node name="Cube" type="MeshInstance3D" parent="Cube" unique_id=681721536]
 material_override = SubResource("StandardMaterial3D_5vw27")
@@ -350,7 +350,7 @@ mesh = SubResource("ArrayMesh_5vw27")
 shape = SubResource("BoxShape3D_272bh")
 
 [node name="Cube2" type="RigidBody3D" parent="." unique_id=346957467]
-transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, 0, 152, -5)
+transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, -39, 152, -42)
 
 [node name="Cube" type="MeshInstance3D" parent="Cube2" unique_id=1515708178]
 material_override = SubResource("StandardMaterial3D_5vw27")
@@ -364,7 +364,7 @@ mesh = SubResource("ArrayMesh_5vw27")
 shape = SubResource("BoxShape3D_272bh")
 
 [node name="Cube3" type="RigidBody3D" parent="." unique_id=1096436638]
-transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, 2, 152, -5)
+transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, -37, 152, -42)
 
 [node name="Cube" type="MeshInstance3D" parent="Cube3" unique_id=1977271995]
 material_override = SubResource("StandardMaterial3D_5vw27")
@@ -378,7 +378,7 @@ mesh = SubResource("ArrayMesh_5vw27")
 shape = SubResource("BoxShape3D_272bh")
 
 [node name="Cube4" type="RigidBody3D" parent="." unique_id=854437555]
-transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, 1, 153, -5)
+transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, -38, 153, -42)
 
 [node name="Cube" type="MeshInstance3D" parent="Cube4" unique_id=1291029199]
 material_override = SubResource("StandardMaterial3D_5vw27")
@@ -392,7 +392,7 @@ mesh = SubResource("ArrayMesh_5vw27")
 shape = SubResource("BoxShape3D_272bh")
 
 [node name="Cube5" type="RigidBody3D" parent="." unique_id=923108018]
-transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, -2, 153, -5)
+transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, -41, 153, -42)
 
 [node name="Cube" type="MeshInstance3D" parent="Cube5" unique_id=1523526670]
 material_override = SubResource("StandardMaterial3D_5vw27")
@@ -406,7 +406,7 @@ mesh = SubResource("ArrayMesh_5vw27")
 shape = SubResource("BoxShape3D_272bh")
 
 [node name="Cube6" type="RigidBody3D" parent="." unique_id=452038399]
-transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, 0, 154, -5)
+transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, -39, 154, -42)
 
 [node name="Cube" type="MeshInstance3D" parent="Cube6" unique_id=963291788]
 material_override = SubResource("StandardMaterial3D_5vw27")
@@ -420,7 +420,7 @@ mesh = SubResource("ArrayMesh_5vw27")
 shape = SubResource("BoxShape3D_272bh")
 
 [node name="Cube7" type="RigidBody3D" parent="." unique_id=1134572651]
-transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, 0, 154, -3)
+transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, -39, 154, -40)
 
 [node name="Cube" type="MeshInstance3D" parent="Cube7" unique_id=2077853018]
 material_override = SubResource("StandardMaterial3D_5vw27")
@@ -434,7 +434,7 @@ mesh = SubResource("ArrayMesh_5vw27")
 shape = SubResource("BoxShape3D_272bh")
 
 [node name="Cube8" type="RigidBody3D" parent="." unique_id=465798909]
-transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, 2, 154, -3.2819433)
+transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, -37, 154, -40.281944)
 
 [node name="Cube" type="MeshInstance3D" parent="Cube8" unique_id=143211711]
 material_override = SubResource("StandardMaterial3D_5vw27")
@@ -459,7 +459,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 153, -80)
 physics_material_override = SubResource("PhysicsMaterial_kek77")
 
 [node name="MeshInstance" type="MeshInstance3D" parent="Wall" unique_id=566315150]
-material_override = ExtResource("2_0xm2m")
+material_override = ExtResource("10_4c57u")
 mesh = SubResource("BoxMesh_kek77")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall/MeshInstance" unique_id=334004786]
@@ -474,7 +474,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 153, -80)
 physics_material_override = SubResource("PhysicsMaterial_4c57u")
 
 [node name="MeshInstance" type="MeshInstance3D" parent="Wall2" unique_id=491952802]
-material_override = ExtResource("2_0xm2m")
+material_override = ExtResource("10_4c57u")
 mesh = SubResource("BoxMesh_kek77")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2/MeshInstance" unique_id=939241333]

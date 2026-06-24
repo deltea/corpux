@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d2s5q102ekomd"]
+
+[ext_resource type="Texture2D" uid="uid://dfo427owj0sug" path="res://assets/textures/wall.png" id="1_svj85"]
+[ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="2_ldkc1"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_svj85")
+heightmap_texture = ExtResource("2_ldkc1")
+uv1_scale = Vector3(0.063, 0.063, 0.063)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 4
+distance_fade_min_distance = 25.0
+distance_fade_max_distance = 5.0
+stencil_flags = 2
+stencil_color = Color(1, 0.07999998, 0.07999998, 1)
+stencil_outline_thickness = 0.048
