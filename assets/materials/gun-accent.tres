@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="1_tsmhs"]
 
 [resource]
+shading_mode = 2
 albedo_color = Color(0.9529412, 0.7529412, 0.80784315, 1)
 heightmap_texture = ExtResource("1_tsmhs")
 uv1_scale = Vector3(0.1, 0.1, 0.1)

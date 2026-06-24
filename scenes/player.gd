@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody3D
 
-@export var max_speed = 12.0
+@export var max_speed = 20.0
 @export var deceleration = 50.0
 @export var acceleration = 100.0
 @export var cam_pivot: Camera
