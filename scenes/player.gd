@@ -1,24 +1,32 @@
 class_name Player extends CharacterBody3D
 
-@export var max_speed = 12
-@export var deceleration = 50
-@export var acceleration = 100
+@export var max_speed = 12.0
+@export var deceleration = 50.0
+@export var acceleration = 100.0
 @export var cam_pivot: Camera
 @export var wall_jump_pushback = 30.0
 @export var wall_jump_force = 15.0
 @export var jump_height = 1.8
-@export var cam_sensitivity = 0.01
-@export var gravity = 20.0
-@export var wall_max_y_vel = 3.0
+@export var super_dash_height = 1.5
+@export var super_dash_force = 60.0
+@export var super_dash_gravity = 60.0
+@export var super_dash_deceleration = 40.0
+@export var dash_force = 50.0
+@export var gravity = 25.0
+@export var wall_max_y_vel = 2.5
 @export var wall_max_z_vel = 1.0
 
 var dir = Vector3.ZERO
 var dash_dir = Vector3.ZERO
 var is_dashing = false
+var is_super_dashing = false
 
 func _physics_process(dt: float):
 	if not is_on_floor():
-		velocity.y -= gravity * dt
+		if is_super_dashing:
+			velocity.y -= super_dash_gravity * dt
+		else:
+			velocity.y -= gravity * dt
 
 	if is_on_wall() and velocity.y < 0:
 		velocity.y = clampf(velocity.y, -wall_max_y_vel, 0)
@@ -41,18 +49,43 @@ func _physics_process(dt: float):
 		dash_dir = dir
 
 	if is_dashing:
-		velocity.x = dash_dir.x * 50
-		velocity.z = dash_dir.z * 50
+		velocity.x = dash_dir.x * dash_force
+		velocity.z = dash_dir.z * dash_force
 		velocity.y = 0
+
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			# super jump
+			$DashTimer.stop()
+			is_dashing = false
+			is_super_dashing = true
+			velocity.x = dash_dir.x * super_dash_force
+			velocity.z = dash_dir.z * super_dash_force
+			velocity.y = sqrt(4 * super_dash_height * super_dash_gravity)
 	else:
-		if dir:
-			velocity.x = move_toward(velocity.x, dir.x * max_speed, acceleration * dt)
-			velocity.z = move_toward(velocity.z, dir.z * max_speed, acceleration * dt)
+		if is_super_dashing:
+			velocity.x = move_toward(velocity.x, 0, super_dash_deceleration * dt)
+			velocity.z = move_toward(velocity.z, 0, super_dash_deceleration * dt)
 		else:
-			velocity.x = move_toward(velocity.x, 0, deceleration * dt)
-			velocity.z = move_toward(velocity.z, 0, deceleration * dt)
+			if dir:
+				velocity.x = move_toward(velocity.x, dir.x * max_speed, acceleration * dt)
+				velocity.z = move_toward(velocity.z, dir.z * max_speed, acceleration * dt)
+			else:
+				velocity.x = move_toward(velocity.x, 0, deceleration * dt)
+				velocity.z = move_toward(velocity.z, 0, deceleration * dt)
+
+	var was_on_floor = is_on_floor()
+	var was_on_wall = is_on_wall()
 
 	move_and_slide()
+
+	# just landed on the ground or just jumped
+	if is_on_floor() != was_on_floor:
+		if is_on_floor():
+			is_super_dashing = false
+
+	if is_on_wall() != was_on_wall:
+		if is_on_wall():
+			is_super_dashing = false
 
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false

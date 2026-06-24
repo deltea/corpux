@@ -156,10 +156,36 @@ rough = true
 [sub_resource type="BoxMesh" id="BoxMesh_kek77"]
 size = Vector3(1, 16, 10)
 
+[sub_resource type="ArrayMesh" id="ArrayMesh_4c57u"]
+_surfaces = [{
+"aabb": AABB(-0.546188, -8.046188, -5.046188, 1.092376, 16.092377, 10.092376),
+"attribute_data": PackedByteArray("AAAAAAAAAACrqio/AAAAAKuqqj4AAAAAAACAPwAAAAAAAAAAAAAAP6uqKj8AAAA/q6qqPgAAAD8AAIA/AAAAP6uqqj4AAAAAAAAAAAAAAD+rqio/AAAAAKuqqj4AAAA/q6qqPgAAAD8AAAAAAACAP6uqKj8AAAA/q6qqPgAAgD+rqqo+AAAAP6uqKj8AAAA/q6oqPwAAAD8AAIA/AAAAP6uqqj4AAIA/q6oqPwAAgD+rqio/AACAPwAAgD8AAIA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAAEAAIAAgAEAAYAAQAFAAMAAwAFAAcACAAMAAoACgAMAA4ACQANAAsACwANAA8AEAAUABIAEgAUABYAEQAVABMAEwAVABcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("+tILvzC9AEFfeqFA+tILPzC9AEFfeqHA+tILPzC9AEFfeqFA+tILvzC9AEFfeqHA+tILvzC9AMFfeqFA+tILPzC9AMFfeqHA+tILPzC9AMFfeqFA+tILvzC9AMFfeqHA+tILPzC9AEFfeqFA+tILvzC9AEFfeqHA+tILPzC9AEFfeqHA+tILvzC9AEFfeqFA+tILPzC9AMFfeqFA+tILvzC9AMFfeqHA+tILPzC9AMFfeqHA+tILvzC9AMFfeqFA+tILPzC9AEFfeqFA+tILvzC9AMFfeqFA+tILvzC9AEFfeqFA+tILPzC9AMFfeqFA+tILPzC9AEFfeqHA+tILvzC9AMFfeqHA+tILvzC9AEFfeqHA+tILPzC9AMFfeqHA/3//f////7//////AAD/v/9//3////+//////wAA/7//f/9/////v/////8AAP+//3//f////7//////AAD/v///AID/////AAAAgP9//7///wCA/////wAAAID/f/+///8AgP////8AAACA/3//v///AID/////AAAAgP9//78AgP//AAD/vwCAAAD///+/AID//wAA/78AgAAA////vwCA//8AAP+/AIAAAP///78AgP//AAD/vwCAAAD///+/")
+}]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_kek77"]
 size = Vector3(1, 16, 10)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4c57u"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_efxa6"]
+_surfaces = [{
+"aabb": AABB(-0.546188, -8.046188, -5.046188, 1.092376, 16.092377, 10.092376),
+"attribute_data": PackedByteArray("AAAAAAAAAACrqio/AAAAAKuqqj4AAAAAAACAPwAAAAAAAAAAAAAAP6uqKj8AAAA/q6qqPgAAAD8AAIA/AAAAP6uqqj4AAAAAAAAAAAAAAD+rqio/AAAAAKuqqj4AAAA/q6qqPgAAAD8AAAAAAACAP6uqKj8AAAA/q6qqPgAAgD+rqqo+AAAAP6uqKj8AAAA/q6oqPwAAAD8AAIA/AAAAP6uqqj4AAIA/q6oqPwAAgD+rqio/AACAPwAAgD8AAIA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAAEAAIAAgAEAAYAAQAFAAMAAwAFAAcACAAMAAoACgAMAA4ACQANAAsACwANAA8AEAAUABIAEgAUABYAEQAVABMAEwAVABcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("+tILvzC9AEFfeqFA+tILPzC9AEFfeqHA+tILPzC9AEFfeqFA+tILvzC9AEFfeqHA+tILvzC9AMFfeqFA+tILPzC9AMFfeqHA+tILPzC9AMFfeqFA+tILvzC9AMFfeqHA+tILPzC9AEFfeqFA+tILvzC9AEFfeqHA+tILPzC9AEFfeqHA+tILvzC9AEFfeqFA+tILPzC9AMFfeqFA+tILvzC9AMFfeqHA+tILPzC9AMFfeqHA+tILvzC9AMFfeqFA+tILPzC9AEFfeqFA+tILvzC9AMFfeqFA+tILvzC9AEFfeqFA+tILPzC9AMFfeqFA+tILPzC9AEFfeqHA+tILvzC9AMFfeqHA+tILvzC9AEFfeqHA+tILPzC9AMFfeqHA/3//f////7//////AAD/v/9//3////+//////wAA/7//f/9/////v/////8AAP+//3//f////7//////AAD/v///AID/////AAAAgP9//7///wCA/////wAAAID/f/+///8AgP////8AAACA/3//v///AID/////AAAAgP9//78AgP//AAD/vwCAAAD///+/AID//wAA/78AgAAA////vwCA//8AAP+/AIAAAP///78AgP//AAD/vwCAAAD///+/")
+}]
 
 [node name="Main" type="Node3D" unique_id=1091414758]
 
@@ -198,7 +224,6 @@ environment = SubResource("Environment_ig7tw")
 [node name="Player" parent="." unique_id=1918663283 node_paths=PackedStringArray("cam_pivot") instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 149, 0)
 cam_pivot = NodePath("../Camera")
-gravity = 25.0
 
 [node name="Camera" parent="." unique_id=1792872926 node_paths=PackedStringArray("player") instance=ExtResource("8_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 148.82924, 4.40769)
@@ -265,6 +290,48 @@ mesh = SubResource("ArrayMesh_7mycd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14, -80)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="platform3/Cube" parent_id_path=PackedInt32Array(285254244, 1187212495) index="1" unique_id=163712270]
+material_override = ExtResource("7_272bh")
+mesh = SubResource("ArrayMesh_7mycd")
+
+[node name="platform4" parent="." unique_id=564821775 instance=ExtResource("5_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, -14, -80)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="platform4/Cube" parent_id_path=PackedInt32Array(564821775, 1187212495) index="1" unique_id=1815989437]
+material_override = ExtResource("7_272bh")
+mesh = SubResource("ArrayMesh_7mycd")
+
+[node name="platform5" parent="." unique_id=1912680499 instance=ExtResource("5_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, -14, -80)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="platform5/Cube" parent_id_path=PackedInt32Array(1912680499, 1187212495) index="1" unique_id=1484293213]
+material_override = ExtResource("7_272bh")
+mesh = SubResource("ArrayMesh_7mycd")
+
+[node name="platform6" parent="." unique_id=707596360 instance=ExtResource("5_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, -14, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="platform6/Cube" parent_id_path=PackedInt32Array(707596360, 1187212495) index="1" unique_id=698742747]
+material_override = ExtResource("7_272bh")
+mesh = SubResource("ArrayMesh_7mycd")
+
+[node name="platform7" parent="." unique_id=543015261 instance=ExtResource("5_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, -14, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="platform7/Cube" parent_id_path=PackedInt32Array(543015261, 1187212495) index="1" unique_id=585090795]
+material_override = ExtResource("7_272bh")
+mesh = SubResource("ArrayMesh_7mycd")
+
+[node name="platform8" parent="." unique_id=1009316874 instance=ExtResource("5_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, -14, -40)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="platform8/Cube" parent_id_path=PackedInt32Array(1009316874, 1187212495) index="1" unique_id=40037552]
+material_override = ExtResource("7_272bh")
+mesh = SubResource("ArrayMesh_7mycd")
+
+[node name="platform9" parent="." unique_id=2012035384 instance=ExtResource("5_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, -14, -40)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="platform9/Cube" parent_id_path=PackedInt32Array(2012035384, 1187212495) index="1" unique_id=693255539]
 material_override = ExtResource("7_272bh")
 mesh = SubResource("ArrayMesh_7mycd")
 
@@ -395,6 +462,10 @@ physics_material_override = SubResource("PhysicsMaterial_kek77")
 material_override = ExtResource("2_0xm2m")
 mesh = SubResource("BoxMesh_kek77")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall/MeshInstance" unique_id=334004786]
+material_override = ExtResource("7_272bh")
+mesh = SubResource("ArrayMesh_4c57u")
+
 [node name="CollisionShape" type="CollisionShape3D" parent="Wall" unique_id=1132449706]
 shape = SubResource("BoxShape3D_kek77")
 
@@ -406,6 +477,10 @@ physics_material_override = SubResource("PhysicsMaterial_4c57u")
 material_override = ExtResource("2_0xm2m")
 mesh = SubResource("BoxMesh_kek77")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2/MeshInstance" unique_id=939241333]
+material_override = ExtResource("7_272bh")
+mesh = SubResource("ArrayMesh_efxa6")
+
 [node name="CollisionShape" type="CollisionShape3D" parent="Wall2" unique_id=786041577]
 shape = SubResource("BoxShape3D_kek77")
 
@@ -414,4 +489,10 @@ shape = SubResource("BoxShape3D_kek77")
 [editable path="platform"]
 [editable path="platform2"]
 [editable path="platform3"]
+[editable path="platform4"]
+[editable path="platform5"]
+[editable path="platform6"]
+[editable path="platform7"]
+[editable path="platform8"]
+[editable path="platform9"]
 [editable path="sun"]
