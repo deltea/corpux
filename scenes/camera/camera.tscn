@@ -1,9 +1,33 @@
 [gd_scene format=3 uid="uid://b6w12jypmalxi"]
 
 [ext_resource type="Script" uid="uid://cuj1wfhwnt04d" path="res://scenes/camera/camera.gd" id="1_xejhd"]
+[ext_resource type="PackedScene" uid="uid://51ja0nr0ujmj" path="res://assets/models/weapons/pistol.blend" id="2_6m2n3"]
 
 [node name="CameraPivot" type="Node3D" unique_id=1792872926]
 script = ExtResource("1_xejhd")
 y_offset = 0.75
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1866224286]
+
+[node name="WeaponHolder" type="Node3D" parent="Camera" unique_id=1337900497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.655, -0.845, -1.805)
+
+[node name="pistol" parent="Camera/WeaponHolder" unique_id=317465073 instance=ExtResource("2_6m2n3")]
+transform = Transform3D(-0.021809712, -0.052214485, -0.49678767, 0, 0.49726096, -0.05226423, 0.49952412, -0.0022797356, -0.021690236, 0, 0, 0)
+
+[node name="Cube" parent="Camera/WeaponHolder/pistol" index="1" unique_id=531327690]
+cast_shadow = 0
+
+[node name="Cube_001" parent="Camera/WeaponHolder/pistol" index="2" unique_id=1673511525]
+cast_shadow = 0
+
+[node name="Cube_002" parent="Camera/WeaponHolder/pistol" index="3" unique_id=1701678823]
+cast_shadow = 0
+
+[node name="Cube_003" parent="Camera/WeaponHolder/pistol" index="4" unique_id=1901618595]
+cast_shadow = 0
+
+[node name="Cube_004" parent="Camera/WeaponHolder/pistol" index="5" unique_id=785202175]
+cast_shadow = 0
+
+[editable path="Camera/WeaponHolder/pistol"]
