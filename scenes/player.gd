@@ -4,10 +4,13 @@ class_name Player extends CharacterBody3D
 @export var deceleration = 50
 @export var acceleration = 100
 @export var cam_pivot: Camera
-
-@export var jump_height = 1.7
+@export var wall_jump_pushback = 30.0
+@export var wall_jump_force = 15.0
+@export var jump_height = 1.8
 @export var cam_sensitivity = 0.01
 @export var gravity = 20.0
+@export var wall_max_y_vel = 3.0
+@export var wall_max_z_vel = 1.0
 
 var dir = Vector3.ZERO
 var dash_dir = Vector3.ZERO
@@ -17,8 +20,18 @@ func _physics_process(dt: float):
 	if not is_on_floor():
 		velocity.y -= gravity * dt
 
+	if is_on_wall() and velocity.y < 0:
+		velocity.y = clampf(velocity.y, -wall_max_y_vel, 0)
+		velocity.z = clampf(velocity.z, -wall_max_z_vel, wall_max_z_vel)
+
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = sqrt(4 * jump_height * gravity)
+	elif is_on_wall() and not is_on_floor():
+		if Input.is_action_just_pressed("jump"):
+			var normal = get_wall_normal()
+			velocity.y = wall_jump_force
+			velocity.x = normal.x * wall_jump_pushback
+			velocity.z = normal.z * wall_jump_pushback
 
 	var input = Input.get_vector("left", "right", "forward", "backward")
 	dir = (cam_pivot.transform.basis * Vector3(input.x, 0, input.y)).normalized()
