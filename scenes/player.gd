@@ -15,14 +15,16 @@ class_name Player extends CharacterBody3D
 @export var gravity = 25.0
 @export var wall_max_y_vel = 2.5
 @export var wall_max_z_vel = 1.0
+@export var slam_velocity = 140.0
 
 var dir = Vector3.ZERO
 var dash_dir = Vector3.ZERO
 var is_dashing = false
 var is_super_dashing = false
+var is_slamming = false
 
 func _physics_process(dt: float):
-	if not is_on_floor():
+	if not is_on_floor() and not is_slamming:
 		if is_super_dashing:
 			velocity.y -= super_dash_gravity * dt
 		else:
@@ -54,13 +56,7 @@ func _physics_process(dt: float):
 		velocity.y = 0
 
 		if Input.is_action_just_pressed("jump") and is_on_floor():
-			# super jump
-			$DashTimer.stop()
-			is_dashing = false
-			is_super_dashing = true
-			velocity.x = dash_dir.x * super_dash_force
-			velocity.z = dash_dir.z * super_dash_force
-			velocity.y = sqrt(4 * super_dash_height * super_dash_gravity)
+			super_dash()
 	else:
 		if is_super_dashing:
 			velocity.x = move_toward(velocity.x, 0, super_dash_deceleration * dt)
@@ -73,6 +69,9 @@ func _physics_process(dt: float):
 				velocity.x = move_toward(velocity.x, 0, deceleration * dt)
 				velocity.z = move_toward(velocity.z, 0, deceleration * dt)
 
+	if not is_on_floor() and Input.is_action_just_pressed("slam"):
+		slam()
+
 	var was_on_floor = is_on_floor()
 	var was_on_wall = is_on_wall()
 
@@ -82,10 +81,29 @@ func _physics_process(dt: float):
 	if is_on_floor() != was_on_floor:
 		if is_on_floor():
 			is_super_dashing = false
+			is_slamming = false
 
 	if is_on_wall() != was_on_wall:
 		if is_on_wall():
 			is_super_dashing = false
+			is_slamming = false
+
+func super_dash():
+	$DashTimer.stop()
+	is_dashing = false
+	is_super_dashing = true
+	velocity.x = dash_dir.x * super_dash_force
+	velocity.z = dash_dir.z * super_dash_force
+	velocity.y = sqrt(4 * super_dash_height * super_dash_gravity)
+
+func slam():
+	$DashTimer.stop()
+	is_slamming = true
+	is_super_dashing = false
+	is_dashing = false
+	velocity.y = -slam_velocity
+	velocity.x = 0
+	velocity.z = 0
 
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false
