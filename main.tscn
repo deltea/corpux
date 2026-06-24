@@ -21,9 +21,9 @@ shader_parameter/center = Vector2(0.5, 0.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4c57u"]
 shader = ExtResource("2_efxa6")
-shader_parameter/brightness = 1.50000007125
+shader_parameter/brightness = 1.0000000475
 shader_parameter/contrast = 1.150000054625
-shader_parameter/saturation = 1.1
+shader_parameter/saturation = 1.5000000712500001
 shader_parameter/gamma = 1.05
 shader_parameter/curvature = 0.02000000095
 shader_parameter/corner_soften = 0.0350000016625
