@@ -1,5 +1,5 @@
 shader_type canvas_item;
-render_mode unshaded;
+//render_mode unshaded;
 
 /*
 	CRT + VHS full-screen post-process shader for Godot 4.5 / 4.6.

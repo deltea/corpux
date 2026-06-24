@@ -3,5 +3,5 @@
 [resource]
 depth_draw_mode = 1
 shading_mode = 0
-albedo_color = Color(0.62152386, 0.6215239, 0.6215237, 1)
+albedo_color = Color(0.37036446, 0.3703645, 0.37036443, 1)
 texture_filter = 5
