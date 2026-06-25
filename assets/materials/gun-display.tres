@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cfq8ft0r52atb"]
+
+[ext_resource type="Texture2D" uid="uid://hbgv12k6oa6k" path="res://assets/textures/pistol-display.png" id="1_g4p1m"]
+[ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="1_kslg1"]
+
+[resource]
+shading_mode = 2
+diffuse_mode = 2
+albedo_texture = ExtResource("1_g4p1m")
+heightmap_texture = ExtResource("1_kslg1")
+uv1_scale = Vector3(19.835, 3.425, 10.261)
+texture_filter = 4
+distance_fade_min_distance = 25.0
+distance_fade_max_distance = 5.0

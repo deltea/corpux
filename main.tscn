@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://b37fviso38m6s"]
 
 [ext_resource type="Shader" uid="uid://bbtl5nq2gc7lt" path="res://shaders/motion_blur.gdshader" id="1_4c57u"]
-[ext_resource type="PackedScene" uid="uid://d71n5obdy5ou" path="res://scenes/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://d71n5obdy5ou" path="res://scenes/player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://b2tey6qrfw2fh" path="res://assets/textures/crosshair.png" id="2_7mycd"]
 [ext_resource type="Shader" uid="uid://35fl5r4s2qv8" path="res://shaders/crt.gdshader" id="2_efxa6"]
 [ext_resource type="Material" uid="uid://bv6skya2iyano" path="res://assets/materials/checkered.tres" id="3_lquwl"]
@@ -22,7 +22,7 @@ shader_parameter/center = Vector2(0.5, 0.5)
 shader = ExtResource("2_efxa6")
 shader_parameter/brightness = 1.0000000475
 shader_parameter/contrast = 1.150000054625
-shader_parameter/saturation = 1.5000000712500001
+shader_parameter/saturation = 1.50000007125
 shader_parameter/gamma = 1.05
 shader_parameter/curvature = 0.0
 shader_parameter/corner_soften = 0.0
@@ -68,11 +68,11 @@ fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.83429325, 0.81407905, 0.9999991, 1)
 fog_density = 1.0
-fog_sky_affect = 0.589
+fog_sky_affect = 0.614
 fog_height = 133.08
 fog_height_density = 0.0055
-fog_depth_begin = 589.9
-fog_depth_end = 1889.7
+fog_depth_begin = 374.1
+fog_depth_end = 2259.0
 volumetric_fog_density = 0.0
 volumetric_fog_emission = Color(1, 1, 1, 1)
 volumetric_fog_emission_energy = 40.6
@@ -191,7 +191,7 @@ offset_right = 4.5
 offset_bottom = 4.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(4, 4)
+scale = Vector2(5, 5)
 pivot_offset = Vector2(4.5, 4.5)
 texture = ExtResource("2_7mycd")
 stretch_mode = 3

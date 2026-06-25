@@ -50,6 +50,11 @@ _subresources={
 "use_external/enabled": true,
 "use_external/fallback_path": "res://assets/materials/gun-accent.tres",
 "use_external/path": "uid://dl3onp3gs08cw"
+},
+"Material.002": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/gun-display.tres",
+"use_external/path": "uid://cfq8ft0r52atb"
 }
 }
 }
