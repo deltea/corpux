@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cuj1wfhwnt04d" path="res://scenes/camera/camera.gd" id="1_xejhd"]
 [ext_resource type="Script" uid="uid://d0lwg2vbe16hj" path="res://scenes/weapon/weapon.gd" id="2_0jiuk"]
 [ext_resource type="PackedScene" uid="uid://51ja0nr0ujmj" path="res://assets/models/weapons/pistol.blend" id="2_6m2n3"]
+[ext_resource type="PackedScene" uid="uid://5c8op0h4wstt" path="res://addons/LineRenderer/LineRenderer.tscn" id="3_qr7cc"]
 
 [node name="CameraPivot" type="Node3D" unique_id=1792872926]
 script = ExtResource("1_xejhd")
@@ -10,36 +11,50 @@ y_offset = 0.75
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1866224286]
 
-[node name="WeaponHolder" type="Node3D" parent="Camera" unique_id=1337900497 node_paths=PackedStringArray("cam", "weapon")]
+[node name="WeaponHolder" type="Node3D" parent="Camera" unique_id=1337900497 node_paths=PackedStringArray("cam", "weapon", "fire_point")]
 script = ExtResource("2_0jiuk")
 cam = NodePath("..")
-weapon = NodePath("pistol")
+weapon = NodePath("Pivot/AnimationPivot/pistol")
+fire_point = NodePath("Pivot/FirePoint")
+line_scene = ExtResource("3_qr7cc")
 
 [node name="AnimationTimer" type="Timer" parent="Camera/WeaponHolder" unique_id=1106727803]
 wait_time = 0.25
 autostart = true
 
-[node name="pistol" parent="Camera/WeaponHolder" unique_id=317465073 instance=ExtResource("2_6m2n3")]
-transform = Transform3D(-0.021809712, -0.052214485, -0.49678767, 0, 0.49726096, -0.05226423, 0.49952412, -0.0022797356, -0.021690236, 0.655, -0.845, -1.805)
+[node name="Pivot" type="Node3D" parent="Camera/WeaponHolder" unique_id=1707099284]
 
-[node name="Cube" parent="Camera/WeaponHolder/pistol" index="1" unique_id=979482921]
+[node name="RayCast" type="RayCast3D" parent="Camera/WeaponHolder/Pivot" unique_id=38651988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6609566, -0.30154473, -2.859997)
+target_position = Vector3(0, 0, -500)
+
+[node name="FirePoint" type="Node3D" parent="Camera/WeaponHolder/Pivot" unique_id=326042745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6609566, -0.30154473, -2.859997)
+
+[node name="AnimationPivot" type="Node3D" parent="Camera/WeaponHolder/Pivot" unique_id=1046012625]
+
+[node name="pistol" parent="Camera/WeaponHolder/Pivot/AnimationPivot" unique_id=317465073 instance=ExtResource("2_6m2n3")]
+transform = Transform3D(-0.021809712, -0.05221447, -0.49678767, 0, 0.49726096, -0.052264214, 0.49952412, -0.002279735, -0.021690236, 0.655, -0.845, -1.805)
+visible = false
+
+[node name="Cube" parent="Camera/WeaponHolder/Pivot/AnimationPivot/pistol" index="1" unique_id=1804331436]
 cast_shadow = 0
 
-[node name="Cube_001" parent="Camera/WeaponHolder/pistol" index="2" unique_id=1372621056]
+[node name="Cube_001" parent="Camera/WeaponHolder/Pivot/AnimationPivot/pistol" index="2" unique_id=1051658469]
 cast_shadow = 0
 
-[node name="Cube_002" parent="Camera/WeaponHolder/pistol" index="3" unique_id=246763512]
+[node name="Cube_002" parent="Camera/WeaponHolder/Pivot/AnimationPivot/pistol" index="3" unique_id=748082460]
 cast_shadow = 0
 
-[node name="Cube_003" parent="Camera/WeaponHolder/pistol" index="4" unique_id=796851123]
+[node name="Cube_003" parent="Camera/WeaponHolder/Pivot/AnimationPivot/pistol" index="4" unique_id=9360032]
 cast_shadow = 0
 
-[node name="Cube_004" parent="Camera/WeaponHolder/pistol" index="5" unique_id=1449598899]
+[node name="Cube_004" parent="Camera/WeaponHolder/Pivot/AnimationPivot/pistol" index="5" unique_id=1575354203]
 cast_shadow = 0
 
-[node name="Cube_005" parent="Camera/WeaponHolder/pistol" index="6" unique_id=1827484386]
+[node name="Cube_005" parent="Camera/WeaponHolder/Pivot/AnimationPivot/pistol" index="6" unique_id=1636983497]
 cast_shadow = 0
 
 [connection signal="timeout" from="Camera/WeaponHolder/AnimationTimer" to="Camera/WeaponHolder" method="_on_animation_timer_timeout"]
 
-[editable path="Camera/WeaponHolder/pistol"]
+[editable path="Camera/WeaponHolder/Pivot/AnimationPivot/pistol"]

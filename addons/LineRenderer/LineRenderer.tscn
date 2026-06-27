@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://5c8op0h4wstt"]
+
+[ext_resource type="Script" uid="uid://cree3pvb7r5iu" path="res://addons/LineRenderer/LineRenderer.gd" id="1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2aqx6"]
+shading_mode = 0
+disable_receive_shadows = true
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_2aqx6"]
+resource_local_to_scene = true
+
+[node name="LineRenderer" type="MeshInstance3D" unique_id=594491688]
+material_override = SubResource("StandardMaterial3D_2aqx6")
+cast_shadow = 0
+mesh = SubResource("ImmediateMesh_2aqx6")
+script = ExtResource("1")
+drawCaps = false
