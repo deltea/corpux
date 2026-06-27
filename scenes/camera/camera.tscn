@@ -35,7 +35,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6609566, -0.30154473, -2.85
 
 [node name="pistol" parent="Camera/WeaponHolder/Pivot/AnimationPivot" unique_id=317465073 instance=ExtResource("2_6m2n3")]
 transform = Transform3D(-0.021809712, -0.05221447, -0.49678767, 0, 0.49726096, -0.052264214, 0.49952412, -0.002279735, -0.021690236, 0.655, -0.845, -1.805)
-visible = false
 
 [node name="Cube" parent="Camera/WeaponHolder/Pivot/AnimationPivot/pistol" index="1" unique_id=1804331436]
 cast_shadow = 0
