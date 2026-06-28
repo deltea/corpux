@@ -1,7 +1,7 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://evwf8twvb7b1"]
 
-[ext_resource type="Texture2D" uid="uid://bwgbfbt72xidb" path="res://assets/textures/weapons/revolver.png" id="1_nj3ym"]
-[ext_resource type="Texture2D" uid="uid://b78whyvfr4qk8" path="res://assets/textures/revolver-base.png" id="2_oeag4"]
+[ext_resource type="Texture2D" uid="uid://bwgbfbt72xidb" path="res://assets/textures/weapons/revolver/revolver.png" id="1_nj3ym"]
+[ext_resource type="Texture2D" uid="uid://b78whyvfr4qk8" path="res://assets/textures/weapons/revolver/revolver-base.png" id="2_oeag4"]
 [ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="3_j6n77"]
 
 [resource]

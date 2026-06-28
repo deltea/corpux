@@ -36,22 +36,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6609566, -0.30154473, -2.85
 [node name="revolver" parent="Camera/WeaponHolder/Pivot/AnimationPivot" unique_id=317465073 instance=ExtResource("2_6m2n3")]
 transform = Transform3D(-0.021809712, -0.05221447, -0.49678767, 0, 0.49726096, -0.052264214, 0.49952412, -0.002279735, -0.021690236, 0.655, -0.845, -1.805)
 
-[node name="Cube" parent="Camera/WeaponHolder/Pivot/AnimationPivot/revolver" index="1" unique_id=1114682082]
+[node name="Cube" parent="Camera/WeaponHolder/Pivot/AnimationPivot/revolver" index="1" unique_id=2119210449]
 cast_shadow = 0
 
-[node name="Cube_001" parent="Camera/WeaponHolder/Pivot/AnimationPivot/revolver" index="2" unique_id=1703368309]
+[node name="Cube_001" parent="Camera/WeaponHolder/Pivot/AnimationPivot/revolver" index="2" unique_id=204792554]
 cast_shadow = 0
 
-[node name="Cube_002" parent="Camera/WeaponHolder/Pivot/AnimationPivot/revolver" index="3" unique_id=377595703]
+[node name="Cube_002" parent="Camera/WeaponHolder/Pivot/AnimationPivot/revolver" index="3" unique_id=791835180]
 cast_shadow = 0
 
-[node name="Cube_003" parent="Camera/WeaponHolder/Pivot/AnimationPivot/revolver" index="4" unique_id=769043866]
+[node name="Cube_003" parent="Camera/WeaponHolder/Pivot/AnimationPivot/revolver" index="4" unique_id=1280925436]
 cast_shadow = 0
 
-[node name="Cube_004" parent="Camera/WeaponHolder/Pivot/AnimationPivot/revolver" index="5" unique_id=499678511]
+[node name="Cube_004" parent="Camera/WeaponHolder/Pivot/AnimationPivot/revolver" index="5" unique_id=143191594]
 cast_shadow = 0
 
-[node name="Cube_005" parent="Camera/WeaponHolder/Pivot/AnimationPivot/revolver" index="6" unique_id=1631210965]
+[node name="Cube_005" parent="Camera/WeaponHolder/Pivot/AnimationPivot/revolver" index="6" unique_id=59529430]
 cast_shadow = 0
 
 [connection signal="timeout" from="Camera/WeaponHolder/AnimationTimer" to="Camera/WeaponHolder" method="_on_animation_timer_timeout"]

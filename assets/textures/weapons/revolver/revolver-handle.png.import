@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwgbfbt72xidb"
-path.s3tc="res://.godot/imported/revolver.png-65dc68d75b0aa340f58c399e1a716bd0.s3tc.ctex"
+uid="uid://dur1ekjkyq2ut"
+path.s3tc="res://.godot/imported/revolver-handle.png-c17faa1ef61eb3c5088ca89b9da44b9b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/weapons/revolver.png"
-dest_files=["res://.godot/imported/revolver.png-65dc68d75b0aa340f58c399e1a716bd0.s3tc.ctex"]
+source_file="res://assets/textures/weapons/revolver/revolver-handle.png"
+dest_files=["res://.godot/imported/revolver-handle.png-c17faa1ef61eb3c5088ca89b9da44b9b.s3tc.ctex"]
 
 [params]
 
