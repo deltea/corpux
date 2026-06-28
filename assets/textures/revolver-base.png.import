@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hbgv12k6oa6k"
-path.s3tc="res://.godot/imported/pistol-display.png-8ce9ae0edb902dd6838dde7a94b8eb56.s3tc.ctex"
+uid="uid://b78whyvfr4qk8"
+path.s3tc="res://.godot/imported/revolver-base.png-11a16b8c387a1c5bd5ff19512394f1b9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/pistol-display.png"
-dest_files=["res://.godot/imported/pistol-display.png-8ce9ae0edb902dd6838dde7a94b8eb56.s3tc.ctex"]
+source_file="res://assets/textures/revolver-base.png"
+dest_files=["res://.godot/imported/revolver-base.png-11a16b8c387a1c5bd5ff19512394f1b9.s3tc.ctex"]
 
 [params]
 

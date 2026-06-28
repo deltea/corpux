@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://cfq8ft0r52atb"]
 
-[ext_resource type="Texture2D" uid="uid://hbgv12k6oa6k" path="res://assets/textures/pistol-display.png" id="1_g4p1m"]
+[ext_resource type="Texture2D" uid="uid://hbgv12k6oa6k" path="res://assets/textures/revolver-display.png" id="1_g4p1m"]
 [ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="1_kslg1"]
 
 [resource]
