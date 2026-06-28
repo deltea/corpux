@@ -4,7 +4,6 @@
 
 [resource]
 shading_mode = 2
-albedo_color = Color(0.92156863, 0.9647059, 0.99607843, 1)
 heightmap_texture = ExtResource("2_xv2ws")
 uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true
