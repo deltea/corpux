@@ -6,8 +6,8 @@
 [resource]
 shading_mode = 2
 albedo_texture = ExtResource("1_g8uw3")
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 0.0
+emission_enabled = true
+emission = Color(0.22851098, 0.22851077, 0.22851086, 1)
 heightmap_texture = ExtResource("2_g8uw3")
 uv1_scale = Vector3(0.03, 0.03, 0.03)
 uv1_triplanar = true
