@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://d0lwg2vbe16hj" path="res://scenes/weapon/weapon.gd" id="2_0jiuk"]
 [ext_resource type="PackedScene" uid="uid://51ja0nr0ujmj" path="res://assets/models/weapons/revolver.blend" id="2_6m2n3"]
 [ext_resource type="PackedScene" uid="uid://5c8op0h4wstt" path="res://addons/LineRenderer/LineRenderer.tscn" id="3_qr7cc"]
+[ext_resource type="Texture2D" uid="uid://ciugry5vhrueu" path="res://assets/textures/muzzle.png" id="4_u3rx3"]
 
 [node name="CameraPivot" type="Node3D" unique_id=1792872926]
 script = ExtResource("1_xejhd")
@@ -11,12 +12,13 @@ y_offset = 0.75
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1866224286]
 
-[node name="WeaponHolder" type="Node3D" parent="Camera" unique_id=1337900497 node_paths=PackedStringArray("cam", "weapon", "fire_point")]
+[node name="WeaponHolder" type="Node3D" parent="Camera" unique_id=1337900497 node_paths=PackedStringArray("cam", "weapon", "fire_point", "muzzle_flash")]
 script = ExtResource("2_0jiuk")
 cam = NodePath("..")
 weapon = NodePath("Pivot/AnimationPivot/revolver")
 fire_point = NodePath("Pivot/FirePoint")
 line_scene = ExtResource("3_qr7cc")
+muzzle_flash = NodePath("Pivot/AnimationPivot/MuzzleFlash")
 
 [node name="AnimationTimer" type="Timer" parent="Camera/WeaponHolder" unique_id=1106727803]
 wait_time = 0.25
@@ -25,13 +27,17 @@ autostart = true
 [node name="Pivot" type="Node3D" parent="Camera/WeaponHolder" unique_id=1707099284]
 
 [node name="RayCast" type="RayCast3D" parent="Camera/WeaponHolder/Pivot" unique_id=38651988]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6609566, -0.30154473, -2.859997)
 target_position = Vector3(0, 0, -500)
 
 [node name="FirePoint" type="Node3D" parent="Camera/WeaponHolder/Pivot" unique_id=326042745]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6609566, -0.30154473, -2.859997)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6609566, -0.14273232, -4.1678534)
 
 [node name="AnimationPivot" type="Node3D" parent="Camera/WeaponHolder/Pivot" unique_id=1046012625]
+
+[node name="MuzzleFlash" type="Sprite3D" parent="Camera/WeaponHolder/Pivot/AnimationPivot" unique_id=468072055]
+transform = Transform3D(2.1213202, -2.1213202, 0, 2.1213202, 2.1213202, 0, 0, 0, 3, 0.6609566, -0.24689305, -2.9248285)
+texture_filter = 0
+texture = ExtResource("4_u3rx3")
 
 [node name="revolver" parent="Camera/WeaponHolder/Pivot/AnimationPivot" unique_id=317465073 instance=ExtResource("2_6m2n3")]
 transform = Transform3D(-0.021809712, -0.05221447, -0.49678767, 0, 0.49726096, -0.052264214, 0.49952412, -0.002279735, -0.021690236, 0.655, -0.845, -1.805)

@@ -4,6 +4,7 @@ class_name Weapon extends Node3D
 @export var weapon: Node3D
 @export var fire_point: Node3D
 @export var line_scene: PackedScene
+@export var muzzle_flash: Sprite3D
 
 @onready var pivot: Node3D = $Pivot
 @onready var animation_pivot: Node3D = $Pivot/AnimationPivot
@@ -13,7 +14,9 @@ var rotation_offset: Vector3
 var time = 0
 
 func _ready() -> void:
+	muzzle_flash.visible = false
 	top_level = true
+	muzzle_flash.look_at(cam.global_position)
 
 func _process(dt: float) -> void:
 	time += dt
@@ -22,6 +25,8 @@ func _process(dt: float) -> void:
 	global_position = cam.global_position
 	weapon.rotation_degrees.z = lerp(weapon.rotation_degrees.z, 0.0, 5.0 * dt)
 	rotation_offset.x = lerp(rotation_offset.x, 0.0, 5.0 * dt)
+
+	muzzle_flash.rotation_degrees.z += 400.0 * dt
 
 	if Input.is_action_just_pressed("mouse_left"):
 		fire()
@@ -42,8 +47,9 @@ func spin():
 	weapon.rotation_degrees.z = -540.0
 
 func fire():
-	weapon.rotation_degrees.z = -15.0
-	rotation_offset.x = 25.0
+	weapon.rotation_degrees.z = -10.0
+	rotation_offset.x = 10.0
+	muzzle_flash.visible = true
 
 	var line = line_scene.instantiate() as LineRenderer
 	line.points[0] = fire_point.global_position
@@ -54,3 +60,4 @@ func fire():
 
 	get_tree().current_scene.add_child(line)
 	get_tree().create_timer(0.1).connect("timeout", line.queue_free)
+	get_tree().create_timer(0.1).connect("timeout", func(): muzzle_flash.visible = false)
