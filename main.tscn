@@ -134,3 +134,24 @@ material = ExtResource("10_ycdy4")
 
 [node name="BasicEnemy" parent="Environment/Enemies" unique_id=541240095 instance=ExtResource("11_efxa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 49)
+
+[node name="BasicEnemy2" parent="Environment/Enemies" unique_id=879363984 instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.5, 49)
+
+[node name="BasicEnemy3" parent="Environment/Enemies" unique_id=771623824 instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1.5, 49)
+
+[node name="BasicEnemy4" parent="Environment/Enemies" unique_id=382548880 instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 1.5, 49)
+
+[node name="BasicEnemy5" parent="Environment/Enemies" unique_id=1636193667 instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 1.5, 49)
+
+[node name="BasicEnemy6" parent="Environment/Enemies" unique_id=692355263 instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 1.5, 49)
+
+[node name="BasicEnemy7" parent="Environment/Enemies" unique_id=1652421520 instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 1.5, 49)
+
+[node name="BasicEnemy8" parent="Environment/Enemies" unique_id=2033221946 instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.5, 49)

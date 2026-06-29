@@ -1,6 +1,6 @@
 class_name Weapon extends Node3D
 
-@export var fire_rate = 5.0
+@export var fire_rate = 4.0
 
 @onready var fire_timer: Timer = $FireTimer
 

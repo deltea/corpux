@@ -13,7 +13,7 @@ func _process(dt: float) -> void:
 	# weapon.rotation_degrees.z = lerp(weapon.rotation_degrees.z, 0.0, 5.0 * dt)
 	# rotation_offset.x = lerp(rotation_offset.x, 0.0, 5.0 * dt)
 
-	if Input.is_action_just_pressed("mouse_left"):
+	if Input.is_action_pressed("mouse_left"):
 		equipped_weapon.trigger_fire()
 	if Input.is_action_just_pressed("mouse_right"):
 		equipped_weapon.secondary_fire()

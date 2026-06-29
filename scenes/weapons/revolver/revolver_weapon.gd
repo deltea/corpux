@@ -10,7 +10,6 @@ class_name RevolverWeapon extends Weapon
 @onready var mesh: Node3D = $Pivot/revolver
 @onready var pivot: Node3D = $Pivot
 
-var time = 0
 var is_winding_up = false
 
 var original_mesh_rot: Vector3
@@ -29,10 +28,9 @@ func _ready() -> void:
 	original_pos = position
 
 func _process(dt: float) -> void:
-	time += dt
 	mesh.rotation_degrees = lerp(mesh.rotation_degrees, target_mesh_rot, 5.0 * dt)
 	pivot.rotation_degrees = lerp(pivot.rotation_degrees, target_pivot_rot, 5.0 * dt)
-	position.y = original_pos.y + sin(time * 3.0) * 0.05
+	position.y = original_pos.y + sin(Clock.time * 3.0) * 0.05
 
 func fire():
 	super.fire()
