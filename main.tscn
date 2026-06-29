@@ -139,4 +139,4 @@ material = ExtResource("10_ycdy4")
 [node name="Enemies" type="Node" parent="Environment" unique_id=2137425582]
 
 [node name="BasicEnemy" parent="Environment/Enemies" unique_id=541240095 instance=ExtResource("11_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 49)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 49)

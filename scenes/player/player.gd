@@ -23,12 +23,15 @@ var dash_dir = Vector3.ZERO
 var is_dashing = false
 var is_super_dashing = false
 var is_slamming = false
+var is_grounded = false
 
 func _process(dt: float) -> void:
 	GlobalCanvas.set_smear(velocity.length() / 10.0)
 
 func _physics_process(dt: float):
-	if not is_on_floor() and not is_slamming:
+	check_grounded()
+
+	if not is_grounded and not is_slamming:
 		if is_super_dashing:
 			velocity.y -= SUPER_DASH_GRAVITY * dt
 		else:
@@ -38,9 +41,9 @@ func _physics_process(dt: float):
 		velocity.y = clampf(velocity.y, -WALL_MAX_Y_VEL, 0)
 		velocity.z = clampf(velocity.z, -WALL_MAX_Z_VEL, WALL_MAX_Z_VEL)
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_grounded:
 		velocity.y = sqrt(2 * JUMP_HEIGHT * GRAVITY)
-	elif is_on_wall() and not is_on_floor():
+	elif is_on_wall() and not is_grounded:
 		if Input.is_action_just_pressed("jump"):
 			var normal = get_wall_normal()
 			velocity.y = WALL_JUMP_FORCE
@@ -59,7 +62,7 @@ func _physics_process(dt: float):
 		velocity.z = dash_dir.z * DASH_FORCE
 		velocity.y = 0
 
-		if Input.is_action_just_pressed("jump") and is_on_floor():
+		if Input.is_action_just_pressed("jump") and is_grounded:
 			super_dash()
 	else:
 		if is_super_dashing:
@@ -73,22 +76,24 @@ func _physics_process(dt: float):
 				velocity.x = move_toward(velocity.x, 0, DECELERATION * dt)
 				velocity.z = move_toward(velocity.z, 0, DECELERATION * dt)
 
-	if not is_on_floor() and Input.is_action_just_pressed("slam"):
+	if not is_grounded and Input.is_action_just_pressed("slam"):
 		slam()
 
-	var was_on_floor = is_on_floor()
 	var was_on_wall = is_on_wall()
 
 	move_and_slide()
 
-	# just landed on the ground or just jumped
-	if is_on_floor() != was_on_floor:
-		if is_on_floor():
+	if is_on_wall() != was_on_wall:
+		if is_on_wall():
 			is_super_dashing = false
 			is_slamming = false
 
-	if is_on_wall() != was_on_wall:
-		if is_on_wall():
+func check_grounded():
+	if is_grounded != is_on_floor():
+		if is_grounded:
+			is_grounded = false
+		else:
+			is_grounded = true
 			is_super_dashing = false
 			is_slamming = false
 

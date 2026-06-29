@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://7y5q2uqhhq41" path="res://scenes/enemy/enemy.tscn" id="1_b6kpl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b6kpl"]
-size = Vector3(2, 2, 2)
+size = Vector3(3, 3, 3)
 
 [sub_resource type="BoxMesh" id="BoxMesh_38or4"]
-size = Vector3(2, 2, 2)
+size = Vector3(3, 3, 3)
 
 [node name="BasicEnemy" unique_id=541240095 instance=ExtResource("1_b6kpl")]
 
