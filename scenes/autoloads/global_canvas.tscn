@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://1j6bqj5tan1m"]
+
+[ext_resource type="Script" uid="uid://byd4vei4f2hjx" path="res://scenes/autoloads/global_canvas.gd" id="1_2cpg5"]
+[ext_resource type="Shader" uid="uid://bbtl5nq2gc7lt" path="res://shaders/motion_blur.gdshader" id="1_11uv3"]
+[ext_resource type="Shader" uid="uid://35fl5r4s2qv8" path="res://shaders/crt.gdshader" id="2_2cpg5"]
+[ext_resource type="Texture2D" uid="uid://b2tey6qrfw2fh" path="res://assets/textures/crosshair.png" id="3_a21u8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
+shader = ExtResource("1_11uv3")
+shader_parameter/intensity = 0.0
+shader_parameter/falloff = 1.0
+shader_parameter/samples = 16
+shader_parameter/center = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4c57u"]
+shader = ExtResource("2_2cpg5")
+shader_parameter/brightness = 1.0000000475
+shader_parameter/contrast = 1.150000054625
+shader_parameter/saturation = 1.50000007125
+shader_parameter/gamma = 1.05
+shader_parameter/curvature = 0.0
+shader_parameter/corner_soften = 0.0
+shader_parameter/vignette = 0.0
+shader_parameter/scanline_strength = 0.02000000095
+shader_parameter/scanline_density = 0.5
+shader_parameter/interlace_strength = 0.2
+shader_parameter/mask_strength = 0.0
+shader_parameter/mask_scale = 1.0
+shader_parameter/chroma_offset_px = 1.0000000475
+shader_parameter/luma_smear_px = 1.0000000475
+shader_parameter/jitter_px = 0.6000000285
+shader_parameter/wobble_px = 1.0000000475
+shader_parameter/tape_noise = 0.0
+shader_parameter/tape_lines = 0.0
+shader_parameter/roll_speed = 0.1
+shader_parameter/roll_strength = 0.0
+shader_parameter/glow_strength = 0.0
+shader_parameter/glow_threshold = 0.65
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=922422500]
+layer = 10
+script = ExtResource("1_2cpg5")
+
+[node name="Blur" type="ColorRect" parent="." unique_id=845951475]
+material = SubResource("ShaderMaterial_0xm2m")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="CRT" type="ColorRect" parent="." unique_id=795567600]
+material = SubResource("ShaderMaterial_4c57u")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Crosshair" type="TextureRect" parent="." unique_id=790651881]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.5
+offset_top = -4.5
+offset_right = 4.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6, 6)
+pivot_offset = Vector2(4.5, 4.5)
+texture = ExtResource("3_a21u8")
+stretch_mode = 3

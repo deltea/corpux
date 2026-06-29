@@ -65,6 +65,9 @@ func fire():
 	var endpoint: Vector3
 	if ray.is_colliding():
 		endpoint = ray.get_collision_point()
+		var collider = ray.get_collider()
+		if collider is Enemy:
+			collider.take_damage(1.0)
 	else:
 		endpoint = ray.to_global(ray.target_position)
 	hitscan_line.points[1] = endpoint
