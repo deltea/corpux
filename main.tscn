@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bb0lxurjv7u4s" path="res://scenes/environment/sun.tscn" id="10_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ccedxpdllf06q" path="res://scenes/environment/arch.tscn" id="10_dg77c"]
 [ext_resource type="PackedScene" uid="uid://djlr1dtc5r84q" path="res://scenes/environment/platform.tscn" id="10_efxa6"]
+[ext_resource type="Material" uid="uid://buvjk5gg3qgni" path="res://assets/materials/standard.tres" id="10_ycdy4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
 shader = ExtResource("1_4c57u")
@@ -119,11 +120,11 @@ stretch_mode = 3
 environment = SubResource("Environment_ig7tw")
 
 [node name="Player" parent="." unique_id=1918663283 node_paths=PackedStringArray("cam_pivot") instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 149, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 cam_pivot = NodePath("../Camera")
 
 [node name="Camera" parent="." unique_id=1792872926 node_paths=PackedStringArray("player") instance=ExtResource("8_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 148.82924, 4.40769)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 4, 4.408)
 player = NodePath("../Player")
 
 [node name="DirectionalLight" type="DirectionalLight3D" parent="." unique_id=2013117239]
@@ -135,41 +136,50 @@ shadow_blur = 0.0
 [node name="Sun" parent="." unique_id=272227891 instance=ExtResource("10_4c57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 800, -800)
 
-[node name="Wall" parent="." unique_id=1267218212 instance=ExtResource("9_4c57u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 153, -80)
+[node name="Environment" type="Node" parent="." unique_id=1183865244]
 
-[node name="Wall2" parent="." unique_id=296618007 instance=ExtResource("9_4c57u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 153, -80)
-
-[node name="Platform" parent="." unique_id=902836713 instance=ExtResource("10_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14, 0)
-
-[node name="Platform9" parent="." unique_id=1778013425 instance=ExtResource("10_efxa6")]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, -14, 103)
-
-[node name="Platform2" parent="." unique_id=1160115690 instance=ExtResource("10_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, -14, 0)
-
-[node name="Platform3" parent="." unique_id=569807230 instance=ExtResource("10_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, -14, 0)
-
-[node name="Platform4" parent="." unique_id=1258912811 instance=ExtResource("10_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, -14, -40)
-
-[node name="Platform5" parent="." unique_id=1465361334 instance=ExtResource("10_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, -14, -40)
-
-[node name="Platform6" parent="." unique_id=1719336359 instance=ExtResource("10_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, -14, -80)
-
-[node name="Platform7" parent="." unique_id=225382272 instance=ExtResource("10_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, -14, -80)
-
-[node name="Platform8" parent="." unique_id=1664092495 instance=ExtResource("10_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14, -80)
-
-[node name="Arch" parent="." unique_id=1744136896 instance=ExtResource("10_dg77c")]
+[node name="Arch" parent="Environment" unique_id=1744136896 instance=ExtResource("10_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 600, 0, 1246.842)
 
-[node name="Arch2" parent="." unique_id=1340568177 instance=ExtResource("10_dg77c")]
+[node name="Arch2" parent="Environment" unique_id=1340568177 instance=ExtResource("10_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -600, 0, 1246.842)
+
+[node name="Obstacles" type="Node" parent="Environment" unique_id=889042946]
+
+[node name="Wall" parent="Environment/Obstacles" unique_id=1267218212 instance=ExtResource("9_4c57u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 8, -80)
+
+[node name="Wall2" parent="Environment/Obstacles" unique_id=296618007 instance=ExtResource("9_4c57u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 8, -80)
+
+[node name="Platform" parent="Environment/Obstacles" unique_id=902836713 instance=ExtResource("10_efxa6")]
+
+[node name="Platform9" parent="Environment/Obstacles" unique_id=1778013425 instance=ExtResource("10_efxa6")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 103)
+
+[node name="Platform2" parent="Environment/Obstacles" unique_id=1160115690 instance=ExtResource("10_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0)
+
+[node name="Platform3" parent="Environment/Obstacles" unique_id=569807230 instance=ExtResource("10_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0)
+
+[node name="Platform4" parent="Environment/Obstacles" unique_id=1258912811 instance=ExtResource("10_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -40)
+
+[node name="Platform5" parent="Environment/Obstacles" unique_id=1465361334 instance=ExtResource("10_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -40)
+
+[node name="Platform6" parent="Environment/Obstacles" unique_id=1719336359 instance=ExtResource("10_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -80)
+
+[node name="Platform7" parent="Environment/Obstacles" unique_id=225382272 instance=ExtResource("10_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -80)
+
+[node name="Platform8" parent="Environment/Obstacles" unique_id=1664092495 instance=ExtResource("10_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Environment/Obstacles" unique_id=1337870793]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 45)
+use_collision = true
+size = Vector3(10, 3, 10)
+material = ExtResource("10_ycdy4")

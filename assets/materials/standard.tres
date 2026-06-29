@@ -4,10 +4,10 @@
 
 [resource]
 shading_mode = 2
+emission_enabled = true
 emission = Color(0.4392157, 0.4392157, 0.4392157, 1)
 heightmap_texture = ExtResource("2_xv2ws")
 uv1_scale = Vector3(0.1, 0.1, 0.1)
-uv1_triplanar = true
 uv1_world_triplanar = true
 texture_filter = 4
 distance_fade_min_distance = 25.0

@@ -5,7 +5,7 @@ const DECELERATION = 50.0
 const ACCELERATION = 100.0
 const WALL_JUMP_PUSHBACK = 30.0
 const WALL_JUMP_FORCE = 15.0
-const JUMP_HEIGHT = 1.8
+const JUMP_HEIGHT = 4.0
 const SUPER_DASH_HEIGHT = 1.5
 const SUPER_DASH_FORCE = 60.0
 const SUPER_DASH_GRAVITY = 60.0
@@ -43,7 +43,7 @@ func _physics_process(dt: float):
 		velocity.z = clampf(velocity.z, -WALL_MAX_Z_VEL, WALL_MAX_Z_VEL)
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = sqrt(4 * JUMP_HEIGHT * GRAVITY)
+		velocity.y = sqrt(2 * JUMP_HEIGHT * GRAVITY)
 	elif is_on_wall() and not is_on_floor():
 		if Input.is_action_just_pressed("jump"):
 			var normal = get_wall_normal()

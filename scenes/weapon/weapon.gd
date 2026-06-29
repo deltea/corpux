@@ -80,8 +80,8 @@ func fire():
 
 	get_tree().current_scene.add_child(hitscan_line)
 	var tween = get_tree().create_tween().set_parallel()
-	tween.tween_property(muzzle_flash, "modulate:a", 0, 0.15)
-	tween.tween_property(muzzle_flash, "scale", Vector3.ZERO, 0.15)
+	tween.tween_property(muzzle_flash, "modulate:a", 0, 0.11)
+	tween.tween_property(muzzle_flash, "scale", Vector3.ZERO, 0.1)
 	tween.tween_property(hitscan_line, "startThickness", 0, 0.15)
 	tween.tween_property(hitscan_line, "endThickness", 0, 0.15)
 	tween.tween_property(cam, "rotation_degrees:z", 0.0, 0.1)
