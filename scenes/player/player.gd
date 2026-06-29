@@ -2,7 +2,7 @@ class_name Player extends CharacterBody3D
 
 const FRICTION = 6.0
 const AIR_FRICTION = 4.5
-const WALL_FRICTION = 20.0
+const WALL_FRICTION = 10.0
 const MAX_SPEED = 20.0
 const GROUND_ACCEL = 14.0
 const GROUND_DECEL = 10.0
@@ -72,6 +72,8 @@ func air_move():
 	else:
 		if wishdir == Vector3.ZERO:
 			apply_friction(AIR_FRICTION)
+		if is_on_wall():
+			apply_friction(WALL_FRICTION)
 		accelerate(wishdir, MAX_SPEED, AIR_ACCEL)
 	vel.y -= GRAVITY * dt
 
