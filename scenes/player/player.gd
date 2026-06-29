@@ -1,21 +1,22 @@
 class_name Player extends CharacterBody3D
 
-@export var max_speed = 20.0
-@export var deceleration = 50.0
-@export var acceleration = 100.0
+const MAX_SPEED = 20.0
+const DECELERATION = 50.0
+const ACCELERATION = 100.0
+const WALL_JUMP_PUSHBACK = 30.0
+const WALL_JUMP_FORCE = 15.0
+const JUMP_HEIGHT = 1.8
+const SUPER_DASH_HEIGHT = 1.5
+const SUPER_DASH_FORCE = 60.0
+const SUPER_DASH_GRAVITY = 60.0
+const SUPER_DASH_DECELERATION = 40.0
+const DASH_FORCE = 50.0
+const GRAVITY = 25.0
+const WALL_MAX_Y_VEL = 2.5
+const WALL_MAX_Z_VEL = 1.0
+const SLAM_VELOCITY = 140.0
+
 @export var cam_pivot: Camera
-@export var wall_jump_pushback = 30.0
-@export var wall_jump_force = 15.0
-@export var jump_height = 1.8
-@export var super_dash_height = 1.5
-@export var super_dash_force = 60.0
-@export var super_dash_gravity = 60.0
-@export var super_dash_deceleration = 40.0
-@export var dash_force = 50.0
-@export var gravity = 25.0
-@export var wall_max_y_vel = 2.5
-@export var wall_max_z_vel = 1.0
-@export var slam_velocity = 140.0
 
 @onready var crt: ColorRect = $"../CanvasLayer/CRT"
 @onready var blur: ColorRect = $"../CanvasLayer/Blur"
@@ -33,22 +34,22 @@ func _process(dt: float) -> void:
 func _physics_process(dt: float):
 	if not is_on_floor() and not is_slamming:
 		if is_super_dashing:
-			velocity.y -= super_dash_gravity * dt
+			velocity.y -= SUPER_DASH_GRAVITY * dt
 		else:
-			velocity.y -= gravity * dt
+			velocity.y -= GRAVITY * dt
 
 	if is_on_wall() and velocity.y < 0:
-		velocity.y = clampf(velocity.y, -wall_max_y_vel, 0)
-		velocity.z = clampf(velocity.z, -wall_max_z_vel, wall_max_z_vel)
+		velocity.y = clampf(velocity.y, -WALL_MAX_Y_VEL, 0)
+		velocity.z = clampf(velocity.z, -WALL_MAX_Z_VEL, WALL_MAX_Z_VEL)
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = sqrt(4 * jump_height * gravity)
+		velocity.y = sqrt(4 * JUMP_HEIGHT * GRAVITY)
 	elif is_on_wall() and not is_on_floor():
 		if Input.is_action_just_pressed("jump"):
 			var normal = get_wall_normal()
-			velocity.y = wall_jump_force
-			velocity.x = normal.x * wall_jump_pushback
-			velocity.z = normal.z * wall_jump_pushback
+			velocity.y = WALL_JUMP_FORCE
+			velocity.x = normal.x * WALL_JUMP_PUSHBACK
+			velocity.z = normal.z * WALL_JUMP_PUSHBACK
 
 	var input = Input.get_vector("left", "right", "forward", "backward")
 	dir = (cam_pivot.transform.basis * Vector3(input.x, 0, input.y)).normalized()
@@ -58,23 +59,23 @@ func _physics_process(dt: float):
 		dash_dir = dir
 
 	if is_dashing:
-		velocity.x = dash_dir.x * dash_force
-		velocity.z = dash_dir.z * dash_force
+		velocity.x = dash_dir.x * DASH_FORCE
+		velocity.z = dash_dir.z * DASH_FORCE
 		velocity.y = 0
 
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			super_dash()
 	else:
 		if is_super_dashing:
-			velocity.x = move_toward(velocity.x, 0, super_dash_deceleration * dt)
-			velocity.z = move_toward(velocity.z, 0, super_dash_deceleration * dt)
+			velocity.x = move_toward(velocity.x, 0, SUPER_DASH_DECELERATION * dt)
+			velocity.z = move_toward(velocity.z, 0, SUPER_DASH_DECELERATION * dt)
 		else:
 			if dir:
-				velocity.x = move_toward(velocity.x, dir.x * max_speed, acceleration * dt)
-				velocity.z = move_toward(velocity.z, dir.z * max_speed, acceleration * dt)
+				velocity.x = move_toward(velocity.x, dir.x * MAX_SPEED, ACCELERATION * dt)
+				velocity.z = move_toward(velocity.z, dir.z * MAX_SPEED, ACCELERATION * dt)
 			else:
-				velocity.x = move_toward(velocity.x, 0, deceleration * dt)
-				velocity.z = move_toward(velocity.z, 0, deceleration * dt)
+				velocity.x = move_toward(velocity.x, 0, DECELERATION * dt)
+				velocity.z = move_toward(velocity.z, 0, DECELERATION * dt)
 
 	if not is_on_floor() and Input.is_action_just_pressed("slam"):
 		slam()
@@ -99,16 +100,16 @@ func super_dash():
 	$DashTimer.stop()
 	is_dashing = false
 	is_super_dashing = true
-	velocity.x = dash_dir.x * super_dash_force
-	velocity.z = dash_dir.z * super_dash_force
-	velocity.y = sqrt(4 * super_dash_height * super_dash_gravity)
+	velocity.x = dash_dir.x * SUPER_DASH_FORCE
+	velocity.z = dash_dir.z * SUPER_DASH_FORCE
+	velocity.y = sqrt(4 * SUPER_DASH_HEIGHT * SUPER_DASH_GRAVITY)
 
 func slam():
 	$DashTimer.stop()
 	is_slamming = true
 	is_super_dashing = false
 	is_dashing = false
-	velocity.y = -slam_velocity
+	velocity.y = -SLAM_VELOCITY
 	velocity.x = 0
 	velocity.z = 0
 

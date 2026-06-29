@@ -3,7 +3,8 @@ class_name Weapon extends Node3D
 @export var cam: Camera3D
 @export var weapon: Node3D
 @export var fire_point: Node3D
-@export var line_scene: PackedScene
+# @export var line_scene: PackedScene
+@export var hitscan_line: LineRenderer
 @export var muzzle_flash: Sprite3D
 
 @onready var pivot: Node3D = $Pivot
@@ -35,6 +36,7 @@ func _process(dt: float) -> void:
 
 func _physics_process(dt: float) -> void:
 	animation_pivot.position.y = sin(time * 4.0) * 0.03
+	hitscan_line.points[0] = fire_point.global_position
 
 func _on_animation_timer_timeout() -> void:
 	var mat = (weapon.get_node("Cube_004") as MeshInstance3D).mesh.surface_get_material(0)
@@ -50,14 +52,17 @@ func fire():
 	weapon.rotation_degrees.z = -10.0
 	rotation_offset.x = 10.0
 	muzzle_flash.visible = true
+	hitscan_line.visible = true
 
-	var line = line_scene.instantiate() as LineRenderer
-	line.points[0] = fire_point.global_position
+	# var line = line_scene.instantiate() as LineRenderer
 	if ray.is_colliding():
-		line.points[1] = ray.get_collision_point()
+		hitscan_line.points[1] = ray.get_collision_point()
 	else:
-		line.points[1] = ray.to_global(ray.target_position)
+		hitscan_line.points[1] = ray.to_global(ray.target_position)
 
-	get_tree().current_scene.add_child(line)
-	get_tree().create_timer(0.1).connect("timeout", line.queue_free)
-	get_tree().create_timer(0.1).connect("timeout", func(): muzzle_flash.visible = false)
+	# get_tree().current_scene.add_child(line)
+	# get_tree().create_timer(0.1).connect("timeout", func())
+	get_tree().create_timer(0.1).connect("timeout", func():
+		muzzle_flash.visible = false
+		hitscan_line.visible = false
+	)
