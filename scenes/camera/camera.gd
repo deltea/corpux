@@ -3,12 +3,13 @@ class_name Camera extends Camera3D
 const SHAKE_DAMP_SPEED = 2.0
 
 var shake_duration = 0
-var shake_magnitude = 0
+var shake_strength = 0
 var original_pos = Vector2.ZERO
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	original_pos = Vector2(h_offset, v_offset)
+	Events.cam_shake.connect(shake)
 
 func _process(dt: float) -> void:
 	# rotate_y(-mouse_delta.x * 0.002)
@@ -25,12 +26,12 @@ func _process(dt: float) -> void:
 	h_offset = original_pos.x
 	v_offset = original_pos.y
 	if shake_duration > 0:
-		h_offset += randf_range(0, PI*2) * shake_magnitude
-		v_offset += randf_range(0, PI*2) * shake_magnitude
+		h_offset += randf_range(0, PI*2) * shake_strength
+		v_offset += randf_range(0, PI*2) * shake_strength
 		shake_duration -= dt * SHAKE_DAMP_SPEED
 	else:
 		shake_duration = 0
 
-func shake(duration: float, magnitude: float):
+func shake(strength: float, duration: float):
 	shake_duration = duration
-	shake_magnitude = magnitude
+	shake_strength = strength

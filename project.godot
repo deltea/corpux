@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GlobalCanvas="*uid://1j6bqj5tan1m"
 Clock="*uid://c6auyafwmndn7"
+Events="*uid://c23nfri7i33ox"
 
 [display]
 

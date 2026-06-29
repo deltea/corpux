@@ -5,11 +5,11 @@ class_name Enemy extends StaticBody3D
 var health = max_health
 
 func take_damage(damage: int):
-	print("oof")
 	health -= damage
 	if health <= 0:
 		await die()
 	else:
+		Events.cam_shake.emit(0.01, 0.05)
 		Clock.hitstop(0.08)
 
 func die():
