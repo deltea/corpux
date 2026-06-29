@@ -144,6 +144,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 153, -80)
 [node name="Platform" parent="." unique_id=902836713 instance=ExtResource("10_efxa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14, 0)
 
+[node name="Platform9" parent="." unique_id=1778013425 instance=ExtResource("10_efxa6")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, -14, 103)
+
 [node name="Platform2" parent="." unique_id=1160115690 instance=ExtResource("10_efxa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, -14, 0)
 
