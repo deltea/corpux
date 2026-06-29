@@ -1,5 +1,7 @@
 class_name Camera extends Node3D
 
+const SHAKE_DAMP_SPEED = 2.0
+
 @export var cam_tilt = 0
 @export var player: Player
 @export var y_offset = 0.5
@@ -8,9 +10,13 @@ class_name Camera extends Node3D
 @onready var cam: Camera3D = $Camera
 
 var mouse_delta = Vector2.ZERO
+var shake_duration = 0
+var shake_magnitude = 0
+var original_pos = Vector2.ZERO
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	original_pos = Vector2(cam.h_offset, cam.v_offset)
 
 func _process(dt: float) -> void:
 	global_position = player.global_position + Vector3(0, y_offset, 0)
@@ -25,6 +31,19 @@ func _process(dt: float) -> void:
 			cam.rotation_degrees.z = move_toward(cam.rotation_degrees.z, -input.x * cam_tilt, 40 * dt)
 	else:
 			cam.rotation_degrees.z = move_toward(cam.rotation_degrees.z, 0, 40 * dt)
+
+	cam.h_offset = original_pos.x
+	cam.v_offset = original_pos.y
+	if shake_duration > 0:
+		cam.h_offset += randf_range(0, PI*2) * shake_magnitude
+		cam.v_offset += randf_range(0, PI*2) * shake_magnitude
+		shake_duration -= dt * SHAKE_DAMP_SPEED
+	else:
+		shake_duration = 0
+
+func shake(duration: float, magnitude: float):
+	shake_duration = duration
+	shake_magnitude = magnitude
 
 func _unhandled_input(event: InputEvent):
 	if event.is_action_pressed("esc"):

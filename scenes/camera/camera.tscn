@@ -13,9 +13,10 @@ y_offset = 0.75
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1866224286]
 
-[node name="WeaponHolder" type="Node3D" parent="Camera" unique_id=1337900497 node_paths=PackedStringArray("cam", "weapon", "fire_point")]
+[node name="WeaponHolder" type="Node3D" parent="Camera" unique_id=1337900497 node_paths=PackedStringArray("cam", "cam_pivot", "weapon", "fire_point")]
 script = ExtResource("2_0jiuk")
 cam = NodePath("..")
+cam_pivot = NodePath("../..")
 weapon = NodePath("Pivot/AnimationPivot/revolver")
 fire_point = NodePath("Pivot/AnimationPivot/FirePoint")
 line_scene = ExtResource("3_qr7cc")

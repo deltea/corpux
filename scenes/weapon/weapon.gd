@@ -1,6 +1,7 @@
 class_name Weapon extends Node3D
 
 @export var cam: Camera3D
+@export var cam_pivot: Camera
 @export var weapon: Node3D
 @export var fire_point: Node3D
 @export var line_scene: PackedScene
@@ -13,6 +14,7 @@ class_name Weapon extends Node3D
 
 var rotation_offset: Vector3
 var time = 0
+var is_winding_up = false
 
 func _ready() -> void:
 	top_level = true
@@ -25,12 +27,19 @@ func _process(dt: float) -> void:
 	weapon.rotation_degrees.z = lerp(weapon.rotation_degrees.z, 0.0, 5.0 * dt)
 	rotation_offset.x = lerp(rotation_offset.x, 0.0, 5.0 * dt)
 
-	# muzzle_flash.rotation_degrees.z += 400.0 * dt
-
 	if Input.is_action_just_pressed("mouse_left"):
 		fire()
+	# if Input.is_action_just_pressed("mouse_right"):
+	# 	spin()
 	if Input.is_action_just_pressed("mouse_right"):
-		spin()
+		start_throw_windup()
+	if Input.is_action_just_released("mouse_right"):
+		throw()
+
+	if is_winding_up:
+		cam_pivot.shake(0.02, 0.01)
+		animation_pivot.rotation_degrees.x = 10.0
+		weapon.rotation_degrees.z = -60.0
 
 func _physics_process(dt: float) -> void:
 	animation_pivot.position.y = sin(time * 4.0) * 0.03
@@ -44,6 +53,14 @@ func _on_animation_timer_timeout() -> void:
 
 func spin():
 	weapon.rotation_degrees.z = -540.0
+
+func start_throw_windup():
+	is_winding_up = true
+	weapon.position.z = -2
+
+func throw():
+	is_winding_up = false
+	weapon.position.z = -1.805
 
 func fire():
 	weapon.rotation_degrees.z = -10.0
@@ -72,14 +89,14 @@ func fire():
 		endpoint = ray.to_global(ray.target_position)
 	hitscan_line.points[1] = endpoint
 
+	cam.rotation_degrees.z = 1.5 if randf() > 0.5 else -1.5
+
 	if ray.is_colliding():
 		var hit_particle = hit_particle_scene.instantiate() as GPUParticles3D
 		get_tree().current_scene.add_child(hit_particle)
 		hit_particle.global_position = endpoint
 		hit_particle.emitting = true
 		hit_particle.connect("finished", hit_particle.queue_free)
-
-	cam.rotation_degrees.z = 1.0 if randf() > 0.5 else -1.0
 
 	get_tree().current_scene.add_child(hitscan_line)
 	var tween = get_tree().create_tween().set_parallel()
