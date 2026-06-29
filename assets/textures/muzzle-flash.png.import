@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ijxaxbcrfmrh"
-path.s3tc="res://.godot/imported/grid.png-76362706b7cff8d966c77743dd03cd1f.s3tc.ctex"
+uid="uid://ciugry5vhrueu"
+path="res://.godot/imported/muzzle-flash.png-2594b8c30844908cfa9e12505abcdaf6.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/grid.png"
-dest_files=["res://.godot/imported/grid.png-76362706b7cff8d966c77743dd03cd1f.s3tc.ctex"]
+source_file="res://assets/textures/muzzle-flash.png"
+dest_files=["res://.godot/imported/muzzle-flash.png-2594b8c30844908cfa9e12505abcdaf6.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

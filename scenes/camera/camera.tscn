@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://d0lwg2vbe16hj" path="res://scenes/weapon/weapon.gd" id="2_0jiuk"]
 [ext_resource type="PackedScene" uid="uid://51ja0nr0ujmj" path="res://assets/models/weapons/revolver.blend" id="2_6m2n3"]
 [ext_resource type="PackedScene" uid="uid://5c8op0h4wstt" path="res://addons/LineRenderer/LineRenderer.tscn" id="3_qr7cc"]
-[ext_resource type="Texture2D" uid="uid://ciugry5vhrueu" path="res://assets/textures/muzzle.png" id="4_u3rx3"]
+[ext_resource type="Texture2D" uid="uid://ciugry5vhrueu" path="res://assets/textures/muzzle-flash.png" id="4_u3rx3"]
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_u3rx3"]
 resource_local_to_scene = true
