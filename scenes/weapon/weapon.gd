@@ -50,7 +50,7 @@ func fire():
 
 	var muzzle_flash = Sprite3D.new()
 	get_tree().current_scene.add_child(muzzle_flash)
-	muzzle_flash.scale = Vector3.ONE * 7.0
+	muzzle_flash.scale = Vector3.ONE * 7.5
 	muzzle_flash.texture = muzzle_flash_texture
 	muzzle_flash.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
 	muzzle_flash.global_position = fire_point.global_position
@@ -66,8 +66,7 @@ func fire():
 	else:
 		hitscan_line.points[1] = ray.to_global(ray.target_position)
 
-	# cam.fov = 77.0
-	cam.position.z = -0.5
+	cam.position.z = -0.75
 
 	get_tree().current_scene.add_child(hitscan_line)
 	var tween = get_tree().create_tween().set_parallel()
@@ -75,6 +74,6 @@ func fire():
 	tween.tween_property(muzzle_flash, "scale", Vector3.ZERO, 0.15)
 	tween.tween_property(hitscan_line, "startThickness", 0, 0.15)
 	tween.tween_property(hitscan_line, "endThickness", 0, 0.15)
-	tween.tween_property(cam, "position:z", 0.0, 0.15)
+	tween.tween_property(cam, "position:z", 0.0, 0.1)
 	tween.chain().tween_callback(hitscan_line.queue_free)
 	tween.tween_callback(muzzle_flash.queue_free)
