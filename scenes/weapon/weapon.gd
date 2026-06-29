@@ -3,9 +3,8 @@ class_name Weapon extends Node3D
 @export var cam: Camera3D
 @export var weapon: Node3D
 @export var fire_point: Node3D
-# @export var line_scene: PackedScene
-@export var hitscan_line: LineRenderer
-@export var muzzle_flash: Sprite3D
+@export var line_scene: PackedScene
+@export var muzzle_flash_texture: Texture2D
 
 @onready var pivot: Node3D = $Pivot
 @onready var animation_pivot: Node3D = $Pivot/AnimationPivot
@@ -15,9 +14,7 @@ var rotation_offset: Vector3
 var time = 0
 
 func _ready() -> void:
-	muzzle_flash.visible = false
 	top_level = true
-	muzzle_flash.look_at(cam.global_position)
 
 func _process(dt: float) -> void:
 	time += dt
@@ -27,7 +24,7 @@ func _process(dt: float) -> void:
 	weapon.rotation_degrees.z = lerp(weapon.rotation_degrees.z, 0.0, 5.0 * dt)
 	rotation_offset.x = lerp(rotation_offset.x, 0.0, 5.0 * dt)
 
-	muzzle_flash.rotation_degrees.z += 400.0 * dt
+	# muzzle_flash.rotation_degrees.z += 400.0 * dt
 
 	if Input.is_action_just_pressed("mouse_left"):
 		fire()
@@ -36,7 +33,6 @@ func _process(dt: float) -> void:
 
 func _physics_process(dt: float) -> void:
 	animation_pivot.position.y = sin(time * 4.0) * 0.03
-	hitscan_line.points[0] = fire_point.global_position
 
 func _on_animation_timer_timeout() -> void:
 	var mat = (weapon.get_node("Cube_004") as MeshInstance3D).mesh.surface_get_material(0)
@@ -51,18 +47,34 @@ func spin():
 func fire():
 	weapon.rotation_degrees.z = -10.0
 	rotation_offset.x = 10.0
-	muzzle_flash.visible = true
-	hitscan_line.visible = true
 
-	# var line = line_scene.instantiate() as LineRenderer
+	var muzzle_flash = Sprite3D.new()
+	get_tree().current_scene.add_child(muzzle_flash)
+	muzzle_flash.scale = Vector3.ONE * 7.0
+	muzzle_flash.texture = muzzle_flash_texture
+	muzzle_flash.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
+	muzzle_flash.global_position = fire_point.global_position
+	muzzle_flash.look_at(cam.global_position)
+	muzzle_flash.rotation_degrees.z = randf_range(0, 360)
+
+	var hitscan_line = line_scene.instantiate() as LineRenderer
+	hitscan_line.startThickness = 0.2
+	hitscan_line.endThickness = 0.2
+	hitscan_line.points[0] = fire_point.global_position
 	if ray.is_colliding():
 		hitscan_line.points[1] = ray.get_collision_point()
 	else:
 		hitscan_line.points[1] = ray.to_global(ray.target_position)
 
-	# get_tree().current_scene.add_child(line)
-	# get_tree().create_timer(0.1).connect("timeout", func())
-	get_tree().create_timer(0.1).connect("timeout", func():
-		muzzle_flash.visible = false
-		hitscan_line.visible = false
-	)
+	# cam.fov = 77.0
+	cam.position.z = -0.5
+
+	get_tree().current_scene.add_child(hitscan_line)
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property(muzzle_flash, "modulate:a", 0, 0.15)
+	tween.tween_property(muzzle_flash, "scale", Vector3.ZERO, 0.15)
+	tween.tween_property(hitscan_line, "startThickness", 0, 0.15)
+	tween.tween_property(hitscan_line, "endThickness", 0, 0.15)
+	tween.tween_property(cam, "position:z", 0.0, 0.15)
+	tween.chain().tween_callback(hitscan_line.queue_free)
+	tween.tween_callback(muzzle_flash.queue_free)
