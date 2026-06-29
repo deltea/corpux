@@ -2,6 +2,7 @@ class_name Player extends CharacterBody3D
 
 const FRICTION = 6.0
 const AIR_FRICTION = 4.5
+const WALL_FRICTION = 20.0
 const MAX_SPEED = 20.0
 const GROUND_ACCEL = 14.0
 const GROUND_DECEL = 10.0
@@ -63,6 +64,9 @@ func ground_move():
 		vel.y = sqrt(4 * JUMP_HEIGHT * GRAVITY)
 
 func air_move():
+	if is_on_wall() and vel.y < 0:
+		vel.y = maxf(vel.y + WALL_FRICTION * dt, 0.0)
+
 	if is_dashing:
 		accelerate(dash_dir, DASH_SPEED, DASH_ACCEL)
 	else:
