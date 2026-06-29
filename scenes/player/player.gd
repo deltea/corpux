@@ -1,119 +1,120 @@
 class_name Player extends CharacterBody3D
 
-const FRICTION = 6.0
-const AIR_FRICTION = 4.5
-const WALL_FRICTION = 10.0
 const MAX_SPEED = 20.0
-const GROUND_ACCEL = 14.0
-const GROUND_DECEL = 10.0
-const AIR_ACCEL = 14.0
-const DASH_SPEED = 80.0
-const DASH_ACCEL = 100.0
-const WALL_JUMP_PUSHBACK = 40.0
+const DECELERATION = 50.0
+const ACCELERATION = 100.0
+const WALL_JUMP_PUSHBACK = 30.0
 const WALL_JUMP_FORCE = 15.0
-const JUMP_HEIGHT = 2.0
-const GRAVITY = 28.0
+const JUMP_HEIGHT = 1.8
+const SUPER_DASH_HEIGHT = 1.5
+const SUPER_DASH_FORCE = 60.0
+const SUPER_DASH_GRAVITY = 60.0
+const SUPER_DASH_DECELERATION = 40.0
+const DASH_FORCE = 80.0
+const GRAVITY = 25.0
+const WALL_MAX_Y_VEL = 2.5
+const WALL_MAX_Z_VEL = 1.0
+const SLAM_VELOCITY = 140.0
 
 @export var cam_pivot: Camera
 
 @onready var crt: ColorRect = $"../CanvasLayer/CRT"
 @onready var blur: ColorRect = $"../CanvasLayer/Blur"
 
-var dt = 0
-var wishdir = Vector3.ZERO
-var vel = Vector3.ZERO
+var dir = Vector3.ZERO
 var dash_dir = Vector3.ZERO
-var is_grounded = false
 var is_dashing = false
+var is_super_dashing = false
+var is_slamming = false
 
-func _process(_dt: float) -> void:
-	crt.material.set_shader_parameter("luma_smear_px", 1.0 + vel.length() / 10.0)
-	blur.material.set_shader_parameter("intensity", vel.length() / 50.0)
+func _process(dt: float) -> void:
+	crt.material.set_shader_parameter("luma_smear_px", 1.0 + velocity.length() / 10.0)
+	blur.material.set_shader_parameter("intensity", velocity.length() / 50.0)
 
-func _physics_process(delta: float):
-	dt = delta
+func _physics_process(dt: float):
+	if not is_on_floor() and not is_slamming:
+		if is_super_dashing:
+			velocity.y -= SUPER_DASH_GRAVITY * dt
+		else:
+			velocity.y -= GRAVITY * dt
+
+	if is_on_wall() and velocity.y < 0:
+		velocity.y = clampf(velocity.y, -WALL_MAX_Y_VEL, 0)
+		velocity.z = clampf(velocity.z, -WALL_MAX_Z_VEL, WALL_MAX_Z_VEL)
+
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = sqrt(4 * JUMP_HEIGHT * GRAVITY)
+	elif is_on_wall() and not is_on_floor():
+		if Input.is_action_just_pressed("jump"):
+			var normal = get_wall_normal()
+			velocity.y = WALL_JUMP_FORCE
+			velocity.x = normal.x * WALL_JUMP_PUSHBACK
+			velocity.z = normal.z * WALL_JUMP_PUSHBACK
 
 	var input = Input.get_vector("left", "right", "forward", "backward")
-	wishdir = Vector3(input.x, 0, input.y).rotated(Vector3.UP, cam_pivot.rotation.y).normalized()
+	dir = (cam_pivot.transform.basis * Vector3(input.x, 0, input.y)).normalized()
+	if Input.is_action_just_pressed("dash") and dir != Vector3.ZERO:
+		$DashTimer.start()
+		is_dashing = true
+		dash_dir = dir
 
-	check_grounded()
+	if is_dashing:
+		velocity.x = dash_dir.x * DASH_FORCE
+		velocity.z = dash_dir.z * DASH_FORCE
+		velocity.y = 0
 
-	if is_grounded: ground_move()
-	else: air_move()
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			super_dash()
+	else:
+		if is_super_dashing:
+			velocity.x = move_toward(velocity.x, 0, SUPER_DASH_DECELERATION * dt)
+			velocity.z = move_toward(velocity.z, 0, SUPER_DASH_DECELERATION * dt)
+		else:
+			if dir:
+				velocity.x = move_toward(velocity.x, dir.x * MAX_SPEED, ACCELERATION * dt)
+				velocity.z = move_toward(velocity.z, dir.z * MAX_SPEED, ACCELERATION * dt)
+			else:
+				velocity.x = move_toward(velocity.x, 0, DECELERATION * dt)
+				velocity.z = move_toward(velocity.z, 0, DECELERATION * dt)
 
-	if Input.is_action_just_pressed("jump") and is_on_wall() and not is_grounded:
-		var normal = get_wall_normal()
-		vel -= normal * minf(vel.dot(-normal), 0.0)
-		vel.y = WALL_JUMP_FORCE
-		vel.x = normal.x * WALL_JUMP_PUSHBACK
-		vel.z = normal.z * WALL_JUMP_PUSHBACK
+	if not is_on_floor() and Input.is_action_just_pressed("slam"):
+		slam()
 
-	if Input.is_action_just_pressed("dash") and wishdir != Vector3.ZERO:
-		start_dash()
+	var was_on_floor = is_on_floor()
+	var was_on_wall = is_on_wall()
 
-	velocity = vel
 	move_and_slide()
 
-func ground_move():
-	apply_friction(FRICTION)
-	if is_dashing:
-		accelerate(dash_dir, DASH_SPEED, DASH_ACCEL)
-	else:
-		accelerate(wishdir, MAX_SPEED, GROUND_ACCEL)
-	if Input.is_action_just_pressed("jump"):
-		vel.y = sqrt(4 * JUMP_HEIGHT * GRAVITY)
+	# just landed on the ground or just jumped
+	if is_on_floor() != was_on_floor:
+		if is_on_floor():
+			is_super_dashing = false
+			is_slamming = false
 
-func air_move():
-	if is_on_wall() and vel.y < 0:
-		vel.y = maxf(vel.y + WALL_FRICTION * dt, 0.0)
-
-	if is_dashing:
-		accelerate(dash_dir, DASH_SPEED, DASH_ACCEL)
-	else:
-		if wishdir == Vector3.ZERO:
-			apply_friction(AIR_FRICTION)
+	if is_on_wall() != was_on_wall:
 		if is_on_wall():
-			apply_friction(WALL_FRICTION)
-		accelerate(wishdir, MAX_SPEED, AIR_ACCEL)
-	vel.y -= GRAVITY * dt
+			is_super_dashing = false
+			is_slamming = false
 
-func start_dash():
-	$DashTimer.start()
-	is_dashing = true
-	dash_dir = wishdir
+func super_dash():
+	$DashTimer.stop()
+	is_dashing = false
+	is_super_dashing = true
+	velocity.x = dash_dir.x * SUPER_DASH_FORCE
+	velocity.z = dash_dir.z * SUPER_DASH_FORCE
+	velocity.y = sqrt(4 * SUPER_DASH_HEIGHT * SUPER_DASH_GRAVITY)
 
-func accelerate(dir: Vector3, wishspeed: float, accel: float):
-	var curr_speed = vel.dot(dir)
-	var add_speed = wishspeed - curr_speed
-	if add_speed <= 0: return
-	var accel_speed = accel * dt * wishspeed
-	if accel_speed > add_speed: accel_speed = add_speed
-
-	vel.x += accel_speed * dir.x
-	vel.z += accel_speed * dir.z
-
-func apply_friction(friction: float):
-	var v = Vector3(vel.x, 0, vel.z)
-	var last_speed = v.length()
-
-	var control = GROUND_DECEL if last_speed < GROUND_DECEL else last_speed
-	var drop = control * friction * dt
-
-	var new_speed = maxf(last_speed - drop, 0.0)
-	if last_speed > 0: new_speed /= last_speed
-
-	vel.x *= new_speed
-	vel.z *= new_speed
-
-func check_grounded():
-	if is_grounded != is_on_floor():
-		if is_grounded:
-			is_grounded = false
-		else:
-			is_grounded = true
+func slam():
+	$DashTimer.stop()
+	is_slamming = true
+	is_super_dashing = false
+	is_dashing = false
+	velocity.y = -SLAM_VELOCITY
+	velocity.x = 0
+	velocity.z = 0
 
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false
-	vel.x = 0
-	vel.z = 0
-	vel.y = 0
+	velocity.x = dash_dir.x * 20
+	velocity.z = dash_dir.z * 20
+	velocity.y = 0
