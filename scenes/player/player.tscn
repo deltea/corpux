@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dwa00ja776nkd" path="res://scenes/player/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://dj4mhc0ht28ui" path="res://scenes/camera/camera.tscn" id="2_dovo2"]
+[ext_resource type="Script" uid="uid://d0lwg2vbe16hj" path="res://scripts/weapon_manager.gd" id="3_gmlin"]
+[ext_resource type="PackedScene" uid="uid://clg5a2u4nmt7l" path="res://scenes/weapons/revolver/revolver_weapon.tscn" id="4_lvxji"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 
@@ -21,5 +23,12 @@ one_shot = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Camera" parent="Head" unique_id=774764019 instance=ExtResource("2_dovo2")]
+
+[node name="WeaponManager" type="Node3D" parent="Head/Camera" unique_id=85155597 node_paths=PackedStringArray("cam", "equipped_weapon")]
+script = ExtResource("3_gmlin")
+cam = NodePath("..")
+equipped_weapon = NodePath("RevolverWeapon")
+
+[node name="RevolverWeapon" parent="Head/Camera/WeaponManager" unique_id=626467644 instance=ExtResource("4_lvxji")]
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

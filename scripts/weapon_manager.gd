@@ -1,109 +1,36 @@
-class_name WeaponManager extends Node3D
+class_name WeaponManager extends Node
 
-@export var cam: Camera3D
-@export var cam_pivot: Camera
-@export var weapon: Node3D
-@export var fire_point: Node3D
-@export var line_scene: PackedScene
-@export var muzzle_flash_texture: Texture2D
-@export var hit_particle_scene: PackedScene
-
-@onready var pivot: Node3D = $Pivot
-@onready var animation_pivot: Node3D = $Pivot/AnimationPivot
-@onready var ray: RayCast3D = $Pivot/RayCast
-
-var rotation_offset: Vector3
-var time = 0
-var is_winding_up = false
+@export var cam: Camera
+@export var equipped_weapon: Weapon
 
 func _ready() -> void:
-	top_level = true
+	equipped_weapon.cam = cam
 
 func _process(dt: float) -> void:
-	time += dt
-	pivot.global_rotation_degrees = cam.global_rotation_degrees
-	animation_pivot.rotation_degrees = rotation_offset
-	global_position = cam.global_position
-	weapon.rotation_degrees.z = lerp(weapon.rotation_degrees.z, 0.0, 5.0 * dt)
-	rotation_offset.x = lerp(rotation_offset.x, 0.0, 5.0 * dt)
+	# time += dt
+	# pivot.global_rotation_degrees = cam.global_rotation_degrees
+	# animation_pivot.rotation_degrees = rotation_offset
+	# weapon.rotation_degrees.z = lerp(weapon.rotation_degrees.z, 0.0, 5.0 * dt)
+	# rotation_offset.x = lerp(rotation_offset.x, 0.0, 5.0 * dt)
 
 	if Input.is_action_just_pressed("mouse_left"):
-		fire()
-	# if Input.is_action_just_pressed("mouse_right"):
-	# 	spin()
+		equipped_weapon.trigger_fire()
 	if Input.is_action_just_pressed("mouse_right"):
-		start_throw_windup()
+		equipped_weapon.secondary_fire()
 	if Input.is_action_just_released("mouse_right"):
-		throw()
+		equipped_weapon.secondary_fire_released()
 
-	if is_winding_up:
-		cam_pivot.shake(0.02, 0.01)
-		animation_pivot.rotation_degrees.x = 10.0
-		weapon.rotation_degrees.z = -60.0
+	# if is_winding_up:
+	# 	cam_pivot.shake(0.02, 0.01)
+	# 	animation_pivot.rotation_degrees.x = 10.0
+	# 	weapon.rotation_degrees.z = -60.0
 
-func _physics_process(dt: float) -> void:
-	animation_pivot.position.y = sin(time * 4.0) * 0.03
+# func _on_animation_timer_timeout() -> void:
+# 	var mat = (weapon.get_node("Cube_004") as MeshInstance3D).mesh.surface_get_material(0)
+# 	if mat:
+# 		var unique = mat.duplicate()
+# 		unique.uv1_offset.y += 0.1
+# 		(weapon.get_node("Cube_004") as MeshInstance3D).mesh.surface_set_material(0, unique)
 
-func _on_animation_timer_timeout() -> void:
-	var mat = (weapon.get_node("Cube_004") as MeshInstance3D).mesh.surface_get_material(0)
-	if mat:
-		var unique = mat.duplicate()
-		unique.uv1_offset.y += 0.1
-		(weapon.get_node("Cube_004") as MeshInstance3D).mesh.surface_set_material(0, unique)
-
-func spin():
-	weapon.rotation_degrees.z = -540.0
-
-func start_throw_windup():
-	is_winding_up = true
-	weapon.position.z = -2
-
-func throw():
-	is_winding_up = false
-	weapon.position.z = -1.805
-
-func fire():
-	weapon.rotation_degrees.z = -10.0
-	rotation_offset.x = 10.0
-
-	var muzzle_flash = Sprite3D.new()
-	get_tree().current_scene.add_child(muzzle_flash)
-	muzzle_flash.scale = Vector3.ONE * 7.5
-	muzzle_flash.texture = muzzle_flash_texture
-	muzzle_flash.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
-	muzzle_flash.global_position = fire_point.global_position
-	muzzle_flash.look_at(cam.global_position)
-	muzzle_flash.rotation_degrees.z = randf_range(0, 360)
-
-	var hitscan_line = line_scene.instantiate() as LineRenderer
-	hitscan_line.startThickness = 0.2
-	hitscan_line.endThickness = 0.2
-	hitscan_line.points[0] = fire_point.global_position
-	var endpoint: Vector3
-	if ray.is_colliding():
-		endpoint = ray.get_collision_point()
-		var collider = ray.get_collider()
-		if collider is Enemy:
-			collider.take_damage(1.0)
-	else:
-		endpoint = ray.to_global(ray.target_position)
-	hitscan_line.points[1] = endpoint
-
-	cam.rotation_degrees.z = 1.5 if randf() > 0.5 else -1.5
-
-	if ray.is_colliding():
-		var hit_particle = hit_particle_scene.instantiate() as GPUParticles3D
-		get_tree().current_scene.add_child(hit_particle)
-		hit_particle.global_position = endpoint
-		hit_particle.emitting = true
-		hit_particle.connect("finished", hit_particle.queue_free)
-
-	get_tree().current_scene.add_child(hitscan_line)
-	var tween = get_tree().create_tween().set_parallel()
-	tween.tween_property(muzzle_flash, "modulate:a", 0, 0.11)
-	tween.tween_property(muzzle_flash, "scale", Vector3.ZERO, 0.1)
-	tween.tween_property(hitscan_line, "startThickness", 0, 0.15)
-	tween.tween_property(hitscan_line, "endThickness", 0, 0.15)
-	tween.tween_property(cam, "rotation_degrees:z", 0.0, 0.1)
-	tween.chain().tween_callback(hitscan_line.queue_free)
-	tween.tween_callback(muzzle_flash.queue_free)
+# func spin():
+# 	weapon.rotation_degrees.z = -540.0
