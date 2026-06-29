@@ -1,11 +1,24 @@
 [gd_scene format=3 uid="uid://fi26o3a5pvnr"]
 
 [ext_resource type="PackedScene" uid="uid://7y5q2uqhhq41" path="res://scenes/enemy/enemy.tscn" id="1_b6kpl"]
+[ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="2_5xr37"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b6kpl"]
 size = Vector3(3, 3, 3)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ns2y"]
+shading_mode = 2
+albedo_color = Color(0.9843137, 0.043137256, 0.45490196, 1)
+emission = Color(0.4392157, 0.4392157, 0.4392157, 1)
+heightmap_texture = ExtResource("2_5xr37")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_world_triplanar = true
+texture_filter = 4
+distance_fade_min_distance = 25.0
+distance_fade_max_distance = 5.0
+
 [sub_resource type="BoxMesh" id="BoxMesh_38or4"]
+material = SubResource("StandardMaterial3D_0ns2y")
 size = Vector3(3, 3, 3)
 
 [node name="BasicEnemy" unique_id=541240095 instance=ExtResource("1_b6kpl")]

@@ -8,11 +8,11 @@ func take_damage(damage: int):
 	print("oof")
 	health -= damage
 	if health <= 0:
-		# Clock.hitstop(0.1)
-		Clock.set_time_scale(0.0)
-		die()
+		await die()
 	else:
-		Clock.hitstop(0.1)
+		Clock.hitstop(0.08)
 
 func die():
+	await Clock.hitstop(0.15)
+	Clock.set_time_scale(0.0)
 	queue_free()
