@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://51ja0nr0ujmj" path="res://assets/models/weapons/revolver.blend" id="2_6m2n3"]
 [ext_resource type="PackedScene" uid="uid://5c8op0h4wstt" path="res://addons/LineRenderer/LineRenderer.tscn" id="3_qr7cc"]
 [ext_resource type="Texture2D" uid="uid://ciugry5vhrueu" path="res://assets/textures/muzzle-flash.png" id="4_u3rx3"]
+[ext_resource type="PackedScene" uid="uid://c8le1ae54fhkw" path="res://scenes/particles/hit_particles.tscn" id="5_21tcn"]
 
 [node name="CameraPivot" type="Node3D" unique_id=1792872926]
 script = ExtResource("1_xejhd")
@@ -19,6 +20,7 @@ weapon = NodePath("Pivot/AnimationPivot/revolver")
 fire_point = NodePath("Pivot/AnimationPivot/FirePoint")
 line_scene = ExtResource("3_qr7cc")
 muzzle_flash_texture = ExtResource("4_u3rx3")
+hit_particle_scene = ExtResource("5_21tcn")
 
 [node name="AnimationTimer" type="Timer" parent="Camera/WeaponHolder" unique_id=1106727803]
 wait_time = 0.25
@@ -32,7 +34,7 @@ target_position = Vector3(0, 0, -500)
 [node name="AnimationPivot" type="Node3D" parent="Camera/WeaponHolder/Pivot" unique_id=1046012625]
 
 [node name="FirePoint" type="Node3D" parent="Camera/WeaponHolder/Pivot/AnimationPivot" unique_id=326042745]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6516111, -0.34078842, -3.412968)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6516111, -0.25886875, -3.412968)
 
 [node name="revolver" parent="Camera/WeaponHolder/Pivot/AnimationPivot" unique_id=317465073 instance=ExtResource("2_6m2n3")]
 transform = Transform3D(-0.021809712, -0.05221447, -0.49678767, 0, 0.49726096, -0.052264214, 0.49952412, -0.002279735, -0.021690236, 0.64565444, -0.845, -1.805)

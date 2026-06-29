@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://c8le1ae54fhkw"]
+
+[ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="1_tbs0o"]
+
+[sub_resource type="Curve" id="Curve_kek77"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.3812933, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kek77"]
+curve = SubResource("Curve_kek77")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kek77"]
+lifetime_randomness = 0.5
+use_rotation_3d = true
+rotation_3d_min = Vector3(-360, -360, 360)
+rotation_3d_max = Vector3(360, 360, 360)
+direction = Vector3(0, 1, 0)
+spread = 40.0
+initial_velocity_min = 5.0
+initial_velocity_max = 8.0
+gravity = Vector3(0, -20, 0)
+scale_min = 0.59999996
+scale_max = 0.9
+scale_curve = SubResource("CurveTexture_kek77")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w48qg"]
+shading_mode = 0
+heightmap_texture = ExtResource("1_tbs0o")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 4
+distance_fade_min_distance = 25.0
+distance_fade_max_distance = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_4c57u"]
+material = SubResource("StandardMaterial3D_w48qg")
+
+[node name="HitParticles" type="GPUParticles3D" unique_id=1626821034]
+emitting = false
+amount = 4
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.9
+process_material = SubResource("ParticleProcessMaterial_kek77")
+draw_pass_1 = SubResource("BoxMesh_4c57u")

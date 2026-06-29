@@ -5,6 +5,7 @@ class_name Weapon extends Node3D
 @export var fire_point: Node3D
 @export var line_scene: PackedScene
 @export var muzzle_flash_texture: Texture2D
+@export var hit_particle_scene: PackedScene
 
 @onready var pivot: Node3D = $Pivot
 @onready var animation_pivot: Node3D = $Pivot/AnimationPivot
@@ -61,12 +62,21 @@ func fire():
 	hitscan_line.startThickness = 0.2
 	hitscan_line.endThickness = 0.2
 	hitscan_line.points[0] = fire_point.global_position
+	var endpoint: Vector3
 	if ray.is_colliding():
-		hitscan_line.points[1] = ray.get_collision_point()
+		endpoint = ray.get_collision_point()
 	else:
-		hitscan_line.points[1] = ray.to_global(ray.target_position)
+		endpoint = ray.to_global(ray.target_position)
+	hitscan_line.points[1] = endpoint
 
-	cam.position.z = -0.75
+	if ray.is_colliding():
+		var hit_particle = hit_particle_scene.instantiate() as GPUParticles3D
+		get_tree().current_scene.add_child(hit_particle)
+		hit_particle.global_position = endpoint
+		hit_particle.emitting = true
+		hit_particle.connect("finished", hit_particle.queue_free)
+
+	cam.rotation_degrees.z = 1.0 if randf() > 0.5 else -1.0
 
 	get_tree().current_scene.add_child(hitscan_line)
 	var tween = get_tree().create_tween().set_parallel()
@@ -74,6 +84,6 @@ func fire():
 	tween.tween_property(muzzle_flash, "scale", Vector3.ZERO, 0.15)
 	tween.tween_property(hitscan_line, "startThickness", 0, 0.15)
 	tween.tween_property(hitscan_line, "endThickness", 0, 0.15)
-	tween.tween_property(cam, "position:z", 0.0, 0.1)
+	tween.tween_property(cam, "rotation_degrees:z", 0.0, 0.1)
 	tween.chain().tween_callback(hitscan_line.queue_free)
 	tween.tween_callback(muzzle_flash.queue_free)

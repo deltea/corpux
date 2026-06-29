@@ -4,6 +4,7 @@
 
 [resource]
 shading_mode = 2
+emission = Color(0.4392157, 0.4392157, 0.4392157, 1)
 heightmap_texture = ExtResource("2_xv2ws")
 uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true
