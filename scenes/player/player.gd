@@ -66,8 +66,8 @@ func air_move():
 	if is_dashing:
 		accelerate(dash_dir, DASH_SPEED, DASH_ACCEL)
 	else:
-		# if wishdir == Vector3.ZERO:
-		apply_friction(AIR_FRICTION)
+		if wishdir == Vector3.ZERO:
+			apply_friction(AIR_FRICTION)
 		accelerate(wishdir, MAX_SPEED, AIR_ACCEL)
 	vel.y -= GRAVITY * dt
 
