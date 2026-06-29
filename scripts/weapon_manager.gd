@@ -1,4 +1,4 @@
-class_name Weapon extends Node3D
+class_name WeaponManager extends Node3D
 
 @export var cam: Camera3D
 @export var cam_pivot: Camera

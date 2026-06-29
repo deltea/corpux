@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://b37fviso38m6s"]
 
 [ext_resource type="PackedScene" uid="uid://d71n5obdy5ou" path="res://scenes/player/player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://b6w12jypmalxi" path="res://scenes/camera/camera.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://ocuhsoy0n3b3" path="res://scenes/environment/wall.tscn" id="9_4c57u"]
 [ext_resource type="PackedScene" uid="uid://bb0lxurjv7u4s" path="res://scenes/environment/sun.tscn" id="10_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ccedxpdllf06q" path="res://scenes/environment/arch.tscn" id="10_dg77c"]
@@ -47,13 +46,8 @@ volumetric_fog_ambient_inject = 1.36
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=198784697]
 environment = SubResource("Environment_ig7tw")
 
-[node name="Player" parent="." unique_id=1918663283 node_paths=PackedStringArray("cam_pivot") instance=ExtResource("1_ig7tw")]
+[node name="Player" parent="." unique_id=1918663283 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-cam_pivot = NodePath("../Camera")
-
-[node name="Camera" parent="." unique_id=1792872926 node_paths=PackedStringArray("player") instance=ExtResource("8_5vw27")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 4, 4.408)
-player = NodePath("../Player")
 
 [node name="DirectionalLight" type="DirectionalLight3D" parent="." unique_id=2013117239]
 transform = Transform3D(0.7071066, -0.50000006, -0.50000024, -1.9670393e-08, -0.7071069, 0.70710677, -0.7071068, -0.4999999, -0.5, 0, 167, 0)

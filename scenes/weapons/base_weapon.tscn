@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c7plbncpgh40k"]
+
+[ext_resource type="Script" uid="uid://ds8cxc61s8wnv" path="res://scenes/weapons/base_weapon.gd" id="1_inxs3"]
+
+[node name="BaseWeapon" type="Node3D" unique_id=626467644]
+script = ExtResource("1_inxs3")
+
+[node name="FireTimer" type="Timer" parent="." unique_id=857686205]
+one_shot = true
+
+[connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]

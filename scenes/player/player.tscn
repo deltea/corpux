@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d71n5obdy5ou"]
 
 [ext_resource type="Script" uid="uid://dwa00ja776nkd" path="res://scenes/player/player.gd" id="1_3vyb7"]
+[ext_resource type="PackedScene" uid="uid://dj4mhc0ht28ui" path="res://scenes/camera/camera.tscn" id="2_dovo2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 
@@ -15,5 +16,10 @@ shape = SubResource("CapsuleShape3D_u8vuu")
 [node name="DashTimer" type="Timer" parent="." unique_id=557899028]
 wait_time = 0.1
 one_shot = true
+
+[node name="Head" type="Node3D" parent="." unique_id=145107105]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Camera" parent="Head" unique_id=774764019 instance=ExtResource("2_dovo2")]
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

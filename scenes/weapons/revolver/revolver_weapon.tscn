@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://clg5a2u4nmt7l"]
+
+[ext_resource type="PackedScene" uid="uid://c7plbncpgh40k" path="res://scenes/weapons/base_weapon.tscn" id="1_kves2"]
+[ext_resource type="Script" uid="uid://dgfnve3jx0ewi" path="res://scenes/weapons/revolver/revolver_weapon.gd" id="2_icgrj"]
+
+[node name="RevolverWeapon" unique_id=626467644 instance=ExtResource("1_kves2")]
+script = ExtResource("2_icgrj")
+line_scene = null
+muzzle_flash_texture = null
+hit_particle_scene = null

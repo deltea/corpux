@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody3D
 
+const CAM_TILT = 0.0
+const MOUSE_SENS = 1.0
 const MAX_SPEED = 20.0
 const DECELERATION = 50.0
 const ACCELERATION = 100.0
@@ -16,7 +18,9 @@ const WALL_MAX_Y_VEL = 2.5
 const WALL_MAX_Z_VEL = 1.0
 const SLAM_VELOCITY = 140.0
 
-@export var cam_pivot: Camera
+@onready var head: Node3D = $Head
+
+var mouse_delta = Vector2.ZERO
 
 var dir = Vector3.ZERO
 var dash_dir = Vector3.ZERO
@@ -24,6 +28,9 @@ var is_dashing = false
 var is_super_dashing = false
 var is_slamming = false
 var is_grounded = false
+
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _process(dt: float) -> void:
 	GlobalCanvas.set_smear(velocity.length() / 10.0)
@@ -51,7 +58,7 @@ func _physics_process(dt: float):
 			velocity.z = normal.z * WALL_JUMP_PUSHBACK
 
 	var input = Input.get_vector("left", "right", "forward", "backward")
-	dir = (cam_pivot.transform.basis * Vector3(input.x, 0, input.y)).normalized()
+	dir = Vector3(input.x, 0, input.y).rotated(Vector3.UP, rotation.y).normalized()
 	if Input.is_action_just_pressed("dash") and dir != Vector3.ZERO:
 		$DashTimer.start()
 		is_dashing = true
@@ -119,3 +126,16 @@ func _on_dash_timer_timeout() -> void:
 	velocity.x = dash_dir.x * 20
 	velocity.z = dash_dir.z * 20
 	velocity.y = 0
+
+func _unhandled_input(event: InputEvent):
+	if event.is_action_pressed("esc"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if event is InputEventMouseButton:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		if event is InputEventMouseMotion:
+			rotate_y(-event.relative.x * MOUSE_SENS * 0.002)
+			head.rotate_x(-event.relative.y * MOUSE_SENS * 0.002)
+			head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+
