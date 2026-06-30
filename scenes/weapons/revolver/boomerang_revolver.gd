@@ -1,8 +1,8 @@
 class_name BoomerangRevolver extends Node3D
 
-const MAX_SPEED = 45.0
+const MAX_SPEED = 100.0
 const MAX_SPIN_SPEED = 2000.0
-const MAX_DISTANCE = 40.0
+const MAX_DISTANCE = 35.0
 const DECELERATION = 250.0
 const RETURN_ACCELERATION = 120.0
 
@@ -89,4 +89,3 @@ func _on_hit_area_body_entered(body: Node3D) -> void:
 func _on_bounce_back_area_body_entered(body: Node3D) -> void:
 	if not body is Enemy and not body is Player:
 		is_returning = true
-
