@@ -30,5 +30,7 @@ cam = NodePath("..")
 equipped_weapon = NodePath("RevolverWeapon")
 
 [node name="RevolverWeapon" parent="Head/Camera/WeaponManager" unique_id=626467644 instance=ExtResource("4_lvxji")]
+wind_up_pos = Vector3(0.5, -2, -0.5)
+wind_up_rot = Vector3(75, 0, -20)
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

@@ -1,5 +1,8 @@
 class_name RevolverWeapon extends Weapon
 
+@export var wind_up_pos = Vector3.ZERO
+@export var wind_up_rot = Vector3.ZERO
+
 @export var fire_point: Node3D
 @export var line_scene: PackedScene
 @export var muzzle_flash_texture: Texture2D
@@ -18,6 +21,7 @@ var target_mesh_rot: Vector3
 var original_pivot_rot: Vector3
 var target_pivot_rot: Vector3
 var original_pos: Vector3
+var original_rot: Vector3
 
 func _ready() -> void:
 	super._ready()
@@ -26,11 +30,18 @@ func _ready() -> void:
 	original_pivot_rot = rotation_degrees
 	target_pivot_rot = original_pivot_rot
 	original_pos = position
+	original_rot = rotation_degrees
 
 func _process(dt: float) -> void:
 	mesh.rotation_degrees = lerp(mesh.rotation_degrees, target_mesh_rot, 5.0 * dt)
 	pivot.rotation_degrees = lerp(pivot.rotation_degrees, target_pivot_rot, 5.0 * dt)
-	position.y = original_pos.y + sin(Clock.time * 3.0) * 0.05
+
+	if is_winding_up:
+		position = position.lerp(wind_up_pos, 10.0 * dt)
+		rotation_degrees = rotation_degrees.lerp(wind_up_rot, 10.0 * dt)
+	else:
+		position = position.lerp(original_pos, 10.0 * dt)
+		rotation_degrees = rotation_degrees.lerp(original_rot, 10.0 * dt)
 
 func fire():
 	super.fire()
@@ -82,11 +93,12 @@ func fire():
 
 func secondary_fire():
 	# wind up
-	mesh.rotation_degrees.z = -540.0
+	is_winding_up = true
+	# mesh.rotation_degrees.z = -540.0
 
-func secondary_fire_release():
+func secondary_fire_released():
 	# throw the gun
-	pass
+	is_winding_up = false
 
 func _on_animation_timer_timeout() -> void:
 	var mat = display.mesh.surface_get_material(0)
