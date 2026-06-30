@@ -36,7 +36,8 @@ func come_back():
 
 func _process(dt: float) -> void:
 	if is_caught: return
-	rotation_degrees.y += (-spin_speed if is_bounce_back else spin_speed) * dt
+	var spin_dir = (-1 if is_bounce_back else 1)
+	rotation_degrees.y += spin_speed * spin_dir * dt
 
 func _physics_process(dt: float) -> void:
 	if is_caught: return
