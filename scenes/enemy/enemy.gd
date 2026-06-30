@@ -13,6 +13,6 @@ func take_damage(damage: int):
 		Clock.hitstop(0.08)
 
 func die():
-	await Clock.hitstop(0.15)
-	Clock.set_time_scale(0.0)
 	queue_free()
+	await Clock.hitstop(0.15)
+	# Clock.set_time_scale(0.0)

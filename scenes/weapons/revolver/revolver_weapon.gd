@@ -133,6 +133,9 @@ func _on_boomerang_caught():
 	mesh.visible = true
 	process_mode = Node.PROCESS_MODE_INHERIT
 
+	fire_timer.start()
+	has_reloaded = false
+
 func _on_animation_timer_timeout() -> void:
 	var mat = display.mesh.surface_get_material(0)
 	if mat:
