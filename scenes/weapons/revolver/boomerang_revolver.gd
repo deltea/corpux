@@ -11,6 +11,7 @@ const RETURN_ACCELERATION = 120.0
 var is_returning = false
 var is_caught = false
 var is_slowing = false
+var is_bounce_back = false
 var dir = Vector3.FORWARD
 var home: Node3D
 var distance_travelled = 0.0
@@ -35,7 +36,7 @@ func come_back():
 
 func _process(dt: float) -> void:
 	if is_caught: return
-	rotation_degrees.y += spin_speed * dt
+	rotation_degrees.y += (-spin_speed if is_bounce_back else spin_speed) * dt
 
 func _physics_process(dt: float) -> void:
 	if is_caught: return
@@ -89,3 +90,4 @@ func _on_hit_area_body_entered(body: Node3D) -> void:
 func _on_bounce_back_area_body_entered(body: Node3D) -> void:
 	if not body is Enemy and not body is Player:
 		is_returning = true
+		is_bounce_back = true
