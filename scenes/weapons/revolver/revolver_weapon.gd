@@ -20,6 +20,7 @@ var is_winding_up = false
 var wind_up_time = 0.0
 # a value from 0 to 1 that specifies how charged up the throw is
 var wind_up_amount = 0.0
+var can_fire = true
 
 var original_mesh_rot: Vector3
 var target_mesh_rot: Vector3
@@ -53,6 +54,8 @@ func _process(dt: float) -> void:
 		rotation_degrees = rotation_degrees.lerp(original_rot, 10.0 * dt)
 
 func fire():
+	if not can_fire: return
+
 	super.fire()
 
 	mesh.rotation_degrees.z = -12.0
@@ -100,24 +103,35 @@ func fire():
 	tween.chain().tween_callback(hitscan_line.queue_free)
 	tween.tween_callback(muzzle_flash.queue_free)
 
+# start wind up
 func secondary_fire():
-	# wind up
+	if not can_fire: return
 	is_winding_up = true
 
+# throw the gun
 func secondary_fire_released():
-	# throw the gun
+	if not can_fire: return
+
+	# hide and pause the actual revolver
+	mesh.visible = false
+	process_mode = Node.PROCESS_MODE_DISABLED
+
+	var boomerang = boomerang_scene.instantiate() as BoomerangRevolver
+	get_tree().current_scene.add_child(boomerang)
+	boomerang.caught.connect(_on_boomerang_caught)
+	boomerang.global_position = mesh.global_position
+	boomerang.global_rotation = mesh.global_rotation
+	boomerang.throw(player.get_look_dir(), wind_up_amount, mesh)
+
+	can_fire = false
 	is_winding_up = false
 	wind_up_amount = 0.0
 	wind_up_time = 0.0
 
-	# hide the actual revolver
-	mesh.visible = false
-
-	var boomerang = boomerang_scene.instantiate() as BoomerangRevolver
-	get_tree().current_scene.add_child(boomerang)
-	boomerang.global_position = mesh.global_position
-	boomerang.global_rotation = mesh.global_rotation
-	boomerang.throw(player.get_look_dir(), player)
+func _on_boomerang_caught():
+	can_fire = true
+	mesh.visible = true
+	process_mode = Node.PROCESS_MODE_INHERIT
 
 func _on_animation_timer_timeout() -> void:
 	var mat = display.mesh.surface_get_material(0)

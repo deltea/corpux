@@ -6,7 +6,7 @@ signal weapon_shake(strength: float, duration: float)
 
 @onready var fire_timer: Timer = $FireTimer
 
-var can_fire = true
+var has_reloaded = true
 var cam: Camera
 var player: Player
 
@@ -14,12 +14,12 @@ func _ready() -> void:
 	fire_timer.wait_time = 1.0 / fire_rate
 
 func trigger_fire():
-	if can_fire:
+	if has_reloaded:
 		fire()
 
 func fire():
 	fire_timer.start()
-	can_fire = false
+	has_reloaded = false
 
 func secondary_fire():
 	pass
@@ -28,4 +28,4 @@ func secondary_fire_released():
 	pass
 
 func _on_fire_timer_timeout() -> void:
-	can_fire = true
+	has_reloaded = true

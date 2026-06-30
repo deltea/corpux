@@ -1,25 +1,82 @@
 class_name BoomerangRevolver extends Area3D
 
-var is_returning = false
-var dir = Vector3.FORWARD
-var player: Player
+const MAX_SPEED = 45.0
+const MAX_SPIN_SPEED = 2000.0
+const MAX_DISTANCE = 20.0
+const DECELERATION = 250.0
+const RETURN_ACCELERATION = 100.0
 
-var speed = 15.0
-var spin_speed = 3000.0
+@export var distance_curve: Curve
+
+var is_returning = false
+var is_caught = false
+var is_slowing = false
+var dir = Vector3.FORWARD
+var home: Node3D
+var distance_travelled = 0.0
+
+var speed = 0.0
+var target_distance = 0.0
+var spin_speed = 0.0
+
+var original_rot: Vector3
+var original_pos: Vector3
+
+signal caught()
 
 func _ready() -> void:
 	# make sure its rotated correctly
-	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
 	tween.tween_property(self, "global_rotation:x", -PI/2, 0.5)
 	tween.tween_property(self, "global_rotation:z", 0.0, 0.5)
 
+func come_back():
+	is_returning = true
+
 func _process(dt: float) -> void:
+	if is_caught: return
 	rotation_degrees.y += spin_speed * dt
 
 func _physics_process(dt: float) -> void:
-	var velocity = dir * speed * dt
-	global_position += velocity
+	if is_caught: return
+	if is_returning:
+		speed += RETURN_ACCELERATION * dt
+		var target_pos = home.global_position
+		var to_target = global_position.direction_to(target_pos)
 
-func throw(throw_dir: Vector3, player_ref: Player):
+		global_position += to_target * speed * dt
+
+		if global_position.distance_to(target_pos) < 1.0:
+			catch()
+	else:
+		var velocity = dir * speed * dt
+		global_position += velocity
+		distance_travelled += velocity.length()
+
+		if distance_travelled >= target_distance:
+			is_slowing = true
+		if is_slowing:
+			speed = max(speed - DECELERATION * dt, 0.0)
+			if speed <= 0.0:
+				is_returning = true
+
+func catch():
+	is_caught = true
+	speed = 0.0
+	spin_speed = 0.0
+	caught.emit()
+	queue_free()
+
+## throw_force is a value from 0 to 1
+func throw(throw_dir: Vector3, throw_force: float, return_node: Node3D):
+	original_rot = global_rotation
+	original_pos = global_position
+
 	dir = throw_dir.normalized()
-	player = player_ref
+	home = return_node
+
+	speed = MAX_SPEED
+	target_distance = distance_curve.sample_baked(throw_force) * MAX_DISTANCE
+	spin_speed = MAX_SPIN_SPEED
+
+	print(throw_force)
