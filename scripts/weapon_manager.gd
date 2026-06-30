@@ -36,7 +36,7 @@ func _process(dt: float) -> void:
 	else:
 		shake_duration = 0
 
-	# position.y = position.y + sin(Clock.time * 3.0) * 0.05
+	position.y = position.y + sin(Clock.time * 3.0) * 0.05
 
 func _on_weapon_shake(strength: float, duration: float):
 	shake_strength = strength
