@@ -121,6 +121,9 @@ func slam():
 	velocity.x = 0
 	velocity.z = 0
 
+func get_look_dir():
+	return Vector3.FORWARD.rotated(Vector3.RIGHT, head.rotation.x).rotated(Vector3.UP, rotation.y).normalized()
+
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false
 	velocity.x = dash_dir.x * 20

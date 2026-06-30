@@ -9,6 +9,7 @@ const MAX_WIND_UP_TIME = 1.0
 @export var line_scene: PackedScene
 @export var muzzle_flash_texture: Texture2D
 @export var hit_particle_scene: PackedScene
+@export var boomerang_scene: PackedScene
 
 @onready var ray: RayCast3D = $RayCast
 @onready var display: MeshInstance3D = $Pivot/revolver/Cube_004
@@ -102,13 +103,21 @@ func fire():
 func secondary_fire():
 	# wind up
 	is_winding_up = true
-	# mesh.rotation_degrees.z = -540.0
 
 func secondary_fire_released():
 	# throw the gun
 	is_winding_up = false
 	wind_up_amount = 0.0
 	wind_up_time = 0.0
+
+	# hide the actual revolver
+	mesh.visible = false
+
+	var boomerang = boomerang_scene.instantiate() as BoomerangRevolver
+	get_tree().current_scene.add_child(boomerang)
+	boomerang.global_position = mesh.global_position
+	boomerang.global_rotation = mesh.global_rotation
+	boomerang.throw(player.get_look_dir(), player)
 
 func _on_animation_timer_timeout() -> void:
 	var mat = display.mesh.surface_get_material(0)

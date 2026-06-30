@@ -8,6 +8,7 @@ signal weapon_shake(strength: float, duration: float)
 
 var can_fire = true
 var cam: Camera
+var player: Player
 
 func _ready() -> void:
 	fire_timer.wait_time = 1.0 / fire_rate

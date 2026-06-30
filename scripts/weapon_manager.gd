@@ -3,6 +3,7 @@ class_name WeaponManager extends Node3D
 const SHAKE_DAMP_SPEED = 2.0
 
 @export var cam: Camera
+@export var player: Player
 @export var equipped_weapon: Weapon
 
 var shake_duration = 0
@@ -15,6 +16,7 @@ func _ready() -> void:
 
 func equip_weapon(weapon: Weapon):
 	weapon.cam = cam
+	weapon.player = player
 	weapon.weapon_shake.connect(_on_weapon_shake)
 
 func _process(dt: float) -> void:

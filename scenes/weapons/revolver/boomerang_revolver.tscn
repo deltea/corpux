@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://c7jtelsqoyjg1"]
+
+[ext_resource type="Script" uid="uid://dihait3xp602" path="res://scenes/weapons/revolver/boomerang_revolver.gd" id="1_v5qf2"]
+[ext_resource type="PackedScene" uid="uid://51ja0nr0ujmj" path="res://assets/models/weapons/revolver.blend" id="2_kypvd"]
+[ext_resource type="Texture2D" uid="uid://bwgbfbt72xidb" path="res://assets/textures/weapons/revolver/revolver.png" id="3_4k7hg"]
+[ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="4_iyp7i"]
+[ext_resource type="Texture2D" uid="uid://dur1ekjkyq2ut" path="res://assets/textures/weapons/revolver/revolver-handle.png" id="5_iyp7i"]
+[ext_resource type="Texture2D" uid="uid://hbgv12k6oa6k" path="res://assets/textures/weapons/revolver/revolver-display.png" id="6_het4p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v5qf2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_het4p"]
+shading_mode = 2
+diffuse_mode = 2
+albedo_texture = ExtResource("3_4k7hg")
+emission_enabled = true
+emission = Color(0.43904907, 0.43904915, 0.43904895, 1)
+emission_operator = 1
+emission_texture = ExtResource("3_4k7hg")
+heightmap_texture = ExtResource("4_iyp7i")
+uv1_triplanar_sharpness = 1e-05
+texture_filter = 4
+z_clip_scale = 0.9
+distance_fade_min_distance = 25.0
+distance_fade_max_distance = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_arx16"]
+shading_mode = 2
+diffuse_mode = 2
+albedo_texture = ExtResource("5_iyp7i")
+heightmap_texture = ExtResource("4_iyp7i")
+uv1_world_triplanar = true
+texture_filter = 4
+z_clip_scale = 0.9
+distance_fade_min_distance = 25.0
+distance_fade_max_distance = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iyp7i"]
+shading_mode = 2
+diffuse_mode = 2
+albedo_color = Color(0.9843137, 0.043137256, 0.45490196, 1)
+heightmap_texture = ExtResource("4_iyp7i")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 4
+z_clip_scale = 0.9
+distance_fade_min_distance = 25.0
+distance_fade_max_distance = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4yn4"]
+diffuse_mode = 2
+albedo_texture = ExtResource("6_het4p")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.2
+emission_operator = 1
+emission_texture = ExtResource("6_het4p")
+heightmap_texture = ExtResource("4_iyp7i")
+uv1_scale = Vector3(39.725, 10.884, 20.552)
+texture_filter = 4
+z_clip_scale = 0.9
+distance_fade_min_distance = 25.0
+distance_fade_max_distance = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q00io"]
+shading_mode = 2
+diffuse_mode = 2
+albedo_color = Color(0.9843137, 0.043137256, 0.45490196, 1)
+heightmap_texture = ExtResource("4_iyp7i")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 4
+z_clip_scale = 0.9
+distance_fade_min_distance = 25.0
+distance_fade_max_distance = 5.0
+
+[node name="BoomerangRevolver" type="Area3D" unique_id=1578523458]
+script = ExtResource("1_v5qf2")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=958489808]
+shape = SubResource("BoxShape3D_v5qf2")
+
+[node name="revolver" parent="." unique_id=465571423 instance=ExtResource("2_kypvd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.49999997, 0, 0, 0, 0.49999997, 0, 0, 0)
+
+[node name="Cube" parent="revolver" index="1" unique_id=1274230005]
+material_override = SubResource("StandardMaterial3D_het4p")
+cast_shadow = 0
+
+[node name="Cube_001" parent="revolver" index="2" unique_id=619656397]
+material_override = SubResource("StandardMaterial3D_arx16")
+cast_shadow = 0
+
+[node name="Cube_002" parent="revolver" index="3" unique_id=1989549320]
+material_override = SubResource("StandardMaterial3D_iyp7i")
+cast_shadow = 0
+
+[node name="Cube_003" parent="revolver" index="4" unique_id=603260495]
+cast_shadow = 0
+
+[node name="Cube_004" parent="revolver" index="5" unique_id=47605910]
+material_override = SubResource("StandardMaterial3D_d4yn4")
+cast_shadow = 0
+
+[node name="Cube_005" parent="revolver" index="6" unique_id=679613751]
+material_override = SubResource("StandardMaterial3D_q00io")
+cast_shadow = 0
+
+[editable path="revolver"]
