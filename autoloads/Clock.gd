@@ -14,7 +14,7 @@ func _process(dt: float) -> void:
 
 	time += unscaled_dt
 	if not is_hitstopping:
-		Engine.time_scale = move_toward(Engine.time_scale, target_time_scale, 0.05)
+		Engine.time_scale = move_toward(Engine.time_scale, target_time_scale, 0.04)
 
 func set_time_scale(value: float):
 	Engine.time_scale = value

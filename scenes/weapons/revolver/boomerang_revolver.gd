@@ -1,10 +1,10 @@
-class_name BoomerangRevolver extends Area3D
+class_name BoomerangRevolver extends Node3D
 
 const MAX_SPEED = 45.0
 const MAX_SPIN_SPEED = 2000.0
-const MAX_DISTANCE = 20.0
+const MAX_DISTANCE = 40.0
 const DECELERATION = 250.0
-const RETURN_ACCELERATION = 100.0
+const RETURN_ACCELERATION = 120.0
 
 @export var distance_curve: Curve
 
@@ -80,3 +80,13 @@ func throw(throw_dir: Vector3, throw_force: float, return_node: Node3D):
 	spin_speed = MAX_SPIN_SPEED
 
 	print(throw_force)
+
+
+func _on_hit_area_body_entered(body: Node3D) -> void:
+	if body is Enemy:
+		body.take_damage(2.0)
+
+func _on_bounce_back_area_body_entered(body: Node3D) -> void:
+	if not body is Enemy and not body is Player:
+		is_returning = true
+
