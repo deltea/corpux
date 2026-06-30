@@ -1,5 +1,7 @@
 class_name Weapon extends Node3D
 
+signal weapon_shake(strength: float, duration: float)
+
 @export var fire_rate = 4.0
 
 @onready var fire_timer: Timer = $FireTimer

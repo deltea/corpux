@@ -1,5 +1,7 @@
 class_name RevolverWeapon extends Weapon
 
+const MAX_WIND_UP_TIME = 1.0
+
 @export var wind_up_pos = Vector3.ZERO
 @export var wind_up_rot = Vector3.ZERO
 
@@ -14,6 +16,9 @@ class_name RevolverWeapon extends Weapon
 @onready var pivot: Node3D = $Pivot
 
 var is_winding_up = false
+var wind_up_time = 0.0
+# a value from 0 to 1 that specifies how charged up the throw is
+var wind_up_amount = 0.0
 
 var original_mesh_rot: Vector3
 var target_mesh_rot: Vector3
@@ -37,8 +42,11 @@ func _process(dt: float) -> void:
 	pivot.rotation_degrees = lerp(pivot.rotation_degrees, target_pivot_rot, 5.0 * dt)
 
 	if is_winding_up:
+		wind_up_time = clampf(wind_up_time + dt, 0.0, MAX_WIND_UP_TIME)
+		wind_up_amount = wind_up_time / MAX_WIND_UP_TIME
 		position = position.lerp(wind_up_pos, 10.0 * dt)
 		rotation_degrees = rotation_degrees.lerp(wind_up_rot, 10.0 * dt)
+		weapon_shake.emit(wind_up_amount * 0.02, 0.01)
 	else:
 		position = position.lerp(original_pos, 10.0 * dt)
 		rotation_degrees = rotation_degrees.lerp(original_rot, 10.0 * dt)
@@ -99,6 +107,8 @@ func secondary_fire():
 func secondary_fire_released():
 	# throw the gun
 	is_winding_up = false
+	wind_up_amount = 0.0
+	wind_up_time = 0.0
 
 func _on_animation_timer_timeout() -> void:
 	var mat = display.mesh.surface_get_material(0)

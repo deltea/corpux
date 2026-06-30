@@ -33,5 +33,5 @@ func _process(dt: float) -> void:
 		shake_duration = 0
 
 func shake(strength: float, duration: float):
-	shake_duration = duration
 	shake_strength = strength
+	shake_duration = duration
