@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bv73afkyloofe" path="res://assets/textures/vending-machine/:3.png" id="2_jt1ca"]
 [ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="4_1lndu"]
 [ext_resource type="Shader" uid="uid://d3qweaiaq824q" path="res://shaders/squigglevision.gdshader" id="5_1lndu"]
+[ext_resource type="Shader" uid="uid://c2qdlk2arkcl" path="res://shaders/pixelate.gdshader" id="6_1lndu"]
+[ext_resource type="Shader" uid="uid://bh35xhlkurn6c" path="res://shaders/grid.gdshader" id="7_nwh60"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_d25df"]
 viewport_path = NodePath("../SubViewport")
@@ -42,6 +44,17 @@ shader_parameter/strength = 0.5
 shader_parameter/fps = 10.0
 shader_parameter/noise = SubResource("NoiseTexture2D_1lndu")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8prie"]
+shader = ExtResource("7_nwh60")
+shader_parameter/size = Vector2(256, 256)
+shader_parameter/line_width = 0.10000000475
+shader_parameter/offset = Vector2(1, 0)
+shader_parameter/grid_size = 16.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nwh60"]
+shader = ExtResource("6_1lndu")
+shader_parameter/pixelSize = 1
+
 [node name="VendingMachine" type="Node3D" unique_id=1780406410]
 script = ExtResource("1_d25df")
 
@@ -61,7 +74,15 @@ render_target_update_mode = 4
 [node name="Camera2D" type="Camera2D" parent="SubViewport" unique_id=1858306218]
 position = Vector2(128, 128)
 
-[node name="TextureRect" type="TextureRect" parent="SubViewport" unique_id=1008051037]
+[node name="Background" type="ColorRect" parent="SubViewport" unique_id=948645108]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0024153937, 0.44074532, 0.83746773, 1)
+
+[node name="Face" type="TextureRect" parent="SubViewport" unique_id=1008051037]
 material = SubResource("ShaderMaterial_1lndu")
 anchors_preset = 15
 anchor_right = 1.0
@@ -69,5 +90,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_jt1ca")
+
+[node name="Grid" type="ColorRect" parent="SubViewport" unique_id=171969010]
+visible = false
+material = SubResource("ShaderMaterial_8prie")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.60784316)
+
+[node name="Pixelation" type="ColorRect" parent="SubViewport" unique_id=350721804]
+visible = false
+material = SubResource("ShaderMaterial_nwh60")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [editable path="vending_machine"]
