@@ -17,6 +17,7 @@ line_scene = ExtResource("3_ye3qc")
 muzzle_flash_texture = ExtResource("4_8xfrp")
 hit_particle_scene = ExtResource("5_2aah6")
 boomerang_scene = ExtResource("6_8xfrp")
+fire_rate = 2.0
 
 [node name="AnimationTimer" type="Timer" parent="." index="1" unique_id=1666841824]
 wait_time = 0.25
@@ -33,22 +34,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6375143, -0.23853329, -3.30
 [node name="revolver" parent="Pivot" index="0" unique_id=1579868623 instance=ExtResource("3_td1f2")]
 transform = Transform3D(-0.021809712, -0.069520324, -0.49466276, 0, 0.49513403, -0.06958655, 0.49952412, -0.0030353253, -0.021597462, 0.64565444, -0.845, -1.805)
 
-[node name="Cube" parent="Pivot/revolver" index="1" unique_id=1274230005]
+[node name="Cube" parent="Pivot/revolver" index="1" unique_id=1693931436]
 cast_shadow = 0
 
-[node name="Cube_001" parent="Pivot/revolver" index="2" unique_id=619656397]
+[node name="Cube_001" parent="Pivot/revolver" index="2" unique_id=1674710541]
 cast_shadow = 0
 
-[node name="Cube_002" parent="Pivot/revolver" index="3" unique_id=1989549320]
+[node name="Cube_002" parent="Pivot/revolver" index="3" unique_id=2119098037]
 cast_shadow = 0
 
-[node name="Cube_003" parent="Pivot/revolver" index="4" unique_id=603260495]
+[node name="Cube_003" parent="Pivot/revolver" index="4" unique_id=1416010190]
 cast_shadow = 0
 
-[node name="Cube_004" parent="Pivot/revolver" index="5" unique_id=47605910]
+[node name="Cube_004" parent="Pivot/revolver" index="5" unique_id=1161327127]
 cast_shadow = 0
 
-[node name="Cube_005" parent="Pivot/revolver" index="6" unique_id=679613751]
+[node name="Cube_005" parent="Pivot/revolver" index="6" unique_id=1249252785]
 cast_shadow = 0
 
 [connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]

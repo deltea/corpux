@@ -74,6 +74,7 @@ mouse_filter = 1
 copy_mode = 2
 
 [node name="Pixelate" type="ColorRect" parent="." unique_id=137189708]
+visible = false
 material = SubResource("ShaderMaterial_ew6pu")
 anchors_preset = 15
 anchor_right = 1.0

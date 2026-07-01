@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b37fviso38m6s"]
 
 [ext_resource type="PackedScene" uid="uid://d71n5obdy5ou" path="res://scenes/player/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://5e52h1xfprfs" path="res://assets/models/vending_machine.blend" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://ocuhsoy0n3b3" path="res://scenes/environment/wall.tscn" id="9_4c57u"]
 [ext_resource type="PackedScene" uid="uid://bb0lxurjv7u4s" path="res://scenes/environment/sun.tscn" id="10_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ccedxpdllf06q" path="res://scenes/environment/arch.tscn" id="10_dg77c"]
@@ -173,3 +174,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 1.5, 49)
 
 [node name="BasicEnemy8" parent="Environment/Enemies" unique_id=2033221946 instance=ExtResource("11_efxa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.5, 49)
+
+[node name="vending_machine" parent="." unique_id=1950051130 instance=ExtResource("8_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.400001, 2.5, 1.6)
