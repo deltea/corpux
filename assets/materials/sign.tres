@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cpp0dlh2i36ek"]
+
+[ext_resource type="Texture2D" uid="uid://dcmoqk30pahji" path="res://assets/textures/sign.png" id="1_dctdv"]
+[ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="1_pabxp"]
+
+[resource]
+shading_mode = 2
+albedo_texture = ExtResource("1_dctdv")
+emission = Color(0.4392157, 0.4392157, 0.4392157, 1)
+heightmap_texture = ExtResource("1_pabxp")
+uv1_world_triplanar = true
+texture_filter = 4
+distance_fade_min_distance = 25.0
+distance_fade_max_distance = 5.0

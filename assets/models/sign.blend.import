@@ -39,7 +39,20 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"Pole": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/standard.tres",
+"use_external/path": "uid://buvjk5gg3qgni"
+},
+"Sign": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/sign.tres",
+"use_external/path": "uid://cpp0dlh2i36ek"
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
