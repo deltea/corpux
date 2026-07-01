@@ -182,13 +182,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.400001, 2.5, 1.6)
 [node name="sign" parent="." unique_id=1691619658 instance=ExtResource("9_kek77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 6, -9)
 
-[node name="Empty" parent="sign" index="0" unique_id=1289512447]
+[node name="Empty" parent="sign" index="0" unique_id=1907911669]
 transform = Transform3D(-0.5, 2.1855694e-08, 0, 0, 0, -0.5, -2.1855694e-08, -0.5, 0, 0.057425022, -0.6645727, -0.057424545)
 
-[node name="Cube_001" parent="sign" index="1" unique_id=4426035]
+[node name="Cube_001" parent="sign" index="1" unique_id=1079789676]
 transform = Transform3D(-3.048229e-08, 0, -0.5, 0, 0.5, 0, 0.6973535, 0, -2.1855694e-08, 0.057425022, -0.6645727, 0.114850044)
 
-[node name="Cylinder" parent="sign" index="2" unique_id=1763522019]
+[node name="Cylinder" parent="sign" index="2" unique_id=1192311550]
 transform = Transform3D(-4.748274e-09, 0, -0.10862785, 0, 2.8829448, 0, 0.10862785, 0, -4.748274e-09, 0.057425022, -3.322863, -0.057424545)
 
+[editable path="vending_machine"]
 [editable path="sign"]

@@ -6,7 +6,9 @@
 [resource]
 shading_mode = 2
 albedo_texture = ExtResource("1_dctdv")
-emission = Color(0.4392157, 0.4392157, 0.4392157, 1)
+emission = Color(0.63375676, 0.6337568, 0.63375676, 1)
+emission_operator = 1
+emission_texture = ExtResource("1_dctdv")
 heightmap_texture = ExtResource("1_pabxp")
 uv1_world_triplanar = true
 texture_filter = 4
