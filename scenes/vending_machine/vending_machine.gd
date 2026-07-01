@@ -1,0 +1,1 @@
+class_name VendingMachine extends Node3D

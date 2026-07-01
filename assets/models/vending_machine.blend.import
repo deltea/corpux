@@ -51,8 +51,13 @@ _subresources={
 "use_external/fallback_path": "res://assets/materials/vending-machine/vending-machine-base.tres",
 "use_external/path": "uid://c0gj4mddh0ifx"
 },
-"Screen": {
+"Handle": {
 "use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/standard.tres",
+"use_external/path": "uid://buvjk5gg3qgni"
+},
+"Screen": {
+"use_external/enabled": false,
 "use_external/fallback_path": "res://assets/materials/vending-machine/vending-machine-screen.tres",
 "use_external/path": "uid://d3e4s8l7ujvyu"
 }
