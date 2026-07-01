@@ -4,6 +4,13 @@ const BASE_SMEAR = 1.0
 
 @onready var crt: ColorRect = $CRT
 @onready var blur: ColorRect = $Blur
+@onready var pixelate: ColorRect = $Pixelate
+
+
+func _ready() -> void:
+	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
+	tween.tween_property(pixelate.material, "shader_parameter/pixel_grid_size", Vector2.ONE * 1000.0, 1.0)
+	tween.chain().tween_callback(func(): pixelate.visible = false)
 
 func set_smear(amount: float):
 	crt.material.set_shader_parameter("luma_smear_px", BASE_SMEAR + amount)
