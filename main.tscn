@@ -189,6 +189,6 @@ transform = Transform3D(-3.048229e-08, 0, -0.5, 0, 0.5, 0, 0.6973535, 0, -2.1855
 transform = Transform3D(-4.748274e-09, 0, -0.10862785, 0, 2.8829448, 0, 0.10862785, 0, -4.748274e-09, 0.057425022, -3.322863, -0.057424545)
 
 [node name="VendingMachine" parent="." unique_id=1780406410 instance=ExtResource("9_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.414501, 2.4754236, -0.3857429)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.44449, 2.4754236, -0.5204159)
 
 [editable path="sign"]
