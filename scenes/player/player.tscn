@@ -24,14 +24,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Camera" parent="Head" unique_id=774764019 instance=ExtResource("2_dovo2")]
 
-[node name="WeaponManager" type="Node3D" parent="Head/Camera" unique_id=85155597 node_paths=PackedStringArray("cam", "player", "equipped_weapon")]
+[node name="WeaponManager" type="Node3D" parent="Head/Camera" unique_id=85155597 node_paths=PackedStringArray("cam", "player")]
 script = ExtResource("3_gmlin")
 cam = NodePath("..")
 player = NodePath("../../..")
-equipped_weapon = NodePath("RevolverWeapon")
-
-[node name="RevolverWeapon" parent="Head/Camera/WeaponManager" unique_id=626467644 instance=ExtResource("4_lvxji")]
-wind_up_pos = Vector3(0.5, -2, -0.5)
-wind_up_rot = Vector3(75, 0, -20)
+revolver_scene = ExtResource("4_lvxji")
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

@@ -45,8 +45,11 @@ func _on_dialogue_line_changed(line: DialogueLineResource):
 	set_status(line.status)
 
 func _on_dialogue_ended():
-	await Clock.wait(1.0)
-	set_status("neutral")
+	if is_in_range:
+		set_status("interact")
+	else:
+		await Clock.wait(1.0)
+		set_status("neutral")
 
 func _on_dialogue_area_body_entered(body: Node3D) -> void:
 	if not body is Player: return

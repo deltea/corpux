@@ -14,8 +14,8 @@ point_count = 2
 
 [node name="RevolverWeapon" unique_id=626467644 node_paths=PackedStringArray("fire_point") instance=ExtResource("1_kves2")]
 script = ExtResource("2_icgrj")
-wind_up_pos = Vector3(0, 0, 0)
-wind_up_rot = Vector3(0, 0, 0)
+wind_up_pos = Vector3(0.5, -2, -0.5)
+wind_up_rot = Vector3(75, 0, -20)
 throw_distance_curve = SubResource("Curve_lvxji")
 fire_point = NodePath("FirePoint")
 line_scene = ExtResource("3_ye3qc")
