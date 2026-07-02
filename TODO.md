@@ -1,5 +1,5 @@
-- better system for bini expressions
 - disable weapon when dialogue
 - weapon disable animation
 - enemy model
 - animal crossing dialogue sfx
+- [x] better system for bini expressions

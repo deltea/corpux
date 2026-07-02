@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkvf7cvjn4xfi"
-path="res://.godot/imported/corner-dither.png-c68c60f5a99bfac6db25bf14740196cf.ctex"
+uid="uid://e2psceu43g52"
+path="res://.godot/imported/dither-edges.png-35ca241afa0d970e4d3934d9dd0adacd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ui/corner-dither.png"
-dest_files=["res://.godot/imported/corner-dither.png-c68c60f5a99bfac6db25bf14740196cf.ctex"]
+source_file="res://assets/textures/ui/dither-edges.png"
+dest_files=["res://.godot/imported/dither-edges.png-35ca241afa0d970e4d3934d9dd0adacd.ctex"]
 
 [params]
 
