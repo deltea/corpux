@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b37fviso38m6s"]
 
 [ext_resource type="PackedScene" uid="uid://d71n5obdy5ou" path="res://scenes/player/player.tscn" id="1_ig7tw"]
+[ext_resource type="Material" uid="uid://cw65bu2jitrap" path="res://assets/materials/floor.tres" id="7_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ocuhsoy0n3b3" path="res://scenes/environment/wall.tscn" id="9_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ce1ter0sesihi" path="res://scenes/vending_machine/vending_machine.tscn" id="9_efxa6"]
 [ext_resource type="PackedScene" uid="uid://bueq82vu6rub3" path="res://assets/models/sign.blend" id="9_kek77"]
@@ -130,6 +131,24 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.1
 use_collision = true
 size = Vector3(40, 9, 40)
 material = ExtResource("10_ycdy4")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Environment/Obstacles" unique_id=1587508141]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77, 20, 103)
+use_collision = true
+size = Vector3(6, 40, 160)
+material = ExtResource("7_4c57u")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Environment/Obstacles" unique_id=1318878155]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 20, 180)
+use_collision = true
+size = Vector3(6, 40, 160)
+material = ExtResource("7_4c57u")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Environment/Obstacles" unique_id=618438764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77, 20, 103)
+use_collision = true
+size = Vector3(6, 40, 160)
+material = ExtResource("7_4c57u")
 
 [node name="Enemies" type="Node" parent="Environment" unique_id=2137425582]
 

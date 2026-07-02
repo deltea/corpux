@@ -1,6 +1,7 @@
 class_name DialogueBox extends Control
 
 const TYPE_SPEED = 0.02
+const CLOSED_Y_POS = 384.0
 
 @onready var dither: TextureRect = $DitherTransition
 @onready var background: ColorRect = $Background
@@ -41,12 +42,12 @@ func clear():
 
 func animate_open():
 	var t = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
-	position.y = 320.0
+	position.y = CLOSED_Y_POS
 	t.tween_property(self, "position:y", 0.0, 0.5)
 	await t.finished
 
 func animate_close():
-	var t = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN)
+	var t = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 	position.y = 0.0
-	t.tween_property(self, "position:y", 320.0, 0.5)
+	t.tween_property(self, "position:y", CLOSED_Y_POS, 0.5)
 	await t.finished

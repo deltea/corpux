@@ -22,6 +22,9 @@ func set_time_scale(value: float):
 func hitstop(amount: float):
 	is_hitstopping = true
 	Engine.time_scale = 0.0
-	await get_tree().create_timer(amount, true, false, true).timeout
+	await wait(amount)
 	is_hitstopping = false
 	Engine.time_scale = 1.0
+
+func wait(duration: float):
+	await get_tree().create_timer(duration, true, false, true).timeout

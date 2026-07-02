@@ -2,6 +2,7 @@ extends CanvasLayer
 
 signal dialogue_started
 signal dialogue_ended
+signal dialogue_line_changed(line: DialogueLineResource)
 
 @export var dialogue_box_scene: PackedScene
 
@@ -43,6 +44,7 @@ func show_curr_line():
 	var line = dialogue.lines[curr_line]
 	dialogue_box.set_color(line.color)
 	dialogue_box.type_text(line.text)
+	dialogue_line_changed.emit(line)
 
 func end_dialogue():
 	if not is_active: return

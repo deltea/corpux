@@ -82,6 +82,8 @@ radius = 10.0
 [node name="VendingMachine" type="Node3D" unique_id=1780406410]
 script = ExtResource("1_d25df")
 dialogue = ExtResource("2_8prie")
+neutral_texture = ExtResource("4_2r6w6")
+happy_texture = ExtResource("2_jt1ca")
 
 [node name="vending_machine" parent="." unique_id=26569629 instance=ExtResource("1_tf6tk")]
 
