@@ -2,11 +2,16 @@ class_name VendingMachine extends Node3D
 
 @export var dialogue: DialogueResource
 
+@onready var face: TextureRect = $SubViewport/Face
+
 var is_in_range = false
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and is_in_range and not DialogueManager.is_active:
 		DialogueManager.start_dialogue(dialogue, self)
+
+func _process(dt: float) -> void:
+	face.position.y = sin(Clock.time * 3.0) * 5.0
 
 func _on_dialogue_area_body_entered(body: Node3D) -> void:
 	if not body is Player: return

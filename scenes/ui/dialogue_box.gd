@@ -5,10 +5,15 @@ const TYPE_SPEED = 0.02
 @onready var dither: TextureRect = $DitherTransition
 @onready var background: ColorRect = $Background
 @onready var label: RichTextLabel = $Text
+@onready var arrow: TextureRect = $Arrow
 
 var is_typing = false
 var curr_text: String
 var tween: Tween
+
+func _process(dt: float) -> void:
+	arrow.visible = not is_typing
+	arrow.position.x = 1792.0 + snappedf(sin(Clock.time * 5.0) * 5.0, 8.0)
 
 func set_color(color: Color):
 	dither.self_modulate = color
@@ -38,4 +43,10 @@ func animate_open():
 	var t = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 	position.y = 320.0
 	t.tween_property(self, "position:y", 0.0, 0.5)
+	await t.finished
+
+func animate_close():
+	var t = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN)
+	position.y = 0.0
+	t.tween_property(self, "position:y", 320.0, 0.5)
 	await t.finished

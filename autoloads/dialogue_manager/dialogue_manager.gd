@@ -46,6 +46,7 @@ func show_curr_line():
 
 func end_dialogue():
 	if not is_active: return
+	await dialogue_box.animate_close()
 	is_active = false
 	dialogue = null
 	remove_child(dialogue_box)
