@@ -19,8 +19,8 @@ spread = 40.0
 initial_velocity_min = 5.0
 initial_velocity_max = 8.0
 gravity = Vector3(0, -20, 0)
-scale_min = 0.59999996
-scale_max = 0.9
+scale_min = 0.39999998
+scale_max = 0.59999996
 scale_curve = SubResource("CurveTexture_kek77")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w48qg"]
