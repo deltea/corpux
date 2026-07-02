@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://c78syilfevl1x" path="res://assets/textures/ui/dither-transition.png" id="1_4c57u"]
 [ext_resource type="PackedScene" uid="uid://d71n5obdy5ou" path="res://scenes/player/player.tscn" id="1_ig7tw"]
 [ext_resource type="FontVariation" uid="uid://pecy731lxmai" path="res://assets/fonts/helvetica.tres" id="2_efxa6"]
-[ext_resource type="Texture2D" uid="uid://bi825ich4y81a" path="res://assets/textures/ui/9-slice.png" id="3_dg77c"]
 [ext_resource type="Texture2D" uid="uid://cjddx4vmxo6ij" path="res://assets/textures/ui/arrow.png" id="4_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://ocuhsoy0n3b3" path="res://scenes/environment/wall.tscn" id="9_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ce1ter0sesihi" path="res://scenes/vending_machine/vending_machine.tscn" id="9_efxa6"]
@@ -67,14 +66,15 @@ grow_vertical = 0
 texture = ExtResource("1_4c57u")
 stretch_mode = 1
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1545036808]
+[node name="DialogueBackground" type="ColorRect" parent="CanvasLayer" unique_id=1804318859]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -248.0
 offset_right = 1920.0
+offset_bottom = 8.0
 grow_vertical = 0
-color = Color(0.10010735, 0.36118293, 1, 1)
+color = Color(0.09803922, 0.36078432, 1, 1)
 
 [node name="Dialogue" type="RichTextLabel" parent="CanvasLayer" unique_id=464373315]
 offset_left = 64.0
@@ -89,17 +89,7 @@ text = "[wave]yooooooo[/wave] [shake]wsg twin[/shake]
 sybau bro"
 fit_content = true
 
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer" unique_id=980451108]
-offset_right = 39.0
-offset_bottom = 12.0
-scale = Vector2(8, 8)
-texture = ExtResource("3_dg77c")
-patch_margin_left = 5
-patch_margin_top = 5
-patch_margin_right = 5
-patch_margin_bottom = 5
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer" unique_id=1392302914]
+[node name="Arrow" type="TextureRect" parent="CanvasLayer" unique_id=1392302914]
 offset_left = 1792.0
 offset_top = 976.0
 offset_right = 1840.0

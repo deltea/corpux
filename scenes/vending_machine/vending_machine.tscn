@@ -8,21 +8,21 @@
 [ext_resource type="Shader" uid="uid://c2qdlk2arkcl" path="res://shaders/pixelate.gdshader" id="6_1lndu"]
 [ext_resource type="Shader" uid="uid://bh35xhlkurn6c" path="res://shaders/grid.gdshader" id="7_nwh60"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_d25df"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nwh60"]
 viewport_path = NodePath("../SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1lndu"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8prie"]
 viewport_path = NodePath("../SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwh60"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2r6w6"]
 resource_local_to_scene = true
 shading_mode = 2
-albedo_texture = SubResource("ViewportTexture_d25df")
+albedo_texture = SubResource("ViewportTexture_nwh60")
 emission_enabled = true
 emission = Color(0.15593728, 0.5614323, 0.99999994, 1)
 emission_energy_multiplier = 2.94
 emission_operator = 1
-emission_texture = SubResource("ViewportTexture_1lndu")
+emission_texture = SubResource("ViewportTexture_8prie")
 heightmap_texture = ExtResource("4_1lndu")
 detail_mask = ExtResource("2_jt1ca")
 uv1_scale = Vector3(0.4, 0.4, 0.4)
@@ -53,15 +53,15 @@ shader_parameter/grid_size = 16.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nwh60"]
 shader = ExtResource("6_1lndu")
-shader_parameter/pixelSize = 1
+shader_parameter/pixelSize = 4
 
 [node name="VendingMachine" type="Node3D" unique_id=1780406410]
 script = ExtResource("1_d25df")
 
 [node name="vending_machine" parent="." unique_id=26569629 instance=ExtResource("1_tf6tk")]
 
-[node name="Screen" parent="vending_machine" index="5" unique_id=1695467359]
-material_override = SubResource("StandardMaterial3D_nwh60")
+[node name="Screen" parent="vending_machine" index="5" unique_id=1771613927]
+material_override = SubResource("StandardMaterial3D_2r6w6")
 cast_shadow = 0
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=2115567630]
@@ -102,7 +102,6 @@ grow_vertical = 2
 color = Color(1, 1, 1, 0.60784316)
 
 [node name="Pixelation" type="ColorRect" parent="SubViewport" unique_id=350721804]
-visible = false
 material = SubResource("ShaderMaterial_nwh60")
 anchors_preset = 15
 anchor_right = 1.0

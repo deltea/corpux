@@ -17,7 +17,7 @@ line_scene = ExtResource("3_ye3qc")
 muzzle_flash_texture = ExtResource("4_8xfrp")
 hit_particle_scene = ExtResource("5_2aah6")
 boomerang_scene = ExtResource("6_8xfrp")
-fire_rate = 2.0
+fire_rate = 3.0
 
 [node name="AnimationTimer" type="Timer" parent="." index="1" unique_id=1666841824]
 wait_time = 0.25

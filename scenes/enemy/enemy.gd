@@ -14,5 +14,5 @@ func take_damage(damage: int):
 
 func die():
 	queue_free()
-	await Clock.hitstop(0.15)
-	# Clock.set_time_scale(0.0)
+	# await Clock.hitstop(0.15)
+	Clock.set_time_scale(0.0)
