@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://wlk51o7q737b"]
+
+[ext_resource type="Texture2D" uid="uid://c78syilfevl1x" path="res://assets/textures/ui/dither-transition.png" id="1_4mjmi"]
+[ext_resource type="Script" uid="uid://dlfm2cribcx6" path="res://scenes/ui/dialogue_box.gd" id="1_daetb"]
+[ext_resource type="FontVariation" uid="uid://pecy731lxmai" path="res://assets/fonts/helvetica.tres" id="2_daetb"]
+[ext_resource type="Texture2D" uid="uid://cjddx4vmxo6ij" path="res://assets/textures/ui/arrow.png" id="3_h44io"]
+
+[node name="DialogueBox" type="Control" unique_id=666881414]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_daetb")
+
+[node name="DitherTransition" type="TextureRect" parent="." unique_id=1785971575]
+self_modulate = Color(0.09803922, 0.36078432, 1, 1)
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -384.0
+offset_right = 960.0
+offset_bottom = -256.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_4mjmi")
+stretch_mode = 1
+
+[node name="Background" type="ColorRect" parent="." unique_id=928322790]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -256.0
+offset_right = 1920.0
+grow_vertical = 0
+color = Color(0.09803922, 0.36078432, 1, 1)
+
+[node name="Text" type="RichTextLabel" parent="." unique_id=799228679]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 864.0
+offset_right = 1856.0
+offset_bottom = 1034.0
+theme_override_constants/line_separation = 20
+theme_override_fonts/normal_font = ExtResource("2_daetb")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[wave]yooooooo[/wave] [shake]wsg twin[/shake]
+sybau bro"
+fit_content = true
+
+[node name="Arrow" type="TextureRect" parent="." unique_id=1499427736]
+layout_mode = 0
+offset_left = 1792.0
+offset_top = 968.0
+offset_right = 1840.0
+offset_bottom = 1016.0
+texture = ExtResource("3_h44io")
+stretch_mode = 4

@@ -1,9 +1,6 @@
 [gd_scene format=3 uid="uid://b37fviso38m6s"]
 
-[ext_resource type="Texture2D" uid="uid://c78syilfevl1x" path="res://assets/textures/ui/dither-transition.png" id="1_4c57u"]
 [ext_resource type="PackedScene" uid="uid://d71n5obdy5ou" path="res://scenes/player/player.tscn" id="1_ig7tw"]
-[ext_resource type="FontVariation" uid="uid://pecy731lxmai" path="res://assets/fonts/helvetica.tres" id="2_efxa6"]
-[ext_resource type="Texture2D" uid="uid://cjddx4vmxo6ij" path="res://assets/textures/ui/arrow.png" id="4_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://ocuhsoy0n3b3" path="res://scenes/environment/wall.tscn" id="9_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ce1ter0sesihi" path="res://scenes/vending_machine/vending_machine.tscn" id="9_efxa6"]
 [ext_resource type="PackedScene" uid="uid://bueq82vu6rub3" path="res://assets/models/sign.blend" id="9_kek77"]
@@ -47,55 +44,6 @@ volumetric_fog_density = 0.002
 volumetric_fog_ambient_inject = 1.36
 
 [node name="Main" type="Node3D" unique_id=1091414758]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1092046493]
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=59615532]
-texture_repeat = 2
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -960.0
-offset_top = -376.0
-offset_right = 960.0
-offset_bottom = -248.0
-grow_horizontal = 2
-grow_vertical = 0
-texture = ExtResource("1_4c57u")
-stretch_mode = 1
-
-[node name="DialogueBackground" type="ColorRect" parent="CanvasLayer" unique_id=1804318859]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -248.0
-offset_right = 1920.0
-offset_bottom = 8.0
-grow_vertical = 0
-color = Color(0.09803922, 0.36078432, 1, 1)
-
-[node name="Dialogue" type="RichTextLabel" parent="CanvasLayer" unique_id=464373315]
-offset_left = 64.0
-offset_top = 872.0
-offset_right = 1856.0
-offset_bottom = 1042.0
-theme_override_constants/line_separation = 20
-theme_override_fonts/normal_font = ExtResource("2_efxa6")
-theme_override_font_sizes/normal_font_size = 64
-bbcode_enabled = true
-text = "[wave]yooooooo[/wave] [shake]wsg twin[/shake]
-sybau bro"
-fit_content = true
-
-[node name="Arrow" type="TextureRect" parent="CanvasLayer" unique_id=1392302914]
-offset_left = 1792.0
-offset_top = 976.0
-offset_right = 1840.0
-offset_bottom = 1024.0
-texture = ExtResource("4_ycdy4")
-stretch_mode = 4
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=198784697]
 environment = SubResource("Environment_ig7tw")

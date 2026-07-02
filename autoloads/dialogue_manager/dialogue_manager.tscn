@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dq7gqg1iwe8w8"]
 
 [ext_resource type="Script" uid="uid://bq07hr4ql3awi" path="res://autoloads/dialogue_manager/dialogue_manager.gd" id="1_c5ats"]
+[ext_resource type="PackedScene" uid="uid://wlk51o7q737b" path="res://scenes/ui/dialogue_box.tscn" id="2_7toty"]
 
-[node name="DialogueManager" type="Node" unique_id=1798081379]
+[node name="DialogueManager" type="CanvasLayer" unique_id=783176618]
 script = ExtResource("1_c5ats")
+dialogue_box_scene = ExtResource("2_7toty")

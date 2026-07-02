@@ -14,6 +14,9 @@ func _ready() -> void:
 	equip_weapon(equipped_weapon)
 	original_pos = position
 
+	DialogueManager.dialogue_started.connect(func(): equipped_weapon.hide())
+	DialogueManager.dialogue_ended.connect(func(): equipped_weapon.show())
+
 func equip_weapon(weapon: Weapon):
 	weapon.cam = cam
 	weapon.player = player
