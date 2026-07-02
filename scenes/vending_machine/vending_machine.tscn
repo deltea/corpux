@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://d3qweaiaq824q" path="res://shaders/squigglevision.gdshader" id="5_1lndu"]
 [ext_resource type="Texture2D" uid="uid://c43wymk5dur6j" path="res://assets/textures/vending-machine/blink.png" id="5_i0tfq"]
 [ext_resource type="Shader" uid="uid://c2qdlk2arkcl" path="res://shaders/pixelate.gdshader" id="6_1lndu"]
+[ext_resource type="Texture2D" uid="uid://cilfflm5cdm4f" path="res://assets/textures/vending-machine/interact.png" id="6_8yd61"]
 [ext_resource type="Shader" uid="uid://bh35xhlkurn6c" path="res://shaders/grid.gdshader" id="7_nwh60"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8prie"]
@@ -38,14 +39,14 @@ resource_local_to_scene = true
 shading_mode = 2
 albedo_texture = SubResource("ViewportTexture_2r6w6")
 emission_enabled = true
-emission = Color(0.15593728, 0.5614323, 0.99999994, 1)
+emission = Color(0.3077482, 0.62196684, 0.9999991, 1)
 emission_energy_multiplier = 2.0
 emission_operator = 1
 emission_texture = SubResource("ViewportTexture_i0tfq")
 heightmap_texture = ExtResource("4_1lndu")
 detail_mask = ExtResource("2_jt1ca")
-uv1_scale = Vector3(0.4, 0.4, 0.4)
-uv1_offset = Vector3(0, 0, 0.57)
+uv1_scale = Vector3(0.4, 0.4, -0.4)
+uv1_offset = Vector3(0, 0, -0.57)
 uv1_triplanar = true
 texture_filter = 2
 distance_fade_min_distance = 25.0
@@ -86,6 +87,7 @@ dialogue = ExtResource("2_8prie")
 neutral_texture = ExtResource("4_2r6w6")
 happy_texture = ExtResource("2_jt1ca")
 blink_texture = ExtResource("5_i0tfq")
+interact_texture = ExtResource("6_8yd61")
 
 [node name="vending_machine" parent="." unique_id=26569629 instance=ExtResource("1_tf6tk")]
 
