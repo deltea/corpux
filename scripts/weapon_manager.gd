@@ -13,6 +13,7 @@ var shake_duration = 0
 var shake_strength = 0
 var original_pos: Vector3
 var is_disabled = false
+var tween: Tween
 
 func _ready() -> void:
 	original_pos = position
@@ -35,15 +36,23 @@ func unequip_weapon():
 func disable_weapon():
 	if not equipped_weapon: return
 	is_disabled = true
-	equipped_weapon.hide()
+
+	if tween: tween.kill()
+	tween = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position:y", original_pos.y - 2.5, 0.5)
+	tween.tween_callback(func(): hide())
 
 func enable_weapon():
 	if not equipped_weapon: return
-	is_disabled = false
-	equipped_weapon.show()
+
+	show()
+	if tween: tween.kill()
+	tween = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position:y", original_pos.y, 0.5)
+	tween.tween_callback(func(): is_disabled = false)
 
 func _process(dt: float) -> void:
-	if not equipped_weapon: return
+	if not equipped_weapon or is_disabled: return
 
 	if Input.is_action_pressed("mouse_left"):
 		equipped_weapon.trigger_fire()
