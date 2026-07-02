@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://b37fviso38m6s"]
 
-[ext_resource type="Texture2D" uid="uid://c78syilfevl1x" path="res://assets/textures/dither-transition.png" id="1_4c57u"]
+[ext_resource type="Texture2D" uid="uid://c78syilfevl1x" path="res://assets/textures/ui/dither-transition.png" id="1_4c57u"]
 [ext_resource type="PackedScene" uid="uid://d71n5obdy5ou" path="res://scenes/player/player.tscn" id="1_ig7tw"]
 [ext_resource type="FontVariation" uid="uid://pecy731lxmai" path="res://assets/fonts/helvetica.tres" id="2_efxa6"]
+[ext_resource type="Texture2D" uid="uid://bi825ich4y81a" path="res://assets/textures/ui/9-slice.png" id="3_dg77c"]
+[ext_resource type="Texture2D" uid="uid://cjddx4vmxo6ij" path="res://assets/textures/ui/arrow.png" id="4_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://ocuhsoy0n3b3" path="res://scenes/environment/wall.tscn" id="9_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ce1ter0sesihi" path="res://scenes/vending_machine/vending_machine.tscn" id="9_efxa6"]
 [ext_resource type="PackedScene" uid="uid://bueq82vu6rub3" path="res://assets/models/sign.blend" id="9_kek77"]
@@ -87,6 +89,24 @@ text = "[wave]yooooooo[/wave] [shake]wsg twin[/shake]
 sybau bro"
 fit_content = true
 
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer" unique_id=980451108]
+offset_right = 39.0
+offset_bottom = 12.0
+scale = Vector2(8, 8)
+texture = ExtResource("3_dg77c")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer" unique_id=1392302914]
+offset_left = 1792.0
+offset_top = 976.0
+offset_right = 1840.0
+offset_bottom = 1024.0
+texture = ExtResource("4_ycdy4")
+stretch_mode = 4
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=198784697]
 environment = SubResource("Environment_ig7tw")
 
@@ -94,7 +114,7 @@ environment = SubResource("Environment_ig7tw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="DirectionalLight" type="DirectionalLight3D" parent="." unique_id=2013117239]
-transform = Transform3D(0.7071066, -0.50000006, -0.50000024, -1.9670393e-08, -0.7071069, 0.70710677, -0.7071068, -0.4999999, -0.5, 0, 167, 0)
+transform = Transform3D(-0.7071069, 0.49999997, 0.5, 6.1817246e-08, -0.7071068, 0.7071068, 0.70710677, 0.5000001, 0.5, 0, 10, 0)
 light_energy = 0.5
 shadow_enabled = true
 
