@@ -1,13 +1,11 @@
 class_name BoomerangRevolver extends Node3D
 
 const FLOOR_FLOAT_HEIGHT = 0.5
-const MAX_SPEED = 100.0
+const MAX_SPEED = 120.0
 const MAX_SPIN_SPEED = 2000.0
-const MAX_DISTANCE = 35.0
+const MAX_DISTANCE = 40.0
 const DECELERATION = 250.0
 const RETURN_ACCELERATION = 120.0
-
-@export var distance_curve: Curve
 
 var is_returning = false
 var is_caught = false
@@ -81,7 +79,7 @@ func throw(throw_dir: Vector3, throw_force: float, return_node: Node3D):
 	home = return_node
 
 	speed = MAX_SPEED
-	target_distance = distance_curve.sample_baked(throw_force) * MAX_DISTANCE
+	target_distance = throw_force * MAX_DISTANCE
 	spin_speed = MAX_SPIN_SPEED
 
 func _on_hit_area_body_entered(body: Node3D) -> void:

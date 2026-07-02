@@ -4,6 +4,7 @@ const MAX_WIND_UP_TIME = 1.0
 
 @export var wind_up_pos = Vector3.ZERO
 @export var wind_up_rot = Vector3.ZERO
+@export var throw_distance_curve: Curve
 
 @export var fire_point: Node3D
 @export var line_scene: PackedScene
@@ -48,7 +49,7 @@ func _process(dt: float) -> void:
 		wind_up_amount = wind_up_time / MAX_WIND_UP_TIME
 		position = position.lerp(wind_up_pos, 10.0 * dt)
 		rotation_degrees = rotation_degrees.lerp(wind_up_rot, 10.0 * dt)
-		weapon_shake.emit(wind_up_amount * 0.02, 0.01)
+		weapon_shake.emit(throw_distance_curve.sample_baked(wind_up_amount) * 0.02, 0.01)
 	else:
 		position = position.lerp(original_pos, 10.0 * dt)
 		rotation_degrees = rotation_degrees.lerp(original_rot, 10.0 * dt)
@@ -121,7 +122,7 @@ func secondary_fire_released():
 	boomerang.caught.connect(_on_boomerang_caught)
 	boomerang.global_position = mesh.global_position
 	boomerang.global_rotation = mesh.global_rotation
-	boomerang.throw(player.get_look_dir(), wind_up_amount, mesh)
+	boomerang.throw(player.get_look_dir(), throw_distance_curve.sample_baked(wind_up_amount), mesh)
 
 	can_fire = false
 	is_winding_up = false

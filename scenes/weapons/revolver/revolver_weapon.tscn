@@ -8,10 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://c8le1ae54fhkw" path="res://scenes/particles/hit_particles.tscn" id="5_2aah6"]
 [ext_resource type="PackedScene" uid="uid://c7jtelsqoyjg1" path="res://scenes/weapons/revolver/boomerang_revolver.tscn" id="6_8xfrp"]
 
+[sub_resource type="Curve" id="Curve_lvxji"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.98596495, 0.9884615), 2.501479, 0.0, 0, 0]
+point_count = 2
+
 [node name="RevolverWeapon" unique_id=626467644 node_paths=PackedStringArray("fire_point") instance=ExtResource("1_kves2")]
 script = ExtResource("2_icgrj")
 wind_up_pos = Vector3(0, 0, 0)
 wind_up_rot = Vector3(0, 0, 0)
+throw_distance_curve = SubResource("Curve_lvxji")
 fire_point = NodePath("FirePoint")
 line_scene = ExtResource("3_ye3qc")
 muzzle_flash_texture = ExtResource("4_8xfrp")
