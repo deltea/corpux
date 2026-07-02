@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DialogueResource" format=3 uid="uid://dg5usvn62vden"]
+
+[ext_resource type="Script" uid="uid://doiy3xjk34nme" path="res://scripts/DialogueLineResource.gd" id="1_2qk04"]
+[ext_resource type="Script" uid="uid://8svh44qbgj65" path="res://scripts/DialogueResource.gd" id="2_ofxfp"]
+
+[sub_resource type="Resource" id="Resource_c5ats"]
+script = ExtResource("1_2qk04")
+speaker = "vending machine"
+metadata/_custom_type_script = "uid://doiy3xjk34nme"
+
+[resource]
+script = ExtResource("2_ofxfp")
+lines = Array[ExtResource("1_2qk04")]([SubResource("Resource_c5ats")])
+metadata/_custom_type_script = "uid://8svh44qbgj65"
