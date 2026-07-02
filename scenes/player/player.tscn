@@ -19,7 +19,7 @@ shape = SubResource("CapsuleShape3D_u8vuu")
 wait_time = 0.1
 one_shot = true
 
-[node name="Head" type="Node3D" parent="." unique_id=145107105]
+[node name="Head" type="Node3D" parent="." unique_id=145107105 groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Camera" parent="Head" unique_id=774764019 instance=ExtResource("2_dovo2")]

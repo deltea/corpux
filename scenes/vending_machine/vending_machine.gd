@@ -20,6 +20,7 @@ func _ready() -> void:
 
 func _process(dt: float) -> void:
 	face.position.y = sin(Clock.time * 3.0) * 5.0
+	face.rotation_degrees = sin(Clock.time * 1.0) * 5.0
 
 func _on_dialogue_line_changed(line: DialogueLineResource):
 	match line.status:

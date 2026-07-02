@@ -71,10 +71,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -600, 0, 1646.842)
 [node name="Obstacles" type="Node" parent="Environment" unique_id=889042946]
 
 [node name="Wall" parent="Environment/Obstacles" unique_id=1267218212 instance=ExtResource("9_4c57u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 8, -80)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 17, 132)
 
 [node name="Wall2" parent="Environment/Obstacles" unique_id=296618007 instance=ExtResource("9_4c57u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 8, -80)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 17, 132)
 
 [node name="Platform" parent="Environment/Obstacles" unique_id=902836713 instance=ExtResource("10_efxa6")]
 
@@ -194,6 +194,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 1.5, 49)
 [node name="BasicEnemy8" parent="Environment/Enemies" unique_id=2033221946 instance=ExtResource("11_efxa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.5, 49)
 
+[node name="BasicEnemy15" parent="Environment/Enemies" unique_id=2087810432 instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -83)
+
 [node name="sign" parent="." unique_id=1691619658 instance=ExtResource("9_kek77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 6, -9)
 
@@ -207,6 +210,6 @@ transform = Transform3D(-3.048229e-08, 0, -0.5, 0, 0.5, 0, 0.6973535, 0, -2.1855
 transform = Transform3D(-4.748274e-09, 0, -0.10862785, 0, 2.8829448, 0, 0.10862785, 0, -4.748274e-09, 0.057425022, -3.322863, -0.057424545)
 
 [node name="VendingMachine" parent="." unique_id=1780406410 instance=ExtResource("9_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.44449, 2.4754236, -0.5204159)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.44449, 2.4754236, 10.479584)
 
 [editable path="sign"]
