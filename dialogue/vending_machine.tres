@@ -6,23 +6,27 @@
 [sub_resource type="Resource" id="Resource_c5ats"]
 script = ExtResource("1_2qk04")
 status = "happy"
-text = "yoooooooooo wsg pookie"
+speaker = "bruhasdfasd"
+text = "[wave]yoooooooooo[/wave] wsg twinn"
 metadata/_custom_type_script = "uid://doiy3xjk34nme"
 
 [sub_resource type="Resource" id="Resource_2qk04"]
 script = ExtResource("1_2qk04")
+speaker = "bini"
 text = "did you know if you press the [wave][b]<right mouse button>[/b][/wave] you can throw your revolver like a boomerang??"
 metadata/_custom_type_script = "uid://doiy3xjk34nme"
 
 [sub_resource type="Resource" id="Resource_pyby6"]
 script = ExtResource("1_2qk04")
 status = "happy"
+speaker = "bini"
 text = "you can even hold the [wave][b]<right mouse button>[/b][/wave] to charge your throw for farther range!"
 metadata/_custom_type_script = "uid://doiy3xjk34nme"
 
 [sub_resource type="Resource" id="Resource_ofxfp"]
 script = ExtResource("1_2qk04")
 status = "happy"
+speaker = "bini"
 text = "so cool!!!"
 metadata/_custom_type_script = "uid://doiy3xjk34nme"
 

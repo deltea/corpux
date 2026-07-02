@@ -20,7 +20,7 @@ func _input(event: InputEvent) -> void:
 		if not dialogue_box.is_typing:
 			continue_dialogue()
 
-func start_dialogue(dialogue_resource: DialogueResource, speaker: Node):
+func start_dialogue(dialogue_resource: DialogueResource):
 	if is_active: return
 	dialogue = dialogue_resource
 	curr_line = 0
@@ -43,6 +43,7 @@ func continue_dialogue():
 func show_curr_line():
 	var line = dialogue.lines[curr_line]
 	dialogue_box.set_color(line.color)
+	dialogue_box.set_speaker(line.speaker)
 	dialogue_box.type_text(line.text)
 	dialogue_line_changed.emit(line)
 

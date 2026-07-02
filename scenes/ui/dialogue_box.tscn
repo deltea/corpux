@@ -72,6 +72,7 @@ offset_bottom = 824.0
 
 [node name="Speaker" type="RichTextLabel" parent="ColorRect" unique_id=1213084323]
 layout_mode = 1
+offset_left = 40.0
 offset_right = 176.0
 offset_bottom = 160.0
 theme = ExtResource("3_daetb")
@@ -79,5 +80,5 @@ theme_override_colors/default_color = Color(0.12941177, 0.38039216, 1, 1)
 bbcode_enabled = true
 text = "[wave]bini[/wave]"
 fit_content = true
-horizontal_alignment = 1
+autowrap_mode = 0
 vertical_alignment = 1

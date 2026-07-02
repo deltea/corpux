@@ -7,6 +7,8 @@ const CLOSED_Y_POS = 384.0
 @onready var background: ColorRect = $Background
 @onready var label: RichTextLabel = $Text
 @onready var arrow: TextureRect = $Arrow
+@onready var speaker_label: RichTextLabel = $ColorRect/Speaker
+@onready var speaker_background: ColorRect = $ColorRect
 
 var is_typing = false
 var curr_text: String
@@ -19,6 +21,10 @@ func _process(dt: float) -> void:
 func set_color(color: Color):
 	dither.self_modulate = color
 	background.color = color
+
+func set_speaker(speaker: String):
+	speaker_label.text = "[wave]%s[/wave]" % speaker
+	speaker_background.size.x = 40.0 * 2 + speaker_label.get_content_width()
 
 func type_text(text: String):
 	is_typing = true

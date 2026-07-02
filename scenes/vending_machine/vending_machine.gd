@@ -13,7 +13,7 @@ var is_in_range = false
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and is_in_range and not DialogueManager.is_active:
-		DialogueManager.start_dialogue(dialogue, self)
+		DialogueManager.start_dialogue(dialogue)
 
 func _ready() -> void:
 	DialogueManager.dialogue_line_changed.connect(_on_dialogue_line_changed)
