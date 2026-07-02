@@ -1,0 +1,11 @@
+[gd_resource type="Theme" format=3 uid="uid://cxmchfsgtgv3e"]
+
+[ext_resource type="FontVariation" uid="uid://pecy731lxmai" path="res://assets/fonts/helvetica.tres" id="1_470mv"]
+[ext_resource type="FontVariation" uid="uid://tjujv6rc3oaw" path="res://assets/fonts/helvetica-bold.tres" id="1_a2l2q"]
+
+[resource]
+default_font = ExtResource("1_470mv")
+default_font_size = 64
+RichTextLabel/constants/line_separation = 20
+RichTextLabel/font_sizes/bold_font_size = 64
+RichTextLabel/fonts/bold_font = ExtResource("1_a2l2q")

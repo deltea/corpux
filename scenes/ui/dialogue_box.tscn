@@ -2,9 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://c78syilfevl1x" path="res://assets/textures/ui/dither-transition.png" id="1_4mjmi"]
 [ext_resource type="Script" uid="uid://dlfm2cribcx6" path="res://scenes/ui/dialogue_box.gd" id="1_daetb"]
-[ext_resource type="FontVariation" uid="uid://pecy731lxmai" path="res://assets/fonts/helvetica.tres" id="2_daetb"]
+[ext_resource type="Theme" uid="uid://cxmchfsgtgv3e" path="res://main_theme.tres" id="3_daetb"]
 [ext_resource type="Texture2D" uid="uid://cjddx4vmxo6ij" path="res://assets/textures/ui/arrow.png" id="3_h44io"]
-[ext_resource type="FontVariation" uid="uid://tjujv6rc3oaw" path="res://assets/fonts/helvetica-bold.tres" id="4_h44io"]
 
 [node name="DialogueBox" type="Control" unique_id=666881414]
 layout_mode = 3
@@ -49,11 +48,7 @@ offset_left = 96.0
 offset_top = 864.0
 offset_right = 1824.0
 offset_bottom = 1034.0
-theme_override_constants/line_separation = 20
-theme_override_fonts/normal_font = ExtResource("2_daetb")
-theme_override_fonts/bold_font = ExtResource("4_h44io")
-theme_override_font_sizes/normal_font_size = 64
-theme_override_font_sizes/bold_font_size = 64
+theme = ExtResource("3_daetb")
 bbcode_enabled = true
 text = "[wave]yooooooo[/wave] [shake]wsg twin[/shake]
 sybau bro"
@@ -67,3 +62,22 @@ offset_right = 1816.0
 offset_bottom = 1016.0
 texture = ExtResource("3_h44io")
 stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=586918586]
+layout_mode = 1
+offset_left = 96.0
+offset_top = 696.0
+offset_right = 272.0
+offset_bottom = 824.0
+
+[node name="Speaker" type="RichTextLabel" parent="ColorRect" unique_id=1213084323]
+layout_mode = 1
+offset_right = 176.0
+offset_bottom = 160.0
+theme = ExtResource("3_daetb")
+theme_override_colors/default_color = Color(0.12941177, 0.38039216, 1, 1)
+bbcode_enabled = true
+text = "[wave]bini[/wave]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
