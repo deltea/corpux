@@ -5,6 +5,7 @@ class_name VendingMachine extends Node3D
 @export_category("face expressions")
 @export var neutral_texture: Texture2D
 @export var happy_texture: Texture2D
+@export var blink_texture: Texture2D
 
 @onready var face: TextureRect = $SubViewport/Face
 
@@ -46,3 +47,9 @@ func _on_watch_area_body_entered(body: Node3D) -> void:
 
 func _on_watch_area_body_exited(body: Node3D) -> void:
 	if not body is Player: return
+
+func _on_blink_timer_timeout() -> void:
+	if face.texture == neutral_texture:
+		face.texture = blink_texture
+		await Clock.wait(0.2)
+		face.texture = neutral_texture
