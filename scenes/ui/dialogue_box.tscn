@@ -45,9 +45,9 @@ color = Color(0.09803922, 0.36078432, 1, 1)
 
 [node name="Text" type="RichTextLabel" parent="." unique_id=799228679]
 layout_mode = 0
-offset_left = 64.0
+offset_left = 96.0
 offset_top = 864.0
-offset_right = 1856.0
+offset_right = 1824.0
 offset_bottom = 1034.0
 theme_override_constants/line_separation = 20
 theme_override_fonts/normal_font = ExtResource("2_daetb")
@@ -61,9 +61,9 @@ fit_content = true
 
 [node name="Arrow" type="TextureRect" parent="." unique_id=1499427736]
 layout_mode = 0
-offset_left = 1792.0
+offset_left = 1768.0
 offset_top = 968.0
-offset_right = 1840.0
+offset_right = 1816.0
 offset_bottom = 1016.0
 texture = ExtResource("3_h44io")
 stretch_mode = 4

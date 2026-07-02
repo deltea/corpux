@@ -47,7 +47,7 @@ func animate_open():
 	await t.finished
 
 func animate_close():
-	var t = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+	var t = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN)
 	position.y = 0.0
 	t.tween_property(self, "position:y", CLOSED_Y_POS, 0.5)
 	await t.finished
