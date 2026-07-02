@@ -1,4 +1,4 @@
-[gd_resource type="FontVariation" format=3 uid="uid://tjujv6rc3oaw"]
+[gd_resource type="FontVariation" format=3 uid="uid://b3twv6x4543e0"]
 
 [sub_resource type="SystemFont" id="SystemFont_efxa6"]
 font_names = PackedStringArray("Helvetica")
@@ -6,6 +6,6 @@ font_names = PackedStringArray("Helvetica")
 [resource]
 base_font = SubResource("SystemFont_efxa6")
 variation_embolden = 1.3
-variation_transform = Transform2D(0.75, 0, 0, 1, 0, 0)
+variation_transform = Transform2D(0.75, 0.12, -0.12, 1, 0, 0)
 spacing_glyph = -4
 spacing_space = 12

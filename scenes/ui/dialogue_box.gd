@@ -23,7 +23,7 @@ func set_color(color: Color):
 	background.color = color
 
 func set_speaker(speaker: String):
-	speaker_label.text = "[wave]%s[/wave]" % speaker
+	speaker_label.text = "[wave][b]%s[/b][/wave]" % speaker
 	speaker_background.size.x = 40.0 * 2 + speaker_label.get_content_width()
 
 func type_text(text: String):
