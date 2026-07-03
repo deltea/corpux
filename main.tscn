@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://b37fviso38m6s"]
 
 [ext_resource type="PackedScene" uid="uid://d71n5obdy5ou" path="res://scenes/player/player.tscn" id="1_ig7tw"]
-[ext_resource type="Material" uid="uid://d2s5q102ekomd" path="res://assets/materials/wall.tres" id="4_1bvp3"]
+[ext_resource type="Material" uid="uid://d2s5q102ekomd" path="res://assets/materials/checkered.tres" id="4_1bvp3"]
+[ext_resource type="Material" uid="uid://cw65bu2jitrap" path="res://assets/materials/floor.tres" id="7_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ce1ter0sesihi" path="res://scenes/vending_machine/vending_machine.tscn" id="9_efxa6"]
 [ext_resource type="PackedScene" uid="uid://bb0lxurjv7u4s" path="res://scenes/environment/sun.tscn" id="10_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ccedxpdllf06q" path="res://scenes/environment/arch.tscn" id="10_dg77c"]
 [ext_resource type="Material" uid="uid://buvjk5gg3qgni" path="res://assets/materials/standard.tres" id="10_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://fi26o3a5pvnr" path="res://scenes/enemy/basic/basic_enemy.tscn" id="11_efxa6"]
 [ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="14_vivmo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_272bh"]
@@ -98,9 +100,9 @@ size = Vector3(4, 20, 40)
 material = ExtResource("10_ycdy4")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Environment/Obstacles" unique_id=717081127]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 10, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 10, 0)
 use_collision = true
-size = Vector3(4, 20, 39)
+size = Vector3(4, 20, 40)
 material = ExtResource("10_ycdy4")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="Environment/Obstacles" unique_id=1733018571]
@@ -176,41 +178,75 @@ size = Vector3(20, 4, 20)
 material = SubResource("StandardMaterial3D_272bh")
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="Environment/Obstacles" unique_id=1576161619]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 80)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 100)
 use_collision = true
-size = Vector3(160, 6, 120)
-material = SubResource("StandardMaterial3D_272bh")
+size = Vector3(244, 6, 160)
+material = ExtResource("7_4c57u")
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="Environment/Obstacles" unique_id=223220229]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 99, 80)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 164, 100)
 use_collision = true
-size = Vector3(160, 6, 120)
+size = Vector3(244, 6, 160)
 material = SubResource("StandardMaterial3D_272bh")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="Environment/Obstacles" unique_id=239783103]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78, 51, 80)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 83.5, 100)
 use_collision = true
-size = Vector3(4, 90, 120)
+size = Vector3(4, 155, 160)
 material = SubResource("StandardMaterial3D_272bh")
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="Environment/Obstacles" unique_id=178991420]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78, 51, 80)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 83.5, 100)
 use_collision = true
-size = Vector3(4, 90, 120)
+size = Vector3(4, 155, 160)
 material = SubResource("StandardMaterial3D_272bh")
 
-[node name="CSGBox3D13" type="CSGBox3D" parent="Environment/Obstacles" unique_id=1178712560]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 51, 138)
+[node name="CSGCombiner3D3" type="CSGCombiner3D" parent="Environment/Obstacles" unique_id=2080692910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21, 0)
 use_collision = true
-size = Vector3(152, 90, 4)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Environment/Obstacles/CSGCombiner3D3" unique_id=1415263936]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 45, 100)
+use_collision = true
+size = Vector3(236, 6, 152)
+material = ExtResource("4_1bvp3")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Environment/Obstacles/CSGCombiner3D3" unique_id=1292887459]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, 45, 163)
+operation = 2
+use_collision = true
+size = Vector3(20, 6, 26)
+material = ExtResource("4_1bvp3")
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="Environment/Obstacles/CSGCombiner3D3" unique_id=1506875753]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 45, 163)
+operation = 2
+use_collision = true
+size = Vector3(20, 6, 26)
+material = ExtResource("4_1bvp3")
+
+[node name="CSGBox3D15" type="CSGCylinder3D" parent="Environment/Obstacles/CSGCombiner3D3" unique_id=1878606489]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 43, 53)
+operation = 2
+use_collision = true
+radius = 71.0
+height = 10.0
+sides = 30
+material = ExtResource("4_1bvp3")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Environment/Obstacles" unique_id=1178712560]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 83.5, 178)
+use_collision = true
+size = Vector3(236, 155, 4)
 material = SubResource("StandardMaterial3D_272bh")
 
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="Environment/Obstacles" unique_id=1983606435]
+use_collision = true
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="Environment/Obstacles/CSGCombiner3D2" unique_id=1278697799]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 51, 22)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 83.5, 22)
 use_collision = true
-size = Vector3(152, 90, 4)
+size = Vector3(236, 155, 4)
 material = SubResource("StandardMaterial3D_272bh")
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="Environment/Obstacles/CSGCombiner3D2" unique_id=404071981]
@@ -219,7 +255,40 @@ operation = 2
 size = Vector3(20, 14, 4)
 material = SubResource("StandardMaterial3D_272bh")
 
+[node name="CSGBox3D15" type="CSGBox3D" parent="Environment/Obstacles" unique_id=183301149]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 69.11906, 34.419064, 163)
+use_collision = true
+size = Vector3(89.700005, 8, 26)
+material = ExtResource("4_1bvp3")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Environment/Obstacles" unique_id=348861880]
+transform = Transform3D(0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 0, 0, 1, -69.119, 34.419, 163)
+use_collision = true
+size = Vector3(89.700005, 8, 26)
+material = ExtResource("4_1bvp3")
+
 [node name="Enemies" type="Node" parent="Environment" unique_id=2137425582]
+
+[node name="BasicEnemy" parent="Environment/Enemies" unique_id=541240095 instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91, 71, 44)
+
+[node name="BasicEnemy2" parent="Environment/Enemies" unique_id=851844333 instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91, 71, 83)
+
+[node name="BasicEnemy3" parent="Environment/Enemies" unique_id=352682674 instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59, 71, 124)
+
+[node name="BasicEnemy4" parent="Environment/Enemies" unique_id=488565618 instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 71, 145)
+
+[node name="BasicEnemy5" parent="Environment/Enemies" unique_id=818610647 instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 71, 134)
+
+[node name="BasicEnemy6" parent="Environment/Enemies" unique_id=87466550 instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81, 71, 104)
+
+[node name="BasicEnemy7" parent="Environment/Enemies" unique_id=1666585428 instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91, 71, 52)
 
 [node name="Decorations" type="Node" parent="Environment" unique_id=657966629]
 
