@@ -1,3 +1,4 @@
+- level design
 - enemy model
 - [x] animal crossing dialogue sfx
 - [x] disable weapon when dialogue
@@ -7,3 +8,4 @@
 ## uhhhhh later
 
 - quake movement revamp
+- fix gun ground floating

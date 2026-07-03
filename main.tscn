@@ -9,7 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://ccedxpdllf06q" path="res://scenes/environment/arch.tscn" id="10_dg77c"]
 [ext_resource type="PackedScene" uid="uid://djlr1dtc5r84q" path="res://scenes/environment/platform.tscn" id="10_efxa6"]
 [ext_resource type="Material" uid="uid://buvjk5gg3qgni" path="res://assets/materials/standard.tres" id="10_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://bub1qg00oq5tw" path="res://assets/models/environment/tube.blend" id="11_dg77c"]
 [ext_resource type="PackedScene" uid="uid://fi26o3a5pvnr" path="res://scenes/enemy/basic/basic_enemy.tscn" id="11_efxa6"]
+[ext_resource type="PackedScene" uid="uid://4mpgrqrodq8t" path="res://assets/models/environment/column.blend" id="12_dg77c"]
+[ext_resource type="Texture2D" uid="uid://dfo427owj0sug" path="res://assets/textures/wall.png" id="13_w48qg"]
+[ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="14_vivmo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_272bh"]
 sky_top_color = Color(0.79688144, 0.767517, 1, 1)
@@ -44,6 +48,22 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.002
 volumetric_fog_ambient_inject = 1.36
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w48qg"]
+shading_mode = 2
+albedo_texture = ExtResource("13_w48qg")
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.4
+heightmap_texture = ExtResource("14_vivmo")
+uv1_scale = Vector3(1.11, 1.11, 1.11)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 86.152466
+texture_filter = 4
+distance_fade_min_distance = 25.0
+distance_fade_max_distance = 5.0
+stencil_flags = 2
+stencil_color = Color(1, 0.07999998, 0.07999998, 1)
+stencil_outline_thickness = 0.048
+
 [node name="Main" type="Node3D" unique_id=1091414758]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=198784697]
@@ -71,10 +91,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -600, 0, 1646.842)
 [node name="Obstacles" type="Node" parent="Environment" unique_id=889042946]
 
 [node name="Wall" parent="Environment/Obstacles" unique_id=1267218212 instance=ExtResource("9_4c57u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 17, 132)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 17, 124)
 
 [node name="Wall2" parent="Environment/Obstacles" unique_id=296618007 instance=ExtResource("9_4c57u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 17, 132)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 17, 124)
 
 [node name="Platform" parent="Environment/Obstacles" unique_id=902836713 instance=ExtResource("10_efxa6")]
 
@@ -212,4 +232,14 @@ transform = Transform3D(-4.748274e-09, 0, -0.10862785, 0, 2.8829448, 0, 0.108627
 [node name="VendingMachine" parent="." unique_id=1780406410 instance=ExtResource("9_efxa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.44449, 2.4754236, 10.479584)
 
+[node name="tube" parent="." unique_id=551340996 instance=ExtResource("11_dg77c")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -48, 5, 110)
+
+[node name="column" parent="." unique_id=127991969 instance=ExtResource("12_dg77c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.719025, 15.973068, 62.754543)
+
+[node name="Cube" parent="column" index="0" unique_id=2048688956]
+material_override = SubResource("StandardMaterial3D_w48qg")
+
 [editable path="sign"]
+[editable path="column"]
