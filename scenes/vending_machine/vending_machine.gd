@@ -85,7 +85,8 @@ func _on_blink_timer_timeout() -> void:
 	if not status == "neutral": return
 	eyes.texture = eyes_neutral_texture
 
-func _on_char_typed(_char: String):
+func _on_char_typed(is_valid: bool):
+	if not is_valid: return
 	mouth.texture = mouth_open_texture
-	await Clock.wait(0.005)
+	await Clock.wait(0.01)
 	mouth.texture = mouth_closed_texture

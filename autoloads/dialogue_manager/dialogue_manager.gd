@@ -3,7 +3,7 @@ extends CanvasLayer
 signal dialogue_started
 signal dialogue_ended
 signal dialogue_line_changed(line: DialogueLineResource)
-signal char_typed(char: String)
+signal char_typed(is_valid: bool)
 
 @export var dialogue_box_scene: PackedScene
 
@@ -14,13 +14,14 @@ var is_active = false
 var is_animating = false
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and is_active and not is_animating:
-		# if dialogue_box.is_typing:
-		# 	dialogue_box.finish_typing()
-		# else:
-		# 	continue_dialogue()
-		if not dialogue_box.is_typing:
-			continue_dialogue()
+	if event.is_action_pressed("interact") or event.is_action_pressed("mouse_left"):
+		if is_active and not is_animating:
+			# if dialogue_box.is_typing:
+			# 	dialogue_box.finish_typing()
+			# else:
+			# 	continue_dialogue()
+			if not dialogue_box.is_typing:
+				continue_dialogue()
 
 func start_dialogue(dialogue_resource: DialogueResource):
 	if is_active: return
@@ -59,10 +60,10 @@ func end_dialogue():
 	is_animating = false
 	is_active = false
 	dialogue = null
-	remove_child(dialogue_box)
+	dialogue_box.queue_free()
 
 func _on_char_typed(c: String):
-	char_typed.emit(c)
 	var line = dialogue.lines[curr_line]
+	char_typed.emit(c.to_lower() in line.voice)
 	if c.to_lower() in line.voice:
 		AudioManager.play_sound_from_stream(line.voice[c].stream)

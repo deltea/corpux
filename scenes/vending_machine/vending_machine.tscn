@@ -71,8 +71,8 @@ shader_parameter/noise = SubResource("NoiseTexture2D_1lndu")
 shader = ExtResource("6_1lndu")
 shader_parameter/pixelSize = 4
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_nwh60"]
-radius = 10.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_uj5xu"]
+size = Vector3(10, 5, 12)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8prie"]
 radius = 10.0
@@ -170,7 +170,8 @@ grow_vertical = 2
 [node name="DialogueArea" type="Area3D" parent="." unique_id=1269645312]
 
 [node name="CollisionShape" type="CollisionShape3D" parent="DialogueArea" unique_id=726735434]
-shape = SubResource("SphereShape3D_nwh60")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 0)
+shape = SubResource("BoxShape3D_uj5xu")
 
 [node name="WatchArea" type="Area3D" parent="." unique_id=925618970]
 
