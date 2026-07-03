@@ -2,111 +2,161 @@
 
 [ext_resource type="Script" uid="uid://b0eo50chik0rk" path="res://scripts/VoiceResource.gd" id="1_2aufi"]
 [ext_resource type="Script" uid="uid://dqhgi43j6myd5" path="res://scripts/VoiceAlphabetResource.gd" id="1_ggqml"]
-[ext_resource type="AudioStream" uid="uid://bxkypvainroj4" path="res://assets/audio/sfx/dialogue/vending_machine/BA_dodge.ogg" id="1_k3utn"]
+[ext_resource type="AudioStream" uid="uid://bo8g58xvodl6f" path="res://assets/audio/sfx/dialogue/vending_machine/a.wav" id="2_k3utn"]
+[ext_resource type="AudioStream" uid="uid://vbgf4he3k1m5" path="res://assets/audio/sfx/dialogue/vending_machine/b.wav" id="3_6n3ot"]
+[ext_resource type="AudioStream" uid="uid://cerm0mov3wuep" path="res://assets/audio/sfx/dialogue/vending_machine/c.wav" id="4_umucu"]
+[ext_resource type="AudioStream" uid="uid://c0yxh2spu3rif" path="res://assets/audio/sfx/dialogue/vending_machine/d.wav" id="5_716vf"]
+[ext_resource type="AudioStream" uid="uid://1itr3db53qn6" path="res://assets/audio/sfx/dialogue/vending_machine/e.wav" id="6_vm8l1"]
+[ext_resource type="AudioStream" uid="uid://c5757nbvfl78g" path="res://assets/audio/sfx/dialogue/vending_machine/f.wav" id="7_xalrt"]
+[ext_resource type="AudioStream" uid="uid://caloiy6q1kkbw" path="res://assets/audio/sfx/dialogue/vending_machine/g.wav" id="8_xikq0"]
+[ext_resource type="AudioStream" uid="uid://cw5mspuff0js6" path="res://assets/audio/sfx/dialogue/vending_machine/h.wav" id="9_vqsrw"]
+[ext_resource type="AudioStream" uid="uid://smw7hi2krxcq" path="res://assets/audio/sfx/dialogue/vending_machine/i.wav" id="10_8nag4"]
+[ext_resource type="AudioStream" uid="uid://cxlxspq5uqprf" path="res://assets/audio/sfx/dialogue/vending_machine/j.wav" id="11_4x12k"]
+[ext_resource type="AudioStream" uid="uid://cc57wcquck5l0" path="res://assets/audio/sfx/dialogue/vending_machine/k.wav" id="12_1idul"]
+[ext_resource type="AudioStream" uid="uid://v3gcx3n3lbyi" path="res://assets/audio/sfx/dialogue/vending_machine/l.wav" id="13_yntfn"]
+[ext_resource type="AudioStream" uid="uid://yswok5ntnrx1" path="res://assets/audio/sfx/dialogue/vending_machine/m.wav" id="14_malve"]
+[ext_resource type="AudioStream" uid="uid://crm35pav7dy37" path="res://assets/audio/sfx/dialogue/vending_machine/n.wav" id="15_gk134"]
+[ext_resource type="AudioStream" uid="uid://b1sglxbupbiwl" path="res://assets/audio/sfx/dialogue/vending_machine/o.wav" id="16_qmyme"]
+[ext_resource type="AudioStream" uid="uid://ceqmipn1ymdad" path="res://assets/audio/sfx/dialogue/vending_machine/p.wav" id="17_lhpow"]
+[ext_resource type="AudioStream" uid="uid://d2p4fplet3ri4" path="res://assets/audio/sfx/dialogue/vending_machine/q.wav" id="18_37k6b"]
+[ext_resource type="AudioStream" uid="uid://duijn1wmfcelk" path="res://assets/audio/sfx/dialogue/vending_machine/r.wav" id="19_njgey"]
+[ext_resource type="AudioStream" uid="uid://bxgnrs8g2yacm" path="res://assets/audio/sfx/dialogue/vending_machine/s.wav" id="20_cfipc"]
+[ext_resource type="AudioStream" uid="uid://dnybsi4vflw8w" path="res://assets/audio/sfx/dialogue/vending_machine/t.wav" id="22_drnc8"]
+[ext_resource type="AudioStream" uid="uid://bn4yfiyn8cypg" path="res://assets/audio/sfx/dialogue/vending_machine/u.wav" id="23_ocy61"]
+[ext_resource type="AudioStream" uid="uid://d3qhhuc87g3l3" path="res://assets/audio/sfx/dialogue/vending_machine/v.wav" id="24_nb8dx"]
+[ext_resource type="AudioStream" uid="uid://cfrj1ehred216" path="res://assets/audio/sfx/dialogue/vending_machine/w.wav" id="25_qr6o7"]
+[ext_resource type="AudioStream" uid="uid://by6t6sjts5snu" path="res://assets/audio/sfx/dialogue/vending_machine/x.wav" id="26_vwmeh"]
+[ext_resource type="AudioStream" uid="uid://6itff6wbvi3b" path="res://assets/audio/sfx/dialogue/vending_machine/y.wav" id="27_002j6"]
+[ext_resource type="AudioStream" uid="uid://0v0rjb73kgsr" path="res://assets/audio/sfx/dialogue/vending_machine/z.wav" id="28_58ae3"]
 
 [sub_resource type="Resource" id="Resource_3n7gt"]
 script = ExtResource("1_ggqml")
-stream = ExtResource("1_k3utn")
+stream = ExtResource("2_k3utn")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_omd8j"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("3_6n3ot")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_835mp"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("4_umucu")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_bntsi"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("5_716vf")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_eeu3u"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("6_vm8l1")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_3yauf"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("7_xalrt")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_por5f"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("8_xikq0")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_jxfme"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("9_vqsrw")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_fksr7"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("10_8nag4")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_23v0v"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("11_4x12k")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_wpaao"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("12_1idul")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_om30b"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("13_yntfn")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_vl31e"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("14_malve")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_yx1j5"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("15_gk134")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_40vqq"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("16_qmyme")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_t8b2t"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("17_lhpow")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_x3fpj"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("18_37k6b")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_ryk8n"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("19_njgey")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_tkit1"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("20_cfipc")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_h8hcc"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("22_drnc8")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_orc33"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("23_ocy61")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_8d5a7"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("24_nb8dx")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_ah7pn"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("25_qr6o7")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_r8r2e"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("26_vwmeh")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_d2kg2"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("27_002j6")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_dkpb4"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("28_58ae3")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [resource]

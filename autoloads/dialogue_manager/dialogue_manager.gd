@@ -59,5 +59,5 @@ func end_dialogue():
 
 func _on_char_typed(c: String):
 	var line = dialogue.lines[curr_line]
-	print(line.voice)
-	AudioManager.play_sound_from_stream(line.voice["a"].stream)
+	if c.to_lower() in line.voice:
+		AudioManager.play_sound_from_stream(line.voice[c].stream)
