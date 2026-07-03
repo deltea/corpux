@@ -4,6 +4,7 @@ class_name DialogueLineResource extends Resource
 @export var status: String = "neutral"
 
 @export var speaker: String = "npc"
+@export var voice: VoiceResource
 
 ## background color of the dialogue box
 @export var color: Color = Color("#0049FF")

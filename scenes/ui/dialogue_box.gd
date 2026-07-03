@@ -1,5 +1,7 @@
 class_name DialogueBox extends Control
 
+signal char_typed(char: String)
+
 const TYPE_SPEED = 0.01
 const CLOSED_Y_POS = 384.0
 
@@ -29,12 +31,14 @@ func type_text(text: String):
 	is_typing = true
 	curr_text = text
 	label.text = text
-
 	label.visible_characters = 0
-	var length = text.length()
+
+	var length = label.get_parsed_text().length()
 	for i in range(length):
 		label.visible_characters += 1
+		char_typed.emit(label.get_parsed_text()[i])
 		await Clock.wait(TYPE_SPEED)
+
 	is_typing = false
 
 func finish_typing():

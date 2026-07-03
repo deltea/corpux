@@ -28,6 +28,7 @@ func start_dialogue(dialogue_resource: DialogueResource):
 
 	dialogue_box = dialogue_box_scene.instantiate() as DialogueBox
 	add_child(dialogue_box)
+	dialogue_box.char_typed.connect(_on_char_typed)
 
 	show_curr_line()
 	is_active = true
@@ -55,3 +56,8 @@ func end_dialogue():
 	is_active = false
 	dialogue = null
 	remove_child(dialogue_box)
+
+func _on_char_typed(c: String):
+	var line = dialogue.lines[curr_line]
+	print(line.voice)
+	AudioManager.play_sound_from_stream(line.voice["a"].stream)

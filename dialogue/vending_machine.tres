@@ -1,18 +1,21 @@
 [gd_resource type="Resource" script_class="DialogueResource" format=3 uid="uid://dg5usvn62vden"]
 
 [ext_resource type="Script" uid="uid://doiy3xjk34nme" path="res://scripts/DialogueLineResource.gd" id="1_2qk04"]
+[ext_resource type="Resource" uid="uid://066xsibwl6ag" path="res://voices/vending_machine.tres" id="2_2ae0j"]
 [ext_resource type="Script" uid="uid://8svh44qbgj65" path="res://scripts/DialogueResource.gd" id="2_ofxfp"]
 
 [sub_resource type="Resource" id="Resource_c5ats"]
 script = ExtResource("1_2qk04")
 status = "happy"
 speaker = "bini"
+voice = ExtResource("2_2ae0j")
 text = "[wave]yoooooooooo[/wave] wsg twinn"
 metadata/_custom_type_script = "uid://doiy3xjk34nme"
 
 [sub_resource type="Resource" id="Resource_2qk04"]
 script = ExtResource("1_2qk04")
 speaker = "bini"
+voice = ExtResource("2_2ae0j")
 text = "did you know if you press the [wave][b][i]<right mouse button>[/i][/b][/wave] you can throw your revolver like a boomerang??"
 metadata/_custom_type_script = "uid://doiy3xjk34nme"
 
@@ -20,6 +23,7 @@ metadata/_custom_type_script = "uid://doiy3xjk34nme"
 script = ExtResource("1_2qk04")
 status = "happy"
 speaker = "bini"
+voice = ExtResource("2_2ae0j")
 text = "you can even hold the [wave][b][i]<right mouse button>[/i][/b][/wave] to charge your throw for farther range!"
 metadata/_custom_type_script = "uid://doiy3xjk34nme"
 
@@ -27,6 +31,7 @@ metadata/_custom_type_script = "uid://doiy3xjk34nme"
 script = ExtResource("1_2qk04")
 status = "happy"
 speaker = "bini"
+voice = ExtResource("2_2ae0j")
 text = "so cool!!!"
 metadata/_custom_type_script = "uid://doiy3xjk34nme"
 

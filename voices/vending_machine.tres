@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://b0eo50chik0rk" path="res://scripts/VoiceResource.gd" id="1_2aufi"]
 [ext_resource type="Script" uid="uid://dqhgi43j6myd5" path="res://scripts/VoiceAlphabetResource.gd" id="1_ggqml"]
+[ext_resource type="AudioStream" uid="uid://bxkypvainroj4" path="res://assets/audio/sfx/dialogue/vending_machine/BA_dodge.ogg" id="1_k3utn"]
 
 [sub_resource type="Resource" id="Resource_3n7gt"]
 script = ExtResource("1_ggqml")
+stream = ExtResource("1_k3utn")
 metadata/_custom_type_script = "uid://dqhgi43j6myd5"
 
 [sub_resource type="Resource" id="Resource_omd8j"]
