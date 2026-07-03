@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c43wymk5dur6j"
-path="res://.godot/imported/blink.png-889686c005bf88d19817b53947654b05.ctex"
+uid="uid://cilfflm5cdm4f"
+path="res://.godot/imported/interact.png-67934e4aca2d7171fa8570bb8be928df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/vending-machine/blink.png"
-dest_files=["res://.godot/imported/blink.png-889686c005bf88d19817b53947654b05.ctex"]
+source_file="res://assets/textures/vending-machine/eyes/interact.png"
+dest_files=["res://.godot/imported/interact.png-67934e4aca2d7171fa8570bb8be928df.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cilfflm5cdm4f"
-path="res://.godot/imported/interact.png-01c3ec17cb31e4d532264aa68b5e89a3.ctex"
+uid="uid://m7utewgtm8yw"
+path="res://.godot/imported/neutral.png-ed5f90d48687211ce109282349020b4e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/vending-machine/interact.png"
-dest_files=["res://.godot/imported/interact.png-01c3ec17cb31e4d532264aa68b5e89a3.ctex"]
+source_file="res://assets/textures/vending-machine/eyes/neutral.png"
+dest_files=["res://.godot/imported/neutral.png-ed5f90d48687211ce109282349020b4e.ctex"]
 
 [params]
 

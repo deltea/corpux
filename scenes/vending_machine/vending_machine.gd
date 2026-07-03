@@ -2,13 +2,19 @@ class_name VendingMachine extends Node3D
 
 @export var dialogue: DialogueResource
 
-@export_category("face expressions")
-@export var neutral_texture: Texture2D
-@export var happy_texture: Texture2D
-@export var blink_texture: Texture2D
-@export var interact_texture: Texture2D
+@export_category("eyes expressions")
+@export var eyes_neutral_texture: Texture2D
+@export var eyes_happy_texture: Texture2D
+@export var eyes_blink_texture: Texture2D
+@export var eyes_interact_texture: Texture2D
 
-@onready var face: TextureRect = $SubViewport/Face
+@export_category("mouth expressions")
+@export var mouth_closed_texture: Texture2D
+@export var mouth_open_texture: Texture2D
+
+@onready var face: Control = $SubViewport/Face
+@onready var eyes: TextureRect = $SubViewport/Face/Eyes
+@onready var mouth: TextureRect = $SubViewport/Face/Mouth
 @onready var background: ColorRect = $SubViewport/Background
 
 var is_in_range = false
@@ -31,15 +37,17 @@ func _process(dt: float) -> void:
 func set_status(new_status: String):
 	status = new_status
 	match status:
-		"neutral": face.texture = neutral_texture
-		"happy": face.texture = happy_texture
-		"interact": face.texture = interact_texture
-		_: face.texture = neutral_texture
+		"neutral": eyes.texture = eyes_neutral_texture
+		"happy": eyes.texture = eyes_happy_texture
+		"interact": eyes.texture = eyes_interact_texture
+		_: eyes.texture = eyes_neutral_texture
 
 	if status == "interact":
 		background.color = Color.WHITE
+		mouth.hide()
 	else:
 		background.color = original_bg_color
+		mouth.show()
 
 func _on_dialogue_line_changed(line: DialogueLineResource):
 	set_status(line.status)
@@ -71,7 +79,7 @@ func _on_watch_area_body_exited(body: Node3D) -> void:
 
 func _on_blink_timer_timeout() -> void:
 	if not status == "neutral": return
-	face.texture = blink_texture
+	eyes.texture = eyes_blink_texture
 	await Clock.wait(0.2)
 	if not status == "neutral": return
-	face.texture = neutral_texture
+	eyes.texture = eyes_neutral_texture

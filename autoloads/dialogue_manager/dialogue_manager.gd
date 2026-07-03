@@ -10,9 +10,10 @@ var dialogue_box: DialogueBox
 var dialogue: DialogueResource
 var curr_line = 0
 var is_active = false
+var is_animating = false
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and is_active:
+	if event.is_action_pressed("interact") and is_active and not is_animating:
 		# if dialogue_box.is_typing:
 		# 	dialogue_box.finish_typing()
 		# else:
@@ -52,7 +53,9 @@ func end_dialogue():
 	if not is_active: return
 
 	dialogue_ended.emit()
+	is_animating = true
 	await dialogue_box.animate_close()
+	is_animating = false
 	is_active = false
 	dialogue = null
 	remove_child(dialogue_box)

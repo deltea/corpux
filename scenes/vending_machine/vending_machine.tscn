@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://cdqelrqrg87nf" path="res://scenes/vending_machine/vending_machine.gd" id="1_d25df"]
 [ext_resource type="PackedScene" uid="uid://5e52h1xfprfs" path="res://assets/models/vending_machine.blend" id="1_tf6tk"]
 [ext_resource type="Resource" uid="uid://dg5usvn62vden" path="res://dialogue/vending_machine.tres" id="2_8prie"]
-[ext_resource type="Texture2D" uid="uid://bv73afkyloofe" path="res://assets/textures/vending-machine/:3.png" id="2_jt1ca"]
 [ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="4_1lndu"]
-[ext_resource type="Texture2D" uid="uid://b5ahjaw7q5wg5" path="res://assets/textures/vending-machine/neutral.png" id="4_2r6w6"]
 [ext_resource type="Shader" uid="uid://d3qweaiaq824q" path="res://shaders/squigglevision.gdshader" id="5_1lndu"]
-[ext_resource type="Texture2D" uid="uid://c43wymk5dur6j" path="res://assets/textures/vending-machine/blink.png" id="5_i0tfq"]
+[ext_resource type="Texture2D" uid="uid://n7wqfeyl8ea1" path="res://assets/textures/vending-machine/eyes/blink.png" id="5_8yd61"]
 [ext_resource type="Shader" uid="uid://c2qdlk2arkcl" path="res://shaders/pixelate.gdshader" id="6_1lndu"]
-[ext_resource type="Texture2D" uid="uid://cilfflm5cdm4f" path="res://assets/textures/vending-machine/interact.png" id="6_8yd61"]
-[ext_resource type="Shader" uid="uid://bh35xhlkurn6c" path="res://shaders/grid.gdshader" id="7_nwh60"]
+[ext_resource type="Texture2D" uid="uid://cilfflm5cdm4f" path="res://assets/textures/vending-machine/eyes/interact.png" id="6_8yd61"]
+[ext_resource type="Texture2D" uid="uid://bbfeoqvybnxtm" path="res://assets/textures/vending-machine/eyes/happy.png" id="10_8yd61"]
+[ext_resource type="Texture2D" uid="uid://m7utewgtm8yw" path="res://assets/textures/vending-machine/eyes/neutral.png" id="10_uj5xu"]
+[ext_resource type="Texture2D" uid="uid://bgprvl7xoeiii" path="res://assets/textures/vending-machine/mouth/:3.png" id="11_uj5xu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8prie"]
 shading_mode = 0
@@ -31,6 +31,8 @@ _surfaces = [{
 [sub_resource type="ViewportTexture" id="ViewportTexture_8yd61"]
 viewport_path = NodePath("../SubViewport")
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uj5xu"]
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_uj5xu"]
 viewport_path = NodePath("../SubViewport")
 
@@ -44,7 +46,7 @@ emission_energy_multiplier = 2.0
 emission_operator = 1
 emission_texture = SubResource("ViewportTexture_uj5xu")
 heightmap_texture = ExtResource("4_1lndu")
-detail_mask = ExtResource("2_jt1ca")
+detail_mask = SubResource("CompressedTexture2D_uj5xu")
 uv1_scale = Vector3(0.4, 0.4, -0.4)
 uv1_offset = Vector3(0, 0, -0.57)
 uv1_triplanar = true
@@ -64,13 +66,6 @@ shader_parameter/strength = 0.5
 shader_parameter/fps = 10.0
 shader_parameter/noise = SubResource("NoiseTexture2D_1lndu")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8prie"]
-shader = ExtResource("7_nwh60")
-shader_parameter/size = Vector2(256, 256)
-shader_parameter/line_width = 0.10000000475
-shader_parameter/offset = Vector2(1, 0)
-shader_parameter/grid_size = 16.0
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nwh60"]
 shader = ExtResource("6_1lndu")
 shader_parameter/pixelSize = 4
@@ -81,13 +76,18 @@ radius = 10.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_8prie"]
 radius = 10.0
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_38or4"]
+viewport_path = NodePath("SubViewport")
+
 [node name="VendingMachine" type="Node3D" unique_id=1780406410]
 script = ExtResource("1_d25df")
 dialogue = ExtResource("2_8prie")
-neutral_texture = ExtResource("4_2r6w6")
-happy_texture = ExtResource("2_jt1ca")
-blink_texture = ExtResource("5_i0tfq")
-interact_texture = ExtResource("6_8yd61")
+eyes_neutral_texture = ExtResource("10_uj5xu")
+eyes_happy_texture = ExtResource("10_8yd61")
+eyes_blink_texture = ExtResource("5_8yd61")
+eyes_interact_texture = ExtResource("6_8yd61")
+mouth_closed_texture = ExtResource("11_uj5xu")
+mouth_open_texture = ExtResource("11_uj5xu")
 
 [node name="vending_machine" parent="." unique_id=26569629 instance=ExtResource("1_tf6tk")]
 
@@ -100,17 +100,17 @@ mesh = SubResource("ArrayMesh_nwh60")
 material_override = SubResource("StandardMaterial3D_fy51u")
 cast_shadow = 0
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=2115567630]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1040332336]
 disable_3d = true
 debug_draw = 4
 canvas_item_default_texture_filter = 0
 size = Vector2i(256, 256)
 render_target_update_mode = 4
 
-[node name="Camera2D" type="Camera2D" parent="SubViewport" unique_id=1858306218]
+[node name="Camera2D" type="Camera2D" parent="SubViewport" unique_id=826111363]
 position = Vector2(128, 128)
 
-[node name="Background" type="ColorRect" parent="SubViewport" unique_id=948645108]
+[node name="Background" type="ColorRect" parent="SubViewport" unique_id=1077930883]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -118,27 +118,47 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0024153937, 0.44074532, 0.83746773, 1)
 
-[node name="Face" type="TextureRect" parent="SubViewport" unique_id=1008051037]
+[node name="Face" type="Control" parent="SubViewport" unique_id=771395641]
 material = SubResource("ShaderMaterial_1lndu")
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(128, 128)
-texture = ExtResource("4_2r6w6")
 
-[node name="Grid" type="ColorRect" parent="SubViewport" unique_id=171969010]
-visible = false
-material = SubResource("ShaderMaterial_8prie")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Eyes" type="TextureRect" parent="SubViewport/Face" unique_id=358121038]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.5
+offset_top = -20.0
+offset_right = 78.5
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 1, 1, 0.60784316)
+texture = ExtResource("10_uj5xu")
 
-[node name="Pixelation" type="ColorRect" parent="SubViewport" unique_id=350721804]
+[node name="Mouth" type="TextureRect" parent="SubViewport/Face" unique_id=1907444173]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = 10.070007
+offset_right = 26.0
+offset_bottom = 50.069992
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_uj5xu")
+
+[node name="Pixelation" type="ColorRect" parent="SubViewport" unique_id=1147715206]
 material = SubResource("ShaderMaterial_nwh60")
 anchors_preset = 15
 anchor_right = 1.0
@@ -160,6 +180,12 @@ debug_color = Color(0.72477305, 0.243936, 1, 0.41960785)
 [node name="BlinkTimer" type="Timer" parent="." unique_id=1401457141]
 wait_time = 3.0
 autostart = true
+
+[node name="FacePreview" type="TextureRect" parent="." unique_id=1821614635]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("ViewportTexture_38or4")
 
 [connection signal="body_entered" from="DialogueArea" to="." method="_on_dialogue_area_body_entered"]
 [connection signal="body_exited" from="DialogueArea" to="." method="_on_dialogue_area_body_exited"]

@@ -85,8 +85,8 @@ func throw(throw_dir: Vector3, throw_force: float, return_node: Node3D):
 func _on_hit_area_body_entered(body: Node3D) -> void:
 	if body is Enemy:
 		body.take_damage(2.0)
-		is_returning = true
-		is_bounce_back = true
+		# is_returning = true
+		# is_bounce_back = true
 
 func _on_bounce_back_area_body_entered(body: Node3D) -> void:
 	if not body is Enemy and not body is Player:
