@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://n7wqfeyl8ea1" path="res://assets/textures/vending-machine/eyes/blink.png" id="5_8yd61"]
 [ext_resource type="Shader" uid="uid://c2qdlk2arkcl" path="res://shaders/pixelate.gdshader" id="6_1lndu"]
 [ext_resource type="Texture2D" uid="uid://cilfflm5cdm4f" path="res://assets/textures/vending-machine/eyes/interact.png" id="6_8yd61"]
+[ext_resource type="Texture2D" uid="uid://drqfthmyubj3n" path="res://assets/textures/vending-machine/mouth/open.png" id="8_uj5xu"]
 [ext_resource type="Texture2D" uid="uid://bbfeoqvybnxtm" path="res://assets/textures/vending-machine/eyes/happy.png" id="10_8yd61"]
 [ext_resource type="Texture2D" uid="uid://m7utewgtm8yw" path="res://assets/textures/vending-machine/eyes/neutral.png" id="10_uj5xu"]
 [ext_resource type="Texture2D" uid="uid://bgprvl7xoeiii" path="res://assets/textures/vending-machine/mouth/:3.png" id="11_uj5xu"]
@@ -87,7 +88,7 @@ eyes_happy_texture = ExtResource("10_8yd61")
 eyes_blink_texture = ExtResource("5_8yd61")
 eyes_interact_texture = ExtResource("6_8yd61")
 mouth_closed_texture = ExtResource("11_uj5xu")
-mouth_open_texture = ExtResource("11_uj5xu")
+mouth_open_texture = ExtResource("8_uj5xu")
 
 [node name="vending_machine" parent="." unique_id=26569629 instance=ExtResource("1_tf6tk")]
 

@@ -3,6 +3,7 @@ extends CanvasLayer
 signal dialogue_started
 signal dialogue_ended
 signal dialogue_line_changed(line: DialogueLineResource)
+signal char_typed(char: String)
 
 @export var dialogue_box_scene: PackedScene
 
@@ -61,6 +62,7 @@ func end_dialogue():
 	remove_child(dialogue_box)
 
 func _on_char_typed(c: String):
+	char_typed.emit(c)
 	var line = dialogue.lines[curr_line]
 	if c.to_lower() in line.voice:
 		AudioManager.play_sound_from_stream(line.voice[c].stream)

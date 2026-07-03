@@ -29,6 +29,7 @@ func _ready() -> void:
 	DialogueManager.dialogue_line_changed.connect(_on_dialogue_line_changed)
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	original_bg_color = background.color
+	DialogueManager.char_typed.connect(_on_char_typed)
 
 func _process(dt: float) -> void:
 	face.position.y = sin(Clock.time * 3.0) * 5.0
@@ -83,3 +84,8 @@ func _on_blink_timer_timeout() -> void:
 	await Clock.wait(0.2)
 	if not status == "neutral": return
 	eyes.texture = eyes_neutral_texture
+
+func _on_char_typed(_char: String):
+	mouth.texture = mouth_open_texture
+	await Clock.wait(0.005)
+	mouth.texture = mouth_closed_texture
