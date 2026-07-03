@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ccedxpdllf06q" path="res://scenes/environment/arch.tscn" id="10_dg77c"]
 [ext_resource type="Material" uid="uid://buvjk5gg3qgni" path="res://assets/materials/standard.tres" id="10_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://fi26o3a5pvnr" path="res://scenes/enemy/basic/basic_enemy.tscn" id="11_efxa6"]
+[ext_resource type="PackedScene" uid="uid://4mpgrqrodq8t" path="res://assets/models/environment/column.blend" id="12_dg77c"]
 [ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="14_vivmo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_272bh"]
@@ -85,7 +86,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1000, 0, 1646.842)
 [node name="Floor" type="StaticBody3D" parent="Environment" unique_id=488303633]
 
 [node name="MeshInstance" type="MeshInstance3D" parent="Environment/Floor" unique_id=792938918]
-material_override = ExtResource("4_1bvp3")
+material_override = ExtResource("7_4c57u")
 mesh = SubResource("PlaneMesh_h2yge")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="Environment/Floor" unique_id=1841383296]
@@ -181,7 +182,7 @@ material = SubResource("StandardMaterial3D_272bh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 100)
 use_collision = true
 size = Vector3(244, 6, 160)
-material = ExtResource("7_4c57u")
+material = ExtResource("4_1bvp3")
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="Environment/Obstacles" unique_id=223220229]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 164, 100)
@@ -266,6 +267,21 @@ transform = Transform3D(0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 0, 0,
 use_collision = true
 size = Vector3(89.700005, 8, 26)
 material = ExtResource("4_1bvp3")
+
+[node name="column" parent="Environment/Obstacles" unique_id=843466500 instance=ExtResource("12_dg77c")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -77, 117, 71)
+
+[node name="column2" parent="Environment/Obstacles" unique_id=1929072269 instance=ExtResource("12_dg77c")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 77, 117, 71)
+
+[node name="column3" parent="Environment/Obstacles" unique_id=1896786894 instance=ExtResource("12_dg77c")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 117, 134)
+
+[node name="column4" parent="Environment/Obstacles" unique_id=1621151875 instance=ExtResource("12_dg77c")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -50, 117, 114)
+
+[node name="column5" parent="Environment/Obstacles" unique_id=1325715090 instance=ExtResource("12_dg77c")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 50, 117, 114)
 
 [node name="Enemies" type="Node" parent="Environment" unique_id=2137425582]
 
