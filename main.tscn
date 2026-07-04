@@ -70,6 +70,14 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 3
 
 [node name="DirectionalLight" type="DirectionalLight3D" parent="." unique_id=2013117239]
 transform = Transform3D(-0.7071069, 0.49999997, 0.5, 6.1817246e-08, -0.7071068, 0.7071068, 0.70710677, 0.5000001, 0.5, 0, 10, 0)
+light_energy = 0.5
+light_specular = 16.0
+shadow_enabled = true
+
+[node name="DirectionalLight2" type="DirectionalLight3D" parent="." unique_id=755741775]
+transform = Transform3D(-0.7071068, -0.4999999, -0.49999997, -6.181724e-08, -0.70710677, 0.70710677, -0.7071067, 0.50000006, 0.49999997, 0, 10, 0)
+light_energy = 0.25
+light_specular = 16.0
 shadow_enabled = true
 
 [node name="Sun" parent="." unique_id=272227891 instance=ExtResource("10_4c57u")]
@@ -132,11 +140,13 @@ material = ExtResource("10_ycdy4")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Environment/Obstacles/StartArea/CSGCombiner3D" unique_id=1555969287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 10, -35)
+visible = false
 operation = 2
 size = Vector3(8, 8, 8)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Environment/Obstacles/StartArea/CSGCombiner3D" unique_id=1618543686]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 10, -35)
+visible = false
 operation = 2
 size = Vector3(8, 8, 8)
 
