@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bte76aise5p3b"
-path="res://.godot/imported/arch.blend-19760c849872129052e234e2fbf274aa.scn"
+uid="uid://5e52h1xfprfs"
+path="res://.godot/imported/vending_machine.blend-be7fd0cb3b58b13bfb0f33a00a8c558c.scn"
 
 [deps]
 
-source_file="res://assets/models/arch.blend"
-dest_files=["res://.godot/imported/arch.blend-19760c849872129052e234e2fbf274aa.scn"]
+source_file="res://assets/models/environment/vending_machine.blend"
+dest_files=["res://.godot/imported/vending_machine.blend-be7fd0cb3b58b13bfb0f33a00a8c558c.scn"]
 
 [params]
 
@@ -41,10 +41,25 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"Material": {
+"Accent": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/arch.tres",
-"use_external/path": "uid://wfs6n0r77ekt"
+"use_external/fallback_path": "res://assets/materials/vending-machine/vending-machine-accent.tres",
+"use_external/path": "uid://bc33pp8qru2to"
+},
+"Base": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/vending-machine/vending-machine-base.tres",
+"use_external/path": "uid://c0gj4mddh0ifx"
+},
+"Handle": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/standard.tres",
+"use_external/path": "uid://buvjk5gg3qgni"
+},
+"Screen": {
+"use_external/enabled": false,
+"use_external/fallback_path": "res://assets/materials/vending-machine/vending-machine-screen.tres",
+"use_external/path": "uid://d3e4s8l7ujvyu"
 }
 }
 }

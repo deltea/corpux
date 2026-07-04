@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ccedxpdllf06q"]
 
-[ext_resource type="PackedScene" uid="uid://bte76aise5p3b" path="res://assets/models/arch.blend" id="1_pxycm"]
-[ext_resource type="Material" uid="uid://wfs6n0r77ekt" path="res://assets/materials/arch.tres" id="2_lgcq3"]
+[ext_resource type="PackedScene" uid="uid://bte76aise5p3b" path="res://assets/models/environment/arch.blend" id="1_pxycm"]
+[ext_resource type="Material" uid="uid://wfs6n0r77ekt" path="res://assets/materials/environment/arch.tres" id="2_lgcq3"]
 
 [node name="Arch" unique_id=1744136896 instance=ExtResource("1_pxycm")]
 

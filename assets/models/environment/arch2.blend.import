@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cxyl8f7vkdpyn"
-path="res://.godot/imported/lightbulb.blend-8e4693e80214600568d0edea00cbcede.scn"
+uid="uid://b1plo7hh5o8y0"
+path="res://.godot/imported/arch2.blend-cba9ab80981de452a3db3d9785b26ce8.scn"
 
 [deps]
 
-source_file="res://assets/models/lightbulb.blend"
-dest_files=["res://.godot/imported/lightbulb.blend-8e4693e80214600568d0edea00cbcede.scn"]
+source_file="res://assets/models/environment/arch2.blend"
+dest_files=["res://.godot/imported/arch2.blend-cba9ab80981de452a3db3d9785b26ce8.scn"]
 
 [params]
 
@@ -41,15 +41,10 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"Base": {
+"Material": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/standard.tres",
-"use_external/path": "uid://buvjk5gg3qgni"
-},
-"Emission": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/emissive.tres",
-"use_external/path": "uid://dq5d51j0je03r"
+"use_external/fallback_path": "res://assets/materials/environment/arch.tres",
+"use_external/path": "uid://wfs6n0r77ekt"
 }
 }
 }

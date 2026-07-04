@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bb0lxurjv7u4s"]
 
-[ext_resource type="PackedScene" uid="uid://cutslwwm5wmkt" path="res://assets/models/sun.blend" id="1_ide26"]
+[ext_resource type="PackedScene" uid="uid://cutslwwm5wmkt" path="res://assets/models/decoration/sun.blend" id="1_ide26"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ide26"]
 shading_mode = 2

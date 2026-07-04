@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d00u3lhgiphp0"
-path="res://.godot/imported/platform.blend-f61797c060204508d7538a70075eac76.scn"
+uid="uid://cutslwwm5wmkt"
+path="res://.godot/imported/sun.blend-f60b3838f573159fc6ec19cb41e5d7cf.scn"
 
 [deps]
 
-source_file="res://assets/models/platform.blend"
-dest_files=["res://.godot/imported/platform.blend-f61797c060204508d7538a70075eac76.scn"]
+source_file="res://assets/models/decoration/sun.blend"
+dest_files=["res://.godot/imported/sun.blend-f60b3838f573159fc6ec19cb41e5d7cf.scn"]
 
 [params]
 
@@ -42,14 +42,9 @@ materials/extract_path=""
 _subresources={
 "materials": {
 "Material": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/floor.tres",
-"use_external/path": "uid://cw65bu2jitrap"
-},
-"Material.001": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/standard.tres",
-"use_external/path": "uid://buvjk5gg3qgni"
+"use_external/enabled": false,
+"use_external/fallback_path": "res://assets/materials/sun.tres",
+"use_external/path": "uid://ctw65x6fsqs4u"
 }
 }
 }

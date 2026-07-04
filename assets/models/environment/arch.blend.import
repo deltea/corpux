@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bueq82vu6rub3"
-path="res://.godot/imported/sign.blend-99a4cd4cf11728249aade5cb3062769f.scn"
+uid="uid://bte76aise5p3b"
+path="res://.godot/imported/arch.blend-15407fb5acf172fbe758263148e4939b.scn"
 
 [deps]
 
-source_file="res://assets/models/sign.blend"
-dest_files=["res://.godot/imported/sign.blend-99a4cd4cf11728249aade5cb3062769f.scn"]
+source_file="res://assets/models/environment/arch.blend"
+dest_files=["res://.godot/imported/arch.blend-15407fb5acf172fbe758263148e4939b.scn"]
 
 [params]
 
@@ -41,15 +41,10 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"Pole": {
+"Material": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/standard.tres",
-"use_external/path": "uid://buvjk5gg3qgni"
-},
-"Sign": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/sign.tres",
-"use_external/path": "uid://cpp0dlh2i36ek"
+"use_external/fallback_path": "res://assets/materials/environment/arch.tres",
+"use_external/path": "uid://wfs6n0r77ekt"
 }
 }
 }

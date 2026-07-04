@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bo5db0ai8sswt"
-path="res://.godot/imported/hanging_sign.blend-ba7a7870cebfb8cb07290d7ef623c06a.scn"
+path="res://.godot/imported/hanging_sign.blend-53a4ff92ee2b1851f084e53b884975b0.scn"
 
 [deps]
 
-source_file="res://assets/models/hanging_sign.blend"
-dest_files=["res://.godot/imported/hanging_sign.blend-ba7a7870cebfb8cb07290d7ef623c06a.scn"]
+source_file="res://assets/models/decoration/hanging_sign.blend"
+dest_files=["res://.godot/imported/hanging_sign.blend-53a4ff92ee2b1851f084e53b884975b0.scn"]
 
 [params]
 
@@ -43,7 +43,7 @@ _subresources={
 "materials": {
 "Display": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/hanging_sign.tres",
+"use_external/fallback_path": "res://assets/materials/environment/hanging_sign.tres",
 "use_external/path": "uid://douin02iem5xe"
 },
 "Legs": {

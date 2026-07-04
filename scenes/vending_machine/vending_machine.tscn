@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://ce1ter0sesihi"]
 
 [ext_resource type="Script" uid="uid://cdqelrqrg87nf" path="res://scenes/vending_machine/vending_machine.gd" id="1_d25df"]
-[ext_resource type="PackedScene" uid="uid://5e52h1xfprfs" path="res://assets/models/vending_machine.blend" id="1_tf6tk"]
+[ext_resource type="PackedScene" uid="uid://5e52h1xfprfs" path="res://assets/models/environment/vending_machine.blend" id="1_tf6tk"]
 [ext_resource type="Resource" uid="uid://dg5usvn62vden" path="res://dialogue/vending_machine.tres" id="2_8prie"]
 [ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="4_1lndu"]
 [ext_resource type="Shader" uid="uid://d3qweaiaq824q" path="res://shaders/squigglevision.gdshader" id="5_1lndu"]
