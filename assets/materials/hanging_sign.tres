@@ -8,6 +8,7 @@ shading_mode = 2
 albedo_texture = ExtResource("1_61frg")
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 1.2
 emission_operator = 1
 emission_texture = ExtResource("1_61frg")
 heightmap_texture = ExtResource("2_61frg")

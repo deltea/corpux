@@ -1,5 +1,6 @@
 - level design
 - enemy model
+- escalators
 - [x] animal crossing dialogue sfx
 - [x] disable weapon when dialogue
 - [x] weapon disable animation
