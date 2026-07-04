@@ -2,7 +2,7 @@ class_name DialogueBox extends Control
 
 signal char_typed(char: String)
 
-const TYPE_SPEED = 0.02
+const TYPE_SPEED = 0.01
 const CLOSED_Y_POS = 384.0
 
 @onready var dither: TextureRect = $DitherTransition
