@@ -73,8 +73,12 @@ func _physics_process(dt: float):
 			super_dash()
 	else:
 		if is_super_dashing:
-			velocity.x = move_toward(velocity.x, 0, SUPER_DASH_DECELERATION * dt)
-			velocity.z = move_toward(velocity.z, 0, SUPER_DASH_DECELERATION * dt)
+			if dir:
+				velocity.x = move_toward(velocity.x, dir.x * 60.0, ACCELERATION * dt)
+				velocity.z = move_toward(velocity.z, dir.z * 60.0, ACCELERATION * dt)
+			else:
+				velocity.x = move_toward(velocity.x, 0, SUPER_DASH_DECELERATION * dt)
+				velocity.z = move_toward(velocity.z, 0, SUPER_DASH_DECELERATION * dt)
 		else:
 			if dir:
 				velocity.x = move_toward(velocity.x, dir.x * MAX_SPEED, ACCELERATION * dt)
