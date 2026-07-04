@@ -9,6 +9,6 @@
 ## uhhhhh later
 
 - quake movement revamp
-- fix gun ground floating
+- fix boomerang ground floating
 - auto aim for throws?? cool lookin frame ui
 - fix boomerang tweaking out
