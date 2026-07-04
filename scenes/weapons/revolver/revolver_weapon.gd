@@ -49,7 +49,7 @@ func _process(dt: float) -> void:
 		wind_up_amount = wind_up_time / MAX_WIND_UP_TIME
 		position = position.lerp(wind_up_pos, 10.0 * dt)
 		rotation_degrees = rotation_degrees.lerp(wind_up_rot, 10.0 * dt)
-		weapon_shake.emit(throw_distance_curve.sample_baked(wind_up_amount) * 0.02, 0.01)
+		weapon_shake.emit(wind_up_amount * 0.02, 0.01)
 	else:
 		position = position.lerp(original_pos, 10.0 * dt)
 		rotation_degrees = rotation_degrees.lerp(original_rot, 10.0 * dt)
