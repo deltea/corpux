@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d71n5obdy5ou" path="res://scenes/player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Material" uid="uid://d2s5q102ekomd" path="res://assets/materials/checkered.tres" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://bv3gyd8ehmbov" path="res://assets/textures/train-stop-floor.png" id="6_ycdy4"]
 [ext_resource type="Material" uid="uid://cw65bu2jitrap" path="res://assets/materials/floor.tres" id="7_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ce1ter0sesihi" path="res://scenes/vending_machine/vending_machine.tscn" id="9_efxa6"]
 [ext_resource type="PackedScene" uid="uid://bb0lxurjv7u4s" path="res://scenes/environment/sun.tscn" id="10_4c57u"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cxyl8f7vkdpyn" path="res://assets/models/lightbulb.blend" id="11_dg77c"]
 [ext_resource type="PackedScene" uid="uid://fi26o3a5pvnr" path="res://scenes/enemy/basic/basic_enemy.tscn" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://4mpgrqrodq8t" path="res://assets/models/environment/column.blend" id="12_dg77c"]
+[ext_resource type="PackedScene" uid="uid://o581sgk1wh84" path="res://assets/models/decoration/poster.blend" id="13_w48qg"]
 [ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="14_vivmo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_272bh"]
@@ -51,9 +53,12 @@ size = Vector2(1000, 1000)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
 shading_mode = 2
+albedo_texture = ExtResource("6_ycdy4")
 emission_enabled = true
 emission = Color(0.47397602, 0.4739756, 0.47397578, 1)
 heightmap_texture = ExtResource("14_vivmo")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
 uv1_world_triplanar = true
 texture_filter = 4
 distance_fade_min_distance = 25.0
@@ -391,17 +396,71 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91, 71, 52)
 [node name="hanging_sign" parent="Environment/Decorations" unique_id=719379898 instance=ExtResource("10_efxa6")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 17, -234)
 
+[node name="poster" parent="Environment/Decorations" unique_id=573800386 instance=ExtResource("13_w48qg")]
+transform = Transform3D(4.371139e-08, 8.742278e-08, 1, 3.821371e-15, -1, 8.742278e-08, 1, 0, -4.371139e-08, 17, 9, -243)
+
+[node name="poster9" parent="Environment/Decorations" unique_id=743176873 instance=ExtResource("13_w48qg")]
+transform = Transform3D(1, -3.821371e-15, -8.742278e-08, 3.821371e-15, -1, 8.742278e-08, -8.742278e-08, -8.742278e-08, -1, 24, 9, -255)
+
+[node name="poster10" parent="Environment/Decorations" unique_id=248880764 instance=ExtResource("13_w48qg")]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -24, 9, -255)
+
+[node name="poster2" parent="Environment/Decorations" unique_id=1456012261 instance=ExtResource("13_w48qg")]
+transform = Transform3D(4.371139e-08, 8.742278e-08, 1, 3.821371e-15, -1, 8.742278e-08, 1, 0, -4.371139e-08, -17, 9, -243)
+
 [node name="lightbulb" parent="Environment/Decorations" unique_id=403245503 instance=ExtResource("11_dg77c")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 20, -245)
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Environment/Decorations/lightbulb" unique_id=1998198483]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -2, 0)
+light_energy = 0.75
+omni_range = 15.0
+omni_attenuation = 0.5
 
 [node name="lightbulb2" parent="Environment/Decorations" unique_id=76252597 instance=ExtResource("11_dg77c")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 20, -259)
 
+[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Decorations/lightbulb2" unique_id=1280254508]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -2, 0)
+light_energy = 0.75
+omni_range = 15.0
+omni_attenuation = 0.5
+
 [node name="lightbulb3" parent="Environment/Decorations" unique_id=2108402557 instance=ExtResource("11_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 20, -256)
 
+[node name="OmniLight3D3" type="OmniLight3D" parent="Environment/Decorations/lightbulb3" unique_id=806441921]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+light_energy = 0.75
+omni_range = 15.0
+omni_attenuation = 0.5
+
 [node name="lightbulb4" parent="Environment/Decorations" unique_id=1677081950 instance=ExtResource("11_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 20, -256)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Environment/Decorations/lightbulb4" unique_id=940032165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+light_energy = 0.75
+omni_range = 15.0
+omni_attenuation = 0.5
+
+[node name="poster3" parent="Environment/Decorations" unique_id=803382896 instance=ExtResource("13_w48qg")]
+transform = Transform3D(-1, 0, -8.742278e-08, -7.642742e-15, -1, 8.742278e-08, -8.742278e-08, 8.742278e-08, 1, -10, 13, -199)
+
+[node name="poster4" parent="Environment/Decorations" unique_id=2036241519 instance=ExtResource("13_w48qg")]
+transform = Transform3D(-4.371139e-08, 8.742278e-08, 1, -7.642742e-15, -1, 8.742278e-08, 1, -3.821371e-15, 4.371139e-08, -1, 13, -170.5)
+
+[node name="poster6" parent="Environment/Decorations" unique_id=1727894541 instance=ExtResource("13_w48qg")]
+transform = Transform3D(-4.371139e-08, 8.742278e-08, 1, -7.642742e-15, -1, 8.742278e-08, 1, -3.821371e-15, 4.371139e-08, -6, 13, -170.5)
+
+[node name="poster7" parent="Environment/Decorations" unique_id=1704338642 instance=ExtResource("13_w48qg")]
+transform = Transform3D(-4.371139e-08, 8.742278e-08, 1, -7.642742e-15, -1, 8.742278e-08, 1, -3.821371e-15, 4.371139e-08, -11, 13, -170.5)
+
+[node name="poster8" parent="Environment/Decorations" unique_id=1595830297 instance=ExtResource("13_w48qg")]
+transform = Transform3D(1.3113416e-07, -8.742278e-08, -1, -7.642742e-15, -1, 8.742278e-08, -1, -3.821371e-15, -1.3113416e-07, -30, 13, -188)
+
+[node name="poster5" parent="Environment/Decorations" unique_id=1050253983 instance=ExtResource("13_w48qg")]
+transform = Transform3D(1, -7.642742e-15, 0, -7.642742e-15, -1, 8.742278e-08, 0, -8.742278e-08, -1, 10, 13, -183.5)
 
 [node name="VendingMachine" parent="Environment" unique_id=1780406410 instance=ExtResource("9_efxa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 8.5, -206)
