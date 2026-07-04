@@ -30,7 +30,7 @@ autostart = true
 
 [node name="RayCast" type="RayCast3D" parent="." index="2" unique_id=1862659185]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
-target_position = Vector3(0, 0, -200)
+target_position = Vector3(0, 0, -1000)
 
 [node name="FirePoint" type="Marker3D" parent="." index="3" unique_id=348105577]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6375143, -0.23853329, -3.3005924)

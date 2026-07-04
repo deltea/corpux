@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="14_vivmo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_272bh"]
-sky_top_color = Color(0.79688144, 0.767517, 1, 1)
+sky_top_color = Color(0.8626782, 0.84705687, 0.99999875, 1)
 sky_horizon_color = Color(0.5058824, 0.6, 0.9882353, 1)
 sky_energy_multiplier = 1.2
 ground_bottom_color = Color(0.19215687, 0.1764706, 0.42352942, 1)
@@ -185,6 +185,7 @@ size = Vector3(244, 6, 160)
 material = ExtResource("4_1bvp3")
 
 [node name="CSGCombiner3D4" type="CSGCombiner3D" parent="Environment/Obstacles" unique_id=1122192584]
+visible = false
 use_collision = true
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="Environment/Obstacles/CSGCombiner3D4" unique_id=223220229]

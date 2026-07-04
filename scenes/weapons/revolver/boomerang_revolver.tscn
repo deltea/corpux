@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="4_iyp7i"]
 [ext_resource type="Texture2D" uid="uid://dur1ekjkyq2ut" path="res://assets/textures/weapons/revolver/revolver-handle.png" id="5_iyp7i"]
 [ext_resource type="Texture2D" uid="uid://hbgv12k6oa6k" path="res://assets/textures/weapons/revolver/revolver-display.png" id="6_het4p"]
-[ext_resource type="Texture2D" uid="uid://bbfeoqvybnxtm" path="res://assets/textures/vending-machine/eyes/happy.png" id="7_arx16"]
+[ext_resource type="Texture2D" uid="uid://bptlh8l88cn2o" path="res://assets/textures/markers/boomerang-marker.png" id="7_arx16"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v5qf2"]
 size = Vector3(3, 2.5, 1)
@@ -123,8 +123,8 @@ priority = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45117843, 0)
 shape = SubResource("BoxShape3D_het4p")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=322861378]
-pixel_size = 0.03
+[node name="Marker" type="Sprite3D" parent="." unique_id=322861378]
+pixel_size = 0.035
 billboard = 1
 no_depth_test = true
 texture_filter = 0
