@@ -2,7 +2,10 @@ class_name Enemy extends StaticBody3D
 
 @export var max_health = 2
 
-var health = max_health
+var health: int
+
+func _ready() -> void:
+	health = max_health
 
 func take_damage(damage: int):
 	health -= damage

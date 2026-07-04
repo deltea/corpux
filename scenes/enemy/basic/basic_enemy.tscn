@@ -22,6 +22,7 @@ material = SubResource("StandardMaterial3D_0ns2y")
 size = Vector3(4, 4, 4)
 
 [node name="BasicEnemy" unique_id=541240095 instance=ExtResource("1_b6kpl")]
+max_health = 1
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=1789538307]
 shape = SubResource("BoxShape3D_b6kpl")
