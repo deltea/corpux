@@ -13,7 +13,7 @@ const MAX_WIND_UP_TIME = 1.0
 @export var boomerang_scene: PackedScene
 
 @onready var ray: RayCast3D = $RayCast
-@onready var display: MeshInstance3D = $Pivot/revolver/Cube_004
+@onready var display_mesh: MeshInstance3D = $Pivot/revolver/Cube_004
 @onready var mesh: Node3D = $Pivot/revolver
 @onready var pivot: Node3D = $Pivot
 
@@ -143,8 +143,8 @@ func _on_boomerang_caught():
 		rotation_degrees = original_rot
 
 func _on_animation_timer_timeout() -> void:
-	var mat = display.mesh.surface_get_material(0)
+	var mat = display_mesh.mesh.surface_get_material(0)
 	if mat:
 		var unique = mat.duplicate()
 		unique.uv1_offset.y += 0.1
-		display.mesh.surface_set_material(0, unique)
+		display_mesh.mesh.surface_set_material(0, unique)
