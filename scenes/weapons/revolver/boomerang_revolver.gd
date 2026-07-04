@@ -3,7 +3,7 @@ class_name BoomerangRevolver extends Node3D
 const FLOOR_FLOAT_HEIGHT = 0.5
 const MAX_SPEED = 120.0
 const MAX_SPIN_SPEED = 2000.0
-const MAX_DISTANCE = 40.0
+const MAX_DISTANCE = 48.0
 const DECELERATION = 250.0
 const RETURN_ACCELERATION = 120.0
 

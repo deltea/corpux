@@ -2,7 +2,7 @@ class_name Player extends CharacterBody3D
 
 const CAM_TILT = 0.0
 const MOUSE_SENS = 1.0
-const MAX_SPEED = 20.0
+const MAX_SPEED = 32.0
 const DECELERATION = 50.0
 const ACCELERATION = 100.0
 const WALL_JUMP_PUSHBACK = 30.0
