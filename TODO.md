@@ -9,3 +9,4 @@
 
 - quake movement revamp
 - fix gun ground floating
+- auto aim for throws?? cool lookin frame ui
