@@ -139,6 +139,8 @@ func _on_boomerang_caught():
 
 	if Input.is_action_pressed("mouse_right"):
 		secondary_fire()
+		position = original_pos
+		rotation_degrees = original_rot
 
 func _on_animation_timer_timeout() -> void:
 	var mat = display.mesh.surface_get_material(0)
