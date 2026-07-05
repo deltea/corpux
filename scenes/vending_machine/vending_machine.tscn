@@ -91,13 +91,14 @@ mouth_closed_texture = ExtResource("11_uj5xu")
 mouth_open_texture = ExtResource("8_uj5xu")
 
 [node name="vending_machine" parent="." unique_id=26569629 instance=ExtResource("1_tf6tk")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="vending_machine/Machine" parent_id_path=PackedInt32Array(26569629, 562165848) index="1" unique_id=908988206]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="vending_machine/Machine" parent_id_path=PackedInt32Array(26569629, 747590469) index="1" unique_id=908988206]
 visible = false
 material_override = SubResource("StandardMaterial3D_8prie")
 mesh = SubResource("ArrayMesh_nwh60")
 
-[node name="Screen" parent="vending_machine" index="5" unique_id=1771613927]
+[node name="Screen" parent="vending_machine" index="5" unique_id=818321689]
 material_override = SubResource("StandardMaterial3D_vo622")
 cast_shadow = 0
 
