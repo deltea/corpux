@@ -1,4 +1,5 @@
 - level design
+- enemy explosion effects
 - escalators
 - enemy model
 - [x] gun frame start animation
