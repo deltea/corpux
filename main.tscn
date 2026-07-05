@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://d71n5obdy5ou" path="res://scenes/player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Material" uid="uid://d2s5q102ekomd" path="res://assets/materials/environment/checkered.tres" id="4_1bvp3"]
+[ext_resource type="Material" uid="uid://crmwss0n1hs0k" path="res://assets/materials/environment/stairs.tres" id="6_2cqfq"]
 [ext_resource type="Material" uid="uid://3ipk4fhteaks" path="res://assets/materials/environment/long_tiles.tres" id="6_vivmo"]
-[ext_resource type="Texture2D" uid="uid://bv3gyd8ehmbov" path="res://assets/textures/tile.png" id="6_ycdy4"]
 [ext_resource type="Material" uid="uid://cw65bu2jitrap" path="res://assets/materials/environment/floor.tres" id="7_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ce1ter0sesihi" path="res://scenes/vending_machine/vending_machine.tscn" id="9_efxa6"]
 [ext_resource type="PackedScene" uid="uid://bb0lxurjv7u4s" path="res://scenes/environment/sun.tscn" id="10_4c57u"]
@@ -14,16 +14,15 @@
 [ext_resource type="PackedScene" uid="uid://4mpgrqrodq8t" path="res://assets/models/environment/column.blend" id="12_dg77c"]
 [ext_resource type="PackedScene" uid="uid://o581sgk1wh84" path="res://assets/models/decoration/poster.blend" id="13_w48qg"]
 [ext_resource type="PackedScene" uid="uid://byp7k2md1my7y" path="res://scenes/light.tscn" id="14_2cqfq"]
-[ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="14_vivmo"]
 [ext_resource type="PackedScene" uid="uid://bduk1rdwctppm" path="res://assets/models/decoration/trash_can.blend" id="15_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://b3uspscavojyy" path="res://assets/textures/path-decal.png" id="15_yaehf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_272bh"]
 sky_top_color = Color(1, 1, 1, 1)
-sky_horizon_color = Color(0.5058824, 0.6, 0.9882353, 1)
+sky_horizon_color = Color(0.28235295, 0.50980395, 1, 1)
 sky_energy_multiplier = 1.2
-ground_bottom_color = Color(0.19215687, 0.1764706, 0.42352942, 1)
-ground_horizon_color = Color(0.5058824, 0.6, 0.9882353, 1)
-ground_curve = 0.18379155
+ground_bottom_color = Color(0.84716845, 0.9000119, 0.99999934, 1)
+ground_horizon_color = Color(0.2838543, 0.5082564, 1, 1)
 sun_angle_max = 51.6
 sun_curve = 1e-05
 energy_multiplier = 0.5
@@ -36,6 +35,7 @@ background_mode = 2
 background_color = Color(1, 1, 1, 1)
 sky = SubResource("Sky_7mycd")
 ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 2.0
 ssao_radius = 1.5
 sdfgi_energy = 1.2
 glow_enabled = true
@@ -45,26 +45,14 @@ fog_depth_begin = 374.1
 fog_depth_end = 2259.0
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.002
-volumetric_fog_ambient_inject = 1.36
+volumetric_fog_ambient_inject = 1.2
 adjustment_enabled = true
+adjustment_saturation = 1.2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_h2yge"]
 size = Vector2(1000, 1000)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_h2yge"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
-shading_mode = 2
-albedo_texture = ExtResource("6_ycdy4")
-emission_enabled = true
-emission = Color(0.47397602, 0.4739756, 0.47397578, 1)
-heightmap_texture = ExtResource("14_vivmo")
-uv1_scale = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-uv1_world_triplanar = true
-texture_filter = 4
-distance_fade_min_distance = 25.0
-distance_fade_max_distance = 5.0
 
 [node name="Main" type="Node3D" unique_id=1091414758]
 
@@ -167,37 +155,37 @@ material = ExtResource("6_vivmo")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -229)
 use_collision = true
 size = Vector3(20, 1, 2)
-material = SubResource("StandardMaterial3D_272bh")
+material = ExtResource("6_2cqfq")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=1884594244]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -227)
 use_collision = true
 size = Vector3(20, 2, 2)
-material = SubResource("StandardMaterial3D_272bh")
+material = ExtResource("6_2cqfq")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=105274875]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -225)
 use_collision = true
 size = Vector3(20, 2, 2)
-material = SubResource("StandardMaterial3D_272bh")
+material = ExtResource("6_2cqfq")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=1057317819]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -223)
 use_collision = true
 size = Vector3(20, 3, 2)
-material = SubResource("StandardMaterial3D_272bh")
+material = ExtResource("6_2cqfq")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=884014768]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -221)
 use_collision = true
 size = Vector3(20, 4, 2)
-material = SubResource("StandardMaterial3D_272bh")
+material = ExtResource("6_2cqfq")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=695333461]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5, 4, -195)
 use_collision = true
 size = Vector3(93, 4, 50)
-material = SubResource("StandardMaterial3D_272bh")
+material = ExtResource("6_2cqfq")
 
 [node name="BigArea" type="CSGCombiner3D" parent="Environment/Obstacles" unique_id=941287584]
 use_collision = true
@@ -216,7 +204,7 @@ use_collision = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 164, 100)
 use_collision = true
 size = Vector3(244, 6, 160)
-material = SubResource("StandardMaterial3D_272bh")
+material = ExtResource("6_2cqfq")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="Environment/Obstacles/BigArea/CSGCombiner3D4" unique_id=1384565441]
 transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 168, 100.46666)
@@ -269,13 +257,13 @@ size = Vector3(16, 12, 16)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 83.5, 100)
 use_collision = true
 size = Vector3(4, 155, 160)
-material = SubResource("StandardMaterial3D_272bh")
+material = ExtResource("6_2cqfq")
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="Environment/Obstacles/BigArea" unique_id=178991420]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 83.5, 100)
 use_collision = true
 size = Vector3(4, 155, 160)
-material = SubResource("StandardMaterial3D_272bh")
+material = ExtResource("6_2cqfq")
 
 [node name="CSGCombiner3D3" type="CSGCombiner3D" parent="Environment/Obstacles/BigArea" unique_id=2080692910]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21, 0)
@@ -314,7 +302,7 @@ material = ExtResource("4_1bvp3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 83.5, 178)
 use_collision = true
 size = Vector3(236, 155, 4)
-material = SubResource("StandardMaterial3D_272bh")
+material = ExtResource("6_2cqfq")
 
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="Environment/Obstacles/BigArea" unique_id=1983606435]
 use_collision = true
@@ -323,13 +311,13 @@ use_collision = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 83.5, 22)
 use_collision = true
 size = Vector3(236, 155, 4)
-material = SubResource("StandardMaterial3D_272bh")
+material = ExtResource("6_2cqfq")
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="Environment/Obstacles/BigArea/CSGCombiner3D2" unique_id=404071981]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 22)
 operation = 2
 size = Vector3(20, 14, 4)
-material = SubResource("StandardMaterial3D_272bh")
+material = ExtResource("6_2cqfq")
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="Environment/Obstacles/BigArea" unique_id=183301149]
 transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 69.11906, 34.419064, 163)
@@ -427,6 +415,36 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -17,
 
 [node name="Light5" parent="Environment/Decorations" unique_id=2016813086 instance=ExtResource("14_2cqfq")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -51, 20, -177)
+
+[node name="Decal" type="Decal" parent="Environment/Decorations" unique_id=405129766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -237.5)
+size = Vector3(12, 5, 6)
+texture_albedo = ExtResource("15_yaehf")
+texture_emission = ExtResource("15_yaehf")
+emission_energy = 0.5
+upper_fade = 1e-05
+lower_fade = 1e-05
+cull_mask = 1048573
+
+[node name="Decal2" type="Decal" parent="Environment/Decorations" unique_id=1933989549]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -205.00015)
+size = Vector3(5, 10, 59)
+texture_albedo = ExtResource("15_yaehf")
+texture_emission = ExtResource("15_yaehf")
+emission_energy = 0.5
+upper_fade = 1e-05
+lower_fade = 1e-05
+cull_mask = 1048573
+
+[node name="Decal3" type="Decal" parent="Environment/Decorations" unique_id=1026052673]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -68.498085, 2, -178.05466)
+size = Vector3(5.1, 10, 132)
+texture_albedo = ExtResource("15_yaehf")
+texture_emission = ExtResource("15_yaehf")
+emission_energy = 0.5
+upper_fade = 1e-05
+lower_fade = 1e-05
+cull_mask = 1048573
 
 [node name="VendingMachine" parent="Environment" unique_id=1780406410 instance=ExtResource("9_efxa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 8.9, -206)

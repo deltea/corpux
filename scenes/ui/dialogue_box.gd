@@ -22,6 +22,7 @@ func _process(dt: float) -> void:
 func set_color(color: Color):
 	dither.self_modulate = color
 	background.color = color
+	speaker_label.add_theme_color_override("default_color", color)
 
 func set_speaker(speaker: String):
 	speaker_label.text = "[wave][b]%s[/b][/wave]" % speaker

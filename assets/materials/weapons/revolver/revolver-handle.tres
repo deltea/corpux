@@ -7,7 +7,6 @@
 shading_mode = 2
 diffuse_mode = 2
 albedo_texture = ExtResource("1_vcg4r")
-emission_enabled = true
 emission = Color(0.36595514, 0.0021280048, 0.14636153, 1)
 heightmap_texture = ExtResource("1_0ef33")
 uv1_world_triplanar = true

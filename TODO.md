@@ -1,7 +1,8 @@
 - level design
+- gun frame start animation
+- escalators
 - enemy model
 - train model and animation
-- escalators
 - [x] animal crossing dialogue sfx
 - [x] disable weapon when dialogue
 - [x] weapon disable animation
