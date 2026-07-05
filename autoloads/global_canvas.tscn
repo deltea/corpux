@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://bbtl5nq2gc7lt" path="res://shaders/motion_blur.gdshader" id="1_11uv3"]
 [ext_resource type="Shader" uid="uid://35fl5r4s2qv8" path="res://shaders/crt.gdshader" id="2_2cpg5"]
 [ext_resource type="Texture2D" uid="uid://b2tey6qrfw2fh" path="res://assets/textures/ui/crosshair.png" id="3_a21u8"]
-[ext_resource type="Shader" uid="uid://df3ykxl6qiq7x" path="res://shaders/triangle_pixelation.gdshader" id="4_e86cw"]
+[ext_resource type="Shader" uid="uid://c2qdlk2arkcl" path="res://shaders/pixelate.gdshader" id="4_e86cw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
 shader = ExtResource("1_11uv3")
@@ -40,10 +40,7 @@ shader_parameter/glow_threshold = 0.65
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ew6pu"]
 shader = ExtResource("4_e86cw")
-shader_parameter/pixel_grid_size = Vector2(1, 1)
-shader_parameter/offset_x = true
-shader_parameter/offset_y = true
-shader_parameter/inverted = false
+shader_parameter/pixelSize = 1000
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=922422500]
 layer = 10
@@ -74,7 +71,6 @@ mouse_filter = 1
 copy_mode = 2
 
 [node name="Pixelate" type="ColorRect" parent="." unique_id=137189708]
-visible = false
 material = SubResource("ShaderMaterial_ew6pu")
 anchors_preset = 15
 anchor_right = 1.0
