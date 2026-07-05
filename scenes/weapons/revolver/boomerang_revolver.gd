@@ -7,6 +7,8 @@ const MAX_DISTANCE = 48.0
 const DECELERATION = 250.0
 const RETURN_ACCELERATION = 120.0
 
+@onready var marker: Sprite3D = $Marker
+
 var is_returning = false
 var is_caught = false
 var is_slowing = false
@@ -26,9 +28,13 @@ signal caught()
 
 func _ready() -> void:
 	# make sure its rotated correctly
+	marker.visible = false
+	marker.scale.x = 3.0
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
 	tween.tween_property(self, "global_rotation:x", -PI/2, 0.5)
 	tween.tween_property(self, "global_rotation:z", 0.0, 0.5)
+	tween.tween_callback(func(): marker.visible = true).set_delay(0.2)
+	tween.tween_property(marker, "scale:x", 1.0, 0.5).set_delay(0.2)
 
 func come_back():
 	is_returning = true
