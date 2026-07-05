@@ -1,3 +1,4 @@
+- make stairs scene
 - level design
 - enemy model
 - [x] animal crossing dialogue sfx
