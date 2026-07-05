@@ -107,9 +107,15 @@ size = Vector3(4, 20, 73)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=574027371]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -58, 10, -168.5)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -60, 10, -168.5)
 use_collision = true
-size = Vector3(4, 20, 144)
+size = Vector3(4, 20, 148)
+material = ExtResource("6_vivmo")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=1858066852]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -81, 10, -143)
+use_collision = true
+size = Vector3(4, 20, 51)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=1135178026]
@@ -119,9 +125,9 @@ size = Vector3(4, 20, 139.74268)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=1565768408]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -147.87134, 10, -190)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -151.87134, 10, -189)
 use_collision = true
-size = Vector3(4, 20, 139.74268)
+size = Vector3(4, 20, 142)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=717081127]
@@ -152,9 +158,9 @@ size = Vector3(20, 20, 24)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=1629093088]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.5, 22, -222.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.5, 22, -198)
 use_collision = true
-size = Vector3(198, 4, 113)
+size = Vector3(198, 4, 162)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=385080083]
@@ -194,9 +200,15 @@ size = Vector3(81, 7, 50)
 material = ExtResource("6_2cqfq")
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=808908764]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -151.5, 2.5, -170)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -161.5, 2.5, -193.5)
 use_collision = true
-size = Vector3(81, 7, 100)
+size = Vector3(81, 7, 54)
+material = ExtResource("6_2cqfq")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=702145015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.5, 2.5, -142.5)
+use_collision = true
+size = Vector3(67, 7, 49)
 material = ExtResource("6_2cqfq")
 
 [node name="BigArea" type="CSGCombiner3D" parent="Environment/Obstacles" unique_id=941287584]
@@ -381,6 +393,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81, 71, 104)
 [node name="BasicEnemy7" parent="Environment/Enemies" unique_id=1666585428 instance=ExtResource("11_efxa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91, 71, 52)
 
+[node name="BasicEnemy8" parent="Environment/Enemies" unique_id=2029175317 instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106, 8, -155)
+
+[node name="BasicEnemy9" parent="Environment/Enemies" unique_id=1522967296 instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106, 8, -135)
+
 [node name="Decorations" type="Node" parent="Environment" unique_id=657966629]
 
 [node name="hanging_sign" parent="Environment/Decorations" unique_id=719379898 instance=ExtResource("10_efxa6")]
@@ -451,6 +469,26 @@ cull_mask = 1048573
 [node name="Decal3" type="Decal" parent="Environment/Decorations" unique_id=1026052673]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -36.998085, 2, -178.05466)
 size = Vector3(5.1, 10, 69)
+texture_albedo = ExtResource("15_yaehf")
+texture_emission = ExtResource("15_yaehf")
+emission_energy = 0.5
+upper_fade = 1e-05
+lower_fade = 1e-05
+cull_mask = 1048573
+
+[node name="Decal4" type="Decal" parent="Environment/Decorations" unique_id=1577303875]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -132.5, 2, -178)
+size = Vector3(5.1, 10, 23)
+texture_albedo = ExtResource("15_yaehf")
+texture_emission = ExtResource("15_yaehf")
+emission_energy = 0.5
+upper_fade = 1e-05
+lower_fade = 1e-05
+cull_mask = 1048573
+
+[node name="Decal5" type="Decal" parent="Environment/Decorations" unique_id=1156483039]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -141.45, 2, -146.95)
+size = Vector3(5.1, 10, 57)
 texture_albedo = ExtResource("15_yaehf")
 texture_emission = ExtResource("15_yaehf")
 emission_energy = 0.5
