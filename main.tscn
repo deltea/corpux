@@ -107,15 +107,21 @@ size = Vector3(4, 20, 73)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=574027371]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -22, 10, -168.5)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -58, 10, -168.5)
 use_collision = true
-size = Vector3(4, 20, 72)
+size = Vector3(4, 20, 144)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=1135178026]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -46, 10, -190)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -79.87134, 10, -190)
 use_collision = true
-size = Vector3(4, 20, 72)
+size = Vector3(4, 20, 139.74268)
+material = ExtResource("6_vivmo")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=1565768408]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -147.87134, 10, -190)
+use_collision = true
+size = Vector3(4, 20, 139.74268)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=717081127]
@@ -146,9 +152,9 @@ size = Vector3(20, 20, 24)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=1629093088]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 22, -222.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.5, 22, -222.5)
 use_collision = true
-size = Vector3(109, 4, 113)
+size = Vector3(198, 4, 113)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=385080083]
@@ -182,9 +188,15 @@ size = Vector3(20, 4, 2)
 material = ExtResource("6_2cqfq")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=695333461]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5, 4, -195)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.5, 2.5, -195)
 use_collision = true
-size = Vector3(93, 4, 50)
+size = Vector3(81, 7, 50)
+material = ExtResource("6_2cqfq")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=808908764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -151.5, 2.5, -170)
+use_collision = true
+size = Vector3(81, 7, 100)
 material = ExtResource("6_2cqfq")
 
 [node name="BigArea" type="CSGCombiner3D" parent="Environment/Obstacles" unique_id=941287584]
@@ -437,8 +449,8 @@ lower_fade = 1e-05
 cull_mask = 1048573
 
 [node name="Decal3" type="Decal" parent="Environment/Decorations" unique_id=1026052673]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -68.498085, 2, -178.05466)
-size = Vector3(5.1, 10, 132)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -36.998085, 2, -178.05466)
+size = Vector3(5.1, 10, 69)
 texture_albedo = ExtResource("15_yaehf")
 texture_emission = ExtResource("15_yaehf")
 emission_energy = 0.5
