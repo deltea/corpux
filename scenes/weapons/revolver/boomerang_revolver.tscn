@@ -93,26 +93,26 @@ debug_color = Color(0.9511594, 5.2943824e-06, 0.5674605, 0.41960785)
 [node name="revolver" parent="." unique_id=465571423 instance=ExtResource("2_kypvd")]
 transform = Transform3D(0.5, 0, 0, 0, 0.49999997, 0, 0, 0, 0.49999997, 0, 0, 0)
 
-[node name="Cube" parent="revolver" index="1" unique_id=1693931436]
+[node name="Cube" parent="revolver" index="1" unique_id=1912929597]
 material_override = SubResource("StandardMaterial3D_het4p")
 cast_shadow = 0
 
-[node name="Cube_001" parent="revolver" index="2" unique_id=1674710541]
+[node name="Cube_001" parent="revolver" index="2" unique_id=445465374]
 material_override = SubResource("StandardMaterial3D_arx16")
 cast_shadow = 0
 
-[node name="Cube_002" parent="revolver" index="3" unique_id=2119098037]
+[node name="Cube_002" parent="revolver" index="3" unique_id=759482176]
 material_override = SubResource("StandardMaterial3D_iyp7i")
 cast_shadow = 0
 
-[node name="Cube_003" parent="revolver" index="4" unique_id=1416010190]
+[node name="Cube_003" parent="revolver" index="4" unique_id=905675379]
 cast_shadow = 0
 
-[node name="Cube_004" parent="revolver" index="5" unique_id=1161327127]
+[node name="Cube_004" parent="revolver" index="5" unique_id=736486288]
 material_override = SubResource("StandardMaterial3D_d4yn4")
 cast_shadow = 0
 
-[node name="Cube_005" parent="revolver" index="6" unique_id=1249252785]
+[node name="Cube_005" parent="revolver" index="6" unique_id=1054942380]
 material_override = SubResource("StandardMaterial3D_q00io")
 cast_shadow = 0
 
@@ -124,7 +124,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45117843, 0)
 shape = SubResource("BoxShape3D_het4p")
 
 [node name="Marker" type="Sprite3D" parent="." unique_id=322861378]
-modulate = Color(0.9843137, 0.047058824, 0.45490196, 1)
 pixel_size = 0.035
 billboard = 1
 no_depth_test = true

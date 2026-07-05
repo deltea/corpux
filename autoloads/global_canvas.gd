@@ -9,7 +9,7 @@ const BASE_SMEAR = 1.0
 
 func _ready() -> void:
 	var tween = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
-	tween.tween_property(pixelate.material, "shader_parameter/pixelSize", 1.0, 1.0)
+	tween.tween_property(pixelate.material, "shader_parameter/pixelSize", 1, 1.0)
 	tween.chain().tween_callback(func(): pixelate.visible = false)
 
 func set_smear(amount: float):
