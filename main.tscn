@@ -163,9 +163,9 @@ size = Vector3(4, 87, 144)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D20" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=48945305]
-transform = Transform3D(1, -8.742278e-08, 8.742278e-08, -8.742278e-08, -4.371139e-08, 1, -8.742278e-08, -1, -4.3711395e-08, -131.87134, -65, -97)
+transform = Transform3D(1, -8.742278e-08, 8.742278e-08, -8.742278e-08, -4.371139e-08, 1, -8.742278e-08, -1, -4.3711395e-08, -131.87134, -65.5, -97)
 use_collision = true
-size = Vector3(4, 74, 144)
+size = Vector3(4, 74, 143)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=717081127]
