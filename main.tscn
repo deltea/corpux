@@ -19,10 +19,10 @@
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_272bh"]
 sky_top_color = Color(1, 1, 1, 1)
-sky_horizon_color = Color(0.28235295, 0.50980395, 1, 1)
+sky_horizon_color = Color(0.4867587, 0.6580849, 1, 1)
 sky_energy_multiplier = 1.2
 ground_bottom_color = Color(0.84716845, 0.9000119, 0.99999934, 1)
-ground_horizon_color = Color(0.2838543, 0.5082564, 1, 1)
+ground_horizon_color = Color(0.4862745, 0.65882355, 1, 1)
 sun_angle_max = 51.6
 sun_curve = 1e-05
 energy_multiplier = 0.5
@@ -52,7 +52,8 @@ adjustment_saturation = 1.2
 [sub_resource type="PlaneMesh" id="PlaneMesh_h2yge"]
 size = Vector2(1000, 1000)
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_h2yge"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_2cqfq"]
+size = Vector3(1000, 1, 1000)
 
 [node name="Main" type="Node3D" unique_id=1091414758]
 
@@ -87,13 +88,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 0, 1646.842)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1000, 0, 1646.842)
 
 [node name="Floor" type="StaticBody3D" parent="Environment" unique_id=488303633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -618)
 
 [node name="MeshInstance" type="MeshInstance3D" parent="Environment/Floor" unique_id=792938918]
 material_override = ExtResource("7_4c57u")
 mesh = SubResource("PlaneMesh_h2yge")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="Environment/Floor" unique_id=1841383296]
-shape = SubResource("WorldBoundaryShape3D_h2yge")
+shape = SubResource("BoxShape3D_2cqfq")
 
 [node name="Obstacles" type="Node" parent="Environment" unique_id=889042946]
 
@@ -112,10 +114,16 @@ use_collision = true
 size = Vector3(4, 20, 148)
 material = ExtResource("6_vivmo")
 
+[node name="CSGBox3D16" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=1664140923]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -60, 10, -110.75)
+use_collision = true
+size = Vector3(17.5, 20, 148)
+material = ExtResource("6_vivmo")
+
 [node name="CSGBox3D15" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=1858066852]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -81, 10, -143)
 use_collision = true
-size = Vector3(4, 20, 51)
+size = Vector3(4, 20, 50)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=1135178026]
@@ -125,9 +133,39 @@ size = Vector3(4, 20, 139.74268)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=1565768408]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -151.87134, 10, -189)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -151.87134, 10, -181)
 use_collision = true
-size = Vector3(4, 20, 142)
+size = Vector3(4, 20, 158)
+material = ExtResource("6_vivmo")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=1622800205]
+transform = Transform3D(4.3711385e-08, 1, 4.3711392e-08, -8.742278e-08, -4.371139e-08, 1, 1, -4.371139e-08, 8.742278e-08, -139.87134, -50.5, -81)
+use_collision = true
+size = Vector3(42, 28, 143)
+material = ExtResource("6_vivmo")
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=682807332]
+transform = Transform3D(4.3711385e-08, 1, 4.3711392e-08, -8.742278e-08, -4.371139e-08, 1, 1, -4.371139e-08, 8.742278e-08, -139.87134, -65.5, -120)
+use_collision = true
+size = Vector3(4, 28, 143)
+material = ExtResource("6_vivmo")
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=1267739336]
+transform = Transform3D(-3.2840564e-15, 1, 4.371138e-08, 1, 0, 8.7422784e-08, 8.742278e-08, 4.371139e-08, -1, -141.87134, -138.5, -56)
+use_collision = true
+size = Vector3(4, 24, 143)
+material = ExtResource("6_vivmo")
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=598859375]
+transform = Transform3D(1, -8.742278e-08, 8.742278e-08, -8.742278e-08, -4.371139e-08, 1, -8.742278e-08, -1, -4.3711395e-08, -151.87134, -65, -103.5)
+use_collision = true
+size = Vector3(4, 87, 144)
+material = ExtResource("6_vivmo")
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=48945305]
+transform = Transform3D(1, -8.742278e-08, 8.742278e-08, -8.742278e-08, -4.371139e-08, 1, -8.742278e-08, -1, -4.3711395e-08, -131.87134, -65, -97)
+use_collision = true
+size = Vector3(4, 74, 144)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=717081127]
@@ -158,9 +196,9 @@ size = Vector3(20, 20, 24)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=1629093088]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.5, 22, -198)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.5, 22, -187.5)
 use_collision = true
-size = Vector3(198, 4, 162)
+size = Vector3(198, 4, 183)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=385080083]
@@ -206,9 +244,9 @@ size = Vector3(81, 7, 54)
 material = ExtResource("6_2cqfq")
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=702145015]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.5, 2.5, -142.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.5, 3, -142.5)
 use_collision = true
-size = Vector3(67, 7, 49)
+size = Vector3(67, 6, 49)
 material = ExtResource("6_2cqfq")
 
 [node name="BigArea" type="CSGCombiner3D" parent="Environment/Obstacles" unique_id=941287584]
@@ -477,8 +515,8 @@ lower_fade = 1e-05
 cull_mask = 1048573
 
 [node name="Decal4" type="Decal" parent="Environment/Decorations" unique_id=1577303875]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -132.5, 2, -178)
-size = Vector3(5.1, 10, 23)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -132.4, 2, -178)
+size = Vector3(5.1, 10, 23.2)
 texture_albedo = ExtResource("15_yaehf")
 texture_emission = ExtResource("15_yaehf")
 emission_energy = 0.5
