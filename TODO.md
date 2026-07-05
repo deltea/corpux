@@ -1,7 +1,6 @@
 - level design
 - escalators
 - enemy model
-- train model and animation
 - [x] gun frame start animation
 - [x] animal crossing dialogue sfx
 - [x] disable weapon when dialogue
@@ -14,3 +13,7 @@
 - fix boomerang ground floating
 - auto aim for throws?? cool lookin frame ui
 - fix boomerang tweaking out
+
+## very later
+
+- train model and animation
