@@ -9,7 +9,6 @@ script = ExtResource("1_2qk04")
 status = "happy"
 speaker = "random ahh vending machine"
 voice = ExtResource("2_2ae0j")
-color = Color(1, 0.5019608, 0.101960786, 1)
 text = "[wave]yoooooooooo[/wave] wsg twinn"
 metadata/_custom_type_script = "uid://doiy3xjk34nme"
 
