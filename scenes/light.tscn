@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://byp7k2md1my7y"]
+
+[ext_resource type="PackedScene" uid="uid://cxyl8f7vkdpyn" path="res://assets/models/decoration/lightbulb.blend" id="1_24oxn"]
+
+[node name="Light" unique_id=1513240901 instance=ExtResource("1_24oxn")]
+
+[node name="OmniLight" type="OmniLight3D" parent="." index="2" unique_id=887243312]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -2, 0)
+light_energy = 0.75
+omni_range = 15.0
+omni_attenuation = 0.5

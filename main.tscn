@@ -2,17 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://d71n5obdy5ou" path="res://scenes/player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Material" uid="uid://d2s5q102ekomd" path="res://assets/materials/environment/checkered.tres" id="4_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://bv3gyd8ehmbov" path="res://assets/textures/train-stop-floor.png" id="6_ycdy4"]
+[ext_resource type="Material" uid="uid://3ipk4fhteaks" path="res://assets/materials/environment/long_tiles.tres" id="6_vivmo"]
+[ext_resource type="Texture2D" uid="uid://bv3gyd8ehmbov" path="res://assets/textures/tile.png" id="6_ycdy4"]
 [ext_resource type="Material" uid="uid://cw65bu2jitrap" path="res://assets/materials/environment/floor.tres" id="7_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ce1ter0sesihi" path="res://scenes/vending_machine/vending_machine.tscn" id="9_efxa6"]
 [ext_resource type="PackedScene" uid="uid://bb0lxurjv7u4s" path="res://scenes/environment/sun.tscn" id="10_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ccedxpdllf06q" path="res://scenes/environment/arch.tscn" id="10_dg77c"]
 [ext_resource type="PackedScene" uid="uid://bo5db0ai8sswt" path="res://assets/models/decoration/hanging_sign.blend" id="10_efxa6"]
 [ext_resource type="Material" uid="uid://buvjk5gg3qgni" path="res://assets/materials/standard.tres" id="10_ycdy4"]
-[ext_resource type="PackedScene" uid="uid://cxyl8f7vkdpyn" path="res://assets/models/decoration/lightbulb.blend" id="11_dg77c"]
 [ext_resource type="PackedScene" uid="uid://fi26o3a5pvnr" path="res://scenes/enemy/basic/basic_enemy.tscn" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://4mpgrqrodq8t" path="res://assets/models/environment/column.blend" id="12_dg77c"]
 [ext_resource type="PackedScene" uid="uid://o581sgk1wh84" path="res://assets/models/decoration/poster.blend" id="13_w48qg"]
+[ext_resource type="PackedScene" uid="uid://byp7k2md1my7y" path="res://scenes/light.tscn" id="14_2cqfq"]
 [ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="14_vivmo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_272bh"]
@@ -114,25 +115,25 @@ use_collision = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 10, -203.5)
 use_collision = true
 size = Vector3(4, 20, 73)
-material = ExtResource("10_ycdy4")
+material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=574027371]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -22, 10, -168.5)
 use_collision = true
 size = Vector3(4, 20, 72)
-material = ExtResource("10_ycdy4")
+material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=1135178026]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -46, 10, -190)
 use_collision = true
 size = Vector3(4, 20, 72)
-material = ExtResource("10_ycdy4")
+material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=717081127]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 10, -216)
 use_collision = true
 size = Vector3(4, 20, 48)
-material = ExtResource("10_ycdy4")
+material = ExtResource("6_vivmo")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="Environment/Obstacles/StartArea" unique_id=1733018571]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -220)
@@ -141,37 +142,25 @@ use_collision = true
 [node name="CSGBox3D3" type="CSGBox3D" parent="Environment/Obstacles/StartArea/CSGCombiner3D" unique_id=1616922164]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -35)
 size = Vector3(55, 20, 30)
-material = ExtResource("10_ycdy4")
+material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Environment/Obstacles/StartArea/CSGCombiner3D" unique_id=1118222532]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -35)
 operation = 2
 size = Vector3(48, 20, 24)
-material = ExtResource("10_ycdy4")
+material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Environment/Obstacles/StartArea/CSGCombiner3D" unique_id=34407837]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -21)
 operation = 2
 size = Vector3(20, 20, 24)
-material = ExtResource("10_ycdy4")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Environment/Obstacles/StartArea/CSGCombiner3D" unique_id=1555969287]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 10, -35)
-visible = false
-operation = 2
-size = Vector3(8, 8, 8)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Environment/Obstacles/StartArea/CSGCombiner3D" unique_id=1618543686]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 10, -35)
-visible = false
-operation = 2
-size = Vector3(8, 8, 8)
+material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=1629093088]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 22, -222.5)
 use_collision = true
 size = Vector3(109, 4, 113)
-material = ExtResource("10_ycdy4")
+material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=385080083]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -229)
@@ -408,42 +397,6 @@ transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -24,
 [node name="poster2" parent="Environment/Decorations" unique_id=1456012261 instance=ExtResource("13_w48qg")]
 transform = Transform3D(4.371139e-08, 8.742278e-08, 1, 3.821371e-15, -1, 8.742278e-08, 1, 0, -4.371139e-08, -17, 9, -243)
 
-[node name="lightbulb" parent="Environment/Decorations" unique_id=403245503 instance=ExtResource("11_dg77c")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 20, -245)
-
-[node name="OmniLight3D5" type="OmniLight3D" parent="Environment/Decorations/lightbulb" unique_id=1998198483]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -2, 0)
-light_energy = 0.75
-omni_range = 15.0
-omni_attenuation = 0.5
-
-[node name="lightbulb2" parent="Environment/Decorations" unique_id=76252597 instance=ExtResource("11_dg77c")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 20, -259)
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Decorations/lightbulb2" unique_id=1280254508]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -2, 0)
-light_energy = 0.75
-omni_range = 15.0
-omni_attenuation = 0.5
-
-[node name="lightbulb3" parent="Environment/Decorations" unique_id=2108402557 instance=ExtResource("11_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 20, -256)
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="Environment/Decorations/lightbulb3" unique_id=806441921]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
-light_energy = 0.75
-omni_range = 15.0
-omni_attenuation = 0.5
-
-[node name="lightbulb4" parent="Environment/Decorations" unique_id=1677081950 instance=ExtResource("11_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 20, -256)
-
-[node name="OmniLight3D4" type="OmniLight3D" parent="Environment/Decorations/lightbulb4" unique_id=940032165]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
-light_energy = 0.75
-omni_range = 15.0
-omni_attenuation = 0.5
-
 [node name="poster3" parent="Environment/Decorations" unique_id=803382896 instance=ExtResource("13_w48qg")]
 transform = Transform3D(-1, 0, -8.742278e-08, -7.642742e-15, -1, 8.742278e-08, -8.742278e-08, 8.742278e-08, 1, -10, 13, -199)
 
@@ -461,6 +414,21 @@ transform = Transform3D(1.3113416e-07, -8.742278e-08, -1, -7.642742e-15, -1, 8.7
 
 [node name="poster5" parent="Environment/Decorations" unique_id=1050253983 instance=ExtResource("13_w48qg")]
 transform = Transform3D(1, -7.642742e-15, 0, -7.642742e-15, -1, 8.742278e-08, 0, -8.742278e-08, -1, 10, 13, -183.5)
+
+[node name="Light" parent="Environment/Decorations" unique_id=1513240901 instance=ExtResource("14_2cqfq")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 20, -245)
+
+[node name="Light2" parent="Environment/Decorations" unique_id=148575936 instance=ExtResource("14_2cqfq")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 20, -221)
+
+[node name="Light3" parent="Environment/Decorations" unique_id=1742210783 instance=ExtResource("14_2cqfq")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 20, -191)
+
+[node name="Light4" parent="Environment/Decorations" unique_id=1449475477 instance=ExtResource("14_2cqfq")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -17, 20, -177)
+
+[node name="Light5" parent="Environment/Decorations" unique_id=2016813086 instance=ExtResource("14_2cqfq")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -51, 20, -177)
 
 [node name="VendingMachine" parent="Environment" unique_id=1780406410 instance=ExtResource("9_efxa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 8.5, -206)

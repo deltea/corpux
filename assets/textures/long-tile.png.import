@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv3gyd8ehmbov"
-path.s3tc="res://.godot/imported/train-stop-floor.png-a893551ecdfd572dcbd5cc8e8431e640.s3tc.ctex"
+uid="uid://bc063ekh4x4lm"
+path.s3tc="res://.godot/imported/long-tile.png-57519d0092286d939f58ce5c30426199.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/train-stop-floor.png"
-dest_files=["res://.godot/imported/train-stop-floor.png-a893551ecdfd572dcbd5cc8e8431e640.s3tc.ctex"]
+source_file="res://assets/textures/long-tile.png"
+dest_files=["res://.godot/imported/long-tile.png-57519d0092286d939f58ce5c30426199.s3tc.ctex"]
 
 [params]
 
