@@ -71,6 +71,7 @@ mouse_filter = 1
 copy_mode = 2
 
 [node name="Pixelate" type="ColorRect" parent="." unique_id=137189708]
+visible = false
 material = SubResource("ShaderMaterial_ew6pu")
 anchors_preset = 15
 anchor_right = 1.0
@@ -98,3 +99,11 @@ scale = Vector2(7, 7)
 pivot_offset = Vector2(4.5, 4.5)
 texture = ExtResource("3_a21u8")
 stretch_mode = 3
+
+[node name="Cover" type="ColorRect" parent="." unique_id=1309561749]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1

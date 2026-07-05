@@ -5,6 +5,7 @@
 [ext_resource type="Material" uid="uid://crmwss0n1hs0k" path="res://assets/materials/environment/stairs.tres" id="6_2cqfq"]
 [ext_resource type="Material" uid="uid://3ipk4fhteaks" path="res://assets/materials/environment/long_tiles.tres" id="6_vivmo"]
 [ext_resource type="Material" uid="uid://cw65bu2jitrap" path="res://assets/materials/environment/floor.tres" id="7_4c57u"]
+[ext_resource type="PackedScene" uid="uid://cdisaf5r7mqvl" path="res://scenes/exit/exit.tscn" id="7_074og"]
 [ext_resource type="PackedScene" uid="uid://ce1ter0sesihi" path="res://scenes/vending_machine/vending_machine.tscn" id="9_efxa6"]
 [ext_resource type="PackedScene" uid="uid://bb0lxurjv7u4s" path="res://scenes/environment/sun.tscn" id="10_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ccedxpdllf06q" path="res://scenes/environment/arch.tscn" id="10_dg77c"]
@@ -14,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://4mpgrqrodq8t" path="res://assets/models/environment/column.blend" id="12_dg77c"]
 [ext_resource type="PackedScene" uid="uid://o581sgk1wh84" path="res://assets/models/decoration/poster.blend" id="13_w48qg"]
 [ext_resource type="PackedScene" uid="uid://byp7k2md1my7y" path="res://scenes/light.tscn" id="14_2cqfq"]
-[ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="14_vivmo"]
 [ext_resource type="PackedScene" uid="uid://bduk1rdwctppm" path="res://assets/models/decoration/trash_can.blend" id="15_2cqfq"]
 [ext_resource type="Texture2D" uid="uid://b3uspscavojyy" path="res://assets/textures/path-decal.png" id="15_yaehf"]
 
@@ -55,19 +55,6 @@ size = Vector2(1000, 1000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2cqfq"]
 size = Vector3(1000, 1, 1000)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cegan"]
-shading_mode = 2
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 2.0
-heightmap_texture = ExtResource("14_vivmo")
-uv1_scale = Vector3(0.25, 0.12, 0.25)
-uv1_triplanar = true
-uv1_world_triplanar = true
-texture_filter = 4
-distance_fade_min_distance = 25.0
-distance_fade_max_distance = 5.0
 
 [node name="Main" type="Node3D" unique_id=1091414758]
 
@@ -147,15 +134,15 @@ size = Vector3(4, 20, 139.74268)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=1565768408]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -151.87134, 10, -181)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -151.37134, 10, -181)
 use_collision = true
-size = Vector3(4, 20, 158)
+size = Vector3(3, 20, 158)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=1622800205]
-transform = Transform3D(4.3711385e-08, 1, 4.3711392e-08, -8.742278e-08, -4.371139e-08, 1, 1, -4.371139e-08, 8.742278e-08, -139.87134, -50.5, -66.5)
+transform = Transform3D(4.3711385e-08, 1, 4.3711392e-08, -8.742278e-08, -4.371139e-08, 1, 1, -4.371139e-08, 8.742278e-08, -139.87134, -50.5, -66.25)
 use_collision = true
-size = Vector3(71, 28, 143)
+size = Vector3(71.5, 28, 143)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=682807332]
@@ -165,32 +152,24 @@ size = Vector3(4, 28, 143)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D21" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=1267739336]
-transform = Transform3D(-3.2840564e-15, 1, 4.371138e-08, 1, 0, 8.7422784e-08, 8.742278e-08, 4.371139e-08, -1, -141.87134, -138.5, -79)
+transform = Transform3D(-3.2840564e-15, 1, 4.371138e-08, 1, 0, 8.7422784e-08, 8.742278e-08, 4.371139e-08, -1, -141.87134, -138.5, -74.5)
 use_collision = true
-size = Vector3(4, 24, 97)
+size = Vector3(4, 24, 106)
 material = ExtResource("6_vivmo")
 
-[node name="CSGBox3D22" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=549015581]
-transform = Transform3D(-3.2840564e-15, 1, 4.371138e-08, 4.371139e-08, 4.371139e-08, -1, -1, -1.9106855e-15, -4.3711395e-08, -141.87134, -129, -29)
-use_collision = true
-size = Vector3(4, 24, 28)
-material = SubResource("StandardMaterial3D_cegan")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Environment/Obstacles/StartArea/CSGBox3D22" unique_id=429178176]
-light_energy = 4.0
-omni_range = 15.0
-omni_attenuation = 0.5
+[node name="Exit" parent="Environment/Obstacles/StartArea" unique_id=1657581555 instance=ExtResource("7_074og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -142.37134, -129, -32)
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=598859375]
-transform = Transform3D(1, -8.742278e-08, 8.742278e-08, -8.742278e-08, -4.371139e-08, 1, -8.742278e-08, -1, -4.3711395e-08, -152.87134, -65, -88.75)
+transform = Transform3D(1, -8.742278e-08, 8.742278e-08, -8.742278e-08, -4.371139e-08, 1, -8.742278e-08, -1, -4.3711395e-08, -152.12134, -65, -84.25)
 use_collision = true
-size = Vector3(4, 116.5, 144)
+size = Vector3(4.5, 125.5, 144)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D20" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=48945305]
-transform = Transform3D(1, -8.742278e-08, 8.742278e-08, -8.742278e-08, -4.371139e-08, 1, -8.742278e-08, -1, -4.3711395e-08, -131.87134, -65.5, -82.25)
+transform = Transform3D(1, -8.742278e-08, 8.742278e-08, -8.742278e-08, -4.371139e-08, 1, -8.742278e-08, -1, -4.3711395e-08, -131.62134, -67.5, -77.75)
 use_collision = true
-size = Vector3(4, 103.5, 143)
+size = Vector3(4.5, 112.5, 139)
 material = ExtResource("6_vivmo")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Environment/Obstacles/StartArea" unique_id=717081127]
