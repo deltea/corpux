@@ -14,6 +14,8 @@
 ## uhhhhh later
 
 - [ ] quake movement revamp
+- [ ] fix ground decal flickering
+- [ ] fix getting stuck on sides of vert tunnel
 - [ ] auto aim for throws?? cool lookin frame ui
 - [ ] fix boomerang tweaking out
 
