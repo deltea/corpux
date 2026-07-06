@@ -12,6 +12,7 @@
 [ext_resource type="Shader" uid="uid://c2qdlk2arkcl" path="res://shaders/pixelate_screen.gdshader" id="7_uhiru"]
 [ext_resource type="Texture2D" uid="uid://d2bdqgrkeuq36" path="res://assets/textures/ui/star.png" id="11_041vu"]
 [ext_resource type="PackedScene" uid="uid://51ja0nr0ujmj" path="res://assets/models/weapons/revolver.blend" id="12_8qm4d"]
+[ext_resource type="Shader" uid="uid://bmwllok136qtf" path="res://shaders/color_swap.gdshader" id="13_qdufb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8qm4d"]
 shader = ExtResource("7_uhiru")
@@ -33,6 +34,12 @@ spacing_glyph = -80
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uhiru"]
 shader = ExtResource("7_6055c")
 shader_parameter/solid_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8q0kd"]
+shader = ExtResource("13_qdufb")
+shader_parameter/color_a = Color(0, 0.28627452, 1, 1)
+shader_parameter/color_b = Color(1, 1, 1, 1)
+shader_parameter/threshold = 0.05
 
 [node name="EndScreen" type="CanvasLayer" unique_id=1893936186]
 script = ExtResource("1_44brl")
@@ -212,3 +219,15 @@ render_target_update_mode = 4
 transform = Transform3D(0.81915206, 0.119253255, -0.5610424, 0, 0.9781476, 0.2079117, 0.57357645, -0.1703113, 0.80125165, -4, 2, 5.5)
 projection = 1
 size = 5.362
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="." unique_id=1502272481]
+copy_mode = 2
+
+[node name="ColorFilter" type="ColorRect" parent="." unique_id=512610022]
+visible = false
+material = SubResource("ShaderMaterial_8q0kd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
