@@ -1,7 +1,10 @@
-- level design
-- enemy explosion effects
-- escalators
-- enemy model
+- [ ] fix boomerang ground floating
+- [ ] level end ui
+- [ ] first level design
+- [ ] enemy explosion effects
+- [ ] escalators
+- [ ] enemy model
+- [x] tutorial level design
 - [x] gun frame start animation
 - [x] animal crossing dialogue sfx
 - [x] disable weapon when dialogue
@@ -10,10 +13,9 @@
 
 ## uhhhhh later
 
-- quake movement revamp
-- fix boomerang ground floating
-- auto aim for throws?? cool lookin frame ui
-- fix boomerang tweaking out
+- [ ] quake movement revamp
+- [ ] auto aim for throws?? cool lookin frame ui
+- [ ] fix boomerang tweaking out
 
 ## very later
 
