@@ -8,6 +8,9 @@ const DECELERATION = 250.0
 const RETURN_ACCELERATION = 120.0
 
 @onready var marker: Sprite3D = $Marker
+@onready var collider: CollisionShape3D = $HitArea/CollisionShape
+@onready var raycast_top: RayCast3D = $RayCastTop
+@onready var raycast_bottom: RayCast3D = $RayCastBottom
 
 var is_returning = false
 var is_caught = false
@@ -67,8 +70,10 @@ func _physics_process(dt: float) -> void:
 			if speed <= 0.0:
 				is_returning = true
 
-	global_position.y = max(global_position.y, FLOOR_FLOAT_HEIGHT)
-
+		if raycast_bottom.is_colliding():
+			var normal = raycast_bottom.get_collision_normal()
+			if normal == Vector3.UP:
+				global_position.y = max(global_position.y, raycast_bottom.get_collision_point().y + FLOOR_FLOAT_HEIGHT)
 func catch():
 	is_caught = true
 	speed = 0.0
@@ -91,10 +96,11 @@ func throw(throw_dir: Vector3, throw_force: float, return_node: Node3D):
 func _on_hit_area_body_entered(body: Node3D) -> void:
 	if body is Enemy:
 		body.take_damage(2.0)
-		# is_returning = true
-		# is_bounce_back = true
-
-func _on_bounce_back_area_body_entered(body: Node3D) -> void:
-	if not body is Enemy and not body is Player:
 		is_returning = true
 		is_bounce_back = true
+
+func _on_bounce_back_area_body_entered(body: Node3D) -> void:
+	if body is Enemy or body is Player: return
+
+	is_returning = true
+	is_bounce_back = true

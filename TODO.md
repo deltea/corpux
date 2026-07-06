@@ -1,9 +1,9 @@
-- [ ] fix boomerang ground floating
 - [ ] level end ui
 - [ ] first level design
 - [ ] enemy explosion effects
 - [ ] escalators
 - [ ] enemy model
+- [x] fix boomerang ground floating
 - [x] tutorial level design
 - [x] gun frame start animation
 - [x] animal crossing dialogue sfx

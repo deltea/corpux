@@ -286,8 +286,8 @@ lower_fade = 1e-05
 cull_mask = 1048573
 
 [node name="Decal5" type="Decal" parent="Environment/Decoration" parent_id_path=PackedInt32Array(1521980672) index="21" unique_id=1855782906]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -141.45, 2, -147.45)
-size = Vector3(5.1, 10, 56)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -141.45, 2, -147.5)
+size = Vector3(5.1, 10, 55.9)
 texture_albedo = ExtResource("11_nh565")
 texture_emission = ExtResource("11_nh565")
 emission_energy = 0.5
