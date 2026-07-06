@@ -1,10 +1,11 @@
 class_name Level extends Room
 
+@export var end_screen_scene: PackedScene
+
 var time = 0.0
 var is_timer_started = false
 
 func _ready() -> void:
-	Events.fade_in.emit(0.5)
 	Events.unpixelate.emit(1.0)
 
 	Events.end_level.connect(_on_end_level)
@@ -19,4 +20,9 @@ func _process(dt: float) -> void:
 func _on_end_level():
 	print(time)
 	is_timer_started = false
-	Events.fade_out.emit(0.25)
+
+	var end_screen = end_screen_scene.instantiate() as EndScreen
+	end_screen.set_info()
+	add_child(end_screen)
+
+	await Clock.wait(0.25)

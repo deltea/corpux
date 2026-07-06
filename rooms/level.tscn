@@ -4,9 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://d71n5obdy5ou" path="res://scenes/player/player.tscn" id="1_hx7to"]
 [ext_resource type="Script" uid="uid://qkkauu5hnmiu" path="res://rooms/level.gd" id="1_tibj6"]
 [ext_resource type="PackedScene" uid="uid://bb0lxurjv7u4s" path="res://scenes/environment/sun.tscn" id="2_4ve75"]
+[ext_resource type="PackedScene" uid="uid://dqhqrp2i12tgx" path="res://scenes/ui/end_screen/end_screen.tscn" id="2_dg3qb"]
 
 [node name="Level" type="Node3D" unique_id=503138906]
 script = ExtResource("1_tibj6")
+end_screen_scene = ExtResource("2_dg3qb")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=103379301]
 environment = ExtResource("1_4ve75")

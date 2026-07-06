@@ -31,6 +31,7 @@ var is_grounded = false
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Events.end_level.connect(_on_end_level)
 
 func _process(dt: float) -> void:
 	GlobalCanvas.set_smear(velocity.length() / 10.0)
@@ -146,3 +147,7 @@ func _unhandled_input(event: InputEvent):
 			head.rotate_x(-event.relative.y * MOUSE_SENS * 0.002)
 			head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
+func _on_end_level():
+	await Clock.wait(0.25)
+	process_mode = Node.PROCESS_MODE_DISABLED
+	GlobalCanvas.set_smear(0.0)

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="4_1lndu"]
 [ext_resource type="Shader" uid="uid://d3qweaiaq824q" path="res://shaders/squigglevision.gdshader" id="5_1lndu"]
 [ext_resource type="Texture2D" uid="uid://n7wqfeyl8ea1" path="res://assets/textures/vending-machine/eyes/blink.png" id="5_8yd61"]
-[ext_resource type="Shader" uid="uid://c2qdlk2arkcl" path="res://shaders/pixelate.gdshader" id="6_1lndu"]
+[ext_resource type="Shader" uid="uid://c2qdlk2arkcl" path="res://shaders/pixelate_screen.gdshader" id="6_1lndu"]
 [ext_resource type="Texture2D" uid="uid://cilfflm5cdm4f" path="res://assets/textures/vending-machine/eyes/interact.png" id="6_8yd61"]
 [ext_resource type="Texture2D" uid="uid://drqfthmyubj3n" path="res://assets/textures/vending-machine/mouth/open.png" id="8_uj5xu"]
 [ext_resource type="Texture2D" uid="uid://bbfeoqvybnxtm" path="res://assets/textures/vending-machine/eyes/happy.png" id="10_8yd61"]
