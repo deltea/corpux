@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dhy1jr78jeejf"]
+
+[ext_resource type="Environment" uid="uid://cwliork5m1fre" path="res://environment.tres" id="1_4ve75"]
+[ext_resource type="PackedScene" uid="uid://d71n5obdy5ou" path="res://scenes/player/player.tscn" id="1_hx7to"]
+[ext_resource type="PackedScene" uid="uid://bb0lxurjv7u4s" path="res://scenes/environment/sun.tscn" id="2_4ve75"]
+
+[node name="Level" type="Node3D" unique_id=503138906]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=103379301]
+environment = ExtResource("1_4ve75")
+
+[node name="Player" parent="." unique_id=1918663283 instance=ExtResource("1_hx7to")]
+
+[node name="DirectionalLight" type="DirectionalLight3D" parent="." unique_id=1478651605]
+transform = Transform3D(-0.7071069, 0.49999997, 0.5, 6.1817246e-08, -0.7071068, 0.7071068, 0.70710677, 0.5000001, 0.5, 0, 10, 0)
+light_energy = 0.5
+light_specular = 16.0
+shadow_enabled = true
+
+[node name="Sun" parent="." unique_id=272227891 instance=ExtResource("2_4ve75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 800, -800)
+
+[node name="Environment" type="Node" parent="." unique_id=19841019]
+
+[node name="Enemies" type="Node" parent="Environment" unique_id=1301162754]
+
+[node name="Obstacles" type="Node" parent="Environment" unique_id=1723269265]
+
+[node name="Decoration" type="Node" parent="Environment" unique_id=1521980672]
+
+[node name="Interactables" type="Node" parent="Environment" unique_id=2083965449]

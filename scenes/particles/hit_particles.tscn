@@ -37,6 +37,7 @@ distance_fade_max_distance = 5.0
 material = SubResource("StandardMaterial3D_w48qg")
 
 [node name="HitParticles" type="GPUParticles3D" unique_id=1626821034]
+layers = 2
 emitting = false
 amount = 4
 lifetime = 0.4
