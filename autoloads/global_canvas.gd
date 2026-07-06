@@ -8,9 +8,6 @@ const BASE_SMEAR = 1.0
 @onready var cover: ColorRect = $Cover
 
 func _ready() -> void:
-	_on_unpixelate(1.0)
-	_on_fade_in(0.5)
-
 	Events.pixelate.connect(_on_pixelate)
 	Events.unpixelate.connect(_on_unpixelate)
 	Events.fade_out.connect(_on_fade_out)

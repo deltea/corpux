@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dqhqrp2i12tgx"]
+
+[ext_resource type="Script" uid="uid://daur03tg47ang" path="res://scenes/ui/end_screen/end_screen.gd" id="1_44brl"]
+[ext_resource type="Texture2D" uid="uid://c78syilfevl1x" path="res://assets/textures/ui/dither-transition.png" id="2_20hmq"]
+
+[node name="EndScreen" type="CanvasLayer" unique_id=1893936186]
+script = ExtResource("1_44brl")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=17643530]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=451035920]
+offset_left = -512.3153
+offset_top = 848.20306
+offset_right = 1177.6693
+offset_bottom = 1738.2148
+rotation = -1.0471976
+color = Color(0, 0.28627452, 1, 1)
+
+[node name="DitherTransition" type="TextureRect" parent="." unique_id=687287779]
+self_modulate = Color(0, 0.28627452, 1, 1)
+texture_repeat = 2
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 231.33032
+offset_top = -1151.3645
+offset_right = 1753.2673
+offset_bottom = -1023.36444
+grow_horizontal = 2
+grow_vertical = 0
+rotation = 2.0943952
+texture = ExtResource("2_20hmq")
+stretch_mode = 1

@@ -16,9 +16,9 @@
 - [ ] quake movement revamp
 - [ ] fix ground decal flickering
 - [ ] fix getting stuck on sides of vert tunnel
-- [ ] auto aim for throws?? cool lookin frame ui
 - [ ] fix boomerang tweaking out
 
 ## very later
 
-- train model and animation
+- [ ] auto aim for throws?? cool lookin frame ui
+- [ ] train model and animation

@@ -295,10 +295,30 @@ upper_fade = 1e-05
 lower_fade = 1e-05
 cull_mask = 1048573
 
-[node name="trash_can" parent="Environment/Decoration" parent_id_path=PackedInt32Array(1521980672) index="22" unique_id=1613138135 instance=ExtResource("12_d6tof")]
+[node name="Decal6" type="Decal" parent="Environment/Decoration" parent_id_path=PackedInt32Array(1521980672) index="22" unique_id=1521718259]
+transform = Transform3D(-1, 0, -8.742278e-08, -8.742278e-08, -4.371139e-08, 1, -3.821371e-15, 1, 4.371139e-08, -141.45, -65.25001, -122.5)
+size = Vector3(5.1, 10, 142.40001)
+texture_albedo = ExtResource("11_nh565")
+texture_emission = ExtResource("11_nh565")
+emission_energy = 0.5
+upper_fade = 1e-05
+lower_fade = 1e-05
+cull_mask = 1048573
+
+[node name="Decal7" type="Decal" parent="Environment/Decoration" parent_id_path=PackedInt32Array(1521980672) index="23" unique_id=1436628852]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -141.45, -141.45, -56.5)
+size = Vector3(5.1, 10, 142.40001)
+texture_albedo = ExtResource("11_nh565")
+texture_emission = ExtResource("11_nh565")
+emission_energy = 0.5
+upper_fade = 1e-05
+lower_fade = 1e-05
+cull_mask = 1048573
+
+[node name="trash_can" parent="Environment/Decoration" parent_id_path=PackedInt32Array(1521980672) index="24" unique_id=1613138135 instance=ExtResource("12_d6tof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 3, -264)
 
-[node name="trash_can2" parent="Environment/Decoration" parent_id_path=PackedInt32Array(1521980672) index="23" unique_id=857273457 instance=ExtResource("12_d6tof")]
+[node name="trash_can2" parent="Environment/Decoration" parent_id_path=PackedInt32Array(1521980672) index="25" unique_id=857273457 instance=ExtResource("12_d6tof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 3, -259)
 
 [node name="VendingMachine" parent="Environment/Interactables" parent_id_path=PackedInt32Array(2083965449) index="0" unique_id=1780406410 instance=ExtResource("13_fylor")]
