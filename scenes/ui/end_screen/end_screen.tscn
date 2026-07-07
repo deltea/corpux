@@ -277,32 +277,43 @@ text = "[shake level=16 rate=40]S+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="." unique_id=324446393]
-offset_left = 936.0
-offset_top = 824.0
-offset_right = 1280.0
-offset_bottom = 960.0
+[node name="Buttons" type="Control" parent="." unique_id=2041608238]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 976.0
+offset_top = 840.0
+offset_right = 1776.0
+offset_bottom = 1016.0
+
+[node name="Button" type="Button" parent="Buttons" unique_id=324446393]
+layout_mode = 0
+offset_right = 344.0
+offset_bottom = 136.0
 theme = ExtResource("3_s6fqt")
 theme_override_styles/normal = SubResource("StyleBoxFlat_n1x3u")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_n1x3u")
 text = "restart level"
 
-[node name="Button2" type="Button" parent="." unique_id=223042269]
-offset_left = 1416.0
-offset_top = 824.0
-offset_right = 1760.0
-offset_bottom = 960.0
+[node name="Button2" type="Button" parent="Buttons" unique_id=223042269]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -344.0
+offset_bottom = 136.0
+grow_horizontal = 0
 theme = ExtResource("3_s6fqt")
 theme_override_styles/normal = SubResource("StyleBoxFlat_n1x3u")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_n1x3u")
 text = "main menu"
 
-[node name="Selector" type="NinePatchRect" parent="." unique_id=134780508]
+[node name="Selector" type="NinePatchRect" parent="Buttons" unique_id=134780508]
 self_modulate = Color(0.011764706, 0.5294118, 0.99607843, 1)
-offset_left = 928.0
-offset_top = 816.0
-offset_right = 1288.0
-offset_bottom = 968.0
+layout_mode = 1
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 352.0
+offset_bottom = 144.0
 texture = ExtResource("16_dau3a")
 patch_margin_left = 64
 patch_margin_top = 64

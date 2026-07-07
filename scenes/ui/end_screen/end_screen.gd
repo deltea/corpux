@@ -10,6 +10,7 @@ class_name EndScreen extends CanvasLayer
 @onready var secret_label: RichTextLabel = $LeftPanel/SecretLabel
 @onready var weapon_container: SubViewportContainer = $LeftPanel/WeaponContainer
 @onready var rank_label: RichTextLabel = $RankLabel
+@onready var buttons: Control = $Buttons
 
 func _ready() -> void:
 	animate_in()
@@ -53,6 +54,7 @@ func animate_in():
 	best_label.visible_ratio = 0.0
 	secret_label.visible_ratio = 0.0
 	weapon_container.position.y = 1088.0
+	buttons.position.y = 1120.0
 
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
 	tween.chain().tween_property(background, "self_modulate:a", 1.0, 0.25)
@@ -67,3 +69,4 @@ func animate_in():
 	tween.chain().tween_callback(func(): rank_label.visible = true)
 	tween.chain().tween_property(rank_label, "scale", Vector2.ONE * 1.0, 0.4).set_ease(Tween.EASE_IN)
 	tween.chain().tween_callback(func(): Events.flashbang.emit(1.0))
+	tween.chain().tween_property(buttons, "position:y", 840.0, 0.25).set_delay(0.4)
