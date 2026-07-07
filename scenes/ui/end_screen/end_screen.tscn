@@ -18,6 +18,10 @@
 shader = ExtResource("7_uhiru")
 shader_parameter/pixelSize = 8
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uhiru"]
+shader = ExtResource("7_6055c")
+shader_parameter/solid_color = Color(1, 1, 1, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7t06w"]
 shader = ExtResource("3_kyrhy")
 shader_parameter/scale = Vector2(30, 30)
@@ -30,10 +34,6 @@ base_font = ExtResource("4_7t06w")
 variation_embolden = 1.5
 variation_transform = Transform2D(1, 0.28, 0, 1, 0, 0)
 spacing_glyph = -80
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uhiru"]
-shader = ExtResource("7_6055c")
-shader_parameter/solid_color = Color(1, 1, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8q0kd"]
 shader = ExtResource("13_qdufb")
@@ -51,7 +51,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=451035920]
+[node name="LeftPanel" type="Control" parent="." unique_id=2142177418]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="InfoBackground" type="ColorRect" parent="LeftPanel" unique_id=451035920]
+layout_mode = 0
 offset_left = -512.00006
 offset_top = 744.00006
 offset_right = 1330.4961
@@ -59,16 +66,42 @@ offset_bottom = 1764.0988
 rotation = -0.9599311
 color = Color(0, 0.28627452, 1, 1)
 
-[node name="Star" type="TextureRect" parent="." unique_id=1611450871]
+[node name="DitherTransition" type="TextureRect" parent="LeftPanel" unique_id=687287779]
+self_modulate = Color(0, 0.28627452, 1, 1)
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 1436.0
+offset_top = -111.3645
+offset_right = 2957.937
+offset_bottom = 16.63556
+grow_horizontal = 2
+grow_vertical = 0
+rotation = 2.1816616
+texture = ExtResource("2_20hmq")
+stretch_mode = 1
+
+[node name="Stars" type="Control" parent="LeftPanel" unique_id=2066720636]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Star" type="TextureRect" parent="LeftPanel/Stars" unique_id=1611450871]
 self_modulate = Color(0.13, 0.37649995, 1, 1)
+layout_mode = 0
 offset_left = 168.0
 offset_top = 152.0
 offset_right = 404.0
 offset_bottom = 376.0
 texture = ExtResource("11_041vu")
 
-[node name="Star2" type="TextureRect" parent="." unique_id=1344497712]
+[node name="Star2" type="TextureRect" parent="LeftPanel/Stars" unique_id=1344497712]
 self_modulate = Color(0.13, 0.37649995, 1, 1)
+layout_mode = 0
 offset_left = 616.0
 offset_top = 352.00006
 offset_right = 852.0
@@ -76,8 +109,9 @@ offset_bottom = 576.00006
 rotation = 0.7853982
 texture = ExtResource("11_041vu")
 
-[node name="Star3" type="TextureRect" parent="." unique_id=693246954]
+[node name="Star3" type="TextureRect" parent="LeftPanel/Stars" unique_id=693246954]
 self_modulate = Color(0.13, 0.37649995, 1, 1)
+layout_mode = 0
 offset_left = 287.99997
 offset_top = 672.0
 offset_right = 524.0
@@ -85,8 +119,9 @@ offset_bottom = 896.0
 rotation = 0.5235988
 texture = ExtResource("11_041vu")
 
-[node name="Star4" type="TextureRect" parent="." unique_id=1724314080]
+[node name="Star4" type="TextureRect" parent="LeftPanel/Stars" unique_id=1724314080]
 self_modulate = Color(0.13, 0.37649995, 1, 1)
+layout_mode = 0
 offset_left = 632.0
 offset_top = 48.0
 offset_right = 868.0
@@ -94,37 +129,21 @@ offset_bottom = 272.0
 rotation = -1.0471976
 texture = ExtResource("11_041vu")
 
-[node name="PixelateFilter" type="ColorRect" parent="." unique_id=193234671]
+[node name="PixelateFilter" type="ColorRect" parent="LeftPanel" unique_id=193234671]
 material = SubResource("ShaderMaterial_8qm4d")
+layout_mode = 0
 offset_left = 442.68375
 offset_top = -713.55725
 offset_right = 1506.6837
 offset_bottom = 1131.7003
 rotation = 0.61086524
 
-[node name="DitherTransition" type="TextureRect" parent="." unique_id=687287779]
-self_modulate = Color(0, 0.28627452, 1, 1)
-texture_repeat = 2
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 496.0
-offset_top = -1151.3645
-offset_right = 2017.937
-offset_bottom = -1023.36444
-grow_horizontal = 2
-grow_vertical = 0
-rotation = 2.1816616
-texture = ExtResource("2_20hmq")
-stretch_mode = 1
-
-[node name="DecoBackground" type="ColorRect" parent="." unique_id=1002670460]
-offset_right = 96.0
+[node name="Success" type="ColorRect" parent="LeftPanel" unique_id=1002670460]
+layout_mode = 0
+offset_left = -96.0
 offset_bottom = 1080.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DecoBackground" unique_id=566362592]
+[node name="RichTextLabel" type="RichTextLabel" parent="LeftPanel/Success" unique_id=566362592]
 layout_mode = 0
 offset_left = 96.0
 offset_right = 1176.0
@@ -139,7 +158,8 @@ scroll_active = false
 autowrap_mode = 0
 vertical_alignment = 1
 
-[node name="LevelNameLabel" type="RichTextLabel" parent="." unique_id=307937080]
+[node name="LevelNameLabel" type="RichTextLabel" parent="LeftPanel" unique_id=307937080]
+layout_mode = 0
 offset_left = 240.0
 offset_top = 64.0
 offset_right = 984.0
@@ -153,24 +173,8 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RankLabel" type="RichTextLabel" parent="." unique_id=1508202181]
-material = SubResource("ShaderMaterial_7t06w")
-offset_left = 968.0
-offset_top = 48.0
-offset_right = 1864.0
-offset_bottom = 800.0
-theme = ExtResource("3_s6fqt")
-theme_override_colors/default_color = Color(0, 0.28627452, 1, 1)
-theme_override_constants/shadow_offset_x = 32
-theme_override_constants/shadow_offset_y = 32
-theme_override_fonts/normal_font = SubResource("FontVariation_s6fqt")
-theme_override_font_sizes/normal_font_size = 520
-bbcode_enabled = true
-text = "[shake level=12.0]A+"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TimeLabel" type="RichTextLabel" parent="." unique_id=1670859555]
+[node name="TimeLabel" type="RichTextLabel" parent="LeftPanel" unique_id=1670859555]
+layout_mode = 0
 offset_left = 192.0
 offset_top = 304.0
 offset_right = 760.0
@@ -179,11 +183,12 @@ theme = ExtResource("3_s6fqt")
 theme_override_font_sizes/normal_font_size = 72
 theme_override_font_sizes/bold_font_size = 72
 bbcode_enabled = true
-text = "TIME  /  1:12:30"
+text = "TIME  //  1:12:30"
 scroll_active = false
 autowrap_mode = 0
 
-[node name="BestLabel" type="RichTextLabel" parent="." unique_id=10295534]
+[node name="BestLabel" type="RichTextLabel" parent="LeftPanel" unique_id=10295534]
+layout_mode = 0
 offset_left = 192.0
 offset_top = 400.0
 offset_right = 776.0
@@ -192,11 +197,12 @@ theme = ExtResource("3_s6fqt")
 theme_override_colors/default_color = Color(0.49503154, 0.6622465, 1, 1)
 theme_override_font_sizes/normal_font_size = 72
 bbcode_enabled = true
-text = "BEST  /  1:12:30"
+text = "BEST  //  1:12:30"
 scroll_active = false
 autowrap_mode = 0
 
-[node name="SecretLabel" type="RichTextLabel" parent="." unique_id=2102588431]
+[node name="SecretLabel" type="RichTextLabel" parent="LeftPanel" unique_id=2102588431]
+layout_mode = 0
 offset_left = 192.0
 offset_top = 496.0
 offset_right = 888.0
@@ -205,13 +211,14 @@ theme = ExtResource("3_s6fqt")
 theme_override_colors/default_color = Color(0.49503154, 0.6622465, 1, 1)
 theme_override_font_sizes/normal_font_size = 72
 bbcode_enabled = true
-text = "SECRET  /  yes
+text = "SECRET  //  yes
 "
 scroll_active = false
 autowrap_mode = 0
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1796128438]
+[node name="WeaponContainer" type="SubViewportContainer" parent="LeftPanel" unique_id=1796128438]
 material = SubResource("ShaderMaterial_uhiru")
+layout_mode = 0
 offset_left = 240.0
 offset_top = 560.00006
 offset_right = 617.71466
@@ -220,21 +227,39 @@ rotation = 0.2617994
 stretch = true
 stretch_shrink = 6
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1916634635]
+[node name="SubViewport" type="SubViewport" parent="LeftPanel/WeaponContainer" unique_id=1916634635]
+own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
 scaling_3d_mode = 5
 size = Vector2i(62, 57)
-size_2d_override = Vector2i(42, 45)
-size_2d_override_stretch = true
 render_target_update_mode = 4
 
-[node name="weapon" parent="SubViewportContainer/SubViewport" unique_id=1935221320 instance=ExtResource("12_8qm4d")]
+[node name="weapon" parent="LeftPanel/WeaponContainer/SubViewport" unique_id=1935221320 instance=ExtResource("12_8qm4d")]
 
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=524535146]
+[node name="Camera3D" type="Camera3D" parent="LeftPanel/WeaponContainer/SubViewport" unique_id=524535146]
 transform = Transform3D(0.81915206, 0.119253255, -0.5610424, 0, 0.9781476, 0.2079117, 0.57357645, -0.1703113, 0.80125165, -4, 2, 5.5)
 projection = 1
+current = true
 size = 5.362
+
+[node name="RankLabel" type="RichTextLabel" parent="." unique_id=1508202181]
+material = SubResource("ShaderMaterial_7t06w")
+offset_left = 968.0
+offset_top = 48.0
+offset_right = 1864.0
+offset_bottom = 800.0
+pivot_offset = Vector2(488, 320)
+theme = ExtResource("3_s6fqt")
+theme_override_colors/default_color = Color(0, 0.28627452, 1, 1)
+theme_override_constants/shadow_offset_x = 32
+theme_override_constants/shadow_offset_y = 32
+theme_override_fonts/normal_font = SubResource("FontVariation_s6fqt")
+theme_override_font_sizes/normal_font_size = 520
+bbcode_enabled = true
+text = "[shake level=16 rate=40]A+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BackBufferCopy" type="BackBufferCopy" parent="." unique_id=1502272481]
 copy_mode = 2

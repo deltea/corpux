@@ -99,3 +99,11 @@ scale = Vector2(7, 7)
 pivot_offset = Vector2(4.5, 4.5)
 texture = ExtResource("3_a21u8")
 stretch_mode = 3
+
+[node name="Flashbang" type="ColorRect" parent="." unique_id=1783240721]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)

@@ -22,7 +22,7 @@ func _on_end_level():
 	is_timer_started = false
 
 	var end_screen = end_screen_scene.instantiate() as EndScreen
-	end_screen.set_info()
 	add_child(end_screen)
+	end_screen.set_info("tutorial", time, 10.0, time, false)
 
 	await Clock.wait(0.25)

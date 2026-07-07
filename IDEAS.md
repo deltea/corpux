@@ -16,4 +16,4 @@
 - [x] best time
 <!-- - [ ] kills -->
 - [x] weapon used?
-- [ ] secret found?
+- [x] secret found?

@@ -5,10 +5,12 @@ const BASE_SMEAR = 1.0
 @onready var crt: ColorRect = $CRT
 @onready var blur: ColorRect = $Blur
 @onready var pixelate: ColorRect = $Pixelate
+@onready var flashbang: ColorRect = $Flashbang
 
 func _ready() -> void:
 	Events.pixelate.connect(_on_pixelate)
 	Events.unpixelate.connect(_on_unpixelate)
+	Events.flashbang.connect(_on_flashbang)
 
 func _on_pixelate(duration: float):
 	pixelate.visible = true
@@ -24,3 +26,8 @@ func _on_unpixelate(duration: float):
 
 func set_smear(amount: float):
 	crt.material.set_shader_parameter("luma_smear_px", BASE_SMEAR + amount)
+
+func _on_flashbang(duration: float):
+	flashbang.color.a = 1.0
+	var tween = create_tween()
+	tween.tween_property(flashbang, "color:a", 0.0, duration)
