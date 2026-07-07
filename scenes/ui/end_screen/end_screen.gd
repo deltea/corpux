@@ -1,6 +1,6 @@
 class_name EndScreen extends CanvasLayer
 
-@onready var background: ColorRect = $Background
+@onready var background: TextureRect = $Background
 @onready var left_panel: Control = $LeftPanel
 @onready var weapon_model: Node3D = $LeftPanel/WeaponContainer/SubViewport/weapon
 @onready var success: ColorRect	= $LeftPanel/Success
@@ -42,7 +42,7 @@ func format_time(time: float) -> String:
 	return "%02d:%02d:%02d" % [minutes, seconds, hundredths]
 
 func animate_in():
-	background.color.a = 0.0
+	background.self_modulate.a = 0.0
 	left_panel.position.x = -1400
 	success.position.x = -96
 	rank_label.visible = false
@@ -55,7 +55,7 @@ func animate_in():
 	weapon_container.position.y = 1088.0
 
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
-	tween.chain().tween_property(background, "color:a", 1.0, 0.25)
+	tween.chain().tween_property(background, "self_modulate:a", 1.0, 0.25)
 	tween.chain().tween_property(left_panel, "position:x", 0.0, 0.25)
 	tween.chain().tween_property(success, "position:x", 0.0, 0.25)
 	tween.tween_property(level_name_label, "visible_ratio", 1.0, 0.5).set_trans(Tween.TRANS_LINEAR)
@@ -66,4 +66,4 @@ func animate_in():
 
 	tween.chain().tween_callback(func(): rank_label.visible = true)
 	tween.chain().tween_property(rank_label, "scale", Vector2.ONE * 1.0, 0.4).set_ease(Tween.EASE_IN)
-	tween.chain().tween_callback(func(): Events.flashbang.emit(1.0)).set_delay(0.05)
+	tween.chain().tween_callback(func(): Events.flashbang.emit(1.0))
