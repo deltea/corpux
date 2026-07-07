@@ -44,7 +44,7 @@ func set_info(
 	time_label.text = "TIME  //  " + str(format_time(time))
 	best_label.text = "BEST  //  " + str(format_time(best_time))
 	secret_label.text = "SECRET  //  " + ("yes" if secret else "no")
-	rank_label.text = "[shake level=16 rate=40]" + get_rank(time, desired_time)
+	rank_label.text = "[shake level=20 rate=40]" + get_rank(time, desired_time)
 	# add weapon later
 
 func get_rank(time: float, desired_time: float):
