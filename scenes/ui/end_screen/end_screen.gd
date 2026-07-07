@@ -12,11 +12,26 @@ class_name EndScreen extends CanvasLayer
 @onready var rank_label: RichTextLabel = $RankLabel
 @onready var buttons: Control = $Buttons
 
+@onready var success_scroller: Control = $LeftPanel/Success/Scroller
+@onready var success_label_1: RichTextLabel = $LeftPanel/Success/Scroller/RichTextLabel
+@onready var success_label_2: RichTextLabel = $LeftPanel/Success/Scroller/RichTextLabelCopy
+
+var success_text_length = 0.0
+
 func _ready() -> void:
 	animate_in()
 
+	success_label_2.text = success_label_1.text
+	success_text_length = success_label_1.get_combined_minimum_size().x
+	success_label_2.position.y = success_text_length
+
 func _process(dt: float) -> void:
 	weapon_model.rotation_degrees.y += 50.0 * dt
+
+	success_scroller.position.y -= 100.0 * dt
+
+	if abs(success_scroller.position.y) >= success_text_length:
+		success_scroller.position.y = 0
 
 func set_info(
 	level_name: String,

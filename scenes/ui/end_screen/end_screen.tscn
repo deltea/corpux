@@ -168,7 +168,12 @@ layout_mode = 0
 offset_left = -96.0
 offset_bottom = 1080.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="LeftPanel/Success" unique_id=566362592]
+[node name="Scroller" type="Control" parent="LeftPanel/Success" unique_id=1778805619]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LeftPanel/Success/Scroller" unique_id=566362592]
 layout_mode = 0
 offset_left = 96.0
 offset_right = 1192.0
@@ -178,8 +183,23 @@ theme = ExtResource("3_s6fqt")
 theme_override_colors/default_color = Color(0, 0.28627452, 1, 1)
 theme_override_fonts/normal_font = SubResource("FontVariation_n1x3u")
 theme_override_font_sizes/normal_font_size = 24
-text = "success  success  success  "
-scroll_active = false
+text = "success   success   success  "
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="RichTextLabelCopy" type="RichTextLabel" parent="LeftPanel/Success/Scroller" unique_id=2114279917]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 1088.0
+offset_right = 1233.0
+offset_bottom = 1224.169
+rotation = 1.5707964
+theme = ExtResource("3_s6fqt")
+theme_override_colors/default_color = Color(0, 0.28627452, 1, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_n1x3u")
+theme_override_font_sizes/normal_font_size = 24
+fit_content = true
 autowrap_mode = 0
 vertical_alignment = 1
 
@@ -245,9 +265,9 @@ autowrap_mode = 0
 material = SubResource("ShaderMaterial_uhiru")
 layout_mode = 0
 offset_left = 240.0
-offset_top = 560.00006
+offset_top = 576.0
 offset_right = 617.71466
-offset_bottom = 902.0813
+offset_bottom = 918.08124
 rotation = 0.2617994
 stretch = true
 stretch_shrink = 6
