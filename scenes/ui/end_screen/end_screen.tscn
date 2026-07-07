@@ -7,7 +7,6 @@
 [ext_resource type="Shader" uid="uid://d3qweaiaq824q" path="res://shaders/squigglevision.gdshader" id="3_kyrhy"]
 [ext_resource type="Theme" uid="uid://cxmchfsgtgv3e" path="res://theme.tres" id="3_s6fqt"]
 [ext_resource type="FontVariation" uid="uid://pecy731lxmai" path="res://assets/fonts/helvetica.tres" id="4_7t06w"]
-[ext_resource type="FontVariation" uid="uid://bsnkq7agi3usr" path="res://assets/fonts/helvetica-wide.tres" id="4_hufuo"]
 [ext_resource type="Texture2D" uid="uid://dfo427owj0sug" path="res://assets/textures/checkered.png" id="4_wc35x"]
 [ext_resource type="FontVariation" uid="uid://18fprucwi6vm" path="res://assets/fonts/helvetica-wide-big.tres" id="5_tb5rc"]
 [ext_resource type="Shader" uid="uid://c8kedkd4dgb1d" path="res://shaders/solid_color.gdshader" id="7_6055c"]
@@ -25,6 +24,16 @@ shader_parameter/speed_y = 0.5
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8qm4d"]
 shader = ExtResource("7_uhiru")
 shader_parameter/pixelSize = 8
+
+[sub_resource type="SystemFont" id="SystemFont_efxa6"]
+font_names = PackedStringArray("Helvetica")
+
+[sub_resource type="FontVariation" id="FontVariation_n1x3u"]
+base_font = SubResource("SystemFont_efxa6")
+variation_embolden = 0.8
+variation_transform = Transform2D(3.75, 0, 0, 1.52, 0, 0)
+spacing_glyph = 36
+spacing_space = 12
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uhiru"]
 shader = ExtResource("7_6055c")
@@ -154,6 +163,7 @@ offset_bottom = 1131.7003
 rotation = 0.61086524
 
 [node name="Success" type="ColorRect" parent="LeftPanel" unique_id=1002670460]
+clip_contents = true
 layout_mode = 0
 offset_left = -96.0
 offset_bottom = 1080.0
@@ -161,14 +171,14 @@ offset_bottom = 1080.0
 [node name="RichTextLabel" type="RichTextLabel" parent="LeftPanel/Success" unique_id=566362592]
 layout_mode = 0
 offset_left = 96.0
-offset_right = 1176.0
-offset_bottom = 136.1694
+offset_right = 1192.0
+offset_bottom = 136.169
 rotation = 1.5707964
 theme = ExtResource("3_s6fqt")
 theme_override_colors/default_color = Color(0, 0.28627452, 1, 1)
-theme_override_fonts/normal_font = ExtResource("4_hufuo")
+theme_override_fonts/normal_font = SubResource("FontVariation_n1x3u")
 theme_override_font_sizes/normal_font_size = 24
-text = "  success  success  success  "
+text = "success  success  success  "
 scroll_active = false
 autowrap_mode = 0
 vertical_alignment = 1

@@ -57,7 +57,7 @@ func animate_in():
 	buttons.position.y = 1120.0
 
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
-	tween.chain().tween_property(background, "self_modulate:a", 1.0, 0.25)
+	tween.chain().tween_property(background, "self_modulate:a", 1.0, 0.5)
 	tween.chain().tween_property(left_panel, "position:x", 0.0, 0.25)
 	tween.chain().tween_property(success, "position:x", 0.0, 0.25)
 	tween.tween_property(level_name_label, "visible_ratio", 1.0, 0.5).set_trans(Tween.TRANS_LINEAR)
