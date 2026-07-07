@@ -52,11 +52,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=451035920]
-offset_left = -512.3153
-offset_top = 848.20306
-offset_right = 1177.6693
-offset_bottom = 1868.3018
-rotation = -1.0471976
+offset_left = -512.00006
+offset_top = 744.00006
+offset_right = 1330.4961
+offset_bottom = 1764.0988
+rotation = -0.9599311
 color = Color(0, 0.28627452, 1, 1)
 
 [node name="Star" type="TextureRect" parent="." unique_id=1611450871]
@@ -96,11 +96,11 @@ texture = ExtResource("11_041vu")
 
 [node name="PixelateFilter" type="ColorRect" parent="." unique_id=193234671]
 material = SubResource("ShaderMaterial_8qm4d")
-offset_left = 293.30392
-offset_top = -728.87885
-offset_right = 1357.304
-offset_bottom = 1153.5425
-rotation = 0.5235988
+offset_left = 442.68375
+offset_top = -713.55725
+offset_right = 1506.6837
+offset_bottom = 1131.7003
+rotation = 0.61086524
 
 [node name="DitherTransition" type="TextureRect" parent="." unique_id=687287779]
 self_modulate = Color(0, 0.28627452, 1, 1)
@@ -110,13 +110,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 384.0
+offset_left = 496.0
 offset_top = -1151.3645
-offset_right = 1905.937
+offset_right = 2017.937
 offset_bottom = -1023.36444
 grow_horizontal = 2
 grow_vertical = 0
-rotation = 2.0943952
+rotation = 2.1816616
 texture = ExtResource("2_20hmq")
 stretch_mode = 1
 
@@ -142,7 +142,7 @@ vertical_alignment = 1
 [node name="LevelNameLabel" type="RichTextLabel" parent="." unique_id=307937080]
 offset_left = 240.0
 offset_top = 64.0
-offset_right = 880.0
+offset_right = 984.0
 offset_bottom = 240.0
 theme = ExtResource("3_s6fqt")
 theme_override_fonts/normal_font = ExtResource("5_tb5rc")
@@ -171,28 +171,44 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TimeLabel" type="RichTextLabel" parent="." unique_id=1670859555]
-offset_left = 200.0
-offset_top = 336.0
-offset_right = 768.0
-offset_bottom = 408.0
+offset_left = 192.0
+offset_top = 304.0
+offset_right = 760.0
+offset_bottom = 376.0
 theme = ExtResource("3_s6fqt")
 theme_override_font_sizes/normal_font_size = 72
-text = "TIME  -  1:12:30"
+theme_override_font_sizes/bold_font_size = 72
+bbcode_enabled = true
+text = "TIME  /  1:12:30"
 scroll_active = false
 autowrap_mode = 0
-horizontal_alignment = 1
 
 [node name="BestLabel" type="RichTextLabel" parent="." unique_id=10295534]
 offset_left = 192.0
-offset_top = 448.0
+offset_top = 400.0
 offset_right = 776.0
-offset_bottom = 520.0
+offset_bottom = 472.0
 theme = ExtResource("3_s6fqt")
+theme_override_colors/default_color = Color(0.49503154, 0.6622465, 1, 1)
 theme_override_font_sizes/normal_font_size = 72
-text = "BEST  -  1:12:30"
+bbcode_enabled = true
+text = "BEST  /  1:12:30"
 scroll_active = false
 autowrap_mode = 0
-horizontal_alignment = 1
+
+[node name="SecretLabel" type="RichTextLabel" parent="." unique_id=2102588431]
+offset_left = 192.0
+offset_top = 496.0
+offset_right = 888.0
+offset_bottom = 568.0
+theme = ExtResource("3_s6fqt")
+theme_override_colors/default_color = Color(0.49503154, 0.6622465, 1, 1)
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "SECRET  /  yes
+"
+scroll_active = false
+autowrap_mode = 0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1796128438]
 material = SubResource("ShaderMaterial_uhiru")
