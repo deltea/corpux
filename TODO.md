@@ -1,8 +1,8 @@
-- [ ] level end ui
 - [ ] first level design
 - [ ] enemy explosion effects
 - [ ] escalators
 - [ ] enemy model
+- [x] level end ui
 - [x] fix boomerang ground floating
 - [x] tutorial level design
 - [x] gun frame start animation
