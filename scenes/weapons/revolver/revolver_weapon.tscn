@@ -30,7 +30,7 @@ autostart = true
 
 [node name="RayCast" type="RayCast3D" parent="." index="2" unique_id=1862659185]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
-target_position = Vector3(0, 0, -200)
+target_position = Vector3(0, 0, -1000)
 
 [node name="FirePoint" type="Marker3D" parent="." index="3" unique_id=348105577]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6375143, -0.23853329, -3.3005924)
@@ -40,22 +40,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6375143, -0.23853329, -3.30
 [node name="revolver" parent="Pivot" index="0" unique_id=1579868623 instance=ExtResource("3_td1f2")]
 transform = Transform3D(-0.021809712, -0.069520324, -0.49466276, 0, 0.49513403, -0.06958655, 0.49952412, -0.0030353253, -0.021597462, 0.64565444, -0.845, -1.805)
 
-[node name="Cube" parent="Pivot/revolver" index="1" unique_id=1693931436]
+[node name="Cube" parent="Pivot/revolver" index="1" unique_id=1912929597]
+layers = 2
 cast_shadow = 0
 
-[node name="Cube_001" parent="Pivot/revolver" index="2" unique_id=1674710541]
+[node name="Cube_001" parent="Pivot/revolver" index="2" unique_id=445465374]
+layers = 2
 cast_shadow = 0
 
-[node name="Cube_002" parent="Pivot/revolver" index="3" unique_id=2119098037]
+[node name="Cube_002" parent="Pivot/revolver" index="3" unique_id=759482176]
+layers = 2
 cast_shadow = 0
 
-[node name="Cube_003" parent="Pivot/revolver" index="4" unique_id=1416010190]
+[node name="Cube_003" parent="Pivot/revolver" index="4" unique_id=905675379]
+layers = 2
 cast_shadow = 0
 
-[node name="Cube_004" parent="Pivot/revolver" index="5" unique_id=1161327127]
+[node name="Cube_004" parent="Pivot/revolver" index="5" unique_id=736486288]
+layers = 2
 cast_shadow = 0
 
-[node name="Cube_005" parent="Pivot/revolver" index="6" unique_id=1249252785]
+[node name="Cube_005" parent="Pivot/revolver" index="6" unique_id=1054942380]
+layers = 2
 cast_shadow = 0
 
 [connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]

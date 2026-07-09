@@ -3,9 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="2_xv2ws"]
 
 [resource]
-shading_mode = 2
-emission_enabled = true
-emission = Color(0.4392157, 0.4392157, 0.4392157, 1)
+diffuse_mode = 2
+emission = Color(0.5609553, 0.56095487, 0.5609549, 1)
 heightmap_texture = ExtResource("2_xv2ws")
 uv1_world_triplanar = true
 texture_filter = 4

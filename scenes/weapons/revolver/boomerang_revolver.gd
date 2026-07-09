@@ -3,9 +3,14 @@ class_name BoomerangRevolver extends Node3D
 const FLOOR_FLOAT_HEIGHT = 0.5
 const MAX_SPEED = 120.0
 const MAX_SPIN_SPEED = 2000.0
-const MAX_DISTANCE = 40.0
+const MAX_DISTANCE = 48.0
 const DECELERATION = 250.0
 const RETURN_ACCELERATION = 120.0
+
+@onready var marker: Sprite3D = $Marker
+@onready var collider: CollisionShape3D = $HitArea/CollisionShape
+@onready var raycast_top: RayCast3D = $RayCastTop
+@onready var raycast_bottom: RayCast3D = $RayCastBottom
 
 var is_returning = false
 var is_caught = false
@@ -26,9 +31,13 @@ signal caught()
 
 func _ready() -> void:
 	# make sure its rotated correctly
+	marker.visible = false
+	marker.scale.x = 3.0
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
 	tween.tween_property(self, "global_rotation:x", -PI/2, 0.5)
 	tween.tween_property(self, "global_rotation:z", 0.0, 0.5)
+	tween.tween_callback(func(): marker.visible = true).set_delay(0.15)
+	tween.tween_property(marker, "scale:x", 1.0, 0.5).set_delay(0.15)
 
 func come_back():
 	is_returning = true
@@ -61,8 +70,10 @@ func _physics_process(dt: float) -> void:
 			if speed <= 0.0:
 				is_returning = true
 
-	global_position.y = max(global_position.y, FLOOR_FLOAT_HEIGHT)
-
+		if raycast_bottom.is_colliding():
+			var normal = raycast_bottom.get_collision_normal()
+			if normal == Vector3.UP:
+				global_position.y = max(global_position.y, raycast_bottom.get_collision_point().y + FLOOR_FLOAT_HEIGHT)
 func catch():
 	is_caught = true
 	speed = 0.0
@@ -89,6 +100,7 @@ func _on_hit_area_body_entered(body: Node3D) -> void:
 		# is_bounce_back = true
 
 func _on_bounce_back_area_body_entered(body: Node3D) -> void:
-	if not body is Enemy and not body is Player:
-		is_returning = true
-		is_bounce_back = true
+	if body is Enemy or body is Player: return
+
+	is_returning = true
+	is_bounce_back = true

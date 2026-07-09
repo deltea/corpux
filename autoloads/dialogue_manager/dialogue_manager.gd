@@ -66,4 +66,4 @@ func _on_char_typed(c: String):
 	var line = dialogue.lines[curr_line]
 	char_typed.emit(c.to_lower() in line.voice)
 	if c.to_lower() in line.voice:
-		AudioManager.play_sound_from_stream(line.voice[c].stream)
+		AudioManager.play_sound_from_stream(line.voice[c].stream, randf_range(0.9, 1.1))

@@ -1,6 +1,12 @@
-- make stairs scene
-- level design
-- enemy model
+- [ ] first level design
+- [ ] enemy explosion effects
+- [ ] escalators
+- [ ] make stairs work
+- [ ] enemy model
+- [x] level end ui
+- [x] fix boomerang ground floating
+- [x] tutorial level design
+- [x] gun frame start animation
 - [x] animal crossing dialogue sfx
 - [x] disable weapon when dialogue
 - [x] weapon disable animation
@@ -8,5 +14,12 @@
 
 ## uhhhhh later
 
-- quake movement revamp
-- fix gun ground floating
+- [ ] quake movement revamp
+- [ ] fix ground decal flickering
+- [ ] fix getting stuck on sides of vert tunnel
+- [ ] fix boomerang tweaking out
+
+## very later
+
+- [ ] auto aim for throws?? cool lookin frame ui
+- [ ] train model and animation

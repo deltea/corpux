@@ -9,8 +9,8 @@ const SHAKE_DAMP_SPEED = 2.0
 @export var revolver_scene: PackedScene
 
 var equipped_weapon: Weapon
-var shake_duration = 0
-var shake_strength = 0
+var shake_duration = 0.0
+var shake_strength = 0.0
 var original_pos: Vector3
 var is_disabled = false
 var tween: Tween

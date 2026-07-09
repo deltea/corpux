@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bte76aise5p3b"
-path="res://.godot/imported/arch.blend-19760c849872129052e234e2fbf274aa.scn"
+uid="uid://d00u3lhgiphp0"
+path="res://.godot/imported/platform.blend-afdfa28398a23243b06f5a2d8851aa9b.scn"
 
 [deps]
 
-source_file="res://assets/models/arch.blend"
-dest_files=["res://.godot/imported/arch.blend-19760c849872129052e234e2fbf274aa.scn"]
+source_file="res://assets/models/environment/platform.blend"
+dest_files=["res://.godot/imported/platform.blend-afdfa28398a23243b06f5a2d8851aa9b.scn"]
 
 [params]
 
@@ -43,8 +43,13 @@ _subresources={
 "materials": {
 "Material": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/arch.tres",
-"use_external/path": "uid://wfs6n0r77ekt"
+"use_external/fallback_path": "res://assets/materials/environment/floor.tres",
+"use_external/path": "uid://cw65bu2jitrap"
+},
+"Material.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/standard.tres",
+"use_external/path": "uid://buvjk5gg3qgni"
 }
 }
 }

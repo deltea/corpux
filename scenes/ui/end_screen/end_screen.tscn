@@ -1,0 +1,363 @@
+[gd_scene format=3 uid="uid://dqhqrp2i12tgx"]
+
+[ext_resource type="Script" uid="uid://daur03tg47ang" path="res://scenes/ui/end_screen/end_screen.gd" id="1_44brl"]
+[ext_resource type="Texture2D" uid="uid://cl7dm7ycsia14" path="res://assets/textures/ui/background.png" id="2_8q0kd"]
+[ext_resource type="Texture2D" uid="uid://c78syilfevl1x" path="res://assets/textures/ui/dither-transition.png" id="2_20hmq"]
+[ext_resource type="Shader" uid="uid://n0vw6dm5eul5" path="res://shaders/scrolling.gdshader" id="2_n1x3u"]
+[ext_resource type="Shader" uid="uid://d3qweaiaq824q" path="res://shaders/squigglevision.gdshader" id="3_kyrhy"]
+[ext_resource type="Theme" uid="uid://cxmchfsgtgv3e" path="res://theme.tres" id="3_s6fqt"]
+[ext_resource type="FontVariation" uid="uid://pecy731lxmai" path="res://assets/fonts/helvetica.tres" id="4_7t06w"]
+[ext_resource type="Texture2D" uid="uid://dfo427owj0sug" path="res://assets/textures/checkered.png" id="4_wc35x"]
+[ext_resource type="FontVariation" uid="uid://18fprucwi6vm" path="res://assets/fonts/helvetica-wide-big.tres" id="5_tb5rc"]
+[ext_resource type="Shader" uid="uid://c8kedkd4dgb1d" path="res://shaders/solid_color.gdshader" id="7_6055c"]
+[ext_resource type="Shader" uid="uid://c2qdlk2arkcl" path="res://shaders/pixelate_screen.gdshader" id="7_uhiru"]
+[ext_resource type="Texture2D" uid="uid://d2bdqgrkeuq36" path="res://assets/textures/ui/star.png" id="11_041vu"]
+[ext_resource type="PackedScene" uid="uid://51ja0nr0ujmj" path="res://assets/models/weapons/revolver.blend" id="12_8qm4d"]
+[ext_resource type="Shader" uid="uid://bmwllok136qtf" path="res://shaders/color_swap.gdshader" id="13_qdufb"]
+[ext_resource type="Texture2D" uid="uid://dnw4ddsv6ttdn" path="res://assets/textures/ui/selection-9-slice.png" id="16_dau3a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n1x3u"]
+shader = ExtResource("2_n1x3u")
+shader_parameter/speed_x = 0.5
+shader_parameter/speed_y = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8qm4d"]
+shader = ExtResource("7_uhiru")
+shader_parameter/pixelSize = 8
+
+[sub_resource type="SystemFont" id="SystemFont_efxa6"]
+font_names = PackedStringArray("Helvetica")
+
+[sub_resource type="FontVariation" id="FontVariation_n1x3u"]
+base_font = SubResource("SystemFont_efxa6")
+variation_embolden = 0.8
+variation_transform = Transform2D(3.75, 0, 0, 1.52, 0, 0)
+spacing_glyph = 36
+spacing_space = 12
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uhiru"]
+shader = ExtResource("7_6055c")
+shader_parameter/solid_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7t06w"]
+shader = ExtResource("3_kyrhy")
+shader_parameter/scale = Vector2(30, 30)
+shader_parameter/strength = 0.5
+shader_parameter/fps = 10.0
+shader_parameter/noise = ExtResource("4_wc35x")
+
+[sub_resource type="FontVariation" id="FontVariation_s6fqt"]
+base_font = ExtResource("4_7t06w")
+variation_embolden = 1.5
+variation_transform = Transform2D(1, 0.4, 0, 1.2, 0, 0)
+spacing_glyph = -80
+baseline_offset = 0.125
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1x3u"]
+bg_color = Color(0, 0.28627452, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8q0kd"]
+shader = ExtResource("13_qdufb")
+shader_parameter/color_a = Color(0, 0.28627452, 1, 1)
+shader_parameter/color_b = Color(1, 1, 1, 1)
+shader_parameter/threshold = 0.05
+
+[node name="EndScreen" type="CanvasLayer" unique_id=1893936186]
+script = ExtResource("1_44brl")
+
+[node name="Background" type="TextureRect" parent="." unique_id=793596213]
+material = SubResource("ShaderMaterial_n1x3u")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8q0kd")
+stretch_mode = 1
+
+[node name="LeftPanel" type="Control" parent="." unique_id=2142177418]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="InfoBackground" type="ColorRect" parent="LeftPanel" unique_id=451035920]
+layout_mode = 0
+offset_left = -512.00006
+offset_top = 744.00006
+offset_right = 1330.4961
+offset_bottom = 1764.0988
+rotation = -0.9599311
+color = Color(0, 0.28627452, 1, 1)
+
+[node name="DitherTransition" type="TextureRect" parent="LeftPanel" unique_id=687287779]
+self_modulate = Color(0, 0.28627452, 1, 1)
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 1436.0
+offset_top = -111.3645
+offset_right = 2957.937
+offset_bottom = 16.63556
+grow_horizontal = 2
+grow_vertical = 0
+rotation = 2.1816616
+texture = ExtResource("2_20hmq")
+stretch_mode = 1
+
+[node name="Stars" type="Control" parent="LeftPanel" unique_id=2066720636]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Star" type="TextureRect" parent="LeftPanel/Stars" unique_id=1611450871]
+self_modulate = Color(0.13, 0.37649995, 1, 1)
+layout_mode = 0
+offset_left = 168.0
+offset_top = 152.0
+offset_right = 404.0
+offset_bottom = 376.0
+texture = ExtResource("11_041vu")
+
+[node name="Star2" type="TextureRect" parent="LeftPanel/Stars" unique_id=1344497712]
+self_modulate = Color(0.13, 0.37649995, 1, 1)
+layout_mode = 0
+offset_left = 616.0
+offset_top = 352.00006
+offset_right = 852.0
+offset_bottom = 576.00006
+rotation = 0.7853982
+texture = ExtResource("11_041vu")
+
+[node name="Star3" type="TextureRect" parent="LeftPanel/Stars" unique_id=693246954]
+self_modulate = Color(0.13, 0.37649995, 1, 1)
+layout_mode = 0
+offset_left = 287.99997
+offset_top = 672.0
+offset_right = 524.0
+offset_bottom = 896.0
+rotation = 0.5235988
+texture = ExtResource("11_041vu")
+
+[node name="Star4" type="TextureRect" parent="LeftPanel/Stars" unique_id=1724314080]
+self_modulate = Color(0.13, 0.37649995, 1, 1)
+layout_mode = 0
+offset_left = 632.0
+offset_top = 48.0
+offset_right = 868.0
+offset_bottom = 272.0
+rotation = -1.0471976
+texture = ExtResource("11_041vu")
+
+[node name="PixelateFilter" type="ColorRect" parent="LeftPanel" unique_id=193234671]
+material = SubResource("ShaderMaterial_8qm4d")
+layout_mode = 0
+offset_left = 442.68375
+offset_top = -713.55725
+offset_right = 1506.6837
+offset_bottom = 1131.7003
+rotation = 0.61086524
+
+[node name="Success" type="ColorRect" parent="LeftPanel" unique_id=1002670460]
+clip_contents = true
+layout_mode = 0
+offset_left = -96.0
+offset_bottom = 1080.0
+
+[node name="Scroller" type="Control" parent="LeftPanel/Success" unique_id=1778805619]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LeftPanel/Success/Scroller" unique_id=566362592]
+layout_mode = 0
+offset_left = 96.0
+offset_right = 1192.0
+offset_bottom = 136.169
+rotation = 1.5707964
+theme = ExtResource("3_s6fqt")
+theme_override_colors/default_color = Color(0, 0.28627452, 1, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_n1x3u")
+theme_override_font_sizes/normal_font_size = 24
+text = "success   success   success  "
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="RichTextLabelCopy" type="RichTextLabel" parent="LeftPanel/Success/Scroller" unique_id=2114279917]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 1088.0
+offset_right = 1233.0
+offset_bottom = 1224.169
+rotation = 1.5707964
+theme = ExtResource("3_s6fqt")
+theme_override_colors/default_color = Color(0, 0.28627452, 1, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_n1x3u")
+theme_override_font_sizes/normal_font_size = 24
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="LevelNameLabel" type="RichTextLabel" parent="LeftPanel" unique_id=307937080]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 64.0
+offset_right = 984.0
+offset_bottom = 240.0
+theme = ExtResource("3_s6fqt")
+theme_override_fonts/normal_font = ExtResource("5_tb5rc")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[wave freq=2 amp=100]tutorial"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeLabel" type="RichTextLabel" parent="LeftPanel" unique_id=1670859555]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 304.0
+offset_right = 760.0
+offset_bottom = 376.0
+theme = ExtResource("3_s6fqt")
+theme_override_font_sizes/normal_font_size = 72
+theme_override_font_sizes/bold_font_size = 72
+bbcode_enabled = true
+text = "TIME  //  1:12:30"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="BestLabel" type="RichTextLabel" parent="LeftPanel" unique_id=10295534]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 400.0
+offset_right = 776.0
+offset_bottom = 472.0
+theme = ExtResource("3_s6fqt")
+theme_override_colors/default_color = Color(0.49503154, 0.6622465, 1, 1)
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "BEST  //  1:12:30"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="SecretLabel" type="RichTextLabel" parent="LeftPanel" unique_id=2102588431]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 496.0
+offset_right = 888.0
+offset_bottom = 568.0
+theme = ExtResource("3_s6fqt")
+theme_override_colors/default_color = Color(0.49503154, 0.6622465, 1, 1)
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "SECRET  //  yes
+"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="WeaponContainer" type="SubViewportContainer" parent="LeftPanel" unique_id=1796128438]
+material = SubResource("ShaderMaterial_uhiru")
+layout_mode = 0
+offset_left = 240.0
+offset_top = 576.0
+offset_right = 617.71466
+offset_bottom = 918.08124
+rotation = 0.2617994
+stretch = true
+stretch_shrink = 6
+
+[node name="SubViewport" type="SubViewport" parent="LeftPanel/WeaponContainer" unique_id=1916634635]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+scaling_3d_mode = 5
+size = Vector2i(62, 57)
+render_target_update_mode = 4
+
+[node name="weapon" parent="LeftPanel/WeaponContainer/SubViewport" unique_id=1935221320 instance=ExtResource("12_8qm4d")]
+
+[node name="Camera3D" type="Camera3D" parent="LeftPanel/WeaponContainer/SubViewport" unique_id=524535146]
+transform = Transform3D(0.81915206, 0.119253255, -0.5610424, 0, 0.9781476, 0.2079117, 0.57357645, -0.1703113, 0.80125165, -4, 2, 5.5)
+projection = 1
+current = true
+size = 5.362
+
+[node name="RankLabel" type="RichTextLabel" parent="." unique_id=1508202181]
+z_index = 1
+material = SubResource("ShaderMaterial_7t06w")
+offset_left = 912.0
+offset_top = 112.0
+offset_right = 1880.0
+offset_bottom = 864.0
+pivot_offset = Vector2(536, 320)
+theme = ExtResource("3_s6fqt")
+theme_override_colors/default_color = Color(0, 0.28627452, 1, 1)
+theme_override_constants/shadow_offset_x = 32
+theme_override_constants/shadow_offset_y = 32
+theme_override_fonts/normal_font = SubResource("FontVariation_s6fqt")
+theme_override_font_sizes/normal_font_size = 540
+bbcode_enabled = true
+text = "[shake level=20 rate=40]S+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="Control" parent="." unique_id=2041608238]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 976.0
+offset_top = 840.0
+offset_right = 1776.0
+offset_bottom = 1016.0
+
+[node name="Button" type="Button" parent="Buttons" unique_id=324446393]
+layout_mode = 0
+offset_right = 344.0
+offset_bottom = 136.0
+theme = ExtResource("3_s6fqt")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n1x3u")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_n1x3u")
+text = "restart level"
+
+[node name="Button2" type="Button" parent="Buttons" unique_id=223042269]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -344.0
+offset_bottom = 136.0
+grow_horizontal = 0
+theme = ExtResource("3_s6fqt")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n1x3u")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_n1x3u")
+text = "main menu"
+
+[node name="Selector" type="NinePatchRect" parent="Buttons" unique_id=134780508]
+self_modulate = Color(0.011764706, 0.5294118, 0.99607843, 1)
+layout_mode = 1
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 352.0
+offset_bottom = 144.0
+texture = ExtResource("16_dau3a")
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="." unique_id=1502272481]
+copy_mode = 2
+
+[node name="ColorFilter" type="ColorRect" parent="." unique_id=512610022]
+visible = false
+material = SubResource("ShaderMaterial_8q0kd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

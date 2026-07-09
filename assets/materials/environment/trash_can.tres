@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://vx1wx1f5uwwl"]
+
+[ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="1_6cfqh"]
+
+[resource]
+diffuse_mode = 2
+albedo_color = Color(0.49279997, 0.57130665, 0.64, 1)
+emission = Color(0.5609553, 0.56095487, 0.5609549, 1)
+heightmap_texture = ExtResource("1_6cfqh")
+uv1_world_triplanar = true
+texture_filter = 4
+distance_fade_min_distance = 25.0
+distance_fade_max_distance = 5.0

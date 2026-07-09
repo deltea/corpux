@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bueq82vu6rub3"
-path="res://.godot/imported/sign.blend-99a4cd4cf11728249aade5cb3062769f.scn"
+path="res://.godot/imported/sign.blend-e2b96025174f44747c6226a76dc7e3e7.scn"
 
 [deps]
 
-source_file="res://assets/models/sign.blend"
-dest_files=["res://.godot/imported/sign.blend-99a4cd4cf11728249aade5cb3062769f.scn"]
+source_file="res://assets/models/decoration/sign.blend"
+dest_files=["res://.godot/imported/sign.blend-e2b96025174f44747c6226a76dc7e3e7.scn"]
 
 [params]
 
@@ -48,7 +48,7 @@ _subresources={
 },
 "Sign": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/sign.tres",
+"use_external/fallback_path": "res://assets/materials/environment/sign.tres",
 "use_external/path": "uid://cpp0dlh2i36ek"
 }
 }

@@ -6,13 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="4_iyp7i"]
 [ext_resource type="Texture2D" uid="uid://dur1ekjkyq2ut" path="res://assets/textures/weapons/revolver/revolver-handle.png" id="5_iyp7i"]
 [ext_resource type="Texture2D" uid="uid://hbgv12k6oa6k" path="res://assets/textures/weapons/revolver/revolver-display.png" id="6_het4p"]
-
-[sub_resource type="Curve" id="Curve_arx16"]
-_data = [Vector2(0, 0), 0.0, 0.41626078, 0, 0, Vector2(1, 1), 1.9249557, 0.0, 0, 0]
-point_count = 2
+[ext_resource type="Texture2D" uid="uid://bptlh8l88cn2o" path="res://assets/textures/markers/boomerang-marker.png" id="7_arx16"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v5qf2"]
-size = Vector3(2.5, 2.5, 1)
+size = Vector3(3, 2.5, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_het4p"]
 shading_mode = 2
@@ -86,7 +83,6 @@ size = Vector3(1.3144531, 0.39160156, 0.5)
 
 [node name="BoomerangRevolver" type="Node3D" unique_id=406826413]
 script = ExtResource("1_v5qf2")
-distance_curve = SubResource("Curve_arx16")
 
 [node name="HitArea" type="Area3D" parent="." unique_id=743081921]
 
@@ -97,26 +93,32 @@ debug_color = Color(0.9511594, 5.2943824e-06, 0.5674605, 0.41960785)
 [node name="revolver" parent="." unique_id=465571423 instance=ExtResource("2_kypvd")]
 transform = Transform3D(0.5, 0, 0, 0, 0.49999997, 0, 0, 0, 0.49999997, 0, 0, 0)
 
-[node name="Cube" parent="revolver" index="1" unique_id=1274230005]
+[node name="Cube" parent="revolver" index="1" unique_id=1912929597]
+layers = 2
 material_override = SubResource("StandardMaterial3D_het4p")
 cast_shadow = 0
 
-[node name="Cube_001" parent="revolver" index="2" unique_id=619656397]
+[node name="Cube_001" parent="revolver" index="2" unique_id=445465374]
+layers = 2
 material_override = SubResource("StandardMaterial3D_arx16")
 cast_shadow = 0
 
-[node name="Cube_002" parent="revolver" index="3" unique_id=1989549320]
+[node name="Cube_002" parent="revolver" index="3" unique_id=759482176]
+layers = 2
 material_override = SubResource("StandardMaterial3D_iyp7i")
 cast_shadow = 0
 
-[node name="Cube_003" parent="revolver" index="4" unique_id=603260495]
+[node name="Cube_003" parent="revolver" index="4" unique_id=905675379]
+layers = 2
 cast_shadow = 0
 
-[node name="Cube_004" parent="revolver" index="5" unique_id=47605910]
+[node name="Cube_004" parent="revolver" index="5" unique_id=736486288]
+layers = 2
 material_override = SubResource("StandardMaterial3D_d4yn4")
 cast_shadow = 0
 
-[node name="Cube_005" parent="revolver" index="6" unique_id=679613751]
+[node name="Cube_005" parent="revolver" index="6" unique_id=1054942380]
+layers = 2
 material_override = SubResource("StandardMaterial3D_q00io")
 cast_shadow = 0
 
@@ -126,6 +128,20 @@ priority = 1
 [node name="CollisionShape" type="CollisionShape3D" parent="BounceBackArea" unique_id=852580803]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45117843, 0)
 shape = SubResource("BoxShape3D_het4p")
+
+[node name="Marker" type="Sprite3D" parent="." unique_id=322861378]
+layers = 2
+pixel_size = 0.035
+billboard = 1
+no_depth_test = true
+texture_filter = 0
+texture = ExtResource("7_arx16")
+
+[node name="RayCastTop" type="RayCast3D" parent="." unique_id=1839618079]
+target_position = Vector3(0, 0, 1)
+
+[node name="RayCastBottom" type="RayCast3D" parent="." unique_id=628184286]
+target_position = Vector3(0, 0, -1.5)
 
 [connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
 [connection signal="body_entered" from="BounceBackArea" to="." method="_on_bounce_back_area_body_entered"]

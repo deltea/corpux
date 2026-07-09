@@ -88,5 +88,5 @@ func _on_blink_timer_timeout() -> void:
 func _on_char_typed(is_valid: bool):
 	if not is_valid: return
 	mouth.texture = mouth_open_texture
-	await Clock.wait(0.01)
+	await Clock.wait(0.005)
 	mouth.texture = mouth_closed_texture

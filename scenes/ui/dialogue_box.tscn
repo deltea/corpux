@@ -15,7 +15,7 @@ grow_vertical = 2
 script = ExtResource("1_daetb")
 
 [node name="DitherTransition" type="TextureRect" parent="." unique_id=1785971575]
-self_modulate = Color(0.09803922, 0.36078432, 1, 1)
+self_modulate = Color(0, 0.28627452, 1, 1)
 texture_repeat = 2
 layout_mode = 1
 anchors_preset = 7
@@ -40,14 +40,14 @@ anchor_bottom = 1.0
 offset_top = -256.0
 offset_right = 1920.0
 grow_vertical = 0
-color = Color(0.09803922, 0.36078432, 1, 1)
+color = Color(0, 0.28627452, 1, 1)
 
 [node name="Text" type="RichTextLabel" parent="." unique_id=799228679]
 layout_mode = 0
 offset_left = 96.0
-offset_top = 864.0
+offset_top = 880.0
 offset_right = 1824.0
-offset_bottom = 1034.0
+offset_bottom = 1050.0
 theme = ExtResource("3_daetb")
 bbcode_enabled = true
 text = "[wave]yooooooo[/wave] [shake]wsg twin[/shake]
@@ -66,15 +66,15 @@ stretch_mode = 4
 [node name="ColorRect" type="ColorRect" parent="." unique_id=586918586]
 layout_mode = 1
 offset_left = 96.0
-offset_top = 696.0
+offset_top = 704.0
 offset_right = 272.0
-offset_bottom = 824.0
+offset_bottom = 816.0
 
 [node name="Speaker" type="RichTextLabel" parent="ColorRect" unique_id=1213084323]
 layout_mode = 1
 offset_left = 40.0
 offset_right = 176.0
-offset_bottom = 160.0
+offset_bottom = 152.0
 theme = ExtResource("3_daetb")
 theme_override_colors/default_color = Color(0.12941177, 0.38039216, 1, 1)
 bbcode_enabled = true

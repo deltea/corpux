@@ -2,18 +2,18 @@ class_name Player extends CharacterBody3D
 
 const CAM_TILT = 0.0
 const MOUSE_SENS = 1.0
-const MAX_SPEED = 20.0
+const MAX_SPEED = 32.0
 const DECELERATION = 50.0
 const ACCELERATION = 100.0
 const WALL_JUMP_PUSHBACK = 30.0
 const WALL_JUMP_FORCE = 20.0
-const JUMP_HEIGHT = 4.0
+const JUMP_HEIGHT = 5.0
 const SUPER_DASH_HEIGHT = 1.5
 const SUPER_DASH_FORCE = 60.0
 const SUPER_DASH_GRAVITY = 60.0
 const SUPER_DASH_DECELERATION = 40.0
-const DASH_FORCE = 80.0
-const GRAVITY = 25.0
+const DASH_FORCE = 120.0
+const GRAVITY = 20.0
 const WALL_MAX_Y_VEL = 2.5
 const WALL_MAX_Z_VEL = 1.0
 const SLAM_VELOCITY = 140.0
@@ -31,6 +31,7 @@ var is_grounded = false
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Events.end_level.connect(_on_end_level)
 
 func _process(dt: float) -> void:
 	GlobalCanvas.set_smear(velocity.length() / 10.0)
@@ -73,8 +74,12 @@ func _physics_process(dt: float):
 			super_dash()
 	else:
 		if is_super_dashing:
-			velocity.x = move_toward(velocity.x, 0, SUPER_DASH_DECELERATION * dt)
-			velocity.z = move_toward(velocity.z, 0, SUPER_DASH_DECELERATION * dt)
+			if dir:
+				velocity.x = move_toward(velocity.x, dir.x * 60.0, ACCELERATION * dt)
+				velocity.z = move_toward(velocity.z, dir.z * 60.0, ACCELERATION * dt)
+			else:
+				velocity.x = move_toward(velocity.x, 0, SUPER_DASH_DECELERATION * dt)
+				velocity.z = move_toward(velocity.z, 0, SUPER_DASH_DECELERATION * dt)
 		else:
 			if dir:
 				velocity.x = move_toward(velocity.x, dir.x * MAX_SPEED, ACCELERATION * dt)
@@ -142,3 +147,7 @@ func _unhandled_input(event: InputEvent):
 			head.rotate_x(-event.relative.y * MOUSE_SENS * 0.002)
 			head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
+func _on_end_level():
+	await Clock.wait(0.25)
+	process_mode = Node.PROCESS_MODE_DISABLED
+	GlobalCanvas.set_smear(0.0)
