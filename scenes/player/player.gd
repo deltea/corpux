@@ -13,6 +13,7 @@ const SUPER_DASH_FORCE = 60.0
 const SUPER_DASH_GRAVITY = 60.0
 const SUPER_DASH_DECELERATION = 40.0
 const DASH_FORCE = 120.0
+const DASH_COUNT = 3
 const GRAVITY = 20.0
 const WALL_MAX_Y_VEL = 2.5
 const WALL_MAX_Z_VEL = 1.0
@@ -28,6 +29,8 @@ var is_dashing = false
 var is_super_dashing = false
 var is_slamming = false
 var is_grounded = false
+var is_walled = false
+var dashes_left = DASH_COUNT
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -38,6 +41,7 @@ func _process(dt: float) -> void:
 
 func _physics_process(dt: float):
 	check_grounded()
+	check_walled()
 
 	if not is_grounded and not is_slamming:
 		if is_super_dashing:
@@ -61,9 +65,7 @@ func _physics_process(dt: float):
 	var input = Input.get_vector("left", "right", "forward", "backward")
 	dir = Vector3(input.x, 0, input.y).rotated(Vector3.UP, rotation.y).normalized()
 	if Input.is_action_just_pressed("dash") and dir != Vector3.ZERO:
-		$DashTimer.start()
-		is_dashing = true
-		dash_dir = dir
+		dash()
 
 	if is_dashing:
 		velocity.x = dash_dir.x * DASH_FORCE
@@ -91,14 +93,16 @@ func _physics_process(dt: float):
 	if not is_grounded and Input.is_action_just_pressed("slam"):
 		slam()
 
-	var was_on_wall = is_on_wall()
-
 	move_and_slide()
 
-	if is_on_wall() != was_on_wall:
-		if is_on_wall():
-			is_super_dashing = false
-			is_slamming = false
+func dash():
+	if dashes_left > 0:
+		dashes_left -= 1
+		$DashTimer.start()
+		is_dashing = true
+		dash_dir = dir
+	else:
+		print("no dashes left")
 
 func check_grounded():
 	if is_grounded != is_on_floor():
@@ -108,6 +112,17 @@ func check_grounded():
 			is_grounded = true
 			is_super_dashing = false
 			is_slamming = false
+			dashes_left = DASH_COUNT
+
+func check_walled():
+	if is_walled != is_on_wall():
+		if is_walled:
+			is_walled = false
+		else:
+			is_walled = true
+			is_super_dashing = false
+			is_slamming = false
+			dashes_left = DASH_COUNT
 
 func super_dash():
 	$DashTimer.stop()
@@ -116,6 +131,7 @@ func super_dash():
 	velocity.x = dash_dir.x * SUPER_DASH_FORCE
 	velocity.z = dash_dir.z * SUPER_DASH_FORCE
 	velocity.y = sqrt(4 * SUPER_DASH_HEIGHT * SUPER_DASH_GRAVITY)
+	dashes_left = DASH_COUNT
 
 func slam():
 	$DashTimer.stop()

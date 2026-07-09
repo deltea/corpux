@@ -27,6 +27,7 @@ shader_parameter/pixelSize = 8
 
 [sub_resource type="SystemFont" id="SystemFont_efxa6"]
 font_names = PackedStringArray("Helvetica")
+subpixel_positioning = 0
 
 [sub_resource type="FontVariation" id="FontVariation_n1x3u"]
 base_font = SubResource("SystemFont_efxa6")
