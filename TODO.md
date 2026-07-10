@@ -1,3 +1,4 @@
+- [ ] fix getting stuck on sides of vert tunnel
 - [ ] first level design
 - [ ] enemy explosion effects
 - [ ] escalators
@@ -16,7 +17,6 @@
 
 - [ ] quake movement revamp
 - [ ] fix ground decal flickering
-- [ ] fix getting stuck on sides of vert tunnel
 - [ ] fix boomerang tweaking out
 
 ## very later

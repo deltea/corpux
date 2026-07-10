@@ -49,13 +49,13 @@ func _physics_process(dt: float):
 		else:
 			velocity.y -= GRAVITY * dt
 
-	if is_on_wall() and velocity.y < 0:
+	if is_walled and velocity.y < 0 and not is_slamming:
 		velocity.y = clampf(velocity.y, -WALL_MAX_Y_VEL, 0)
 		velocity.z = clampf(velocity.z, -WALL_MAX_Z_VEL, WALL_MAX_Z_VEL)
 
 	if Input.is_action_just_pressed("jump") and is_grounded:
 		velocity.y = sqrt(2 * JUMP_HEIGHT * GRAVITY)
-	elif is_on_wall() and not is_grounded:
+	elif is_walled and not is_grounded:
 		if Input.is_action_just_pressed("jump"):
 			var normal = get_wall_normal()
 			velocity.y = WALL_JUMP_FORCE
