@@ -1,9 +1,8 @@
-- [ ] add death
 - [ ] first level design
 - [ ] instruction triggers
 - [ ] enemy explosion effects
-- [ ] escalators
 - [ ] enemy model
+- [x] add death
 - [x] fix getting stuck on sides of vert tunnel
 - [x] level end ui
 - [x] fix boomerang ground floating
@@ -16,6 +15,7 @@
 
 ## uhhhhh later
 
+- [ ] escalators
 - [ ] make stairs work
 - [ ] quake movement revamp
 - [ ] fix ground decal flickering

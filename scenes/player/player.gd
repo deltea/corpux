@@ -35,6 +35,7 @@ var dashes_left = DASH_COUNT
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Events.end_level.connect(_on_end_level)
+	Events.death.connect(_on_death)
 
 func _process(dt: float) -> void:
 	GlobalCanvas.set_smear(velocity.length() / 10.0)
@@ -166,6 +167,11 @@ func _unhandled_input(event: InputEvent):
 
 func _on_end_level():
 	await Clock.wait(0.25)
+	process_mode = Node.PROCESS_MODE_DISABLED
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	GlobalCanvas.set_smear(0.0)
+
+func _on_death():
 	process_mode = Node.PROCESS_MODE_DISABLED
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	GlobalCanvas.set_smear(0.0)

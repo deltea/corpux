@@ -20,6 +20,7 @@ func _on_pixelate(duration: float):
 
 func _on_unpixelate(duration: float):
 	pixelate.visible = true
+	pixelate.material.set_shader_parameter("pixelSize", 1000)
 	var tween = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 	tween.tween_property(pixelate.material, "shader_parameter/pixelSize", 1, duration)
 	tween.tween_callback(func(): pixelate.visible = false)

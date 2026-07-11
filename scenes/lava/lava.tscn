@@ -1,15 +1,32 @@
 [gd_scene format=3 uid="uid://5j8qcxhem20l"]
 
+[ext_resource type="Script" uid="uid://bi6exocc6fs77" path="res://scenes/lava/lava.gd" id="1_s62me"]
+[ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="2_boo2v"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_vlxq5"]
 size = Vector3(5, 1, 5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_io2uc"]
+shading_mode = 0
+diffuse_mode = 2
+albedo_color = Color(0.9843137, 0.047058824, 0.45490196, 1)
+heightmap_texture = ExtResource("2_boo2v")
+uv1_world_triplanar = true
+texture_filter = 4
+distance_fade_min_distance = 25.0
+distance_fade_max_distance = 5.0
+
 [sub_resource type="BoxMesh" id="BoxMesh_vlxq5"]
+material = SubResource("StandardMaterial3D_io2uc")
 size = Vector3(5, 1, 5)
 
 [node name="Lava" type="Area3D" unique_id=1102745254]
+script = ExtResource("1_s62me")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=425214822]
 shape = SubResource("BoxShape3D_vlxq5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=318374973]
 mesh = SubResource("BoxMesh_vlxq5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
