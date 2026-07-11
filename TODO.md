@@ -1,9 +1,10 @@
-- [ ] fix getting stuck on sides of vert tunnel
+- [ ] add death
 - [ ] first level design
+- [ ] instruction triggers
 - [ ] enemy explosion effects
 - [ ] escalators
-- [ ] make stairs work
 - [ ] enemy model
+- [x] fix getting stuck on sides of vert tunnel
 - [x] level end ui
 - [x] fix boomerang ground floating
 - [x] tutorial level design
@@ -15,6 +16,7 @@
 
 ## uhhhhh later
 
+- [ ] make stairs work
 - [ ] quake movement revamp
 - [ ] fix ground decal flickering
 - [ ] fix boomerang tweaking out

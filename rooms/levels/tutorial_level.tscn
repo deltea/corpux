@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://3ipk4fhteaks" path="res://assets/materials/environment/long_tiles.tres" id="3_oipkf"]
 [ext_resource type="PackedScene" uid="uid://cdisaf5r7mqvl" path="res://scenes/exit/exit.tscn" id="4_56mwc"]
 [ext_resource type="Material" uid="uid://crmwss0n1hs0k" path="res://assets/materials/environment/stairs.tres" id="5_1x0vx"]
+[ext_resource type="PackedScene" uid="uid://5j8qcxhem20l" path="res://scenes/lava/lava.tscn" id="7_0qrrd"]
 [ext_resource type="PackedScene" uid="uid://bo5db0ai8sswt" path="res://assets/models/decoration/hanging_sign.blend" id="8_j432n"]
 [ext_resource type="PackedScene" uid="uid://o581sgk1wh84" path="res://assets/models/decoration/poster.blend" id="9_fylor"]
 [ext_resource type="PackedScene" uid="uid://byp7k2md1my7y" path="res://scenes/light.tscn" id="10_0qrrd"]
@@ -194,6 +195,9 @@ use_collision = true
 size = Vector3(67, 6, 48.600002)
 material = ExtResource("5_1x0vx")
 
+[node name="Lava" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="1" unique_id=1102745254 instance=ExtResource("7_0qrrd")]
+transform = Transform3D(13.318802, 0, 0, 0, 1, 0, 0, 0, 3.8, -96.42029, 0.45333862, -179.43962)
+
 [node name="Arch" parent="Environment/Decoration" parent_id_path=PackedInt32Array(1521980672) index="0" unique_id=1744136896 instance=ExtResource("2_0rbq8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 0, 1646.842)
 
@@ -266,8 +270,8 @@ lower_fade = 1e-05
 cull_mask = 1048573
 
 [node name="Decal3" type="Decal" parent="Environment/Decoration" parent_id_path=PackedInt32Array(1521980672) index="19" unique_id=1669607149]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -36.998085, 2, -178.05466)
-size = Vector3(5.1, 10, 69)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -36.748085, 2, -178.05466)
+size = Vector3(5.1, 10, 68.5)
 texture_albedo = ExtResource("11_nh565")
 texture_emission = ExtResource("11_nh565")
 emission_energy = 0.5
@@ -276,8 +280,8 @@ lower_fade = 1e-05
 cull_mask = 1048573
 
 [node name="Decal4" type="Decal" parent="Environment/Decoration" parent_id_path=PackedInt32Array(1521980672) index="20" unique_id=1992915262]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -132.4, 2, -178)
-size = Vector3(5.1, 10, 23.2)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -132.5, 2, -178)
+size = Vector3(5.1, 10, 22.99)
 texture_albedo = ExtResource("11_nh565")
 texture_emission = ExtResource("11_nh565")
 emission_energy = 0.5

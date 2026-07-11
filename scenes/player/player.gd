@@ -49,9 +49,9 @@ func _physics_process(dt: float):
 		else:
 			velocity.y -= GRAVITY * dt
 
-	if is_walled and velocity.y < 0 and not is_slamming:
-		velocity.y = clampf(velocity.y, -WALL_MAX_Y_VEL, 0)
-		velocity.z = clampf(velocity.z, -WALL_MAX_Z_VEL, WALL_MAX_Z_VEL)
+	# if is_walled and velocity.y < 0 and not is_slamming:
+	# 	velocity.y = clampf(velocity.y, -WALL_MAX_Y_VEL, 0)
+	# 	velocity.z = clampf(velocity.z, -WALL_MAX_Z_VEL, WALL_MAX_Z_VEL)
 
 	if Input.is_action_just_pressed("jump") and is_grounded:
 		velocity.y = sqrt(2 * JUMP_HEIGHT * GRAVITY)
@@ -77,6 +77,7 @@ func _physics_process(dt: float):
 	else:
 		if is_super_dashing:
 			if dir:
+				# @param
 				velocity.x = move_toward(velocity.x, dir.x * 60.0, ACCELERATION * dt)
 				velocity.z = move_toward(velocity.z, dir.z * 60.0, ACCELERATION * dt)
 			else:
@@ -166,4 +167,5 @@ func _unhandled_input(event: InputEvent):
 func _on_end_level():
 	await Clock.wait(0.25)
 	process_mode = Node.PROCESS_MODE_DISABLED
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	GlobalCanvas.set_smear(0.0)

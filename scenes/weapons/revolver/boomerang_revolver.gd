@@ -81,7 +81,7 @@ func catch():
 	caught.emit()
 	queue_free()
 
-## throw_force is a value from 0 to 1
+# throw_force is a value from 0 to 1
 func throw(throw_dir: Vector3, throw_force: float, return_node: Node3D):
 	original_rot = global_rotation
 	original_pos = global_position
