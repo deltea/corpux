@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://cuj1wfhwnt04d" path="res://scenes/camera/camera.gd" id="1_xejhd"]
 
 [node name="Camera" type="Camera3D" unique_id=774764019]
+process_mode = 3
 script = ExtResource("1_xejhd")

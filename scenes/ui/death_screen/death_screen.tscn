@@ -27,6 +27,7 @@ spacing_glyph = 89
 spacing_space = 243
 
 [node name="DeathScreen" type="CanvasLayer" unique_id=1885085409]
+follow_viewport_enabled = true
 script = ExtResource("1_trwrg")
 
 [node name="DitherRect" type="ColorRect" parent="." unique_id=483186890]
