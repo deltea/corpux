@@ -42,6 +42,16 @@ offset_right = 1920.0
 grow_vertical = 0
 color = Color(0.003921569, 0.07058824, 0.99215686, 1)
 
+[node name="SpinningSquare" type="ColorRect" parent="." unique_id=527777992]
+layout_mode = 0
+offset_left = 1728.0
+offset_top = 896.0
+offset_right = 1988.0
+offset_bottom = 1156.0
+rotation = -0.7853982
+pivot_offset = Vector2(130, 130)
+color = Color(0.26666668, 0.30980393, 0.9843137, 1)
+
 [node name="Text" type="RichTextLabel" parent="." unique_id=799228679]
 layout_mode = 0
 offset_left = 96.0

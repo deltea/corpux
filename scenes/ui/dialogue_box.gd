@@ -11,6 +11,7 @@ const CLOSED_Y_POS = 384.0
 @onready var arrow: TextureRect = $Arrow
 @onready var speaker_label: RichTextLabel = $ColorRect/Speaker
 @onready var speaker_background: ColorRect = $ColorRect
+@onready var spinning_square: ColorRect = $SpinningSquare
 
 var is_typing = false
 var curr_text: String
@@ -18,6 +19,7 @@ var curr_text: String
 func _process(dt: float) -> void:
 	arrow.visible = not is_typing
 	arrow.position.x = 1792.0 + snappedf(sin(Clock.time * 5.0) * 5.0, 8.0)
+	spinning_square.rotation_degrees += 100.0 * dt
 
 func set_color(color: Color):
 	dither.self_modulate = color
