@@ -44,6 +44,9 @@ func _physics_process(dt: float):
 	check_grounded()
 	check_walled()
 
+	if is_grounded:
+		dashes_left = DASH_COUNT
+
 	if not is_grounded and not is_slamming:
 		if is_super_dashing:
 			velocity.y -= SUPER_DASH_GRAVITY * dt
@@ -78,7 +81,6 @@ func _physics_process(dt: float):
 	else:
 		if is_super_dashing:
 			if dir:
-				# @param
 				velocity.x = move_toward(velocity.x, dir.x * 60.0, ACCELERATION * dt)
 				velocity.z = move_toward(velocity.z, dir.z * 60.0, ACCELERATION * dt)
 			else:
@@ -116,7 +118,6 @@ func check_grounded():
 			is_grounded = true
 			is_super_dashing = false
 			is_slamming = false
-			dashes_left = DASH_COUNT
 
 func check_walled():
 	if is_walled != is_on_wall():
@@ -231,9 +232,7 @@ func _on_end_level():
 	await Clock.wait(0.25)
 	process_mode = Node.PROCESS_MODE_DISABLED
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	GlobalCanvas.set_smear(0.0)
 
 func _on_death():
 	process_mode = Node.PROCESS_MODE_DISABLED
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	GlobalCanvas.set_smear(0.0)

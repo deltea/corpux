@@ -24,6 +24,7 @@ func _process(dt: float) -> void:
 func _on_end_level():
 	print(time)
 	is_timer_started = false
+	GlobalCanvas.set_smear(0.0)
 
 	var end_screen = end_screen_scene.instantiate() as EndScreen
 	add_child(end_screen)
@@ -32,5 +33,6 @@ func _on_end_level():
 	await Clock.wait(0.25)
 
 func _on_death():
+	GlobalCanvas.set_smear(0.0)
 	var death_screen = death_screen_scene.instantiate() as DeathScreen
 	add_child(death_screen)
