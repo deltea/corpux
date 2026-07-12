@@ -95,6 +95,8 @@ func _physics_process(dt: float):
 	if not is_grounded and Input.is_action_just_pressed("slam"):
 		slam()
 
+	stair_step_up()
+
 	move_and_slide()
 
 func dash():
@@ -146,6 +148,66 @@ func slam():
 
 func get_look_dir():
 	return Vector3.FORWARD.rotated(Vector3.RIGHT, head.rotation.x).rotated(Vector3.UP, rotation.y).normalized()
+
+func stair_step_up():
+	if dir == Vector3.ZERO:
+		return
+
+	var body_test_params = PhysicsTestMotionParameters3D.new()
+	var body_test_result = PhysicsTestMotionResult3D.new()
+
+	var test_transform = global_transform
+	var distance = dir * 1.0
+	body_test_params.from = self.global_transform
+	body_test_params.motion = distance
+
+	if !PhysicsServer3D.body_test_motion(self.get_rid(), body_test_params, body_test_result):
+		return
+
+	var remainder = body_test_result.get_remainder()
+	test_transform = test_transform.translated(body_test_result.get_travel())
+
+	var step_up = 1.0 * Vector3.UP
+	body_test_params.from = test_transform
+	body_test_params.motion = step_up
+	PhysicsServer3D.body_test_motion(self.get_rid(), body_test_params, body_test_result)
+	test_transform = test_transform.translated(body_test_result.get_travel())
+
+	body_test_params.from = test_transform
+	body_test_params.motion = remainder
+	PhysicsServer3D.body_test_motion(self.get_rid(), body_test_params, body_test_result)
+	test_transform = test_transform.translated(body_test_result.get_travel())
+
+	if body_test_result.get_collision_count() != 0:
+		remainder = body_test_result.get_remainder().length()
+
+		var wall_normal = body_test_result.get_collision_normal()
+		var dot_div_mag = dir.dot(wall_normal) / (wall_normal * wall_normal).length()
+		var projected_vector = (dir - dot_div_mag * wall_normal).normalized()
+
+		body_test_params.from = test_transform
+		body_test_params.motion = remainder * projected_vector
+		PhysicsServer3D.body_test_motion(self.get_rid(), body_test_params, body_test_result)
+		test_transform = test_transform.translated(body_test_result.get_travel())
+
+	body_test_params.from = test_transform
+	body_test_params.motion = 1.0 * -Vector3.UP
+
+	if !PhysicsServer3D.body_test_motion(self.get_rid(), body_test_params, body_test_result):
+		return
+
+	test_transform = test_transform.translated(body_test_result.get_travel())
+
+	var surface_normal = body_test_result.get_collision_normal()
+	if (snappedf(surface_normal.angle_to(Vector3.UP), 0.001) > floor_max_angle):
+		return
+
+	var global_pos = global_position
+	var step_up_dist = test_transform.origin.y - global_pos.y
+
+	velocity.y = 0
+	global_pos.y = test_transform.origin.y
+	global_position = global_pos
 
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false

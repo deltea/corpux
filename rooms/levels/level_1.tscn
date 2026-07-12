@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dhy1jr78jeejf" path="res://rooms/level.tscn" id="1_0oin0"]
 [ext_resource type="Material" uid="uid://3ipk4fhteaks" path="res://assets/materials/environment/long_tiles.tres" id="2_nbo3n"]
 [ext_resource type="Material" uid="uid://cw65bu2jitrap" path="res://assets/materials/environment/floor.tres" id="3_v310g"]
+[ext_resource type="Material" uid="uid://crmwss0n1hs0k" path="res://assets/materials/environment/stairs.tres" id="4_fthdt"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fthdt"]
 size = Vector2(1000, 1000)
@@ -24,50 +25,122 @@ mesh = SubResource("PlaneMesh_fthdt")
 [node name="CollisionShape" type="CollisionShape3D" parent="Environment/Obstacles/Floor" index="1" unique_id=923038643]
 shape = SubResource("BoxShape3D_beer6")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="1" unique_id=311352516]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 10, 0)
-use_collision = true
-size = Vector3(4, 20, 48)
-material = ExtResource("2_nbo3n")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="2" unique_id=1458160298]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 17, 10, 26)
-use_collision = true
-size = Vector3(4, 20, 38)
-material = ExtResource("2_nbo3n")
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="3" unique_id=1770563795]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 34, 10, 20)
-use_collision = true
-size = Vector3(4, 20, 16)
-material = ExtResource("2_nbo3n")
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="4" unique_id=477340203]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 48, 20, 13.999999)
-use_collision = true
-size = Vector3(4, 40, 32)
-material = ExtResource("2_nbo3n")
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="5" unique_id=1114421851]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 48, 20, -14)
-use_collision = true
-size = Vector3(4, 40, 32)
-material = ExtResource("2_nbo3n")
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="6" unique_id=1312716053]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 34, 10, -20)
-use_collision = true
-size = Vector3(4, 20, 16)
-material = ExtResource("2_nbo3n")
-
-[node name="Ceiling" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="7" unique_id=964140979]
+[node name="Ceiling" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="1" unique_id=964140979]
 transform = Transform3D(-4.371139e-08, -1, -7.642742e-15, 1, -4.371139e-08, 1.7484555e-07, -1.7484555e-07, 0, 1, 20, 22, -20)
 use_collision = true
 size = Vector3(4, 72, 100)
 material = ExtResource("2_nbo3n")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="8" unique_id=1156865729]
+[node name="CSGBox3D" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="2" unique_id=311352516]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 10, 0)
+use_collision = true
+size = Vector3(4, 20, 48)
+material = ExtResource("2_nbo3n")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="3" unique_id=1458160298]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 17, 10, 26)
+use_collision = true
+size = Vector3(4, 20, 38)
+material = ExtResource("2_nbo3n")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="4" unique_id=1156865729]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 17, 10, -26)
 use_collision = true
 size = Vector3(4, 20, 38)
 material = ExtResource("2_nbo3n")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="5" unique_id=1770563795]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 34, 10, 20)
+use_collision = true
+size = Vector3(4, 20, 16)
+material = ExtResource("2_nbo3n")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="6" unique_id=477340203]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 48, 20, 13.999999)
+use_collision = true
+size = Vector3(4, 40, 32)
+material = ExtResource("2_nbo3n")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="7" unique_id=1114421851]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 48, 20, -14)
+use_collision = true
+size = Vector3(4, 40, 32)
+material = ExtResource("2_nbo3n")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="8" unique_id=1312716053]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 34, 10, -20)
+use_collision = true
+size = Vector3(4, 20, 16)
+material = ExtResource("2_nbo3n")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="9" unique_id=1631016679]
+transform = Transform3D(-4.371139e-08, 1, -7.642742e-15, -1, -4.371139e-08, -1.7484555e-07, -1.7484555e-07, 0, 1, 46, 0.49999928, 2.6226832e-07)
+use_collision = true
+size = Vector3(1, 20, 24)
+material = ExtResource("4_fthdt")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="10" unique_id=927092158]
+transform = Transform3D(-4.371139e-08, 1, -7.642742e-15, -1, -4.371139e-08, -1.7484555e-07, -1.7484555e-07, 0, 1, 48, 1.4999993, 2.6226832e-07)
+use_collision = true
+size = Vector3(1, 20, 24)
+material = ExtResource("4_fthdt")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="11" unique_id=1181568196]
+transform = Transform3D(-4.371139e-08, 1, -7.642742e-15, -1, -4.371139e-08, -1.7484555e-07, -1.7484555e-07, 0, 1, 50, 2.4999993, 2.6226832e-07)
+use_collision = true
+size = Vector3(1, 20, 24)
+material = ExtResource("4_fthdt")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="12" unique_id=867646814]
+transform = Transform3D(-4.371139e-08, 1, -7.642742e-15, -1, -4.371139e-08, -1.7484555e-07, -1.7484555e-07, 0, 1, 52, 3.4999993, 2.6226832e-07)
+use_collision = true
+size = Vector3(1, 20, 24)
+material = ExtResource("4_fthdt")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="13" unique_id=804810116]
+transform = Transform3D(-4.371139e-08, 1, -7.642742e-15, -1, -4.371139e-08, -1.7484555e-07, -1.7484555e-07, 0, 1, 54, 4.499999, 2.6226832e-07)
+use_collision = true
+size = Vector3(1, 20, 24)
+material = ExtResource("4_fthdt")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="14" unique_id=246188161]
+transform = Transform3D(-4.371139e-08, 1, -7.642742e-15, -1, -4.371139e-08, -1.7484555e-07, -1.7484555e-07, 0, 1, 56, 5.499999, 2.6226832e-07)
+use_collision = true
+size = Vector3(1, 20, 24)
+material = ExtResource("4_fthdt")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="15" unique_id=1155803750]
+transform = Transform3D(-4.371139e-08, 1, -7.642742e-15, -1, -4.371139e-08, -1.7484555e-07, -1.7484555e-07, 0, 1, 58, 6.499999, 2.6226832e-07)
+use_collision = true
+size = Vector3(1, 20, 24)
+material = ExtResource("4_fthdt")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="16" unique_id=949906748]
+transform = Transform3D(-4.371139e-08, 1, -7.642742e-15, -1, -4.371139e-08, -1.7484555e-07, -1.7484555e-07, 0, 1, 60, 7.499999, 2.6226832e-07)
+use_collision = true
+size = Vector3(1, 20, 24)
+material = ExtResource("4_fthdt")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="17" unique_id=2033482141]
+transform = Transform3D(-4.371139e-08, 1, -7.642742e-15, -1, -4.371139e-08, -1.7484555e-07, -1.7484555e-07, 0, 1, 62, 8.499999, 2.6226832e-07)
+use_collision = true
+size = Vector3(1, 20, 24)
+material = ExtResource("4_fthdt")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="18" unique_id=1295385649]
+transform = Transform3D(-4.371139e-08, 1, -7.642742e-15, -1, -4.371139e-08, -1.7484555e-07, -1.7484555e-07, 0, 1, 64, 9.499999, 2.6226832e-07)
+use_collision = true
+size = Vector3(1, 20, 24)
+material = ExtResource("4_fthdt")
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="19" unique_id=1109747970]
+transform = Transform3D(-4.371139e-08, 1, -7.642742e-15, -1, -4.371139e-08, -1.7484555e-07, -1.7484555e-07, 0, 1, 66, 10.499999, 2.6226832e-07)
+use_collision = true
+size = Vector3(1, 20, 24)
+material = ExtResource("4_fthdt")
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="20" unique_id=1905142968]
+transform = Transform3D(-4.371139e-08, 1, -7.642742e-15, -1, -4.371139e-08, -1.7484555e-07, -1.7484555e-07, 0, 1, 68, 11.499999, 2.6226832e-07)
+use_collision = true
+size = Vector3(1, 20, 24)
+material = ExtResource("4_fthdt")

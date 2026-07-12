@@ -2,6 +2,7 @@
 - [ ] instruction triggers
 - [ ] enemy explosion effects
 - [ ] enemy model
+- [x] escalators
 - [x] add death
 - [x] fix getting stuck on sides of vert tunnel
 - [x] level end ui
@@ -12,11 +13,10 @@
 - [x] disable weapon when dialogue
 - [x] weapon disable animation
 - [x] better system for bini expressions
+- [x] make stairs work
 
 ## uhhhhh later
 
-- [ ] escalators
-- [ ] make stairs work
 - [ ] quake movement revamp
 - [ ] fix ground decal flickering
 - [ ] fix boomerang tweaking out
