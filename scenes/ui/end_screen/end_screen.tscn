@@ -55,7 +55,7 @@ spacing_glyph = -80
 baseline_offset = 0.125
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1x3u"]
-bg_color = Color(0, 0.28627452, 1, 1)
+bg_color = Color(0.003921569, 0.07058824, 0.99215686, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8q0kd"]
 shader = ExtResource("13_qdufb")
@@ -89,10 +89,10 @@ offset_top = 744.00006
 offset_right = 1330.4961
 offset_bottom = 1764.0988
 rotation = -0.9599311
-color = Color(0, 0.28627452, 1, 1)
+color = Color(0.003921569, 0.07058824, 0.99215686, 1)
 
 [node name="DitherTransition" type="TextureRect" parent="LeftPanel" unique_id=687287779]
-self_modulate = Color(0, 0.28627452, 1, 1)
+self_modulate = Color(0.003921569, 0.07058824, 0.99215686, 1)
 texture_repeat = 2
 layout_mode = 1
 anchors_preset = 7
@@ -116,7 +116,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Star" type="TextureRect" parent="LeftPanel/Stars" unique_id=1611450871]
-self_modulate = Color(0.13, 0.37649995, 1, 1)
+self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
 layout_mode = 0
 offset_left = 168.0
 offset_top = 152.0
@@ -125,7 +125,7 @@ offset_bottom = 376.0
 texture = ExtResource("11_041vu")
 
 [node name="Star2" type="TextureRect" parent="LeftPanel/Stars" unique_id=1344497712]
-self_modulate = Color(0.13, 0.37649995, 1, 1)
+self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
 layout_mode = 0
 offset_left = 616.0
 offset_top = 352.00006
@@ -135,7 +135,7 @@ rotation = 0.7853982
 texture = ExtResource("11_041vu")
 
 [node name="Star3" type="TextureRect" parent="LeftPanel/Stars" unique_id=693246954]
-self_modulate = Color(0.13, 0.37649995, 1, 1)
+self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
 layout_mode = 0
 offset_left = 287.99997
 offset_top = 672.0
@@ -145,7 +145,7 @@ rotation = 0.5235988
 texture = ExtResource("11_041vu")
 
 [node name="Star4" type="TextureRect" parent="LeftPanel/Stars" unique_id=1724314080]
-self_modulate = Color(0.13, 0.37649995, 1, 1)
+self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
 layout_mode = 0
 offset_left = 632.0
 offset_top = 48.0
@@ -298,7 +298,7 @@ offset_right = 1880.0
 offset_bottom = 864.0
 pivot_offset = Vector2(536, 320)
 theme = ExtResource("3_s6fqt")
-theme_override_colors/default_color = Color(0, 0.28627452, 1, 1)
+theme_override_colors/default_color = Color(0.003921569, 0.07058824, 0.99215686, 1)
 theme_override_constants/shadow_offset_x = 32
 theme_override_constants/shadow_offset_y = 32
 theme_override_fonts/normal_font = SubResource("FontVariation_s6fqt")
@@ -335,16 +335,15 @@ offset_bottom = 136.0
 grow_horizontal = 0
 theme = ExtResource("3_s6fqt")
 theme_override_styles/normal = SubResource("StyleBoxFlat_n1x3u")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_n1x3u")
 text = "main menu"
 
 [node name="Selector" type="NinePatchRect" parent="Buttons" unique_id=134780508]
-self_modulate = Color(0.011764706, 0.5294118, 0.99607843, 1)
+self_modulate = Color(0.003921569, 0.07058824, 0.99215686, 1)
 layout_mode = 1
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 352.0
-offset_bottom = 144.0
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 368.0
+offset_bottom = 160.0
 texture = ExtResource("16_dau3a")
 patch_margin_left = 64
 patch_margin_top = 64

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bnrv8vqsrc6rd" path="res://scenes/exit/exit.gd" id="1_ymjir"]
 [ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="2_wmb3t"]
+[ext_resource type="PackedScene" uid="uid://u3tob2jxpvrt" path="res://assets/models/environment/sliding_door.blend" id="3_tv5rl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tv5rl"]
 cull_mode = 2
@@ -25,13 +26,16 @@ size = Vector3(16, 16, 10)
 size = Vector3(16, 16, 10)
 
 [node name="Exit" type="Area3D" unique_id=1657581555]
+monitoring = false
 script = ExtResource("1_ymjir")
 
 [node name="MeshInstance" type="MeshInstance3D" parent="." unique_id=1079522031]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.5)
+visible = false
 mesh = SubResource("BoxMesh_ymjir")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1678692936]
+visible = false
 light_energy = 3.0
 light_cull_mask = 4294967293
 omni_range = 20.0
@@ -40,5 +44,11 @@ omni_attenuation = 0.5
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1727638379]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.5)
 shape = SubResource("BoxShape3D_wmb3t")
+
+[node name="sliding_door" parent="." unique_id=1024078791 instance=ExtResource("3_tv5rl")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4, 0, 0)
+
+[node name="sliding_door2" parent="." unique_id=617534109 instance=ExtResource("3_tv5rl")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, 0, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

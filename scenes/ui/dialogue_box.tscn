@@ -15,7 +15,7 @@ grow_vertical = 2
 script = ExtResource("1_daetb")
 
 [node name="DitherTransition" type="TextureRect" parent="." unique_id=1785971575]
-self_modulate = Color(0, 0.28627452, 1, 1)
+self_modulate = Color(0.003921569, 0.07058824, 0.99215686, 1)
 texture_repeat = 2
 layout_mode = 1
 anchors_preset = 7
@@ -40,7 +40,7 @@ anchor_bottom = 1.0
 offset_top = -256.0
 offset_right = 1920.0
 grow_vertical = 0
-color = Color(0, 0.28627452, 1, 1)
+color = Color(0.003921569, 0.07058824, 0.99215686, 1)
 
 [node name="Text" type="RichTextLabel" parent="." unique_id=799228679]
 layout_mode = 0
