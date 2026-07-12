@@ -34,7 +34,7 @@ shader_parameter/glow_threshold = 0.65
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w4rfi"]
 shader = ExtResource("1_ypck1")
 shader_parameter/step_posterize = 20
-shader_parameter/step_pixelated = 480
+shader_parameter/step_pixelated = 360
 shader_parameter/color_A = Color(0.003921569, 0.07058824, 0.99215686, 1)
 shader_parameter/color_B = Color(0, 0, 0, 1)
 shader_parameter/dithering_bayer = true
