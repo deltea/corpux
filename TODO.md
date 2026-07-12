@@ -1,7 +1,9 @@
-- [ ] first level design
-- [ ] instruction triggers
 - [ ] enemy explosion effects
 - [ ] enemy model
+- [ ] first level design
+- [ ] auto aim for throws?? cool lookin frame ui
+- [x] more decoration
+- [x] instruction triggers
 - [x] escalators
 - [x] add death
 - [x] fix getting stuck on sides of vert tunnel
@@ -23,5 +25,4 @@
 
 ## very later
 
-- [ ] auto aim for throws?? cool lookin frame ui
 - [ ] train model and animation
