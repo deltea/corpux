@@ -1,5 +1,7 @@
 class_name Level extends Room
 
+@export var level_name: String
+
 @export var end_screen_scene: PackedScene
 @export var death_screen_scene: PackedScene
 
@@ -25,7 +27,7 @@ func _on_end_level():
 
 	var end_screen = end_screen_scene.instantiate() as EndScreen
 	add_child(end_screen)
-	end_screen.set_info("tutorial", time, 10.0, time, false)
+	end_screen.set_info(level_name, time, 10.0, time, false)
 
 	await Clock.wait(0.25)
 

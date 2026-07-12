@@ -22,6 +22,7 @@ size = Vector2(1000, 1000)
 size = Vector3(1000, 1, 1000)
 
 [node name="TutorialLevel" unique_id=503138906 instance=ExtResource("1_tsd4r")]
+level_name = "initiation"
 
 [node name="Player" parent="." index="1" unique_id=1918663283]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 3, -255)
@@ -88,7 +89,7 @@ size = Vector3(71.5, 28, 143)
 material = ExtResource("3_oipkf")
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="Environment/Obstacles/StartArea" index="7" unique_id=353882627]
-transform = Transform3D(4.3711385e-08, 1, 4.3711392e-08, -8.742278e-08, -4.371139e-08, 1, 1, -4.371139e-08, 8.742278e-08, -139.871, -65.5, -120.8)
+transform = Transform3D(4.3711385e-08, 1, 4.3711392e-08, -8.742278e-08, -4.371139e-08, 1, 1, -4.371139e-08, 8.742278e-08, -139.871, -65.5, -120.600006)
 use_collision = true
 size = Vector3(2.6000001, 28, 143)
 material = ExtResource("3_oipkf")
@@ -335,8 +336,8 @@ lower_fade = 1e-05
 cull_mask = 1048573
 
 [node name="Decal5" type="Decal" parent="Environment/Decoration" parent_id_path=PackedInt32Array(1521980672) index="33" unique_id=1855782906]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -141.45, 2, -147.5)
-size = Vector3(5.1, 10, 55.9)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -141.45, 2, -147.4)
+size = Vector3(5.1, 10, 56.100002)
 texture_albedo = ExtResource("11_nh565")
 texture_emission = ExtResource("11_nh565")
 emission_energy = 0.5
