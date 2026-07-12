@@ -10,7 +10,7 @@ func _ready() -> void:
 
 	var tween = create_tween().set_parallel().set_ignore_time_scale()
 	# tween.tween_property(death_label, "visible_ratio", 1.0, 0.5)
-	tween.tween_property(instructions_label, "visible_ratio", 1.0, 0.2)
+	tween.tween_property(instructions_label, "visible_ratio", 1.0, 0.2).set_delay(0.5)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("restart"):

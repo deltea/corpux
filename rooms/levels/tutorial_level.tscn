@@ -22,7 +22,7 @@ size = Vector2(1000, 1000)
 size = Vector3(1000, 1, 1000)
 
 [node name="TutorialLevel" unique_id=503138906 instance=ExtResource("1_tsd4r")]
-level_name = "initiation"
+level_name = "initialization"
 
 [node name="Player" parent="." index="1" unique_id=1918663283]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 3, -255)

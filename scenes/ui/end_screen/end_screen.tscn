@@ -206,9 +206,9 @@ vertical_alignment = 1
 
 [node name="LevelNameLabel" type="RichTextLabel" parent="LeftPanel" unique_id=307937080]
 layout_mode = 0
-offset_left = 240.0
+offset_left = 136.0
 offset_top = 64.0
-offset_right = 984.0
+offset_right = 1040.0
 offset_bottom = 240.0
 theme = ExtResource("3_s6fqt")
 theme_override_fonts/normal_font = ExtResource("5_tb5rc")

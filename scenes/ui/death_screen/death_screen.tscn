@@ -18,6 +18,7 @@ shader_parameter/interval = 0.10000000149012
 
 [sub_resource type="SystemFont" id="SystemFont_efxa6"]
 font_names = PackedStringArray("Helvetica")
+subpixel_positioning = 0
 
 [sub_resource type="FontVariation" id="FontVariation_h504w"]
 base_font = SubResource("SystemFont_efxa6")
