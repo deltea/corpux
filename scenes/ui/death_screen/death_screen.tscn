@@ -3,13 +3,39 @@
 [ext_resource type="Script" uid="uid://cv8ew3gv7vwkv" path="res://scenes/ui/death_screen/death_screen.gd" id="1_trwrg"]
 [ext_resource type="Shader" uid="uid://n27aw4kua6ab" path="res://shaders/dither.gdshader" id="1_ypck1"]
 [ext_resource type="Theme" uid="uid://cxmchfsgtgv3e" path="res://theme.tres" id="2_h504w"]
+[ext_resource type="Shader" uid="uid://35fl5r4s2qv8" path="res://shaders/crt.gdshader" id="2_tfxvr"]
 [ext_resource type="FontVariation" uid="uid://tjujv6rc3oaw" path="res://assets/fonts/helvetica-bold.tres" id="3_5ltjm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aoevb"]
+shader = ExtResource("2_tfxvr")
+shader_parameter/brightness = 1.0000000475
+shader_parameter/contrast = 1.0910000518225
+shader_parameter/saturation = 0.7650000363375
+shader_parameter/gamma = 0.20000000298023
+shader_parameter/curvature = 0.0
+shader_parameter/corner_soften = 0.0
+shader_parameter/vignette = 0.0
+shader_parameter/scanline_strength = 0.0
+shader_parameter/scanline_density = 0.5
+shader_parameter/interlace_strength = 0.2
+shader_parameter/mask_strength = 0.0
+shader_parameter/mask_scale = 1.0
+shader_parameter/chroma_offset_px = 0.0
+shader_parameter/luma_smear_px = 0.0
+shader_parameter/jitter_px = 8.0
+shader_parameter/wobble_px = 5.2650002500875
+shader_parameter/tape_noise = 0.0
+shader_parameter/tape_lines = 0.9190000436525
+shader_parameter/roll_speed = 0.1
+shader_parameter/roll_strength = 0.0
+shader_parameter/glow_strength = 0.0
+shader_parameter/glow_threshold = 0.65
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w4rfi"]
 shader = ExtResource("1_ypck1")
 shader_parameter/step_posterize = 20
 shader_parameter/step_pixelated = 480
-shader_parameter/color_A = Color(0, 0.28627452, 1, 1)
+shader_parameter/color_A = Color(0.003921569, 0.07058824, 0.99215686, 1)
 shader_parameter/color_B = Color(0, 0, 0, 1)
 shader_parameter/dithering_bayer = true
 shader_parameter/animated_dithering = false
@@ -30,6 +56,18 @@ spacing_space = 243
 [node name="DeathScreen" type="CanvasLayer" unique_id=1885085409]
 follow_viewport_enabled = true
 script = ExtResource("1_trwrg")
+
+[node name="ContrastFilter" type="ColorRect" parent="." unique_id=775566887]
+material = SubResource("ShaderMaterial_aoevb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="." unique_id=1502979677]
+copy_mode = 2
 
 [node name="DitherRect" type="ColorRect" parent="." unique_id=483186890]
 material = SubResource("ShaderMaterial_w4rfi")
