@@ -13,6 +13,7 @@ func _ready() -> void:
 
 	Events.end_level.connect(_on_end_level)
 	Events.death.connect(_on_death)
+	Events.enemy_died.connect(_on_enemy_died)
 
 	await Clock.wait(1.0)
 	is_timer_started = true
@@ -36,3 +37,7 @@ func _on_death():
 	GlobalCanvas.set_smear(0.0)
 	var death_screen = death_screen_scene.instantiate() as DeathScreen
 	add_child(death_screen)
+
+func _on_enemy_died():
+	if get_tree().get_node_count_in_group("enemies") <= 1:
+		Events.all_enemies_dead.emit()

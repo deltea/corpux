@@ -5,7 +5,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4a83h"]
 
-[node name="Enemy" type="StaticBody3D" unique_id=541240095]
+[node name="Enemy" type="StaticBody3D" unique_id=541240095 groups=["enemies"]]
 script = ExtResource("1_4a83h")
 explosion_scene = ExtResource("2_a3pup")
 

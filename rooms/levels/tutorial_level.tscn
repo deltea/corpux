@@ -98,9 +98,9 @@ size = Vector3(2.6000001, 28, 143)
 material = ExtResource("3_oipkf")
 
 [node name="CSGBox3D21" type="CSGBox3D" parent="Environment/Obstacles/StartArea" index="8" unique_id=1843782371]
-transform = Transform3D(-3.2840564e-15, 1, 4.371138e-08, 1, 0, 8.7422784e-08, 8.742278e-08, 4.371139e-08, -1, -141.87134, -138.5, -74.5)
+transform = Transform3D(-3.2840564e-15, 1, 4.371138e-08, 1, 0, 8.7422784e-08, 8.742278e-08, 4.371139e-08, -1, -141.87134, -138.5, -66.5)
 use_collision = true
-size = Vector3(4, 24, 106)
+size = Vector3(4, 24, 122)
 material = ExtResource("3_oipkf")
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="Environment/Obstacles/StartArea" index="9" unique_id=1280121207]

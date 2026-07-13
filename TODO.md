@@ -1,7 +1,7 @@
-- [ ] doors only work when enemies are dead
 - [ ] first level design
 - [ ] enemy model
 - [ ] auto aim for throws?? cool lookin frame ui
+- [x] doors only work when enemies are dead
 - [x] enemy explosion effects
 - [x] more decoration
 - [x] instruction triggers

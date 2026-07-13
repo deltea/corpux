@@ -36,11 +36,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.5)
 mesh = SubResource("BoxMesh_ymjir")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance" unique_id=1678692936]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
-light_energy = 3.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+light_energy = 16.0
 light_cull_mask = 4294967293
-omni_range = 20.0
-omni_attenuation = 0.5
+omni_range = 12.0
+omni_attenuation = -1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1727638379]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.5)
