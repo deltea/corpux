@@ -229,9 +229,9 @@ func _unhandled_input(event: InputEvent):
 			head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _on_end_level():
-	await Clock.wait(0.25)
 	process_mode = Node.PROCESS_MODE_DISABLED
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	await Clock.wait(0.25)
 
 func _on_death():
 	process_mode = Node.PROCESS_MODE_DISABLED
