@@ -5,13 +5,22 @@
 [ext_resource type="Shader" uid="uid://c2qdlk2arkcl" path="res://shaders/pixelate_screen.gdshader" id="3_gadwy"]
 [ext_resource type="Texture2D" uid="uid://d2bdqgrkeuq36" path="res://assets/textures/ui/star.png" id="3_wifgs"]
 [ext_resource type="Texture2D" uid="uid://ciyhv852f4k3t" path="res://assets/textures/ui/title.png" id="5_w0oi3"]
+[ext_resource type="Shader" uid="uid://d3qweaiaq824q" path="res://shaders/squigglevision.gdshader" id="6_cq3ud"]
 [ext_resource type="PackedScene" uid="uid://dp1enws2ovmvs" path="res://scenes/ui/button_row/button_row.tscn" id="6_prn5b"]
 [ext_resource type="Script" uid="uid://b7nvenoqdnhoo" path="res://scripts/ButtonResource.gd" id="7_0cbev"]
+[ext_resource type="Texture2D" uid="uid://dfo427owj0sug" path="res://assets/textures/checkered.png" id="7_en76g"]
 [ext_resource type="Texture2D" uid="uid://dt1i1khrak3en" path="res://assets/textures/ui/big-arrows.png" id="8_11bbh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wifgs"]
 shader = ExtResource("3_gadwy")
 shader_parameter/pixelSize = 8
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvgii"]
+shader = ExtResource("6_cq3ud")
+shader_parameter/scale = Vector2(30, 30)
+shader_parameter/strength = 0.5
+shader_parameter/fps = 5.0
+shader_parameter/noise = ExtResource("7_en76g")
 
 [sub_resource type="Resource" id="Resource_11bbh"]
 script = ExtResource("7_0cbev")
@@ -232,6 +241,7 @@ offset_right = 1008.0
 offset_bottom = 1613.2576
 
 [node name="Title" type="TextureRect" parent="." unique_id=339267699]
+material = SubResource("ShaderMaterial_hvgii")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
