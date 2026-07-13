@@ -23,31 +23,43 @@ material = SubResource("StandardMaterial3D_tv5rl")
 size = Vector3(16, 16, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wmb3t"]
-size = Vector3(16, 16, 10)
+size = Vector3(16, 16, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tv5rl"]
+size = Vector3(16, 16, 16)
 
 [node name="Exit" type="Area3D" unique_id=1657581555]
 script = ExtResource("1_ymjir")
 
 [node name="MeshInstance" type="MeshInstance3D" parent="." unique_id=1079522031]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.5)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.5)
 mesh = SubResource("BoxMesh_ymjir")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1678692936]
-visible = false
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance" unique_id=1678692936]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 light_energy = 3.0
 light_cull_mask = 4294967293
 omni_range = 20.0
 omni_attenuation = 0.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1727638379]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.5)
 shape = SubResource("BoxShape3D_wmb3t")
 
-[node name="sliding_door" parent="." unique_id=1024078791 instance=ExtResource("3_tv5rl")]
+[node name="DoorLeft" parent="." unique_id=1024078791 instance=ExtResource("3_tv5rl")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4, 0, 0)
 
-[node name="sliding_door2" parent="." unique_id=617534109 instance=ExtResource("3_tv5rl")]
+[node name="DoorRight" parent="." unique_id=617534109 instance=ExtResource("3_tv5rl")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, 0, 0)
 
+[node name="DoorOpenArea" type="Area3D" parent="." unique_id=2107162772]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorOpenArea" unique_id=1112987774]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+shape = SubResource("BoxShape3D_tv5rl")
+debug_color = Color(1, 0.50500005, 0.100000024, 0.41960785)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="DoorOpenArea" to="." method="_on_door_open_area_body_entered"]
+[connection signal="body_exited" from="DoorOpenArea" to="." method="_on_door_open_area_body_exited"]

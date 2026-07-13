@@ -26,7 +26,6 @@ func _on_unpixelate(duration: float):
 	tween.tween_callback(func(): pixelate.visible = false)
 
 func set_smear(amount: float):
-	print(amount)
 	crt.material.set_shader_parameter("luma_smear_px", BASE_SMEAR + amount)
 
 func _on_flashbang(duration: float):
