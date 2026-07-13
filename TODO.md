@@ -1,7 +1,9 @@
 - [ ] main menu and level select
-- [ ] first level design
+- [ ] crosshair system
+- [ ] scene manager
 - [ ] enemy model
 - [ ] auto aim for throws?? cool lookin frame ui
+- [x] first level design
 - [x] doors only work when enemies are dead
 - [x] enemy explosion effects
 - [x] more decoration

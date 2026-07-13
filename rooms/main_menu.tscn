@@ -34,6 +34,12 @@ label = "settings"
 id = "settings"
 metadata/_custom_type_script = "uid://b7nvenoqdnhoo"
 
+[sub_resource type="Resource" id="Resource_dau3a"]
+script = ExtResource("7_0cbev")
+label = "quit"
+id = "quit"
+metadata/_custom_type_script = "uid://b7nvenoqdnhoo"
+
 [node name="MainMenu" type="CanvasLayer" unique_id=1693404774]
 script = ExtResource("1_j4uc2")
 metadata/_edit_horizontal_guides_ = [1080.0]
@@ -258,12 +264,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = 52.0
-offset_right = 376.0
-offset_bottom = 316.0
+offset_left = 8.0
+offset_top = -28.0
+offset_right = 404.0
+offset_bottom = 236.0
 grow_horizontal = 2
 grow_vertical = 2
-button_resources = Array[ExtResource("7_0cbev")]([SubResource("Resource_11bbh"), SubResource("Resource_fumyx")])
+button_resources = Array[ExtResource("7_0cbev")]([SubResource("Resource_11bbh"), SubResource("Resource_fumyx"), SubResource("Resource_dau3a")])
 spacing = 40.0
 is_column = true
