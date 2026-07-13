@@ -63,7 +63,7 @@ metadata/_custom_type_script = "uid://b7nvenoqdnhoo"
 
 [sub_resource type="Resource" id="Resource_dau3a"]
 script = ExtResource("16_fhajq")
-label = "main"
+label = "main menu"
 id = "menu"
 metadata/_custom_type_script = "uid://b7nvenoqdnhoo"
 
