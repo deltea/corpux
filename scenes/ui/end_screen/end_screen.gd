@@ -25,8 +25,6 @@ func _ready() -> void:
 	success_text_length = success_label_1.get_combined_minimum_size().x
 	success_label_2.position.y = success_text_length
 
-	button_row.button_pressed.connect(_on_button_row_pressed)
-
 func _process(dt: float) -> void:
 	weapon_model.rotation_degrees.y += 50.0 * dt
 
@@ -88,8 +86,9 @@ func animate_in():
 	tween.chain().tween_callback(func(): Events.flashbang.emit(1.0))
 	tween.chain().tween_property(button_row, "position:y", 840.0, 0.25).set_delay(0.3)
 
-func _on_button_row_pressed(id: String):
+func _on_button_row_button_pressed(id: String) -> void:
 	if id == "restart":
 		get_tree().reload_current_scene()
 	if id == "menu":
 		print("go back to menu")
+		get_tree().change_scene_to_file("res://rooms/main_menu.tscn")
