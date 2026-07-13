@@ -25,5 +25,6 @@ func die():
 	var explosion = explosion_scene.instantiate() as GPUParticles3D
 	explosion.position = global_position
 	explosion.emitting = true
+	explosion.finished.connect(explosion.queue_free)
 	get_tree().current_scene.add_child(explosion)
 	Clock.time_stop(0.5)

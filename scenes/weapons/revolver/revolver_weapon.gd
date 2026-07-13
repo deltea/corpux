@@ -92,7 +92,7 @@ func fire():
 		get_tree().current_scene.add_child(hit_particle)
 		hit_particle.global_position = endpoint
 		hit_particle.emitting = true
-		hit_particle.connect("finished", hit_particle.queue_free)
+		hit_particle.finished.connect(hit_particle.queue_free)
 
 	get_tree().current_scene.add_child(hitscan_line)
 	var tween = get_tree().create_tween().set_parallel()
