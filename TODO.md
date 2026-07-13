@@ -1,3 +1,4 @@
+- [ ] main menu and level select
 - [ ] first level design
 - [ ] enemy model
 - [ ] auto aim for throws?? cool lookin frame ui

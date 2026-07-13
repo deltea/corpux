@@ -5,6 +5,8 @@ signal button_pressed(id: String)
 const button_scene = preload("res://scenes/ui/button_row/button.tscn")
 
 @export var button_resources: Array[ButtonResource]
+@export var selector_spacing_x = 48.0
+@export var selector_spacing_y = 48.0
 @export var spacing = 120.0
 @export var is_column = false
 
@@ -15,7 +17,7 @@ var curr_selected = 0
 var tween: Tween
 
 func _ready() -> void:
-	var width_sum = 0.0
+	var size_sum = 0.0
 	for i in range(button_resources.size()):
 		var button_resource = button_resources[i]
 		var button = button_scene.instantiate() as Button
@@ -25,25 +27,37 @@ func _ready() -> void:
 		button.text = button_resource.label
 		button.pressed.connect(button_pressed.emit.bind(button_resource.id))
 		await get_tree().process_frame
-		button.position.x = width_sum + (0.0 if i == 0 else spacing)
-		width_sum += button.size.x
+		if is_column:
+			button.position.x = -button.size.x / 2
+			button.position.y = size_sum
+			size_sum += button.size.y + spacing
+		else:
+			button.position.x = size_sum
+			size_sum += button.size.x + spacing
 
 	change_selected(0)
 
 func change_selected(delta: int):
-	curr_selected = wrapi(curr_selected + delta, 0, buttons.size())
+	curr_selected = clampi(curr_selected + delta, 0, buttons.size() - 1)
 
 	if tween: tween.kill()
-	var target_pos = buttons[curr_selected].position - Vector2(24, 24)
-	var target_size = buttons[curr_selected].size + Vector2(48, 48)
+	var target_pos = buttons[curr_selected].position - Vector2(selector_spacing_x / 2, selector_spacing_y / 2)
+	var target_size = buttons[curr_selected].size + Vector2(selector_spacing_x, selector_spacing_y)
 	tween = create_tween().set_parallel().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	tween.tween_property(selector, "position", target_pos, 0.25)
 	tween.tween_property(selector, "size", target_size, 0.25)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("left"):
+	var less = ("up" if is_column else "left")
+	var more = ("down" if is_column else "right")
+	if event.is_action_pressed(less):
 		change_selected(-1)
-	if event.is_action_pressed("right"):
+	if event.is_action_pressed(more):
 		change_selected(1)
-	if event.is_action_pressed("interact"):
+	if event.is_action_pressed("interact") or event.is_action_pressed("jump"):
 		button_pressed.emit(button_resources[curr_selected].id)
+
+func _on_selector_ping_timer_timeout() -> void:
+	selector.scale = Vector2.ONE * 1.1
+	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	tween.tween_property(selector, "scale", Vector2.ONE * 1.0, 0.4)

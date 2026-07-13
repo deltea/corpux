@@ -17,14 +17,19 @@ script = ExtResource("1_nkrvo")
 button_resources = Array[ExtResource("2_5fstn")]([SubResource("Resource_nkrvo")])
 
 [node name="Selector" type="NinePatchRect" parent="." unique_id=1013733939]
-self_modulate = Color(0.003921569, 0.07058824, 0.99215686, 1)
+self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
 layout_mode = 0
-offset_left = -24.0
-offset_top = -24.0
-offset_right = 368.0
-offset_bottom = 160.0
+offset_right = 128.0
+offset_bottom = 128.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("1_15t7m")
 patch_margin_left = 64
 patch_margin_top = 64
 patch_margin_right = 64
 patch_margin_bottom = 64
+
+[node name="SelectorPingTimer" type="Timer" parent="." unique_id=1874478978]
+wait_time = 0.8
+autostart = true
+
+[connection signal="timeout" from="SelectorPingTimer" to="." method="_on_selector_ping_timer_timeout"]

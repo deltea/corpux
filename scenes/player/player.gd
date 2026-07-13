@@ -39,7 +39,7 @@ func _ready() -> void:
 	Events.death.connect(_on_death)
 
 func _process(dt: float) -> void:
-	GlobalCanvas.set_smear(velocity.length() / 10.0)
+	GlobalCanvas.set_smear(velocity.length() / 15.0)
 
 func _physics_process(dt: float):
 	check_grounded()

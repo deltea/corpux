@@ -7,5 +7,5 @@ font_names = PackedStringArray("Helvetica")
 base_font = SubResource("SystemFont_efxa6")
 variation_embolden = 0.4
 variation_transform = Transform2D(0.75, 0, 0, 1, 0, 0)
-spacing_glyph = -8
+spacing_glyph = -6
 spacing_space = 12

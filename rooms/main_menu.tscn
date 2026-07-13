@@ -1,0 +1,259 @@
+[gd_scene format=3 uid="uid://dvsy7jen07qrv"]
+
+[ext_resource type="Script" uid="uid://dqyl0y18ccinx" path="res://rooms/main_menu.gd" id="1_j4uc2"]
+[ext_resource type="Texture2D" uid="uid://c78syilfevl1x" path="res://assets/textures/ui/dither-transition.png" id="2_evptl"]
+[ext_resource type="Shader" uid="uid://c2qdlk2arkcl" path="res://shaders/pixelate_screen.gdshader" id="3_gadwy"]
+[ext_resource type="Texture2D" uid="uid://d2bdqgrkeuq36" path="res://assets/textures/ui/star.png" id="3_wifgs"]
+[ext_resource type="Texture2D" uid="uid://ciyhv852f4k3t" path="res://assets/textures/ui/title.png" id="5_w0oi3"]
+[ext_resource type="PackedScene" uid="uid://dp1enws2ovmvs" path="res://scenes/ui/button_row/button_row.tscn" id="6_prn5b"]
+[ext_resource type="Script" uid="uid://b7nvenoqdnhoo" path="res://scripts/ButtonResource.gd" id="7_0cbev"]
+[ext_resource type="Texture2D" uid="uid://dt1i1khrak3en" path="res://assets/textures/ui/big-arrows.png" id="8_11bbh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wifgs"]
+shader = ExtResource("3_gadwy")
+shader_parameter/pixelSize = 8
+
+[sub_resource type="Resource" id="Resource_11bbh"]
+script = ExtResource("7_0cbev")
+label = "start"
+id = "start"
+metadata/_custom_type_script = "uid://b7nvenoqdnhoo"
+
+[sub_resource type="Resource" id="Resource_fumyx"]
+script = ExtResource("7_0cbev")
+label = "settings"
+id = "settings"
+metadata/_custom_type_script = "uid://b7nvenoqdnhoo"
+
+[node name="MainMenu" type="CanvasLayer" unique_id=1693404774]
+script = ExtResource("1_j4uc2")
+metadata/_edit_horizontal_guides_ = [1080.0]
+metadata/_edit_vertical_guides_ = [1920.0]
+
+[node name="Background" type="ColorRect" parent="." unique_id=381240316]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=388069702]
+self_modulate = Color(0.7411765, 0.7411765, 0.7372549, 1)
+offset_left = 1440.0001
+offset_top = 480.4842
+offset_right = 2174.5808
+offset_bottom = 865.7309
+rotation = 0.7853982
+texture = ExtResource("8_11bbh")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1473598699]
+self_modulate = Color(0.7411765, 0.7411765, 0.7372549, 1)
+offset_left = 752.00006
+offset_top = 744.0
+offset_right = 1486.5808
+offset_bottom = 1129.2467
+rotation = 2.3561945
+texture = ExtResource("8_11bbh")
+
+[node name="Background2" type="ColorRect" parent="." unique_id=727433666]
+offset_left = 1840.0
+offset_top = -40.0
+offset_right = 2664.0
+offset_bottom = 1208.0
+color = Color(0.003921569, 0.07058824, 0.99215686, 1)
+
+[node name="DitherTransition" type="TextureRect" parent="Background2" unique_id=1817412759]
+self_modulate = Color(0.003921569, 0.07058824, 0.99215686, 1)
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = 80.0
+offset_right = 1393.937
+offset_bottom = 208.0
+grow_vertical = 0
+rotation = -1.5707964
+texture = ExtResource("2_evptl")
+stretch_mode = 1
+
+[node name="Stars" type="Control" parent="Background2" unique_id=1739046209]
+anchors_preset = 0
+offset_left = -128.0
+offset_top = 176.0
+offset_right = -88.0
+offset_bottom = 216.0
+
+[node name="Star" type="TextureRect" parent="Background2/Stars" unique_id=883213803]
+self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
+layout_mode = 0
+offset_left = 280.0
+offset_top = 184.0
+offset_right = 516.0
+offset_bottom = 408.0
+texture = ExtResource("3_wifgs")
+
+[node name="Star2" type="TextureRect" parent="Background2/Stars" unique_id=836792117]
+self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
+layout_mode = 0
+offset_left = 672.0
+offset_top = 456.0
+offset_right = 908.0
+offset_bottom = 680.0
+rotation = 0.7853982
+texture = ExtResource("3_wifgs")
+
+[node name="Star3" type="TextureRect" parent="Background2/Stars" unique_id=862054101]
+self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
+layout_mode = 0
+offset_left = 327.99997
+offset_top = 720.0
+offset_right = 564.0
+offset_bottom = 944.0
+rotation = 0.5235988
+texture = ExtResource("3_wifgs")
+
+[node name="Star5" type="TextureRect" parent="Background2/Stars" unique_id=1229075380]
+self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
+layout_mode = 0
+offset_left = 311.99997
+offset_top = 24.0
+offset_right = 548.0
+offset_bottom = 248.0
+rotation = -2.0943952
+texture = ExtResource("3_wifgs")
+
+[node name="Star4" type="TextureRect" parent="Background2/Stars" unique_id=428109850]
+self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
+layout_mode = 0
+offset_left = 632.0
+offset_top = 48.0
+offset_right = 868.0
+offset_bottom = 272.0
+rotation = -1.0471976
+texture = ExtResource("3_wifgs")
+
+[node name="PixelateFilter" type="ColorRect" parent="Background2" unique_id=927586489]
+material = SubResource("ShaderMaterial_wifgs")
+layout_mode = 0
+offset_top = -232.0
+offset_right = 1008.0
+offset_bottom = 1613.2576
+
+[node name="Background3" type="ColorRect" parent="." unique_id=720638567]
+offset_left = 80.0
+offset_top = 1144.0
+offset_right = 904.0
+offset_bottom = 2392.0
+rotation = 3.1415927
+color = Color(0.003921569, 0.07058824, 0.99215686, 1)
+
+[node name="DitherTransition" type="TextureRect" parent="Background3" unique_id=597020795]
+self_modulate = Color(0.003921569, 0.07058824, 0.99215686, 1)
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = 80.0
+offset_right = 1393.937
+offset_bottom = 208.0
+grow_vertical = 0
+rotation = -1.5707964
+texture = ExtResource("2_evptl")
+stretch_mode = 1
+
+[node name="Stars" type="Control" parent="Background3" unique_id=987096926]
+anchors_preset = 0
+offset_left = -128.0
+offset_top = 176.0
+offset_right = -88.0
+offset_bottom = 216.0
+
+[node name="Star" type="TextureRect" parent="Background3/Stars" unique_id=1590084819]
+self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
+layout_mode = 0
+offset_left = 280.0
+offset_top = 184.0
+offset_right = 516.0
+offset_bottom = 408.0
+texture = ExtResource("3_wifgs")
+
+[node name="Star2" type="TextureRect" parent="Background3/Stars" unique_id=246495133]
+self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
+layout_mode = 0
+offset_left = 672.0
+offset_top = 456.0
+offset_right = 908.0
+offset_bottom = 680.0
+rotation = 0.7853982
+texture = ExtResource("3_wifgs")
+
+[node name="Star3" type="TextureRect" parent="Background3/Stars" unique_id=1041031700]
+self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
+layout_mode = 0
+offset_left = 327.99997
+offset_top = 720.0
+offset_right = 564.0
+offset_bottom = 944.0
+rotation = 0.5235988
+texture = ExtResource("3_wifgs")
+
+[node name="Star5" type="TextureRect" parent="Background3/Stars" unique_id=372880319]
+self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
+layout_mode = 0
+offset_left = 311.99997
+offset_top = 24.0
+offset_right = 548.0
+offset_bottom = 248.0
+rotation = -2.0943952
+texture = ExtResource("3_wifgs")
+
+[node name="Star4" type="TextureRect" parent="Background3/Stars" unique_id=1352182181]
+self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
+layout_mode = 0
+offset_left = 632.0
+offset_top = 48.0
+offset_right = 868.0
+offset_bottom = 272.0
+rotation = -1.0471976
+texture = ExtResource("3_wifgs")
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="Background3" unique_id=1884931739]
+copy_mode = 2
+
+[node name="PixelateFilter" type="ColorRect" parent="Background3" unique_id=69074025]
+material = SubResource("ShaderMaterial_wifgs")
+layout_mode = 0
+offset_top = -232.0
+offset_right = 1008.0
+offset_bottom = 1613.2576
+
+[node name="Title" type="TextureRect" parent="." unique_id=339267699]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -512.0
+offset_top = -232.0
+offset_right = 512.0
+offset_bottom = 792.0
+grow_horizontal = 2
+texture = ExtResource("5_w0oi3")
+
+[node name="ButtonRow" parent="." unique_id=832578793 instance=ExtResource("6_prn5b")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 52.0
+offset_right = 376.0
+offset_bottom = 316.0
+grow_horizontal = 2
+grow_vertical = 2
+button_resources = Array[ExtResource("7_0cbev")]([SubResource("Resource_11bbh"), SubResource("Resource_fumyx")])
+spacing = 40.0
+is_column = true

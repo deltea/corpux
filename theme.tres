@@ -7,9 +7,9 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdavf"]
 content_margin_left = 60.0
-content_margin_top = 40.0
+content_margin_top = 32.0
 content_margin_right = 60.0
-content_margin_bottom = 40.0
+content_margin_bottom = 32.0
 bg_color = Color(0.003921569, 0.07058824, 0.99215686, 1)
 
 [resource]

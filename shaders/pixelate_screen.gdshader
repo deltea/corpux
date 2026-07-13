@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform sampler2D screen_texture : hint_screen_texture, filter_nearest_mipmap;
+uniform sampler2D screen_texture : hint_screen_texture, filter_nearest;
 uniform int pixelSize = 4;
 
 void fragment()

@@ -69,7 +69,7 @@ func animate_in():
 	level_name_label.visible_ratio = 0.0
 	time_label.visible_ratio = 0.0
 	best_label.visible_ratio = 0.0
-	secret_label.visible_ratio = 0.0
+	secret_label.visible_ratio = 0.06
 	weapon_container.position.y = 1088.0
 	button_row.position.y = 1120.0
 
