@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://5j8qcxhem20l" path="res://scenes/lava/lava.tscn" id="7_0qrrd"]
 [ext_resource type="PackedScene" uid="uid://bo5db0ai8sswt" path="res://assets/models/decoration/hanging_sign.blend" id="8_j432n"]
 [ext_resource type="PackedScene" uid="uid://4mpgrqrodq8t" path="res://assets/models/environment/column.blend" id="8_nh565"]
+[ext_resource type="PackedScene" uid="uid://ceckylk8gkfyq" path="res://scenes/bouncepad/bouncepad.tscn" id="9_d6tof"]
 [ext_resource type="PackedScene" uid="uid://o581sgk1wh84" path="res://assets/models/decoration/poster.blend" id="9_fylor"]
 [ext_resource type="PackedScene" uid="uid://byp7k2md1my7y" path="res://scenes/light.tscn" id="10_0qrrd"]
 [ext_resource type="Texture2D" uid="uid://b3uspscavojyy" path="res://assets/textures/path-decal.png" id="11_nh565"]
@@ -61,9 +62,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, -130.5, -125.5)
 
 [node name="BasicEnemy7" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="6" unique_id=843121416 instance=ExtResource("3_56mwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71, -100.5, -119.5)
+max_health = 2
 
 [node name="BasicEnemy10" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="7" unique_id=1457243777 instance=ExtResource("3_56mwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71, -100.5, -25.5)
+max_health = 2
 
 [node name="BasicEnemy8" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="8" unique_id=2047389568 instance=ExtResource("3_56mwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57, -100.5, -92.5)
@@ -153,13 +156,13 @@ size = Vector3(4, 24, 24)
 material = ExtResource("3_oipkf")
 
 [node name="CSGBox3D35" type="CSGBox3D" parent="Environment/Obstacles/StartArea" index="11" unique_id=494617236]
-transform = Transform3D(-3.2840564e-15, 1, 4.371138e-08, 1, 0, 8.7422784e-08, 8.742278e-08, 4.371139e-08, -1, -117, -134.5, -21.5)
+transform = Transform3D(-3.2840564e-15, 1, 4.371138e-08, 1, 0, 8.7422784e-08, 8.742278e-08, 4.371139e-08, -1, -117.5, -134.5, -21.5)
 use_collision = true
 size = Vector3(4, 24, 24)
 material = ExtResource("3_oipkf")
 
 [node name="CSGBox3D36" type="CSGBox3D" parent="Environment/Obstacles/StartArea" index="12" unique_id=1902705967]
-transform = Transform3D(-3.2840564e-15, 1, 4.371138e-08, 1, 0, 8.7422784e-08, 8.742278e-08, 4.371139e-08, -1, -117, -134.5, -126.5)
+transform = Transform3D(-3.2840564e-15, 1, 4.371138e-08, 1, 0, 8.7422784e-08, 8.742278e-08, 4.371139e-08, -1, -117.5, -134.5, -126.5)
 use_collision = true
 size = Vector3(4, 24, 24)
 material = ExtResource("3_oipkf")
@@ -335,6 +338,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, -122, -91)
 
 [node name="column3" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="6" unique_id=699270979 instance=ExtResource("8_nh565")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, -122, -52)
+
+[node name="Bouncepad" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="7" unique_id=393209683 instance=ExtResource("9_d6tof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.17567, -136.5, -50)
+
+[node name="Bouncepad2" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="8" unique_id=1215705029 instance=ExtResource("9_d6tof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.17567, -136.5, -96)
 
 [node name="Arch" parent="Environment/Decoration" parent_id_path=PackedInt32Array(1521980672) index="0" unique_id=1744136896 instance=ExtResource("2_0rbq8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 0, 1646.842)

@@ -15,11 +15,10 @@ func take_damage(damage: int):
 		await die()
 	else:
 		Events.cam_shake.emit(0.01, 0.05)
-		Clock.hitstop(0.08)
+		Clock.hitstop(0.1)
 
 func die():
 	queue_free()
-	# await Clock.hitstop(0.15)
 	Events.enemy_died.emit()
 
 	var explosion = explosion_scene.instantiate() as GPUParticles3D

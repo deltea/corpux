@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://ceckylk8gkfyq"]
+
+[ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="1_1ygid"]
+[ext_resource type="Script" uid="uid://1gmqeb1yv2xj" path="res://scenes/bouncepad/bouncepad.gd" id="1_5i2p4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_73roa"]
+size = Vector3(10, 0.5, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5i2p4"]
+diffuse_mode = 2
+albedo_color = Color(0.011764706, 0.5294118, 0.99607843, 1)
+emission = Color(0.5609553, 0.56095487, 0.5609549, 1)
+heightmap_texture = ExtResource("1_1ygid")
+uv1_world_triplanar = true
+texture_filter = 4
+distance_fade_min_distance = 25.0
+distance_fade_max_distance = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_73roa"]
+material = SubResource("StandardMaterial3D_5i2p4")
+size = Vector3(10, 0.4, 10)
+
+[node name="Bouncepad" type="Area3D" unique_id=393209683]
+script = ExtResource("1_5i2p4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=794832732]
+shape = SubResource("BoxShape3D_73roa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1446689055]
+mesh = SubResource("BoxMesh_73roa")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

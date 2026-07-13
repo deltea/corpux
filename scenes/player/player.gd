@@ -8,6 +8,7 @@ const ACCELERATION = 100.0
 const WALL_JUMP_PUSHBACK = 30.0
 const WALL_JUMP_FORCE = 20.0
 const JUMP_HEIGHT = 5.0
+const BOUNCE_HEIGHT = 50.0
 const SUPER_DASH_HEIGHT = 1.5
 const SUPER_DASH_FORCE = 60.0
 const SUPER_DASH_GRAVITY = 60.0
@@ -17,7 +18,7 @@ const DASH_COUNT = 3
 const GRAVITY = 20.0
 const WALL_MAX_Y_VEL = 2.5
 const WALL_MAX_Z_VEL = 1.0
-const SLAM_VELOCITY = 140.0
+const SLAM_VELOCITY = 160.0
 
 @onready var head: Node3D = $Head
 
@@ -209,6 +210,9 @@ func stair_step_up():
 	velocity.y = 0
 	global_pos.y = test_transform.origin.y
 	global_position = global_pos
+
+func bounce():
+	velocity.y = sqrt(2 * BOUNCE_HEIGHT * GRAVITY)
 
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false
