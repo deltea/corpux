@@ -59,6 +59,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, -130.5, -21.5)
 [node name="BasicEnemy6" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="5" unique_id=940660908 instance=ExtResource("3_56mwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, -130.5, -125.5)
 
+[node name="BasicEnemy7" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="6" unique_id=843121416 instance=ExtResource("3_56mwc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71, -100.5, -119.5)
+
+[node name="BasicEnemy10" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="7" unique_id=1457243777 instance=ExtResource("3_56mwc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71, -100.5, -25.5)
+
+[node name="BasicEnemy8" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="8" unique_id=2047389568 instance=ExtResource("3_56mwc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57, -100.5, -92.5)
+
+[node name="BasicEnemy11" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="9" unique_id=1239644286 instance=ExtResource("3_56mwc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57, -134.5, -72)
+
+[node name="BasicEnemy9" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="10" unique_id=155070178 instance=ExtResource("3_56mwc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57, -100.5, -50.5)
+
 [node name="StartArea" type="CSGCombiner3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="0" unique_id=2109239074]
 use_collision = true
 
