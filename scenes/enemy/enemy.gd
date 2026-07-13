@@ -1,5 +1,7 @@
 class_name Enemy extends StaticBody3D
 
+@export var explosion_scene: PackedScene
+
 @export var max_health = 2
 
 var health: int
@@ -18,4 +20,9 @@ func take_damage(damage: int):
 func die():
 	queue_free()
 	# await Clock.hitstop(0.15)
+
+	var explosion = explosion_scene.instantiate() as GPUParticles3D
+	explosion.position = global_position
+	explosion.emitting = true
+	get_tree().current_scene.add_child(explosion)
 	Clock.time_stop(0.5)

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://ce5g08imwy782"]
+
+[sub_resource type="Curve" id="Curve_xwmha"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, -360), 0.0, 0.0, 0, 0, Vector2(1, 360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xwmha"]
+curve = SubResource("Curve_xwmha")
+
+[sub_resource type="Curve" id="Curve_yb0tb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.072119, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yb0tb"]
+curve = SubResource("Curve_yb0tb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yb0tb"]
+lifetime_randomness = 0.5
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_curve = SubResource("CurveTexture_xwmha")
+use_rotation_3d = true
+rotation_3d_min = Vector3(-360, -360, -360)
+rotation_3d_max = Vector3(360, 360, 360)
+spread = 180.0
+initial_velocity_min = 16.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_yb0tb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yb0tb"]
+shading_mode = 2
+albedo_color = Color(0.9843137, 0.047058824, 0.45490196, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yb0tb"]
+material = SubResource("StandardMaterial3D_yb0tb")
+
+[node name="EnemyExplosionParticles" type="GPUParticles3D" unique_id=2035842307]
+emitting = false
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_yb0tb")
+draw_pass_1 = SubResource("BoxMesh_yb0tb")

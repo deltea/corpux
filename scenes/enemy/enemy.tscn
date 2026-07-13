@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://7y5q2uqhhq41"]
 
 [ext_resource type="Script" uid="uid://ek8wacojmfxs" path="res://scenes/enemy/enemy.gd" id="1_4a83h"]
+[ext_resource type="PackedScene" uid="uid://ce5g08imwy782" path="res://scenes/particles/enemy_explosion_particles.tscn" id="2_a3pup"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4a83h"]
 
 [node name="Enemy" type="StaticBody3D" unique_id=541240095]
 script = ExtResource("1_4a83h")
+explosion_scene = ExtResource("2_a3pup")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1789538307]
 shape = SubResource("BoxShape3D_4a83h")

@@ -1,7 +1,7 @@
-- [ ] enemy explosion effects
 - [ ] enemy model
 - [ ] first level design
 - [ ] auto aim for throws?? cool lookin frame ui
+- [x] enemy explosion effects
 - [x] more decoration
 - [x] instruction triggers
 - [x] escalators
