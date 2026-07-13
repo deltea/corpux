@@ -23,6 +23,7 @@
 - [ ] quake movement revamp
 - [ ] fix ground decal flickering
 - [ ] fix boomerang tweaking out
+- [ ] animate camera far?
 
 ## very later
 

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dp1enws2ovmvs"]
+
+[ext_resource type="Texture2D" uid="uid://dnw4ddsv6ttdn" path="res://assets/textures/ui/selection-9-slice.png" id="1_15t7m"]
+[ext_resource type="Script" uid="uid://d3gmwnahaa01b" path="res://scenes/ui/button_row/button_row.gd" id="1_nkrvo"]
+[ext_resource type="Script" uid="uid://b7nvenoqdnhoo" path="res://scripts/ButtonResource.gd" id="2_5fstn"]
+
+[sub_resource type="Resource" id="Resource_nkrvo"]
+script = ExtResource("2_5fstn")
+metadata/_custom_type_script = "uid://b7nvenoqdnhoo"
+
+[node name="ButtonRow" type="Control" unique_id=832578793]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_nkrvo")
+button_resources = Array[ExtResource("2_5fstn")]([SubResource("Resource_nkrvo")])
+
+[node name="Selector" type="NinePatchRect" parent="." unique_id=1013733939]
+self_modulate = Color(0.003921569, 0.07058824, 0.99215686, 1)
+layout_mode = 0
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 368.0
+offset_bottom = 160.0
+texture = ExtResource("1_15t7m")
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64

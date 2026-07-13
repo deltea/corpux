@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://51ja0nr0ujmj" path="res://assets/models/weapons/revolver.blend" id="12_8qm4d"]
 [ext_resource type="Shader" uid="uid://bmwllok136qtf" path="res://shaders/color_swap.gdshader" id="13_qdufb"]
 [ext_resource type="Texture2D" uid="uid://dnw4ddsv6ttdn" path="res://assets/textures/ui/selection-9-slice.png" id="16_dau3a"]
+[ext_resource type="Script" uid="uid://b7nvenoqdnhoo" path="res://scripts/ButtonResource.gd" id="16_fhajq"]
+[ext_resource type="PackedScene" uid="uid://dp1enws2ovmvs" path="res://scenes/ui/button_row/button_row.tscn" id="16_lcyuc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n1x3u"]
 shader = ExtResource("2_n1x3u")
@@ -56,6 +58,18 @@ baseline_offset = 0.125
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1x3u"]
 bg_color = Color(0.003921569, 0.07058824, 0.99215686, 1)
+
+[sub_resource type="Resource" id="Resource_cynt7"]
+script = ExtResource("16_fhajq")
+label = "restart level"
+id = "restart"
+metadata/_custom_type_script = "uid://b7nvenoqdnhoo"
+
+[sub_resource type="Resource" id="Resource_dau3a"]
+script = ExtResource("16_fhajq")
+label = "main"
+id = "menu"
+metadata/_custom_type_script = "uid://b7nvenoqdnhoo"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8q0kd"]
 shader = ExtResource("13_qdufb")
@@ -309,6 +323,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Buttons" type="Control" parent="." unique_id=2041608238]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 976.0
@@ -318,10 +333,9 @@ offset_bottom = 1016.0
 
 [node name="Button" type="Button" parent="Buttons" unique_id=324446393]
 layout_mode = 0
-offset_right = 344.0
-offset_bottom = 136.0
+offset_right = 338.0
+offset_bottom = 137.0
 theme = ExtResource("3_s6fqt")
-theme_override_styles/normal = SubResource("StyleBoxFlat_n1x3u")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_n1x3u")
 text = "restart level"
 
@@ -330,11 +344,11 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -344.0
-offset_bottom = 136.0
+offset_left = -360.0
+offset_right = -4.0
+offset_bottom = 137.0
 grow_horizontal = 0
 theme = ExtResource("3_s6fqt")
-theme_override_styles/normal = SubResource("StyleBoxFlat_n1x3u")
 text = "main menu"
 
 [node name="Selector" type="NinePatchRect" parent="Buttons" unique_id=134780508]
@@ -342,13 +356,20 @@ self_modulate = Color(0.003921569, 0.07058824, 0.99215686, 1)
 layout_mode = 1
 offset_left = -24.0
 offset_top = -24.0
-offset_right = 368.0
+offset_right = 362.0
 offset_bottom = 160.0
 texture = ExtResource("16_dau3a")
 patch_margin_left = 64
 patch_margin_top = 64
 patch_margin_right = 64
 patch_margin_bottom = 64
+
+[node name="ButtonRow" parent="." unique_id=832578793 instance=ExtResource("16_lcyuc")]
+offset_left = 976.0
+offset_top = 832.0
+offset_right = 1800.0
+offset_bottom = 968.0
+button_resources = Array[ExtResource("16_fhajq")]([SubResource("Resource_cynt7"), SubResource("Resource_dau3a")])
 
 [node name="BackBufferCopy" type="BackBufferCopy" parent="." unique_id=1502272481]
 copy_mode = 2
