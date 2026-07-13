@@ -28,6 +28,8 @@ func _ready() -> void:
 		button.position.x = width_sum + (0.0 if i == 0 else spacing)
 		width_sum += button.size.x
 
+	change_selected(0)
+
 func change_selected(delta: int):
 	curr_selected = wrapi(curr_selected + delta, 0, buttons.size())
 
@@ -43,3 +45,5 @@ func _input(event: InputEvent) -> void:
 		change_selected(-1)
 	if event.is_action_pressed("right"):
 		change_selected(1)
+	if event.is_action_pressed("interact"):
+		button_pressed.emit(button_resources[curr_selected].id)

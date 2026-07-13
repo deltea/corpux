@@ -10,7 +10,7 @@ class_name EndScreen extends CanvasLayer
 @onready var secret_label: RichTextLabel = $LeftPanel/SecretLabel
 @onready var weapon_container: SubViewportContainer = $LeftPanel/WeaponContainer
 @onready var rank_label: RichTextLabel = $RankLabel
-@onready var buttons: Control = $Buttons
+@onready var button_row: ButtonRow = $ButtonRow
 
 @onready var success_scroller: Control = $LeftPanel/Success/Scroller
 @onready var success_label_1: RichTextLabel = $LeftPanel/Success/Scroller/RichTextLabel
@@ -24,6 +24,8 @@ func _ready() -> void:
 	success_label_2.text = success_label_1.text
 	success_text_length = success_label_1.get_combined_minimum_size().x
 	success_label_2.position.y = success_text_length
+
+	button_row.button_pressed.connect(_on_button_row_pressed)
 
 func _process(dt: float) -> void:
 	weapon_model.rotation_degrees.y += 50.0 * dt
@@ -69,7 +71,7 @@ func animate_in():
 	best_label.visible_ratio = 0.0
 	secret_label.visible_ratio = 0.0
 	weapon_container.position.y = 1088.0
-	buttons.position.y = 1120.0
+	button_row.position.y = 1120.0
 
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
 	tween.chain().tween_property(background, "self_modulate:a", 1.0, 0.5)
@@ -84,4 +86,10 @@ func animate_in():
 	tween.chain().tween_callback(func(): rank_label.visible = true)
 	tween.chain().tween_property(rank_label, "scale", Vector2.ONE * 1.0, 0.4).set_ease(Tween.EASE_IN)
 	tween.chain().tween_callback(func(): Events.flashbang.emit(1.0))
-	tween.chain().tween_property(buttons, "position:y", 840.0, 0.25).set_delay(0.4)
+	tween.chain().tween_property(button_row, "position:y", 840.0, 0.25).set_delay(0.3)
+
+func _on_button_row_pressed(id: String):
+	if id == "restart":
+		get_tree().reload_current_scene()
+	if id == "menu":
+		print("go back to menu")
