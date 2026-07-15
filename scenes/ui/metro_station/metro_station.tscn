@@ -13,9 +13,10 @@ bg_color = Color(0.99, 0.99, 0.99, 1)
 [node name="MetroStation" type="Control" unique_id=2043878504]
 layout_mode = 3
 anchors_preset = 0
+offset_top = -48.0
 offset_right = 880.0
-offset_bottom = 96.0
-pivot_offset = Vector2(0, 48)
+offset_bottom = 48.0
+pivot_offset_ratio = Vector2(0, 0.5)
 script = ExtResource("1_el5r2")
 selected_color = Color(0.003921569, 0.07058824, 0.99215686, 1)
 unselected_color = Color(0.79836667, 0.79836625, 0.79836625, 1)

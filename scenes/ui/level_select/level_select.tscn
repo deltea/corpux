@@ -81,7 +81,7 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -832.0
+offset_left = -944.0
 grow_horizontal = 0
 grow_vertical = 2
 
@@ -89,7 +89,7 @@ grow_vertical = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -832.0
+offset_right = -944.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.003921569, 0.07058824, 0.99215686, 1)
@@ -121,20 +121,20 @@ texture = ExtResource("3_5qe3y")
 [node name="Star2" type="TextureRect" parent="Background/Stars" unique_id=262540397]
 self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
 layout_mode = 0
-offset_left = 976.0001
-offset_top = 208.00003
-offset_right = 1212.0001
-offset_bottom = 432.00003
+offset_left = 856.00006
+offset_top = 232.00003
+offset_right = 1092.0
+offset_bottom = 456.00003
 rotation = 0.7853982
 texture = ExtResource("3_5qe3y")
 
 [node name="Star3" type="TextureRect" parent="Background/Stars" unique_id=1123597888]
 self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
 layout_mode = 0
-offset_left = 880.0
-offset_top = 720.0
-offset_right = 1116.0
-offset_bottom = 944.0
+offset_left = 808.0
+offset_top = 735.99994
+offset_right = 1044.0
+offset_bottom = 959.99994
 rotation = 0.5235988
 texture = ExtResource("3_5qe3y")
 
@@ -171,30 +171,30 @@ texture = ExtResource("3_5qe3y")
 [node name="PixelateFilter" type="ColorRect" parent="Background" unique_id=550412170]
 material = SubResource("ShaderMaterial_sgptt")
 layout_mode = 0
-offset_right = 1080.0
+offset_right = 968.0
 offset_bottom = 1080.0
 
 [node name="Preview" type="TextureRect" parent="." unique_id=1762883365]
 clip_children = 2
-offset_left = -232.0
-offset_top = 120.0
-offset_right = 944.0
-offset_bottom = 1296.0
+offset_left = -216.0
+offset_top = 168.0
+offset_right = 864.0
+offset_bottom = 1248.0
 texture = ExtResource("3_gth3g")
 
 [node name="PreviewTexture" type="TextureRect" parent="Preview" unique_id=1878283048]
 self_modulate = Color(0.003921569, 0.07058824, 0.99215686, 1)
 layout_mode = 0
-offset_left = -456.0
-offset_right = 1426.0
+offset_left = -424.0
+offset_right = 1458.0
 offset_bottom = 1056.0
 texture = ExtResource("4_2apfw")
 
 [node name="LevelNameLabel" type="RichTextLabel" parent="." unique_id=1852067345]
-offset_left = 128.0
-offset_top = 64.0
-offset_right = 1032.0
-offset_bottom = 240.0
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 936.0
+offset_bottom = 216.0
 theme = ExtResource("9_afrkd")
 theme_override_fonts/normal_font = ExtResource("10_ih84l")
 theme_override_font_sizes/normal_font_size = 48
@@ -205,9 +205,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Buttons" parent="." unique_id=832578793 instance=ExtResource("11_ih84l")]
-offset_left = 168.0
+offset_left = 96.0
 offset_top = 904.0
-offset_right = 208.0
+offset_right = 136.0
 offset_bottom = 944.0
 button_resources = Array[ExtResource("12_5sbj7")]([SubResource("Resource_dqdhh"), SubResource("Resource_ucmw2")])
 inverted = true
@@ -245,9 +245,9 @@ texture_repeat = 2
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 1088.0
+offset_left = 976.0
 offset_top = 272.0
-offset_right = 2609.937
+offset_right = 2497.937
 offset_bottom = 400.0
 grow_vertical = 0
 rotation = -1.5707964
@@ -256,7 +256,8 @@ stretch_mode = 1
 flip_v = true
 
 [node name="Line" type="Line2D" parent="." unique_id=1670737907]
-points = PackedVector2Array(1256, 0, 1256, 168, 1256, 467.10202, 1256, 742.64575, 1256, 888, 1256, 1080)
+position = Vector2(-80, 0)
+points = PackedVector2Array(1256, 0, 1256, 168, 1400, 472, 1256, 742.64575, 1256, 888, 1256, 1080)
 width = 24.0
 default_color = Color(0.003921569, 0.07058824, 0.99215686, 1)
 

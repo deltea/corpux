@@ -2,6 +2,9 @@ class_name LevelSelect extends CanvasLayer
 
 const main_menu_scene = preload("res://scenes/ui/main_menu/main_menu.tscn")
 
+const LINE_OFFSET = 250.0
+const STATION_SEPARATION = 400.0
+
 @export var station_scene: PackedScene
 @export var levels: Array[LevelResource] = []
 
@@ -12,8 +15,12 @@ const main_menu_scene = preload("res://scenes/ui/main_menu/main_menu.tscn")
 var tween: Tween
 var curr_selected = 0
 var stations: Array[MetroStation]
+var line_curve: Curve2D
 
 func _ready() -> void:
+	line_curve = Curve2D.new()
+	for p in line.points: line_curve.add_point(p)
+
 	create_stations()
 	animate_in()
 
@@ -36,7 +43,9 @@ func create_stations():
 		stations.append(station)
 		station.unselected.emit()
 		station.set_info(level.station_name, level.level_name)
-		station.global_position = line.get_point_position(i + 1)
+		var baked_point = line_curve.sample_baked(i * STATION_SEPARATION + LINE_OFFSET)
+		station.position = baked_point
+		station.position.y -= station.size.y / 2
 
 func set_selected(value: int):
 	stations[curr_selected].unselected.emit()
