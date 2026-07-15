@@ -1,10 +1,10 @@
 - [ ] main menu and level select
+- [ ] score recording
 - [ ] finish first level
 - [ ] scene manager
 - [ ] enemy model
 - [ ] crosshair system
 - [ ] add sfx and music
-- [ ] auto aim for throws?? cool lookin frame ui
 - [x] first level design
 - [x] doors only work when enemies are dead
 - [x] enemy explosion effects
@@ -25,6 +25,7 @@
 
 ## uhhhhh later
 
+- [ ] auto aim for throws?? cool lookin frame ui
 - [ ] quake movement revamp
 - [ ] fix ground decal flickering
 - [ ] fix boomerang tweaking out
