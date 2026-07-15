@@ -17,3 +17,14 @@
 <!-- - [ ] kills -->
 - [x] weapon used?
 - [x] secret found?
+
+## things to show in level select
+
+- [ ] level preview
+- [ ] level name
+- [ ] level best time
+- [ ] level secret found
+- [ ] level best rank
+- [ ] back button
+- [ ] enter button
+- 
