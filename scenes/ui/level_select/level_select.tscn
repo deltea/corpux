@@ -224,12 +224,3 @@ offset_bottom = 295.0
 rotation = 1.5707964
 text = "DISC"
 label_settings = SubResource("LabelSettings_ew5by")
-
-[node name="LevelNameLabel2" type="RichTextLabel" parent="." unique_id=1266822610]
-offset_left = 1328.0
-offset_top = 144.0
-offset_right = 1872.0
-offset_bottom = 256.0
-theme = ExtResource("9_afrkd")
-theme_override_colors/default_color = Color(0.003921569, 0.07058824, 0.99215686, 1)
-text = "initialization"
