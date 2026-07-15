@@ -53,7 +53,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 
 [node name="BackBufferCopy" type="BackBufferCopy" parent="." unique_id=1066547187]
 copy_mode = 2
@@ -65,7 +65,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 
 [node name="BackBufferCopy2" type="BackBufferCopy" parent="." unique_id=1575458552]
 copy_mode = 2
@@ -78,7 +78,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 
 [node name="BackBufferCopy3" type="BackBufferCopy" parent="." unique_id=740537352]
 copy_mode = 2
@@ -97,6 +97,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(6, 6)
 pivot_offset = Vector2(4.5, 4.5)
+mouse_filter = 2
 texture = ExtResource("3_a21u8")
 stretch_mode = 3
 
@@ -106,5 +107,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 color = Color(1, 1, 1, 0)

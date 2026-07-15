@@ -26,6 +26,8 @@ func _ready() -> void:
 
 		button.text = button_resource.label
 		button.pressed.connect(button_pressed.emit.bind(button_resource.id))
+		button.mouse_entered.connect(func(): set_selected(i))
+
 		await get_tree().process_frame
 		if is_column:
 			button.position.x = -button.size.x / 2
@@ -35,10 +37,10 @@ func _ready() -> void:
 			button.position.x = size_sum
 			size_sum += button.size.x + spacing
 
-	change_selected(0)
+	set_selected(0)
 
-func change_selected(delta: int):
-	curr_selected = clampi(curr_selected + delta, 0, buttons.size() - 1)
+func set_selected(value: int):
+	curr_selected = clampi(value, 0, buttons.size() - 1)
 
 	if tween: tween.kill()
 	var target_pos = buttons[curr_selected].position - Vector2(selector_spacing_x / 2, selector_spacing_y / 2)
@@ -51,9 +53,9 @@ func _input(event: InputEvent) -> void:
 	var less = ("up" if is_column else "left")
 	var more = ("down" if is_column else "right")
 	if event.is_action_pressed(less):
-		change_selected(-1)
+		set_selected(curr_selected - 1)
 	if event.is_action_pressed(more):
-		change_selected(1)
+		set_selected(curr_selected + 1)
 	if event.is_action_pressed("interact") or event.is_action_pressed("jump"):
 		button_pressed.emit(button_resources[curr_selected].id)
 

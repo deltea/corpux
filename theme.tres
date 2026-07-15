@@ -5,17 +5,33 @@
 [ext_resource type="FontVariation" uid="uid://b3twv6x4543e0" path="res://assets/fonts/helvetica-bold-italic.tres" id="2_58jnp"]
 [ext_resource type="FontVariation" uid="uid://dj4cr0w0e7y0" path="res://assets/fonts/helvetica-italic.tres" id="3_466ly"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdavf"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_110ce"]
+content_margin_left = 60.0
+content_margin_top = 32.0
+content_margin_right = 60.0
+content_margin_bottom = 32.0
+bg_color = Color(0.28926063, 0.35212317, 0.98823947, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05tig"]
 content_margin_left = 60.0
 content_margin_top = 32.0
 content_margin_right = 60.0
 content_margin_bottom = 32.0
 bg_color = Color(0.003921569, 0.07058824, 0.99215686, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rmny"]
+content_margin_left = 60.0
+content_margin_top = 32.0
+content_margin_right = 60.0
+content_margin_bottom = 32.0
+bg_color = Color(0.34669435, 0.43593833, 0.993589, 1)
+
 [resource]
 default_font = ExtResource("1_470mv")
 default_font_size = 56
-Button/styles/normal = SubResource("StyleBoxFlat_rdavf")
+Button/styles/hover = SubResource("StyleBoxFlat_110ce")
+Button/styles/normal = SubResource("StyleBoxFlat_05tig")
+Button/styles/pressed = SubResource("StyleBoxFlat_1rmny")
 RichTextLabel/constants/line_separation = 28
 RichTextLabel/font_sizes/bold_font_size = 56
 RichTextLabel/font_sizes/bold_italics_font_size = 56
