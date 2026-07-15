@@ -12,12 +12,12 @@ const button_scene = preload("res://scenes/ui/button_row/button.tscn")
 @export var inverted = false
 @export var bg_color: Color = Color("#0112FD")
 @export var fg_color: Color = Color.WHITE
+@export var curr_selected = 0
 
 @onready var selector: NinePatchRect = $Selector
 @onready var selector_ping_timer: Timer = $SelectorPingTimer
 
 var buttons: Array[Button] = []
-var curr_selected = 0
 var tween: Tween
 
 func _ready() -> void:
@@ -45,7 +45,7 @@ func _ready() -> void:
 
 	selector.self_modulate = fg_color if inverted else bg_color
 
-	set_selected(0)
+	set_selected(curr_selected)
 
 func set_selected(value: int):
 	curr_selected = clampi(value, 0, buttons.size() - 1)
@@ -64,8 +64,8 @@ func style_button(button: Button):
 	var button_style_pressed = button.get_theme_stylebox("pressed").duplicate() as StyleBoxFlat
 	if inverted:
 		button_style_normal.bg_color = fg_color
-		button_style_hover.bg_color = fg_color.darkened(0.2)
-		button_style_pressed.bg_color = fg_color.darkened(0.3)
+		button_style_hover.bg_color = fg_color.darkened(0.15)
+		button_style_pressed.bg_color = fg_color.darkened(0.2)
 	else:
 		button_style_normal.bg_color = bg_color
 		button_style_hover.bg_color = bg_color.lightened(0.2)

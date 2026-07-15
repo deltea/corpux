@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://dwunu7kolq78o"]
+
+[ext_resource type="Script" uid="uid://doi6wbxoyleo3" path="res://scenes/ui/metro_station/metro_station.gd" id="1_el5r2"]
+[ext_resource type="Texture2D" uid="uid://dk8ai1kx7pgsq" path="res://assets/textures/ui/slant-9-slice.png" id="1_qkyc3"]
+[ext_resource type="Theme" uid="uid://cxmchfsgtgv3e" path="res://theme.tres" id="2_el5r2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpuw2"]
+bg_color = Color(0.003921569, 0.07058824, 0.99215686, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t82ie"]
+bg_color = Color(0.99, 0.99, 0.99, 1)
+
+[node name="MetroStation" type="Control" unique_id=2043878504]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 880.0
+offset_bottom = 96.0
+pivot_offset = Vector2(0, 48)
+script = ExtResource("1_el5r2")
+
+[node name="Background" type="NinePatchRect" parent="." unique_id=533797094]
+self_modulate = Color(0.003921569, 0.07058824, 0.99215686, 1)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 56.0
+offset_top = -48.0
+offset_right = 808.0
+offset_bottom = 48.0
+grow_vertical = 2
+texture = ExtResource("1_qkyc3")
+region_rect = Rect2(0, 0, 288, 96)
+patch_margin_left = 96
+patch_margin_right = 96
+
+[node name="StationName" type="RichTextLabel" parent="Background" unique_id=286951547]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -32.0
+offset_right = 578.6842
+offset_bottom = 73.0
+grow_vertical = 2
+theme = ExtResource("2_el5r2")
+bbcode_enabled = true
+text = "[wave]G1[/wave]  initialization"
+scroll_active = false
+vertical_alignment = 1
+
+[node name="Dot" type="Panel" parent="." unique_id=1695265236]
+z_index = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rpuw2")
+
+[node name="DotInner" type="Panel" parent="Dot" unique_id=1064848528]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 29.0
+offset_bottom = 29.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_t82ie")

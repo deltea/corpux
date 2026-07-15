@@ -13,18 +13,38 @@
 [ext_resource type="FontVariation" uid="uid://18fprucwi6vm" path="res://assets/fonts/helvetica-wide-big.tres" id="10_ih84l"]
 [ext_resource type="PackedScene" uid="uid://dp1enws2ovmvs" path="res://scenes/ui/button_row/button_row.tscn" id="11_ih84l"]
 [ext_resource type="Script" uid="uid://b7nvenoqdnhoo" path="res://scripts/ButtonResource.gd" id="12_5sbj7"]
+[ext_resource type="Texture2D" uid="uid://dk8ai1kx7pgsq" path="res://assets/textures/ui/slant-9-slice.png" id="13_rpuw2"]
+[ext_resource type="PackedScene" uid="uid://dwunu7kolq78o" path="res://scenes/ui/metro_station/metro_station.tscn" id="15_t82ie"]
+
+[sub_resource type="Resource" id="Resource_ew5by"]
+script = ExtResource("2_rpuw2")
+level_name = "???"
+station_name = "L2"
+metadata/_custom_type_script = "uid://cx8dqrp7hnfnd"
+
+[sub_resource type="Resource" id="Resource_rpuw2"]
+script = ExtResource("2_rpuw2")
+level_name = "???"
+station_name = "L3"
+metadata/_custom_type_script = "uid://cx8dqrp7hnfnd"
+
+[sub_resource type="Resource" id="Resource_t82ie"]
+script = ExtResource("2_rpuw2")
+level_name = "???"
+station_name = "L4"
+metadata/_custom_type_script = "uid://cx8dqrp7hnfnd"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sgptt"]
 shader = ExtResource("4_an507")
 shader_parameter/pixelSize = 8
 
-[sub_resource type="Resource" id="Resource_rpuw2"]
+[sub_resource type="Resource" id="Resource_dqdhh"]
 script = ExtResource("12_5sbj7")
 label = "back to menu"
 id = "back"
 metadata/_custom_type_script = "uid://b7nvenoqdnhoo"
 
-[sub_resource type="Resource" id="Resource_ew5by"]
+[sub_resource type="Resource" id="Resource_ucmw2"]
 script = ExtResource("12_5sbj7")
 label = "enter"
 id = "enter"
@@ -32,6 +52,7 @@ metadata/_custom_type_script = "uid://b7nvenoqdnhoo"
 
 [sub_resource type="SystemFont" id="SystemFont_efxa6"]
 font_names = PackedStringArray("Helvetica")
+subpixel_positioning = 0
 
 [sub_resource type="FontVariation" id="FontVariation_ew5by"]
 base_font = SubResource("SystemFont_efxa6")
@@ -50,10 +71,30 @@ font = SubResource("FontVariation_ew5by")
 font_size = 350
 font_color = Color(0.8992584, 0.8992584, 0.8992584, 1)
 
+[sub_resource type="SystemFont" id="SystemFont_ew5by"]
+font_names = PackedStringArray("Helvetica")
+
+[sub_resource type="FontVariation" id="FontVariation_rpuw2"]
+base_font = SubResource("SystemFont_ew5by")
+variation_embolden = 0.4
+variation_transform = Transform2D(0.75, 0, 0, 1, 0, 0)
+spacing_glyph = -4
+spacing_space = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_evptl"]
+font = SubResource("FontVariation_rpuw2")
+font_size = 56
+
 [node name="LevelSelect" type="CanvasLayer" unique_id=1966126822]
 layer = 2
 script = ExtResource("1_kvtm6")
-levels = Array[ExtResource("2_rpuw2")]([ExtResource("3_t82ie")])
+station_scene = ExtResource("15_t82ie")
+levels = Dictionary[ExtResource("2_rpuw2"), int]({
+ExtResource("3_t82ie"): 1,
+SubResource("Resource_ew5by"): 2,
+SubResource("Resource_rpuw2"): 3,
+SubResource("Resource_t82ie"): 4
+})
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1351857415]
 anchors_preset = 11
@@ -169,6 +210,55 @@ offset_right = 1426.0
 offset_bottom = 1056.0
 texture = ExtResource("4_2apfw")
 
+[node name="LevelNameLabel" type="RichTextLabel" parent="." unique_id=1852067345]
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 1032.0
+offset_bottom = 240.0
+theme = ExtResource("9_afrkd")
+theme_override_fonts/normal_font = ExtResource("10_ih84l")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[wave freq=2 amp=100]initialization"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" parent="." unique_id=832578793 instance=ExtResource("11_ih84l")]
+offset_left = 168.0
+offset_top = 904.0
+offset_right = 208.0
+offset_bottom = 944.0
+button_resources = Array[ExtResource("12_5sbj7")]([SubResource("Resource_dqdhh"), SubResource("Resource_ucmw2")])
+inverted = true
+curr_selected = 1
+
+[node name="Disc" type="Control" parent="." unique_id=1623452856]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DiscNumLabel" type="Label" parent="Disc" unique_id=1916572081]
+layout_mode = 0
+offset_left = 2015.0
+offset_top = 736.0
+offset_right = 3182.0
+offset_bottom = 1087.0
+rotation = 1.5707964
+text = "01"
+label_settings = SubResource("LabelSettings_rpuw2")
+
+[node name="DiscLabel" type="Label" parent="Disc" unique_id=2092020850]
+layout_mode = 0
+offset_left = 2015.0
+offset_top = -56.0
+offset_right = 3182.0
+offset_bottom = 295.0
+rotation = 1.5707964
+text = "DISC"
+label_settings = SubResource("LabelSettings_ew5by")
+
 [node name="DitherTransition" type="TextureRect" parent="." unique_id=564826795]
 self_modulate = Color(0.003921569, 0.07058824, 0.99215686, 1)
 texture_repeat = 2
@@ -185,42 +275,57 @@ texture = ExtResource("5_an507")
 stretch_mode = 1
 flip_v = true
 
-[node name="LevelNameLabel" type="RichTextLabel" parent="." unique_id=1852067345]
-offset_left = 128.0
-offset_top = 64.0
-offset_right = 1032.0
-offset_bottom = 240.0
-theme = ExtResource("9_afrkd")
-theme_override_fonts/normal_font = ExtResource("10_ih84l")
-theme_override_font_sizes/normal_font_size = 48
-bbcode_enabled = true
-text = "[wave freq=2 amp=100]initialization"
-scroll_active = false
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Line" type="Line2D" parent="." unique_id=1670737907]
+points = PackedVector2Array(1256, 0, 1256, 168, 1256, 467.10202, 1256, 742.64575, 1256, 888, 1256, 1080)
+width = 24.0
+default_color = Color(0.003921569, 0.07058824, 0.99215686, 1)
 
-[node name="ButtonRow" parent="." unique_id=832578793 instance=ExtResource("11_ih84l")]
-offset_left = 168.0
-offset_top = 904.0
-offset_right = 208.0
-offset_bottom = 944.0
-button_resources = Array[ExtResource("12_5sbj7")]([SubResource("Resource_rpuw2"), SubResource("Resource_ew5by")])
-inverted = true
+[node name="ColorRect4" type="NinePatchRect" parent="." unique_id=726453856]
+self_modulate = Color(0.78172904, 0.7817291, 0.77827436, 1)
+offset_left = 2104.0
+offset_top = 448.0
+offset_right = 2856.0
+offset_bottom = 544.0
+texture = ExtResource("13_rpuw2")
+region_rect = Rect2(0, 0, 288, 96)
+patch_margin_left = 96
+patch_margin_right = 96
 
-[node name="DiscLabel2" type="Label" parent="." unique_id=1916572081]
-offset_left = 2015.0
-offset_top = 736.0
-offset_right = 3182.0
-offset_bottom = 1087.0
-rotation = 1.5707964
-text = "01"
-label_settings = SubResource("LabelSettings_rpuw2")
+[node name="Label" type="Label" parent="ColorRect4" unique_id=89847461]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 72.0
+offset_top = -24.0
+offset_right = 388.0
+offset_bottom = 33.0
+grow_vertical = 2
+text = "G1  initialization"
+label_settings = SubResource("LabelSettings_evptl")
 
-[node name="DiscLabel" type="Label" parent="." unique_id=2092020850]
-offset_left = 2015.0
-offset_top = -56.0
-offset_right = 3182.0
-offset_bottom = 295.0
-rotation = 1.5707964
-text = "DISC"
-label_settings = SubResource("LabelSettings_ew5by")
+[node name="ColorRect5" type="NinePatchRect" parent="." unique_id=1083216290]
+self_modulate = Color(0.8668296, 0.86682963, 0.86682945, 1)
+offset_left = 2104.0
+offset_top = 664.0
+offset_right = 2856.0
+offset_bottom = 760.0
+texture = ExtResource("13_rpuw2")
+region_rect = Rect2(0, 0, 288, 96)
+patch_margin_left = 96
+patch_margin_right = 96
+
+[node name="Label" type="Label" parent="ColorRect5" unique_id=1262788280]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 72.0
+offset_top = -24.0
+offset_right = 388.0
+offset_bottom = 33.0
+grow_vertical = 2
+text = "G1  initialization"
+label_settings = SubResource("LabelSettings_evptl")
+
+[connection signal="button_pressed" from="Buttons" to="." method="_on_buttons_button_pressed"]
