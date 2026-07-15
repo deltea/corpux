@@ -9,6 +9,7 @@ const button_scene = preload("res://scenes/ui/button_row/button.tscn")
 @export var selector_spacing_y = 48.0
 @export var spacing = 120.0
 @export var is_column = false
+@export var inverted = false
 @export var bg_color: Color = Color("#0112FD")
 @export var fg_color: Color = Color.WHITE
 
@@ -31,16 +32,7 @@ func _ready() -> void:
 		button.pressed.connect(button_pressed.emit.bind(button_resource.id))
 		button.mouse_entered.connect(func(): set_selected(i))
 
-		var button_style_normal = button.get_theme_stylebox("normal").duplicate() as StyleBoxFlat
-		var button_style_hover = button.get_theme_stylebox("hover").duplicate() as StyleBoxFlat
-		var button_style_pressed = button.get_theme_stylebox("pressed").duplicate() as StyleBoxFlat
-		button_style_normal.bg_color = bg_color
-		button_style_hover.bg_color = bg_color.lightened(0.2)
-		button_style_pressed.bg_color = bg_color.lightened(0.3)
-		button.add_theme_stylebox_override("normal", button_style_normal)
-		button.add_theme_stylebox_override("hover", button_style_hover)
-		button.add_theme_stylebox_override("pressed", button_style_pressed)
-		button.add_theme_color_override("font_color", fg_color)
+		style_button(button)
 
 		await get_tree().process_frame
 		if is_column:
@@ -51,7 +43,7 @@ func _ready() -> void:
 			button.position.x = size_sum
 			size_sum += button.size.x + spacing
 
-	selector.self_modulate = bg_color
+	selector.self_modulate = fg_color if inverted else bg_color
 
 	set_selected(0)
 
@@ -65,6 +57,32 @@ func set_selected(value: int):
 	tween = create_tween().set_parallel().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	tween.tween_property(selector, "position", target_pos, 0.25)
 	tween.tween_property(selector, "size", target_size, 0.25)
+
+func style_button(button: Button):
+	var button_style_normal = button.get_theme_stylebox("normal").duplicate() as StyleBoxFlat
+	var button_style_hover = button.get_theme_stylebox("hover").duplicate() as StyleBoxFlat
+	var button_style_pressed = button.get_theme_stylebox("pressed").duplicate() as StyleBoxFlat
+	if inverted:
+		button_style_normal.bg_color = fg_color
+		button_style_hover.bg_color = fg_color.darkened(0.2)
+		button_style_pressed.bg_color = fg_color.darkened(0.3)
+	else:
+		button_style_normal.bg_color = bg_color
+		button_style_hover.bg_color = bg_color.lightened(0.2)
+		button_style_pressed.bg_color = bg_color.lightened(0.3)
+
+	button.add_theme_stylebox_override("normal", button_style_normal)
+	button.add_theme_stylebox_override("hover", button_style_hover)
+	button.add_theme_stylebox_override("pressed", button_style_pressed)
+
+	if inverted:
+		button.add_theme_color_override("font_color", bg_color)
+		button.add_theme_color_override("font_hover_color", bg_color)
+		button.add_theme_color_override("font_pressed_color", bg_color)
+	else:
+		button.add_theme_color_override("font_color", fg_color)
+		button.add_theme_color_override("font_hover_color", fg_color)
+		button.add_theme_color_override("font_pressed_color", fg_color)
 
 func _input(event: InputEvent) -> void:
 	var less = ("up" if is_column else "left")
