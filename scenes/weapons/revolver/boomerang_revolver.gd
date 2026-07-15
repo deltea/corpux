@@ -5,7 +5,7 @@ const MAX_SPEED = 120.0
 const MAX_SPIN_SPEED = 2000.0
 const MAX_DISTANCE = 52.0
 const DECELERATION = 250.0
-const RETURN_ACCELERATION = 120.0
+const RETURN_ACCELERATION = 200.0
 
 @onready var marker: Sprite3D = $Marker
 @onready var collider: CollisionShape3D = $HitArea/CollisionShape
