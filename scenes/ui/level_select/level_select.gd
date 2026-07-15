@@ -2,8 +2,9 @@ class_name LevelSelect extends CanvasLayer
 
 const main_menu_scene = preload("res://scenes/ui/main_menu/main_menu.tscn")
 
-const LINE_OFFSET = 250.0
+const LINE_OFFSET = 300.0
 const STATION_SEPARATION = 400.0
+const STATION_SEPARATION_RANDOMNESS = 75.0
 
 @export var station_scene: PackedScene
 @export var levels: Array[LevelResource] = []
@@ -43,7 +44,9 @@ func create_stations():
 		stations.append(station)
 		station.unselected.emit()
 		station.set_info(level.station_name, level.level_name)
-		var baked_point = line_curve.sample_baked(i * STATION_SEPARATION + LINE_OFFSET)
+		var random_offset = randf_range(-STATION_SEPARATION_RANDOMNESS, STATION_SEPARATION_RANDOMNESS)
+		var target_dist = (i+1) * STATION_SEPARATION + LINE_OFFSET + random_offset
+		var baked_point = line_curve.sample_baked(target_dist)
 		station.position = baked_point
 		station.position.y -= station.size.y / 2
 
