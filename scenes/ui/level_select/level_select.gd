@@ -1,5 +1,7 @@
 class_name LevelSelect extends CanvasLayer
 
+const main_menu_scene = preload("res://scenes/ui/main_menu/main_menu.tscn")
+
 @export var levels: Array[LevelResource] = []
 
 @onready var background: ColorRect = $Background

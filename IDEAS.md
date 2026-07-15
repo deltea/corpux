@@ -25,5 +25,5 @@
 - [ ] level best time
 - [ ] level secret found
 - [ ] level best rank
-- [ ] back button
-- [ ] enter button
+- [x] back button
+- [x] enter button

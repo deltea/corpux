@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" uid="uid://by2n65ciw2pue" path="res://scenes/ui/level_select/level_select.gd" id="1_kvtm6"]
 [ext_resource type="Texture2D" uid="uid://8wvisplh50h3" path="res://assets/textures/ui/spikes.png" id="2_dqbig"]
+[ext_resource type="Script" uid="uid://cx8dqrp7hnfnd" path="res://scripts/LevelResource.gd" id="2_rpuw2"]
 [ext_resource type="Texture2D" uid="uid://d2bdqgrkeuq36" path="res://assets/textures/ui/star.png" id="3_5qe3y"]
 [ext_resource type="Texture2D" uid="uid://bux2klqg2xtvg" path="res://assets/textures/ui/big-circle.png" id="3_gth3g"]
+[ext_resource type="Resource" uid="uid://ctkwtrutqmghf" path="res://assets/levels/level_1.tres" id="3_t82ie"]
 [ext_resource type="Texture2D" uid="uid://t40j4qwpvsua" path="res://assets/textures/ui/tutorial.png" id="4_2apfw"]
 [ext_resource type="Shader" uid="uid://c2qdlk2arkcl" path="res://shaders/pixelate_screen.gdshader" id="4_an507"]
 [ext_resource type="Texture2D" uid="uid://c78syilfevl1x" path="res://assets/textures/ui/dither-transition.png" id="5_an507"]
-[ext_resource type="FontVariation" uid="uid://cone7xtqm6jsj" path="res://assets/fonts/helvetica-small.tres" id="8_re87o"]
 [ext_resource type="Theme" uid="uid://cxmchfsgtgv3e" path="res://theme.tres" id="9_afrkd"]
 [ext_resource type="FontVariation" uid="uid://18fprucwi6vm" path="res://assets/fonts/helvetica-wide-big.tres" id="10_ih84l"]
 [ext_resource type="PackedScene" uid="uid://dp1enws2ovmvs" path="res://scenes/ui/button_row/button_row.tscn" id="11_ih84l"]
@@ -17,9 +18,11 @@
 shader = ExtResource("4_an507")
 shader_parameter/pixelSize = 8
 
-[sub_resource type="LabelSettings" id="LabelSettings_sgptt"]
-font = ExtResource("8_re87o")
-font_size = 40
+[sub_resource type="Resource" id="Resource_rpuw2"]
+script = ExtResource("12_5sbj7")
+label = "back to menu"
+id = "back"
+metadata/_custom_type_script = "uid://b7nvenoqdnhoo"
 
 [sub_resource type="Resource" id="Resource_ew5by"]
 script = ExtResource("12_5sbj7")
@@ -27,16 +30,37 @@ label = "enter"
 id = "enter"
 metadata/_custom_type_script = "uid://b7nvenoqdnhoo"
 
+[sub_resource type="SystemFont" id="SystemFont_efxa6"]
+font_names = PackedStringArray("Helvetica")
+
+[sub_resource type="FontVariation" id="FontVariation_ew5by"]
+base_font = SubResource("SystemFont_efxa6")
+variation_embolden = 1.75
+variation_transform = Transform2D(1, 0.1, 0, 0.6, 0, 0)
+spacing_glyph = -30
+spacing_space = -30
+
+[sub_resource type="LabelSettings" id="LabelSettings_rpuw2"]
+font = SubResource("FontVariation_ew5by")
+font_size = 350
+font_color = Color(0.7775145, 0.77751505, 0.7738904, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ew5by"]
+font = SubResource("FontVariation_ew5by")
+font_size = 350
+font_color = Color(0.8992584, 0.8992584, 0.8992584, 1)
+
 [node name="LevelSelect" type="CanvasLayer" unique_id=1966126822]
 layer = 2
 script = ExtResource("1_kvtm6")
+levels = Array[ExtResource("2_rpuw2")]([ExtResource("3_t82ie")])
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1351857415]
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -768.0
+offset_left = -832.0
 grow_horizontal = 0
 grow_vertical = 2
 
@@ -44,7 +68,7 @@ grow_vertical = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -768.0
+offset_right = -832.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.003921569, 0.07058824, 0.99215686, 1)
@@ -66,18 +90,19 @@ offset_bottom = 40.0
 [node name="Star" type="TextureRect" parent="Background/Stars" unique_id=829514757]
 self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
 layout_mode = 0
-offset_left = 56.0
-offset_top = 56.0
-offset_right = 292.0
-offset_bottom = 280.0
+offset_left = 80.0
+offset_top = 72.0
+offset_right = 316.0
+offset_bottom = 296.0
+rotation = 0.2617994
 texture = ExtResource("3_5qe3y")
 
 [node name="Star2" type="TextureRect" parent="Background/Stars" unique_id=262540397]
 self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
 layout_mode = 0
-offset_left = 1016.0001
+offset_left = 976.0001
 offset_top = 208.00003
-offset_right = 1252.0001
+offset_right = 1212.0001
 offset_bottom = 432.00003
 rotation = 0.7853982
 texture = ExtResource("3_5qe3y")
@@ -85,10 +110,10 @@ texture = ExtResource("3_5qe3y")
 [node name="Star3" type="TextureRect" parent="Background/Stars" unique_id=1123597888]
 self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
 layout_mode = 0
-offset_left = 816.0
-offset_top = 760.0
-offset_right = 1052.0
-offset_bottom = 984.0
+offset_left = 880.0
+offset_top = 720.0
+offset_right = 1116.0
+offset_bottom = 944.0
 rotation = 0.5235988
 texture = ExtResource("3_5qe3y")
 
@@ -125,14 +150,14 @@ texture = ExtResource("3_5qe3y")
 [node name="PixelateFilter" type="ColorRect" parent="Background" unique_id=550412170]
 material = SubResource("ShaderMaterial_sgptt")
 layout_mode = 0
-offset_right = 1136.0
+offset_right = 1080.0
 offset_bottom = 1080.0
 
 [node name="Preview" type="TextureRect" parent="." unique_id=1762883365]
 clip_children = 2
-offset_left = -152.0
+offset_left = -232.0
 offset_top = 120.0
-offset_right = 1024.0
+offset_right = 944.0
 offset_bottom = 1296.0
 texture = ExtResource("3_gth3g")
 
@@ -150,23 +175,15 @@ texture_repeat = 2
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 1152.0
+offset_left = 1088.0
 offset_top = 272.0
-offset_right = 2673.937
+offset_right = 2609.937
 offset_bottom = 400.0
 grow_vertical = 0
 rotation = -1.5707964
 texture = ExtResource("5_an507")
 stretch_mode = 1
 flip_v = true
-
-[node name="Label" type="Label" parent="." unique_id=1449867994]
-offset_left = 40.0
-offset_top = 1000.0
-offset_right = 347.0
-offset_bottom = 1080.0
-text = "<esc to go back>"
-label_settings = SubResource("LabelSettings_sgptt")
 
 [node name="LevelNameLabel" type="RichTextLabel" parent="." unique_id=1852067345]
 offset_left = 128.0
@@ -183,9 +200,36 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ButtonRow" parent="." unique_id=832578793 instance=ExtResource("11_ih84l")]
-offset_left = 448.0
-offset_top = 880.0
-offset_right = 488.0
-offset_bottom = 920.0
-button_resources = Array[ExtResource("12_5sbj7")]([SubResource("Resource_ew5by")])
+offset_left = 168.0
+offset_top = 904.0
+offset_right = 208.0
+offset_bottom = 944.0
+button_resources = Array[ExtResource("12_5sbj7")]([SubResource("Resource_rpuw2"), SubResource("Resource_ew5by")])
 inverted = true
+
+[node name="DiscLabel2" type="Label" parent="." unique_id=1916572081]
+offset_left = 2015.0
+offset_top = 736.0
+offset_right = 3182.0
+offset_bottom = 1087.0
+rotation = 1.5707964
+text = "01"
+label_settings = SubResource("LabelSettings_rpuw2")
+
+[node name="DiscLabel" type="Label" parent="." unique_id=2092020850]
+offset_left = 2015.0
+offset_top = -56.0
+offset_right = 3182.0
+offset_bottom = 295.0
+rotation = 1.5707964
+text = "DISC"
+label_settings = SubResource("LabelSettings_ew5by")
+
+[node name="LevelNameLabel2" type="RichTextLabel" parent="." unique_id=1266822610]
+offset_left = 1328.0
+offset_top = 144.0
+offset_right = 1872.0
+offset_bottom = 256.0
+theme = ExtResource("9_afrkd")
+theme_override_colors/default_color = Color(0.003921569, 0.07058824, 0.99215686, 1)
+text = "initialization"
