@@ -2,8 +2,9 @@
 - [ ] finish first level
 - [ ] scene manager
 - [ ] enemy model
-- [ ] auto aim for throws?? cool lookin frame ui
 - [ ] crosshair system
+- [ ] add sfx and music
+- [ ] auto aim for throws?? cool lookin frame ui
 - [x] first level design
 - [x] doors only work when enemies are dead
 - [x] enemy explosion effects
