@@ -1,5 +1,7 @@
 class_name MainMenu extends Room
 
+const level_select_scene = preload("res://scenes/ui/level_select/level_select.tscn")
+
 @onready var version_label: Label = $VersionLabel
 @onready var time_label: Label = $TimeLabel
 
@@ -11,7 +13,9 @@ func _process(dt: float) -> void:
 
 func _on_button_row_button_pressed(id: String) -> void:
 	if id == "start":
-		get_tree().change_scene_to_file("res://rooms/levels/tutorial_level.tscn")
+		# get_tree().change_scene_to_file("res://rooms/levels/tutorial_level.tscn")
+		var level_select = level_select_scene.instantiate() as LevelSelect
+		add_child(level_select)
 	if id == "settings":
 		print("there arent any settings bitch")
 	if id == "quit":

@@ -9,6 +9,8 @@ const button_scene = preload("res://scenes/ui/button_row/button.tscn")
 @export var selector_spacing_y = 48.0
 @export var spacing = 120.0
 @export var is_column = false
+@export var bg_color: Color = Color("#0112FD")
+@export var fg_color: Color = Color.WHITE
 
 @onready var selector: NinePatchRect = $Selector
 @onready var selector_ping_timer: Timer = $SelectorPingTimer
@@ -29,6 +31,17 @@ func _ready() -> void:
 		button.pressed.connect(button_pressed.emit.bind(button_resource.id))
 		button.mouse_entered.connect(func(): set_selected(i))
 
+		var button_style_normal = button.get_theme_stylebox("normal").duplicate() as StyleBoxFlat
+		var button_style_hover = button.get_theme_stylebox("hover").duplicate() as StyleBoxFlat
+		var button_style_pressed = button.get_theme_stylebox("pressed").duplicate() as StyleBoxFlat
+		button_style_normal.bg_color = bg_color
+		button_style_hover.bg_color = bg_color.lightened(0.2)
+		button_style_pressed.bg_color = bg_color.lightened(0.3)
+		button.add_theme_stylebox_override("normal", button_style_normal)
+		button.add_theme_stylebox_override("hover", button_style_hover)
+		button.add_theme_stylebox_override("pressed", button_style_pressed)
+		button.add_theme_color_override("font_color", fg_color)
+
 		await get_tree().process_frame
 		if is_column:
 			button.position.x = -button.size.x / 2
@@ -37,6 +50,8 @@ func _ready() -> void:
 		else:
 			button.position.x = size_sum
 			size_sum += button.size.x + spacing
+
+	selector.self_modulate = bg_color
 
 	set_selected(0)
 

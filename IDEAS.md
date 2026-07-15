@@ -20,11 +20,10 @@
 
 ## things to show in level select
 
-- [ ] level preview
-- [ ] level name
+- [x] level preview
+- [x] level name
 - [ ] level best time
 - [ ] level secret found
 - [ ] level best rank
 - [ ] back button
 - [ ] enter button
-- 
