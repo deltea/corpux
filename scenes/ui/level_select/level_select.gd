@@ -4,7 +4,7 @@ const main_menu_scene = preload("res://scenes/ui/main_menu/main_menu.tscn")
 
 const LINE_OFFSET = 800.0
 const STATION_SEPARATION = 450.0
-const STATION_SEPARATION_RANDOMNESS = 75.0
+const STATION_SEPARATION_RANDOMNESS = 100.0
 
 @export var station_scene: PackedScene
 @export var levels: Array[LevelResource] = []

@@ -13,6 +13,9 @@
 [ext_resource type="FontVariation" uid="uid://18fprucwi6vm" path="res://assets/fonts/helvetica-wide-big.tres" id="10_ih84l"]
 [ext_resource type="PackedScene" uid="uid://dp1enws2ovmvs" path="res://scenes/ui/button_row/button_row.tscn" id="11_ih84l"]
 [ext_resource type="Script" uid="uid://b7nvenoqdnhoo" path="res://scripts/ButtonResource.gd" id="12_5sbj7"]
+[ext_resource type="Shader" uid="uid://d3qweaiaq824q" path="res://shaders/squigglevision.gdshader" id="12_ucmw2"]
+[ext_resource type="Texture2D" uid="uid://dfo427owj0sug" path="res://assets/textures/checkered.png" id="13_o6mh0"]
+[ext_resource type="FontVariation" uid="uid://pecy731lxmai" path="res://assets/fonts/helvetica.tres" id="13_rpuw2"]
 [ext_resource type="PackedScene" uid="uid://dwunu7kolq78o" path="res://scenes/ui/metro_station/metro_station.tscn" id="15_t82ie"]
 
 [sub_resource type="Resource" id="Resource_t82ie"]
@@ -33,9 +36,29 @@ level_name = "&~*@#^}&(?"
 station_name = "L4"
 metadata/_custom_type_script = "uid://cx8dqrp7hnfnd"
 
+[sub_resource type="Resource" id="Resource_ucmw2"]
+script = ExtResource("2_rpuw2")
+level_name = ">@:&%~?)\"@*"
+station_name = "L5"
+metadata/_custom_type_script = "uid://cx8dqrp7hnfnd"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sgptt"]
 shader = ExtResource("4_an507")
 shader_parameter/pixelSize = 8
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t1v37"]
+shader = ExtResource("12_ucmw2")
+shader_parameter/scale = Vector2(30, 30)
+shader_parameter/strength = 0.5
+shader_parameter/fps = 10.0
+shader_parameter/noise = ExtResource("13_o6mh0")
+
+[sub_resource type="FontVariation" id="FontVariation_anl86"]
+base_font = ExtResource("13_rpuw2")
+variation_embolden = 1.5
+variation_transform = Transform2D(1, 0.4, 0, 1.2, 0, 0)
+spacing_glyph = -80
+baseline_offset = 0.125
 
 [sub_resource type="Resource" id="Resource_dqdhh"]
 script = ExtResource("12_5sbj7")
@@ -43,7 +66,7 @@ label = "back to menu"
 id = "back"
 metadata/_custom_type_script = "uid://b7nvenoqdnhoo"
 
-[sub_resource type="Resource" id="Resource_ucmw2"]
+[sub_resource type="Resource" id="Resource_t1v37"]
 script = ExtResource("12_5sbj7")
 label = "enter"
 id = "enter"
@@ -74,7 +97,7 @@ font_color = Color(0.8992584, 0.8992584, 0.8992584, 1)
 layer = 2
 script = ExtResource("1_kvtm6")
 station_scene = ExtResource("15_t82ie")
-levels = Array[ExtResource("2_rpuw2")]([ExtResource("3_t82ie"), SubResource("Resource_t82ie"), SubResource("Resource_rpuw2"), SubResource("Resource_o6mh0")])
+levels = Array[ExtResource("2_rpuw2")]([ExtResource("3_t82ie"), SubResource("Resource_t82ie"), SubResource("Resource_rpuw2"), SubResource("Resource_o6mh0"), SubResource("Resource_ucmw2")])
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1351857415]
 anchors_preset = 11
@@ -205,10 +228,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BestLabel" type="RichTextLabel" parent="." unique_id=1920846534]
-offset_left = 192.0
-offset_top = 400.0
-offset_right = 776.0
-offset_bottom = 472.0
+offset_left = 184.0
+offset_top = 592.0
+offset_right = 768.0
+offset_bottom = 664.0
 theme = ExtResource("9_afrkd")
 theme_override_colors/default_color = Color(0.49503154, 0.6622465, 1, 1)
 theme_override_font_sizes/normal_font_size = 72
@@ -218,10 +241,10 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="SecretLabel" type="RichTextLabel" parent="." unique_id=583836509]
-offset_left = 192.0
-offset_top = 496.0
-offset_right = 888.0
-offset_bottom = 568.0
+offset_left = 184.0
+offset_top = 688.0
+offset_right = 880.0
+offset_bottom = 760.0
 theme = ExtResource("9_afrkd")
 theme_override_colors/default_color = Color(0.49503154, 0.6622465, 1, 1)
 theme_override_font_sizes/normal_font_size = 72
@@ -231,26 +254,48 @@ text = "SECRET  //  yes
 scroll_active = false
 autowrap_mode = 0
 
+[node name="RankLabel" type="RichTextLabel" parent="." unique_id=1238770086]
+z_index = 1
+material = SubResource("ShaderMaterial_t1v37")
+offset_left = -88.0
+offset_top = 72.0
+offset_right = 880.0
+offset_bottom = 824.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(536, 320)
+theme = ExtResource("9_afrkd")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 32
+theme_override_constants/shadow_offset_y = 32
+theme_override_fonts/normal_font = SubResource("FontVariation_anl86")
+theme_override_font_sizes/normal_font_size = 540
+bbcode_enabled = true
+text = "[shake level=20 rate=40]S+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Buttons" parent="." unique_id=832578793 instance=ExtResource("11_ih84l")]
 offset_left = 96.0
 offset_top = 904.0
 offset_right = 136.0
 offset_bottom = 944.0
-button_resources = Array[ExtResource("12_5sbj7")]([SubResource("Resource_dqdhh"), SubResource("Resource_ucmw2")])
+button_resources = Array[ExtResource("12_5sbj7")]([SubResource("Resource_dqdhh"), SubResource("Resource_t1v37")])
 inverted = true
 curr_selected = 1
 
 [node name="Disc" type="Control" parent="." unique_id=1623452856]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 1008.0
+offset_top = 1072.0
+offset_right = 1048.0
+offset_bottom = 1112.0
+rotation = 3.1415927
 
 [node name="DiscNumLabel" type="Label" parent="Disc" unique_id=1916572081]
 layout_mode = 0
-offset_left = 2015.0
 offset_top = 736.0
-offset_right = 3182.0
+offset_right = 1167.0
 offset_bottom = 1087.0
 rotation = 1.5707964
 text = "01"
@@ -258,9 +303,8 @@ label_settings = SubResource("LabelSettings_rpuw2")
 
 [node name="DiscLabel" type="Label" parent="Disc" unique_id=2092020850]
 layout_mode = 0
-offset_left = 2015.0
 offset_top = -56.0
-offset_right = 3182.0
+offset_right = 1167.0
 offset_bottom = 295.0
 rotation = 1.5707964
 text = "DISC"
