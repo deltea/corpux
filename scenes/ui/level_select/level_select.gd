@@ -10,8 +10,13 @@ const STATION_SEPARATION_RANDOMNESS = 100.0
 @export var levels: Array[LevelResource] = []
 
 @onready var background: ColorRect = $Background
+@onready var panel_background: ColorRect = $LeftBackground
 @onready var line: Line2D = $Line
 @onready var level_name_label: RichTextLabel = $LevelNameLabel
+@onready var dither: TextureRect = $LeftBackground/DitherTransition
+@onready var disc: Control = $Disc
+@onready var button_row: ButtonRow = $ButtonRow
+@onready var level_preview: TextureRect = $LevelPreview
 
 var curr_selected = 0
 var stations: Array[MetroStation]
@@ -30,13 +35,23 @@ func _ready() -> void:
 	set_selected(curr_selected)
 
 func animate_in():
-	# background.position.y = -1080.0
 	background.self_modulate.a = 0.0
+	panel_background.position.x = -1096.0
+	disc.position.y = -32.0
+	line.position.x = 728.0
+	button_row.position.y = 1136
+	level_name_label.visible_ratio = 0.0
+	level_preview.rotation_degrees = -90.0
 
 	if transition_tween: transition_tween.kill()
 	transition_tween = create_tween().set_parallel().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	transition_tween.tween_property(background, "self_modulate:a", 1.0, 0.5)
-	# transition_tween.tween_property(background, "position:y", 0.0, 0.5)
+	transition_tween.tween_property(background, "self_modulate:a", 1.0, 0.8)
+	transition_tween.tween_property(panel_background, "position:x", 0.0, 0.5)
+	transition_tween.tween_property(disc, "position:y", 1072.0, 0.5)
+	transition_tween.tween_property(line, "position:x", -80.0, 0.5).set_delay(0.25)
+	transition_tween.tween_property(button_row, "position:y", 904.0, 0.5).set_delay(0.25)
+	transition_tween.tween_property(level_name_label, "visible_ratio", 1.0, 0.5).set_delay(0.25).set_trans(Tween.TRANS_LINEAR)
+	transition_tween.tween_property(level_preview, "rotation_degrees", 0.0, 0.5).set_delay(0.25)
 
 func create_stations():
 	for i in range(levels.size()):

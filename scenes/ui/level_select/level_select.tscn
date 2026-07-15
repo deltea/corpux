@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://s1n2ngewv4ft"]
 
 [ext_resource type="Script" uid="uid://by2n65ciw2pue" path="res://scenes/ui/level_select/level_select.gd" id="1_kvtm6"]
-[ext_resource type="Texture2D" uid="uid://8wvisplh50h3" path="res://assets/textures/ui/spikes.png" id="2_dqbig"]
 [ext_resource type="Script" uid="uid://cx8dqrp7hnfnd" path="res://scripts/LevelResource.gd" id="2_rpuw2"]
 [ext_resource type="Texture2D" uid="uid://d2bdqgrkeuq36" path="res://assets/textures/ui/star.png" id="3_5qe3y"]
 [ext_resource type="Texture2D" uid="uid://bux2klqg2xtvg" path="res://assets/textures/ui/big-circle.png" id="3_gth3g"]
@@ -99,16 +98,16 @@ script = ExtResource("1_kvtm6")
 station_scene = ExtResource("15_t82ie")
 levels = Array[ExtResource("2_rpuw2")]([ExtResource("3_t82ie"), SubResource("Resource_t82ie"), SubResource("Resource_rpuw2"), SubResource("Resource_o6mh0"), SubResource("Resource_ucmw2")])
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1351857415]
+[node name="Background" type="ColorRect" parent="." unique_id=1351857415]
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -944.0
+offset_left = -1920.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Background" type="ColorRect" parent="." unique_id=189314018]
+[node name="LeftBackground" type="ColorRect" parent="." unique_id=189314018]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -117,21 +116,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.003921569, 0.07058824, 0.99215686, 1)
 
-[node name="Spikes" type="TextureRect" parent="Background" unique_id=468773224]
-self_modulate = Color(0.003921569, 0.07058824, 0.99215686, 1)
-layout_mode = 0
-offset_top = 1080.0
-offset_right = 1920.0
-offset_bottom = 1112.0
-texture = ExtResource("2_dqbig")
-stretch_mode = 1
-
-[node name="Stars" type="Control" parent="Background" unique_id=1075710096]
+[node name="Stars" type="Control" parent="LeftBackground" unique_id=1075710096]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Star" type="TextureRect" parent="Background/Stars" unique_id=829514757]
+[node name="Star" type="TextureRect" parent="LeftBackground/Stars" unique_id=829514757]
 self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
 layout_mode = 0
 offset_left = 80.0
@@ -141,7 +131,7 @@ offset_bottom = 296.0
 rotation = 0.2617994
 texture = ExtResource("3_5qe3y")
 
-[node name="Star2" type="TextureRect" parent="Background/Stars" unique_id=262540397]
+[node name="Star2" type="TextureRect" parent="LeftBackground/Stars" unique_id=262540397]
 self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
 layout_mode = 0
 offset_left = 856.00006
@@ -151,7 +141,7 @@ offset_bottom = 456.00003
 rotation = 0.7853982
 texture = ExtResource("3_5qe3y")
 
-[node name="Star3" type="TextureRect" parent="Background/Stars" unique_id=1123597888]
+[node name="Star3" type="TextureRect" parent="LeftBackground/Stars" unique_id=1123597888]
 self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
 layout_mode = 0
 offset_left = 808.0
@@ -161,7 +151,7 @@ offset_bottom = 959.99994
 rotation = 0.5235988
 texture = ExtResource("3_5qe3y")
 
-[node name="Star5" type="TextureRect" parent="Background/Stars" unique_id=742152751]
+[node name="Star5" type="TextureRect" parent="LeftBackground/Stars" unique_id=742152751]
 self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
 layout_mode = 0
 offset_left = 376.0
@@ -171,7 +161,7 @@ offset_bottom = 704.00006
 rotation = -0.7853982
 texture = ExtResource("3_5qe3y")
 
-[node name="Star6" type="TextureRect" parent="Background/Stars" unique_id=1718530477]
+[node name="Star6" type="TextureRect" parent="LeftBackground/Stars" unique_id=1718530477]
 self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
 layout_mode = 0
 offset_left = -72.0
@@ -181,7 +171,7 @@ offset_bottom = 1096.0
 rotation = -0.7853982
 texture = ExtResource("3_5qe3y")
 
-[node name="Star4" type="TextureRect" parent="Background/Stars" unique_id=1016341578]
+[node name="Star4" type="TextureRect" parent="LeftBackground/Stars" unique_id=1016341578]
 self_modulate = Color(0.26666668, 0.30980393, 0.9843137, 1)
 layout_mode = 0
 offset_left = 632.0
@@ -191,26 +181,45 @@ offset_bottom = 272.0
 rotation = -1.0471976
 texture = ExtResource("3_5qe3y")
 
-[node name="PixelateFilter" type="ColorRect" parent="Background" unique_id=550412170]
+[node name="PixelateFilter" type="ColorRect" parent="LeftBackground" unique_id=550412170]
 material = SubResource("ShaderMaterial_sgptt")
 layout_mode = 0
 offset_right = 968.0
 offset_bottom = 1080.0
 
-[node name="Preview" type="TextureRect" parent="." unique_id=1762883365]
-clip_children = 2
-offset_left = -216.0
-offset_top = 168.0
-offset_right = 864.0
-offset_bottom = 1248.0
+[node name="DitherTransition" type="TextureRect" parent="LeftBackground" unique_id=564826795]
+self_modulate = Color(0, 0.06599994, 0.99, 1)
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 976.0
+offset_top = 272.0
+offset_right = 2497.937
+offset_bottom = 400.0
+grow_vertical = 0
+rotation = -1.5707964
+texture = ExtResource("5_an507")
+stretch_mode = 1
+flip_v = true
+
+[node name="LevelPreview" type="TextureRect" parent="." unique_id=1762883365]
+clip_children = 1
+offset_left = -608.0
+offset_top = 184.0
+offset_right = 856.0
+offset_bottom = 1648.0
+pivot_offset = Vector2(608, 1128)
 texture = ExtResource("3_gth3g")
 
-[node name="PreviewTexture" type="TextureRect" parent="Preview" unique_id=1878283048]
+[node name="PreviewTexture" type="TextureRect" parent="LevelPreview" unique_id=1878283048]
 self_modulate = Color(0.003921569, 0.07058824, 0.99215686, 1)
 layout_mode = 0
-offset_left = -424.0
-offset_right = 1458.0
-offset_bottom = 1056.0
+offset_left = -312.0
+offset_top = -72.0
+offset_right = 1826.6365
+offset_bottom = 1128.0
 texture = ExtResource("4_2apfw")
 
 [node name="LevelNameLabel" type="RichTextLabel" parent="." unique_id=1852067345]
@@ -274,7 +283,7 @@ text = "[shake level=20 rate=40]S+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Buttons" parent="." unique_id=832578793 instance=ExtResource("11_ih84l")]
+[node name="ButtonRow" parent="." unique_id=832578793 instance=ExtResource("11_ih84l")]
 offset_left = 96.0
 offset_top = 904.0
 offset_right = 136.0
@@ -310,26 +319,10 @@ rotation = 1.5707964
 text = "DISC"
 label_settings = SubResource("LabelSettings_ew5by")
 
-[node name="DitherTransition" type="TextureRect" parent="." unique_id=564826795]
-self_modulate = Color(0.003921569, 0.07058824, 0.99215686, 1)
-texture_repeat = 2
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 976.0
-offset_top = 272.0
-offset_right = 2497.937
-offset_bottom = 400.0
-grow_vertical = 0
-rotation = -1.5707964
-texture = ExtResource("5_an507")
-stretch_mode = 1
-flip_v = true
-
 [node name="Line" type="Line2D" parent="." unique_id=1670737907]
 position = Vector2(-80, 0)
 points = PackedVector2Array(1616, -1128, 1616.8811, -779.09717, 1256, -125, 1256, 168, 1368, 368, 1368, 736, 1368, 888, 1256, 1080, 1256, 1600, 1552, 1976)
 width = 24.0
 default_color = Color(0.003921569, 0.07058824, 0.99215686, 1)
 
-[connection signal="button_pressed" from="Buttons" to="." method="_on_buttons_button_pressed"]
+[connection signal="button_pressed" from="ButtonRow" to="." method="_on_buttons_button_pressed"]
