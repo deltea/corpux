@@ -11,6 +11,7 @@ const button_scene = preload("res://scenes/ui/button_row/button.tscn")
 @export var is_column = false
 
 @onready var selector: NinePatchRect = $Selector
+@onready var selector_ping_timer: Timer = $SelectorPingTimer
 
 var buttons: Array[Button] = []
 var curr_selected = 0
@@ -41,6 +42,7 @@ func _ready() -> void:
 
 func set_selected(value: int):
 	curr_selected = clampi(value, 0, buttons.size() - 1)
+	selector_ping_timer.start()
 
 	if tween: tween.kill()
 	var target_pos = buttons[curr_selected].position - Vector2(selector_spacing_x / 2, selector_spacing_y / 2)

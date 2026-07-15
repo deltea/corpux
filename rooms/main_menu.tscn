@@ -24,21 +24,36 @@ shader_parameter/noise = ExtResource("7_en76g")
 
 [sub_resource type="Resource" id="Resource_11bbh"]
 script = ExtResource("7_0cbev")
-label = "start"
+label = "< start >"
 id = "start"
 metadata/_custom_type_script = "uid://b7nvenoqdnhoo"
 
 [sub_resource type="Resource" id="Resource_fumyx"]
 script = ExtResource("7_0cbev")
-label = "settings"
+label = "< settings >"
 id = "settings"
 metadata/_custom_type_script = "uid://b7nvenoqdnhoo"
 
 [sub_resource type="Resource" id="Resource_dau3a"]
 script = ExtResource("7_0cbev")
-label = "quit"
+label = "< quit >"
 id = "quit"
 metadata/_custom_type_script = "uid://b7nvenoqdnhoo"
+
+[sub_resource type="SystemFont" id="SystemFont_efxa6"]
+font_names = PackedStringArray("Helvetica")
+
+[sub_resource type="FontVariation" id="FontVariation_cq3ud"]
+base_font = SubResource("SystemFont_efxa6")
+variation_embolden = 0.8
+variation_transform = Transform2D(0.75, 0, 0, 1, 0, 0)
+spacing_glyph = -2
+spacing_space = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_cq3ud"]
+font = SubResource("FontVariation_cq3ud")
+font_size = 40
+font_color = Color(0.7411765, 0.7411765, 0.7372549, 1)
 
 [node name="MainMenu" type="CanvasLayer" unique_id=1693404774]
 script = ExtResource("1_j4uc2")
@@ -54,10 +69,10 @@ grow_vertical = 2
 
 [node name="Flowers" type="TextureRect" parent="." unique_id=620448583]
 self_modulate = Color(0.7411765, 0.7411765, 0.7372549, 1)
-offset_left = 32.0
-offset_top = 896.0
-offset_right = 1920.0
-offset_bottom = 1024.0
+offset_left = 96.0
+offset_top = 1026.0
+offset_right = 1792.0
+offset_bottom = 1122.0
 texture = ExtResource("3_en76g")
 expand_mode = 1
 stretch_mode = 1
@@ -265,5 +280,29 @@ grow_vertical = 2
 button_resources = Array[ExtResource("7_0cbev")]([SubResource("Resource_11bbh"), SubResource("Resource_fumyx"), SubResource("Resource_dau3a")])
 spacing = 40.0
 is_column = true
+
+[node name="VersionLabel" type="Label" parent="." unique_id=122646231]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 248.0
+offset_top = -112.0
+offset_right = 448.0
+offset_bottom = -71.0
+grow_vertical = 0
+text = "v1.0.0-beta"
+label_settings = SubResource("LabelSettings_cq3ud")
+
+[node name="TimeLabel" type="Label" parent="." unique_id=663884009]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1314.0
+offset_top = -112.0
+offset_right = 1574.0
+offset_bottom = -71.0
+grow_vertical = 0
+text = "bababooey"
+label_settings = SubResource("LabelSettings_cq3ud")
 
 [connection signal="button_pressed" from="ButtonRow" to="." method="_on_button_row_button_pressed"]
