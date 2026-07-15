@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://cx8dqrp7hnfnd" path="res://scripts/LevelResource.gd" id="2_rpuw2"]
 [ext_resource type="Texture2D" uid="uid://d2bdqgrkeuq36" path="res://assets/textures/ui/star.png" id="3_5qe3y"]
 [ext_resource type="Texture2D" uid="uid://bux2klqg2xtvg" path="res://assets/textures/ui/big-circle.png" id="3_gth3g"]
-[ext_resource type="Resource" uid="uid://ctkwtrutqmghf" path="res://assets/levels/level_1.tres" id="3_t82ie"]
+[ext_resource type="Resource" uid="uid://ctkwtrutqmghf" path="res://levels/level_1.tres" id="3_t82ie"]
 [ext_resource type="Texture2D" uid="uid://t40j4qwpvsua" path="res://assets/textures/ui/tutorial.png" id="4_2apfw"]
 [ext_resource type="Shader" uid="uid://c2qdlk2arkcl" path="res://shaders/pixelate_screen.gdshader" id="4_an507"]
 [ext_resource type="Texture2D" uid="uid://c78syilfevl1x" path="res://assets/textures/ui/dither-transition.png" id="5_an507"]
@@ -203,6 +203,33 @@ text = "[wave freq=2 amp=100]initialization"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BestLabel" type="RichTextLabel" parent="." unique_id=1920846534]
+offset_left = 192.0
+offset_top = 400.0
+offset_right = 776.0
+offset_bottom = 472.0
+theme = ExtResource("9_afrkd")
+theme_override_colors/default_color = Color(0.49503154, 0.6622465, 1, 1)
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "BEST  //  1:12:30"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="SecretLabel" type="RichTextLabel" parent="." unique_id=583836509]
+offset_left = 192.0
+offset_top = 496.0
+offset_right = 888.0
+offset_bottom = 568.0
+theme = ExtResource("9_afrkd")
+theme_override_colors/default_color = Color(0.49503154, 0.6622465, 1, 1)
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "SECRET  //  yes
+"
+scroll_active = false
+autowrap_mode = 0
 
 [node name="Buttons" parent="." unique_id=832578793 instance=ExtResource("11_ih84l")]
 offset_left = 96.0

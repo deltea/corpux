@@ -29,7 +29,7 @@ anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 56.0
 offset_top = -48.0
-offset_right = 808.0
+offset_right = 1128.0
 offset_bottom = 48.0
 grow_vertical = 2
 texture = ExtResource("1_qkyc3")
@@ -64,6 +64,7 @@ offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_styles/panel = SubResource("StyleBoxFlat_rpuw2")
 
 [node name="DotInner" type="Panel" parent="Dot" unique_id=1064848528]

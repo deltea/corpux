@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_3lgqm")
-level_name = "initialization"
+level_name = "initiation"
 level_scene = ExtResource("1_kjyf6")
 metadata/_custom_type_script = "uid://cx8dqrp7hnfnd"
