@@ -28,7 +28,7 @@ func _on_unpixelate(duration: float):
 func set_smear(amount: float):
 	crt.material.set_shader_parameter("luma_smear_px", BASE_SMEAR + amount)
 
-func _on_flashbang(duration: float):
-	flashbang.color.a = 1.0
+func _on_flashbang(duration: float, amount: float = 1.0):
+	flashbang.color.a = amount
 	var tween = create_tween()
 	tween.tween_property(flashbang, "color:a", 0.0, duration)
