@@ -323,6 +323,6 @@ label_settings = SubResource("LabelSettings_ew5by")
 position = Vector2(-80, 0)
 points = PackedVector2Array(1616, -1128, 1616.8811, -779.09717, 1256, -125, 1256, 168, 1368, 368, 1368, 736, 1368, 888, 1256, 1080, 1256, 1600, 1552, 1976)
 width = 24.0
-default_color = Color(0.003921569, 0.07058824, 0.99215686, 1)
+default_color = Color(0.9843137, 0.047058824, 0.45490196, 1)
 
 [connection signal="button_pressed" from="ButtonRow" to="." method="_on_buttons_button_pressed"]

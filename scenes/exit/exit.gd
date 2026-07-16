@@ -10,8 +10,8 @@ func _ready() -> void:
 
 func open_doors():
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
-	tween.tween_property(door_left, "position:x", 10, 0.4)
-	tween.tween_property(door_right, "position:x", -10, 0.4)
+	tween.tween_property(door_left, "position:x", 11, 0.4)
+	tween.tween_property(door_right, "position:x", -11, 0.4)
 
 func close_doors():
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
