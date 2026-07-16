@@ -1,11 +1,11 @@
 class_name Level extends Room
 
-@export var level_name: String
+@export var level_resource: LevelResource
 
 @export var end_screen_scene: PackedScene
 @export var death_screen_scene: PackedScene
 
-var time = 0.0
+var curr_time = 0.0
 var is_timer_started = false
 var is_secret_found = false
 
@@ -21,23 +21,23 @@ func _ready() -> void:
 
 func _process(dt: float) -> void:
 	if is_timer_started:
-		time += dt
+		curr_time += dt
 
 func _on_end_level():
-	print(time)
+	print(curr_time)
 	is_timer_started = false
 	GlobalCanvas.set_smear(0.0)
 
 	var end_screen = end_screen_scene.instantiate() as EndScreen
 	add_child(end_screen)
-	var rank = get_rank(time)
-	SaveManager.update_level_data(level_name, time, rank, is_secret_found)
+	var rank = get_rank(curr_time, level_resource.ranking_cutoffs)
+	SaveManager.update_level_data(level_resource.level_name, curr_time, rank, is_secret_found)
 	end_screen.set_info(
-		level_name,
-		time,
+		level_resource.level_name,
+		curr_time,
 		rank,
-		SaveManager.get_level_time(level_name),
-		SaveManager.get_level_secret(level_name)
+		SaveManager.get_level_time(level_resource.level_name),
+		SaveManager.get_level_secret(level_resource.level_name)
 	)
 
 	await Clock.wait(0.25)
@@ -51,5 +51,8 @@ func _on_enemy_died():
 	if get_tree().get_node_count_in_group("enemies") <= 1:
 		Events.all_enemies_dead.emit()
 
-func get_rank(time: float) -> String:
-	return "S+"
+func get_rank(time: float, cutoffs: Dictionary[String, float]) -> String:
+	for rank in cutoffs.keys():
+		if time <= cutoffs[rank]:
+			return rank
+	return cutoffs.keys()[-1]

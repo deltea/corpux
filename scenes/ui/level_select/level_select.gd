@@ -110,4 +110,4 @@ func _on_buttons_button_pressed(id: String) -> void:
 	if id == "back":
 		get_tree().change_scene_to_file("res://rooms/main_menu.tscn")
 	if id == "enter":
-		get_tree().change_scene_to_packed(levels[curr_selected].level_scene)
+		get_tree().change_scene_to_file(levels[curr_selected].level_scene_path)

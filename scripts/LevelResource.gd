@@ -1,14 +1,12 @@
 class_name LevelResource extends Resource
 
-enum Rank { S_PLUS, S, A, B, C, D }
-
 @export var level_name = "level name"
 @export var station_name = "L1"
-@export var level_scene: PackedScene
-@export var ranking_cutoffs: Dictionary[Rank, float] = {
-	Rank.S_PLUS: 60,
-	Rank.S: 90,
-	Rank.A: 120,
-	Rank.B: 150,
-	Rank.C: 180
+@export_file("*.tscn", "*.scn") var level_scene_path: String
+@export var ranking_cutoffs: Dictionary[String, float] = {
+	"S+": 45,
+	"S": 60,
+	"A": 75,
+	"B": 100,
+	"C": 120
 }
