@@ -1,9 +1,9 @@
-- [ ] main menu and level select
 - [ ] score recording
 - [ ] finish first level
 - [ ] enemy model
 - [ ] crosshair system
 - [ ] add sfx and music
+- [x] main menu and level select
 - [x] first level design
 - [x] doors only work when enemies are dead
 - [x] enemy explosion effects
