@@ -1,7 +1,6 @@
 - [ ] main menu and level select
 - [ ] score recording
 - [ ] finish first level
-- [ ] scene manager
 - [ ] enemy model
 - [ ] crosshair system
 - [ ] add sfx and music
@@ -25,6 +24,7 @@
 
 ## uhhhhh later
 
+- [ ] scene manager
 - [ ] auto aim for throws?? cool lookin frame ui
 - [ ] quake movement revamp
 - [ ] fix ground decal flickering
