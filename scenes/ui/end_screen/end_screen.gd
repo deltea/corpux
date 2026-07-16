@@ -36,7 +36,7 @@ func _process(dt: float) -> void:
 func set_info(
 	level_name: String,
 	time: float,
-	desired_time: float,
+	rank: String,
 	best_time: float,
 	secret: bool
 ):
@@ -44,11 +44,8 @@ func set_info(
 	time_label.text = "TIME  //  " + str(format_time(time))
 	best_label.text = "BEST  //  " + str(format_time(best_time))
 	secret_label.text = "SECRET  //  " + ("yes" if secret else "no")
-	rank_label.text = "[shake level=20 rate=40]" + get_rank(time, desired_time)
+	rank_label.text = "[shake level=20 rate=40]" + rank
 	# add weapon later
-
-func get_rank(time: float, desired_time: float):
-	return "S+"
 
 func format_time(time: float) -> String:
 	var minutes = int(time / 60)

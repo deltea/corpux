@@ -236,6 +236,26 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="RankLabel" type="RichTextLabel" parent="." unique_id=1238770086]
+z_index = 1
+material = SubResource("ShaderMaterial_t1v37")
+offset_left = -88.0
+offset_top = 72.0
+offset_right = 880.0
+offset_bottom = 824.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(536, 320)
+theme = ExtResource("9_afrkd")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 32
+theme_override_constants/shadow_offset_y = 32
+theme_override_fonts/normal_font = SubResource("FontVariation_anl86")
+theme_override_font_sizes/normal_font_size = 540
+bbcode_enabled = true
+text = "[shake level=20 rate=40]S+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="BestLabel" type="RichTextLabel" parent="." unique_id=1920846534]
 offset_left = 184.0
 offset_top = 592.0
@@ -262,26 +282,6 @@ text = "SECRET  //  yes
 "
 scroll_active = false
 autowrap_mode = 0
-
-[node name="RankLabel" type="RichTextLabel" parent="." unique_id=1238770086]
-z_index = 1
-material = SubResource("ShaderMaterial_t1v37")
-offset_left = -88.0
-offset_top = 72.0
-offset_right = 880.0
-offset_bottom = 824.0
-scale = Vector2(0.5, 0.5)
-pivot_offset = Vector2(536, 320)
-theme = ExtResource("9_afrkd")
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_constants/shadow_offset_x = 32
-theme_override_constants/shadow_offset_y = 32
-theme_override_fonts/normal_font = SubResource("FontVariation_anl86")
-theme_override_font_sizes/normal_font_size = 540
-bbcode_enabled = true
-text = "[shake level=20 rate=40]S+"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="ButtonRow" parent="." unique_id=832578793 instance=ExtResource("11_ih84l")]
 offset_left = 96.0

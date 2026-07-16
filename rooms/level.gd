@@ -7,6 +7,7 @@ class_name Level extends Room
 
 var time = 0.0
 var is_timer_started = false
+var is_secret_found = false
 
 func _ready() -> void:
 	Events.unpixelate.emit(1.0)
@@ -29,7 +30,15 @@ func _on_end_level():
 
 	var end_screen = end_screen_scene.instantiate() as EndScreen
 	add_child(end_screen)
-	end_screen.set_info(level_name, time, 10.0, time, false)
+	var rank = get_rank(time)
+	SaveManager.update_level_data(level_name, time, rank, is_secret_found)
+	end_screen.set_info(
+		level_name,
+		time,
+		rank,
+		SaveManager.get_level_time(level_name),
+		SaveManager.get_level_secret(level_name)
+	)
 
 	await Clock.wait(0.25)
 
@@ -41,3 +50,6 @@ func _on_death():
 func _on_enemy_died():
 	if get_tree().get_node_count_in_group("enemies") <= 1:
 		Events.all_enemies_dead.emit()
+
+func get_rank(time: float) -> String:
+	return "S+"

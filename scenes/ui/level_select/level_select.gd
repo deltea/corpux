@@ -17,6 +17,9 @@ const STATION_SEPARATION_RANDOMNESS = 100.0
 @onready var disc: Control = $Disc
 @onready var button_row: ButtonRow = $ButtonRow
 @onready var level_preview: TextureRect = $LevelPreview
+@onready var rank_label: RichTextLabel = $RankLabel
+@onready var best_label: RichTextLabel = $BestLabel
+@onready var secret_label: RichTextLabel = $SecretLabel
 
 var curr_selected = 0
 var stations: Array[MetroStation]
@@ -71,12 +74,31 @@ func set_selected(value: int):
 	stations[curr_selected].unselected.emit()
 	curr_selected = clampi(value, 0, levels.size() - 1)
 	stations[curr_selected].selected.emit()
-	level_name_label.text = "[wave freq=2 amp=100]" + levels[curr_selected].level_name
+
+	var level_name = levels[curr_selected].level_name
+	level_name_label.text = "[wave freq=2 amp=100]" + level_name
+	if SaveManager.get_level_time(level_name):
+		rank_label.text = "[shake level=20 rate=40]" + SaveManager.get_level_rank(level_name)
+		best_label.text = "BEST  //  " + str(format_time(SaveManager.get_level_time(level_name)))
+		secret_label.text = "SECRET  //  " + get_yes_no(SaveManager.get_level_secret(level_name))
+	else:
+		rank_label.text = "[shake level=20 rate=40]-  -"
+		best_label.text = "BEST  //  ???"
+		secret_label.text = "SECRET  //  ???"
 
 	if line_tween: line_tween.kill()
 	line_tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	var target_y = 540 - stations[curr_selected].global_position.y - stations[curr_selected].size.y / 2
 	line_tween.tween_property(line, "global_position:y", target_y, 0.5).as_relative()
+
+func format_time(time: float):
+	var minutes: int = int(time) / 60
+	var seconds: int = int(time) % 60
+	var milliseconds: int = int((time - int(time)) * 100)
+	return "%02d:%02d:%02d" % [minutes, seconds, milliseconds]
+
+func get_yes_no(val: bool):
+	return "yes" if val else "no"
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("down"):
