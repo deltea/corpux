@@ -1,10 +1,11 @@
 # todo
 
-- [ ] finish first level
 - [ ] enemy model
 - [ ] crosshair system
+- [ ] tutorial stuff
 - [ ] add sfx and music
 - [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
+- [x] finish first level
 - [x] score recording
 - [x] main menu and level select
 - [x] first level design
