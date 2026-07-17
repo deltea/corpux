@@ -1,7 +1,10 @@
+# todo
+
 - [ ] finish first level
 - [ ] enemy model
 - [ ] crosshair system
 - [ ] add sfx and music
+- [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
 - [x] score recording
 - [x] main menu and level select
 - [x] first level design
@@ -25,7 +28,6 @@
 ## uhhhhh later
 
 - [ ] scene manager
-- [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
 - [ ] auto aim for throws?? cool lookin frame ui
 - [ ] quake movement revamp
 - [ ] fix ground decal flickering
