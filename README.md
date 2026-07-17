@@ -1,6 +1,5 @@
 # todo
 
-- [ ] vending dialogue camera lock
 - [ ] cool hud
 - [ ] enemy model
 - [ ] shooting enemy
@@ -9,6 +8,7 @@
 - [ ] decorate the level
 - [ ] add sfx and music
 - [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
+- [x] vending dialogue camera lock
 - [x] finish first level
 - [x] score recording
 - [x] main menu and level select

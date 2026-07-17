@@ -59,8 +59,8 @@ func fire():
 
 	super.fire()
 
-	mesh.rotation_degrees.z = -12.0
-	pivot.rotation_degrees.x = 15.0
+	mesh.rotation_degrees.z = -15.0
+	pivot.rotation_degrees.x = 20.0
 
 	var muzzle_flash = Sprite3D.new()
 	get_tree().current_scene.add_child(muzzle_flash)

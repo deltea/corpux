@@ -37,6 +37,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Events.end_level.connect(_on_end_level)
 	Events.death.connect(_on_death)
+	Events.turn_head_to.connect(_on_turn_head_to)
 
 func _process(dt: float) -> void:
 	GlobalCanvas.set_smear(velocity.length() / 15.0)
@@ -214,6 +215,12 @@ func stair_step_up():
 func bounce():
 	velocity.y = sqrt(2 * BOUNCE_HEIGHT * GRAVITY)
 
+func _on_turn_head_to(position: Vector3):
+	var to_target = position - global_position
+	var target_angle = rad_to_deg(atan2(-to_target.x, -to_target.z))
+	var tween = create_tween().set_parallel().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "rotation_degrees:y", target_angle, 1.0)
+
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false
 	velocity.x = dash_dir.x * 20
@@ -235,7 +242,6 @@ func _unhandled_input(event: InputEvent):
 func _on_end_level():
 	process_mode = Node.PROCESS_MODE_DISABLED
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	await Clock.wait(0.25)
 
 func _on_death():
 	process_mode = Node.PROCESS_MODE_DISABLED
