@@ -25,6 +25,7 @@
 ## uhhhhh later
 
 - [ ] scene manager
+- [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
 - [ ] auto aim for throws?? cool lookin frame ui
 - [ ] quake movement revamp
 - [ ] fix ground decal flickering
