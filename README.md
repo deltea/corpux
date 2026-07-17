@@ -1,6 +1,7 @@
 # todo
 
 - [ ] enemy model
+- [ ] shooting enemy
 - [ ] crosshair system
 - [ ] tutorial stuff
 - [ ] add sfx and music
