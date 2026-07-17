@@ -52,53 +52,56 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106, 8, -139)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117, -130.5, -126.5)
 
 [node name="BasicEnemy21" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="3" unique_id=867098808 instance=ExtResource("3_56mwc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106, -114.5, -156.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106, -114.5, -160.5)
 
-[node name="BasicEnemy17" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="4" unique_id=294266190 instance=ExtResource("3_56mwc")]
+[node name="BasicEnemy22" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="4" unique_id=682851237 instance=ExtResource("3_56mwc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106, -114.5, -152.5)
+
+[node name="BasicEnemy17" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="5" unique_id=294266190 instance=ExtResource("3_56mwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -164, -93.5, -101.5)
 
-[node name="BasicEnemy18" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="5" unique_id=2101012834 instance=ExtResource("3_56mwc")]
+[node name="BasicEnemy18" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="6" unique_id=2101012834 instance=ExtResource("3_56mwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -164, -93.5, -47.5)
 
-[node name="BasicEnemy4" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="6" unique_id=894157278 instance=ExtResource("3_56mwc")]
+[node name="BasicEnemy4" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="7" unique_id=894157278 instance=ExtResource("3_56mwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117, -130.5, -21.5)
 
-[node name="BasicEnemy5" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="7" unique_id=1137213158 instance=ExtResource("3_56mwc")]
+[node name="BasicEnemy5" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="8" unique_id=1137213158 instance=ExtResource("3_56mwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, -130.5, -21.5)
 
-[node name="BasicEnemy6" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="8" unique_id=940660908 instance=ExtResource("3_56mwc")]
+[node name="BasicEnemy6" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="9" unique_id=940660908 instance=ExtResource("3_56mwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, -130.5, -125.5)
 
-[node name="BasicEnemy7" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="9" unique_id=843121416 instance=ExtResource("3_56mwc")]
+[node name="BasicEnemy7" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="10" unique_id=843121416 instance=ExtResource("3_56mwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71, -100.5, -119.5)
 max_health = 2
 
-[node name="BasicEnemy10" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="10" unique_id=1457243777 instance=ExtResource("3_56mwc")]
+[node name="BasicEnemy10" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="11" unique_id=1457243777 instance=ExtResource("3_56mwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71, -100.5, -25.5)
 max_health = 2
 
-[node name="BasicEnemy8" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="11" unique_id=2047389568 instance=ExtResource("3_56mwc")]
+[node name="BasicEnemy8" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="12" unique_id=2047389568 instance=ExtResource("3_56mwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57, -100.5, -92.5)
 
-[node name="BasicEnemy12" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="12" unique_id=58752290 instance=ExtResource("3_56mwc")]
+[node name="BasicEnemy12" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="13" unique_id=58752290 instance=ExtResource("3_56mwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -79, -87.5)
 
-[node name="BasicEnemy16" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="13" unique_id=1114828678 instance=ExtResource("3_56mwc")]
+[node name="BasicEnemy16" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="14" unique_id=1114828678 instance=ExtResource("3_56mwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52, -69.5, -99.5)
 
-[node name="BasicEnemy19" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="14" unique_id=942877097 instance=ExtResource("3_56mwc")]
+[node name="BasicEnemy19" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="15" unique_id=942877097 instance=ExtResource("3_56mwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, -93.5, -92.5)
 
-[node name="BasicEnemy20" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="15" unique_id=522839383 instance=ExtResource("3_56mwc")]
+[node name="BasicEnemy20" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="16" unique_id=522839383 instance=ExtResource("3_56mwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56, -93.5, -119.5)
 
-[node name="BasicEnemy13" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="16" unique_id=868604824 instance=ExtResource("3_56mwc")]
+[node name="BasicEnemy13" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="17" unique_id=868604824 instance=ExtResource("3_56mwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -79, -57.5)
 
-[node name="BasicEnemy11" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="17" unique_id=1239644286 instance=ExtResource("3_56mwc")]
+[node name="BasicEnemy11" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="18" unique_id=1239644286 instance=ExtResource("3_56mwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57, -134.5, -72)
 
-[node name="BasicEnemy9" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="18" unique_id=155070178 instance=ExtResource("3_56mwc")]
+[node name="BasicEnemy9" parent="Environment/Enemies" parent_id_path=PackedInt32Array(1301162754) index="19" unique_id=155070178 instance=ExtResource("3_56mwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57, -100.5, -50.5)
 
 [node name="StartArea" type="CSGCombiner3D" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="0" unique_id=2109239074]
@@ -599,10 +602,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.17567, -136.5, -50)
 [node name="Bouncepad2" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="9" unique_id=1215705029 instance=ExtResource("9_d6tof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.17567, -136.5, -96)
 
-[node name="Bouncepad3" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="10" unique_id=527038075 instance=ExtResource("9_d6tof")]
+[node name="Bouncepad5" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="10" unique_id=749547452 instance=ExtResource("9_d6tof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.175667, -136.5, -157)
+
+[node name="Bouncepad6" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="11" unique_id=7464531 instance=ExtResource("9_d6tof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.175667, -116, -157)
+
+[node name="Bouncepad3" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="12" unique_id=527038075 instance=ExtResource("9_d6tof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.175667, -102.5, -73)
 
-[node name="Bouncepad4" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="11" unique_id=1009042943 instance=ExtResource("9_d6tof")]
+[node name="Bouncepad4" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="13" unique_id=1009042943 instance=ExtResource("9_d6tof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -164.17566, -136.5, -74)
 
 [node name="Arch" parent="Environment/Decoration" parent_id_path=PackedInt32Array(1521980672) index="0" unique_id=1744136896 instance=ExtResource("2_0rbq8")]
