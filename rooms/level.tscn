@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bb0lxurjv7u4s" path="res://scenes/environment/sun.tscn" id="2_4ve75"]
 [ext_resource type="PackedScene" uid="uid://dqhqrp2i12tgx" path="res://scenes/ui/end_screen/end_screen.tscn" id="2_dg3qb"]
 [ext_resource type="PackedScene" uid="uid://xm6dqt1ijhh0" path="res://scenes/ui/death_screen/death_screen.tscn" id="3_x0uc3"]
-[ext_resource type="PackedScene" uid="uid://d2lsigfcd1rcy" path="res://scenes/entrance_station/entrance_station.tscn" id="7_ar4t0"]
+[ext_resource type="PackedScene" uid="uid://d2lsigfcd1rcy" path="res://scenes/station/station.tscn" id="7_ar4t0"]
 
 [node name="Level" type="Node3D" unique_id=503138906]
 script = ExtResource("1_tibj6")

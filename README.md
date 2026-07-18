@@ -1,5 +1,6 @@
 # todo
 
+- [ ] train entrance and exit
 - [ ] cool hud
 - [ ] add sfx and music
 - [ ] enemy model
