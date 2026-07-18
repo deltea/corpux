@@ -41,18 +41,11 @@ func set_info(
 	secret: bool
 ):
 	level_name_label.text = "[wave freq=2 amp=100]" + level_name
-	time_label.text = "TIME  //  " + str(format_time(time))
-	best_label.text = "BEST  //  " + str(format_time(best_time))
+	time_label.text = "TIME  //  " + str(Utils.format_time(time))
+	best_label.text = "BEST  //  " + str(Utils.format_time(best_time))
 	secret_label.text = "SECRET  //  " + ("yes" if secret else "no")
 	rank_label.text = "[shake level=20 rate=40]" + rank
 	# add weapon later
-
-func format_time(time: float) -> String:
-	var minutes = int(time / 60)
-	var seconds = int(time) % 60
-	var hundredths = int((time - int(time)) * 100)
-
-	return "%02d:%02d:%02d" % [minutes, seconds, hundredths]
 
 func animate_in():
 	background.self_modulate.a = 0.0

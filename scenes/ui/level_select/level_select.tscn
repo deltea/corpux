@@ -257,9 +257,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BestLabel" type="RichTextLabel" parent="." unique_id=1920846534]
-offset_left = 184.0
+offset_left = 136.0
 offset_top = 592.0
-offset_right = 768.0
+offset_right = 776.0
 offset_bottom = 664.0
 theme = ExtResource("9_afrkd")
 theme_override_colors/default_color = Color(0.49503154, 0.6622465, 1, 1)
@@ -270,9 +270,9 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="SecretLabel" type="RichTextLabel" parent="." unique_id=583836509]
-offset_left = 184.0
+offset_left = 136.0
 offset_top = 688.0
-offset_right = 880.0
+offset_right = 832.0
 offset_bottom = 760.0
 theme = ExtResource("9_afrkd")
 theme_override_colors/default_color = Color(0.49503154, 0.6622465, 1, 1)

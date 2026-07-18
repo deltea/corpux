@@ -79,7 +79,7 @@ func set_selected(value: int):
 	level_name_label.text = "[wave freq=2 amp=100]" + level_name
 	if SaveManager.get_level_time(level_name):
 		rank_label.text = "[shake level=20 rate=40]" + SaveManager.get_level_rank(level_name)
-		best_label.text = "BEST  //  " + str(format_time(SaveManager.get_level_time(level_name)))
+		best_label.text = "BEST  //  " + str(Utils.format_time(SaveManager.get_level_time(level_name)))
 		secret_label.text = "SECRET  //  " + get_yes_no(SaveManager.get_level_secret(level_name))
 	else:
 		rank_label.text = "[shake level=20 rate=40]-  -"
@@ -90,12 +90,6 @@ func set_selected(value: int):
 	line_tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	var target_y = 540 - stations[curr_selected].global_position.y - stations[curr_selected].size.y / 2
 	line_tween.tween_property(line, "global_position:y", target_y, 0.5).as_relative()
-
-func format_time(time: float):
-	var minutes: int = int(time) / 60
-	var seconds: int = int(time) % 60
-	var milliseconds: int = int((time - int(time)) * 100)
-	return "%02d:%02d:%02d" % [minutes, seconds, milliseconds]
 
 func get_yes_no(val: bool):
 	return "yes" if val else "no"
