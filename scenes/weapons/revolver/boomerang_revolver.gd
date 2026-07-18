@@ -32,7 +32,7 @@ signal caught()
 func _ready() -> void:
 	# make sure its rotated correctly
 	marker.visible = false
-	marker.scale.x = 3.0
+	marker.scale.x = 5.0
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
 	tween.tween_property(self, "global_rotation:x", -PI/2, 0.5)
 	tween.tween_property(self, "global_rotation:z", 0.0, 0.5)

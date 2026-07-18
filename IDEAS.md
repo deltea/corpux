@@ -27,3 +27,8 @@
 - [ ] level best rank
 - [x] back button
 - [x] enter button
+
+## hud things
+
+- [ ] dashes left
+- [ ] enemies left
