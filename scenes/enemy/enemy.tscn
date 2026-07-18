@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ek8wacojmfxs" path="res://scenes/enemy/enemy.gd" id="1_4a83h"]
 [ext_resource type="PackedScene" uid="uid://ce5g08imwy782" path="res://scenes/particles/enemy_explosion_particles.tscn" id="2_a3pup"]
+[ext_resource type="Texture2D" uid="uid://crcrt8klbpn2s" path="res://assets/textures/markers/enemy-marker.png" id="3_40wdo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4a83h"]
 
@@ -11,3 +12,11 @@ explosion_scene = ExtResource("2_a3pup")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1789538307]
 shape = SubResource("BoxShape3D_4a83h")
+
+[node name="Marker" type="Sprite3D" parent="." unique_id=1012418726]
+layers = 2
+pixel_size = 0.035
+billboard = 1
+no_depth_test = true
+texture_filter = 0
+texture = ExtResource("3_40wdo")

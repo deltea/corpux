@@ -41,8 +41,8 @@ func _ready() -> void:
 	original_rot = rotation_degrees
 
 func _process(dt: float) -> void:
-	mesh.rotation_degrees = lerp(mesh.rotation_degrees, target_mesh_rot, 5.0 * dt)
-	pivot.rotation_degrees = lerp(pivot.rotation_degrees, target_pivot_rot, 5.0 * dt)
+	mesh.rotation_degrees = lerp(mesh.rotation_degrees, target_mesh_rot, 5.0 * dt).snappedf(0.5)
+	pivot.rotation_degrees = lerp(pivot.rotation_degrees, target_pivot_rot, 5.0 * dt).snappedf(0.5)
 
 	if is_winding_up:
 		wind_up_time = clampf(wind_up_time + dt, 0.0, MAX_WIND_UP_TIME)
@@ -96,10 +96,14 @@ func fire():
 
 	get_tree().current_scene.add_child(hitscan_line)
 	var tween = get_tree().create_tween().set_parallel()
-	tween.tween_property(muzzle_flash, "modulate:a", 0, 0.11)
-	tween.tween_property(muzzle_flash, "scale", Vector3.ZERO, 0.12)
-	tween.tween_property(hitscan_line, "startThickness", 0, 0.15)
-	tween.tween_property(hitscan_line, "endThickness", 0, 0.15)
+	# tween.tween_property(muzzle_flash, "modulate:a", 0, 0.11)
+	tween.tween_property(muzzle_flash, "modulate:a", 0, 0.0).set_delay(0.11)
+	# tween.tween_property(muzzle_flash, "scale", Vector3.ZERO, 0.12)
+	tween.tween_property(muzzle_flash, "scale", Vector3.ZERO, 0.0).set_delay(0.12)
+	# tween.tween_property(hitscan_line, "startThickness", 0, 0.15)
+	tween.tween_property(hitscan_line, "startThickness", 0, 0.0).set_delay(0.15)
+	# tween.tween_property(hitscan_line, "endThickness", 0, 0.15)
+	tween.tween_property(hitscan_line, "endThickness", 0, 0.0).set_delay(0.15)
 	tween.tween_property(cam, "rotation_degrees:z", 0.0, 0.1)
 	tween.chain().tween_callback(hitscan_line.queue_free)
 	tween.tween_callback(muzzle_flash.queue_free)

@@ -93,31 +93,31 @@ debug_color = Color(0.9511594, 5.2943824e-06, 0.5674605, 0.41960785)
 [node name="revolver" parent="." unique_id=465571423 instance=ExtResource("2_kypvd")]
 transform = Transform3D(0.5, 0, 0, 0, 0.49999997, 0, 0, 0, 0.49999997, 0, 0, 0)
 
-[node name="Cube" parent="revolver" index="1" unique_id=1912929597]
+[node name="Cube" parent="revolver" index="1" unique_id=781856020]
 layers = 2
 material_override = SubResource("StandardMaterial3D_het4p")
 cast_shadow = 0
 
-[node name="Cube_001" parent="revolver" index="2" unique_id=445465374]
+[node name="Cube_001" parent="revolver" index="2" unique_id=1111951209]
 layers = 2
 material_override = SubResource("StandardMaterial3D_arx16")
 cast_shadow = 0
 
-[node name="Cube_002" parent="revolver" index="3" unique_id=759482176]
+[node name="Cube_002" parent="revolver" index="3" unique_id=1411756658]
 layers = 2
 material_override = SubResource("StandardMaterial3D_iyp7i")
 cast_shadow = 0
 
-[node name="Cube_003" parent="revolver" index="4" unique_id=905675379]
+[node name="Cube_003" parent="revolver" index="4" unique_id=1174937842]
 layers = 2
 cast_shadow = 0
 
-[node name="Cube_004" parent="revolver" index="5" unique_id=736486288]
+[node name="Cube_004" parent="revolver" index="5" unique_id=1688783028]
 layers = 2
 material_override = SubResource("StandardMaterial3D_d4yn4")
 cast_shadow = 0
 
-[node name="Cube_005" parent="revolver" index="6" unique_id=1054942380]
+[node name="Cube_005" parent="revolver" index="6" unique_id=62993252]
 layers = 2
 material_override = SubResource("StandardMaterial3D_q00io")
 cast_shadow = 0

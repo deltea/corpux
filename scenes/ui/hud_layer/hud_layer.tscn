@@ -12,7 +12,7 @@ offset_left = 64.0
 offset_top = -88.0
 offset_right = 464.0
 grow_vertical = 0
-theme_override_constants/separation = 0
+theme_override_constants/separation = 16
 
 [node name="ColorRect" type="TextureRect" parent="HBoxContainer" unique_id=2142377302]
 custom_minimum_size = Vector2(80, 0)
