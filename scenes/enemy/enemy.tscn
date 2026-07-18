@@ -14,6 +14,7 @@ explosion_scene = ExtResource("2_a3pup")
 shape = SubResource("BoxShape3D_4a83h")
 
 [node name="Marker" type="Sprite3D" parent="." unique_id=1012418726]
+visible = false
 layers = 2
 pixel_size = 0.035
 billboard = 1
