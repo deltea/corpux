@@ -32,3 +32,4 @@
 
 - [ ] dashes left
 - [ ] enemies left
+- [ ] timer
