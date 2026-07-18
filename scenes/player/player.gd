@@ -215,8 +215,8 @@ func stair_step_up():
 func bounce():
 	velocity.y = sqrt(2 * BOUNCE_HEIGHT * GRAVITY)
 
-func _on_turn_head_to(position: Vector3):
-	var to_target = position - global_position
+func _on_turn_head_to(target_pos: Vector3):
+	var to_target = target_pos - global_position
 	var target_angle = rad_to_deg(atan2(-to_target.x, -to_target.z))
 	var tween = create_tween().set_parallel().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "rotation_degrees:y", target_angle, 1.0)
