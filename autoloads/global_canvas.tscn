@@ -89,17 +89,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.5
-offset_top = -4.5
-offset_right = 4.5
-offset_bottom = 4.5
+offset_left = -18.0
+offset_top = -15.0
+offset_right = 18.0
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(6, 6)
-pivot_offset = Vector2(4.5, 4.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 2
 texture = ExtResource("3_a21u8")
-stretch_mode = 3
 
 [node name="Flashbang" type="ColorRect" parent="." unique_id=1783240721]
 anchors_preset = 15
