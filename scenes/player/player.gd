@@ -33,6 +33,8 @@ var is_grounded = false
 var is_walled = false
 var dashes_left = DASH_COUNT
 
+var head_tween: Tween
+
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Events.end_level.connect(_on_end_level)
@@ -214,8 +216,9 @@ func bounce():
 func _on_turn_head_to(target_pos: Vector3):
 	var to_target = target_pos - global_position
 	var target_angle = rad_to_deg(atan2(-to_target.x, -to_target.z))
-	var tween = create_tween().set_parallel().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "rotation_degrees:y", target_angle, 1.0)
+	if head_tween: head_tween.kill()
+	head_tween = create_tween().set_parallel().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	head_tween.tween_property(self, "rotation_degrees:y", target_angle, 1.0)
 
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false
@@ -230,7 +233,7 @@ func _unhandled_input(event: InputEvent):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		if event is InputEventMouseMotion:
+		if event is InputEventMouseMotion and (not head_tween or not head_tween.is_running()):
 			rotate_y(-event.relative.x * MOUSE_SENS * 0.002)
 			head.rotate_x(-event.relative.y * MOUSE_SENS * 0.002)
 			head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
