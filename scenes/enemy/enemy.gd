@@ -4,6 +4,8 @@ class_name Enemy extends StaticBody3D
 
 @export var max_health = 2
 
+@onready var marker: Sprite3D = $Marker
+
 var health: int
 
 func _ready() -> void:
@@ -27,3 +29,9 @@ func die():
 	explosion.finished.connect(explosion.queue_free)
 	get_tree().current_scene.add_child(explosion)
 	Clock.time_stop(0.5)
+
+func _on_auto_aim_area_aim_entered() -> void:
+	marker.visible = true
+
+func _on_auto_aim_area_aim_exited() -> void:
+	marker.visible = false

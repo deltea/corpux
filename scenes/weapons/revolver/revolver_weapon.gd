@@ -13,15 +13,18 @@ const MAX_WIND_UP_TIME = 1.0
 @export var boomerang_scene: PackedScene
 
 @onready var ray: RayCast3D = $RayCast
-@onready var display_mesh: MeshInstance3D = $Pivot/revolver/Cube_004
-@onready var mesh: Node3D = $Pivot/revolver
-@onready var pivot: Node3D = $Pivot
+@onready var auto_aim_cast: RayCast3D = $AutoAimCast
+@onready var wind_up_pivot: Node3D = $WindUpPivot
+@onready var display_mesh: MeshInstance3D = $WindUpPivot/Pivot/revolver/Cube_004
+@onready var mesh: Node3D = $WindUpPivot/Pivot/revolver
+@onready var pivot: Node3D = $WindUpPivot/Pivot
 
 var is_winding_up = false
 var wind_up_time = 0.0
 # a value from 0 to 1 that specifies how charged up the throw is
 var wind_up_amount = 0.0
 var can_fire = true
+var auto_aim_last_area: AutoAimArea
 
 var original_mesh_rot: Vector3
 var target_mesh_rot: Vector3
@@ -37,8 +40,8 @@ func _ready() -> void:
 	target_mesh_rot = original_mesh_rot
 	original_pivot_rot = rotation_degrees
 	target_pivot_rot = original_pivot_rot
-	original_pos = position
-	original_rot = rotation_degrees
+	original_pos = wind_up_pivot.position
+	original_rot = wind_up_pivot.rotation_degrees
 
 func _process(dt: float) -> void:
 	mesh.rotation_degrees = lerp(mesh.rotation_degrees, target_mesh_rot, 5.0 * dt).snappedf(0.5)
@@ -47,12 +50,24 @@ func _process(dt: float) -> void:
 	if is_winding_up:
 		wind_up_time = clampf(wind_up_time + dt, 0.0, MAX_WIND_UP_TIME)
 		wind_up_amount = wind_up_time / MAX_WIND_UP_TIME
-		position = position.lerp(wind_up_pos, 10.0 * dt)
-		rotation_degrees = rotation_degrees.lerp(wind_up_rot, 10.0 * dt)
+		wind_up_pivot.position = wind_up_pivot.position.lerp(wind_up_pos, 10.0 * dt)
+		wind_up_pivot.rotation_degrees = wind_up_pivot.rotation_degrees.lerp(wind_up_rot, 10.0 * dt)
 		weapon_shake.emit(wind_up_amount * 0.02, 0.01)
 	else:
-		position = position.lerp(original_pos, 10.0 * dt)
-		rotation_degrees = rotation_degrees.lerp(original_rot, 10.0 * dt)
+		wind_up_pivot.position = wind_up_pivot.position.lerp(original_pos, 10.0 * dt)
+		wind_up_pivot.rotation_degrees = wind_up_pivot.rotation_degrees.lerp(original_rot, 10.0 * dt)
+
+func _physics_process(dt: float) -> void:
+	if auto_aim_cast.is_colliding() and auto_aim_cast.get_collider() is AutoAimArea:
+		var collider = auto_aim_cast.get_collider()
+		if collider != auto_aim_last_area:
+			if auto_aim_last_area != null:
+				auto_aim_last_area.aim_exited.emit()
+			collider.aim_entered.emit()
+			auto_aim_last_area = collider
+	elif auto_aim_last_area != null:
+		auto_aim_last_area.aim_exited.emit()
+		auto_aim_last_area = null
 
 func fire():
 	if not can_fire: return

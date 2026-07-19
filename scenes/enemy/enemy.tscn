@@ -3,8 +3,13 @@
 [ext_resource type="Script" uid="uid://ek8wacojmfxs" path="res://scenes/enemy/enemy.gd" id="1_4a83h"]
 [ext_resource type="PackedScene" uid="uid://ce5g08imwy782" path="res://scenes/particles/enemy_explosion_particles.tscn" id="2_a3pup"]
 [ext_resource type="Texture2D" uid="uid://crcrt8klbpn2s" path="res://assets/textures/markers/enemy-marker.png" id="3_40wdo"]
+[ext_resource type="Script" uid="uid://bc1lq3bnbkb6n" path="res://scenes/enemy/auto_aim_area.gd" id="4_tjssy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4a83h"]
+size = Vector3(4, 4, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d6tof"]
+size = Vector3(4.1, 4.1, 4.1)
 
 [node name="Enemy" type="StaticBody3D" unique_id=541240095 groups=["enemies"]]
 script = ExtResource("1_4a83h")
@@ -21,3 +26,13 @@ billboard = 1
 no_depth_test = true
 texture_filter = 0
 texture = ExtResource("3_40wdo")
+
+[node name="AutoAimArea" type="Area3D" parent="." unique_id=219805013]
+script = ExtResource("4_tjssy")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="AutoAimArea" unique_id=50076700]
+shape = SubResource("BoxShape3D_d6tof")
+debug_color = Color(0.8289258, 0.0014951336, 0.9488551, 0.41960785)
+
+[connection signal="aim_entered" from="AutoAimArea" to="." method="_on_auto_aim_area_aim_entered"]
+[connection signal="aim_exited" from="AutoAimArea" to="." method="_on_auto_aim_area_aim_exited"]
