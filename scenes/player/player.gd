@@ -139,7 +139,7 @@ func check_walled():
 			is_walled = true
 			is_super_dashing = false
 			stop_slam()
-			set_dashes_left(DASH_COUNT)
+			# set_dashes_left(DASH_COUNT)
 
 func stop_slam():
 	if slam_particles: slam_particles.queue_free()

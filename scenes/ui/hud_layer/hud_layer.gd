@@ -2,10 +2,14 @@ class_name HudLayer extends CanvasLayer
 
 @export var dash_texture: Texture2D
 
-@onready var dash_container: HBoxContainer = $DashContainer
+@onready var dash_container: VBoxContainer = $DashContainerBackground/DashContainer
+@onready var time_label: RichTextLabel = $TimeLabel
 
 func _ready() -> void:
 	Events.player_dash_changed.connect(_on_dash_changed)
+
+func _process(dt: float) -> void:
+	time_label.text = "[shake]" + Utils.format_time(get_tree().current_scene.curr_time)
 
 func _on_dash_changed(value: int):
 	var child_count = dash_container.get_child_count()

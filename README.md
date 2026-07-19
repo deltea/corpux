@@ -1,9 +1,8 @@
 # todo
 
-- [ ] dash and stomp particles
+- [ ] cool hud
 - [ ] tweening system
 - [ ] train entrance and exit
-- [ ] cool hud
 - [ ] add sfx and music
 - [ ] enemy model
 - [ ] shooting enemy
@@ -11,6 +10,7 @@
 - [ ] tutorial stuff
 - [ ] decorate the level
 - [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
+- [x] dash and stomp particles
 - [x] vending dialogue camera lock
 - [x] finish first level
 - [x] score recording
