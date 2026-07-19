@@ -28,6 +28,7 @@ Events="*uid://c23nfri7i33ox"
 DialogueManager="*uid://dq7gqg1iwe8w8"
 AudioManager="*uid://c7me7kfkt2j5o"
 SaveManager="*uid://c6ugcon6rjl14"
+Tweeny="*uid://bnu647eh05r25"
 
 [display]
 

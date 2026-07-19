@@ -15,7 +15,6 @@ const button_scene = preload("res://scenes/ui/button_row/button.tscn")
 @export var curr_selected = 0
 
 @onready var selector: NinePatchRect = $Selector
-@onready var selector_ping_timer: Timer = $SelectorPingTimer
 
 var buttons: Array[Button] = []
 var tween: Tween
@@ -45,11 +44,17 @@ func _ready() -> void:
 
 	selector.self_modulate = fg_color if inverted else bg_color
 
+	var ping_tween = create_tween().set_loops()
+	ping_tween.tween_property(selector, "scale", Vector2.ONE * 1.08, 0.0)
+	ping_tween.tween_interval(0.1)
+	ping_tween.tween_property(selector, "scale", Vector2.ONE * 1.0, 0.0)
+	ping_tween.tween_interval(0.4)
+
 	set_selected(curr_selected)
 
 func set_selected(value: int):
 	curr_selected = clampi(value, 0, buttons.size() - 1)
-	selector_ping_timer.start()
+	# selector_ping_timer.start()
 
 	if tween: tween.kill()
 	var target_pos = buttons[curr_selected].position - Vector2(selector_spacing_x / 2, selector_spacing_y / 2)
@@ -93,8 +98,3 @@ func _input(event: InputEvent) -> void:
 		set_selected(curr_selected + 1)
 	if event.is_action_pressed("interact") or event.is_action_pressed("jump"):
 		button_pressed.emit(button_resources[curr_selected].id)
-
-func _on_selector_ping_timer_timeout() -> void:
-	selector.scale = Vector2.ONE * 1.1
-	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
-	tween.tween_property(selector, "scale", Vector2.ONE * 1.0, 0.4)

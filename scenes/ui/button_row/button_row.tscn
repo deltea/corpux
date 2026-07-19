@@ -28,9 +28,3 @@ patch_margin_left = 64
 patch_margin_top = 64
 patch_margin_right = 64
 patch_margin_bottom = 64
-
-[node name="SelectorPingTimer" type="Timer" parent="." unique_id=1874478978]
-wait_time = 0.8
-autostart = true
-
-[connection signal="timeout" from="SelectorPingTimer" to="." method="_on_selector_ping_timer_timeout"]
