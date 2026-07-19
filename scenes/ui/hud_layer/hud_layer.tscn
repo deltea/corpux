@@ -4,6 +4,16 @@
 [ext_resource type="Script" uid="uid://mjjp4ovw2k57" path="res://scenes/ui/hud_layer/hud_layer.gd" id="1_ykr4f"]
 [ext_resource type="Theme" uid="uid://cxmchfsgtgv3e" path="res://theme.tres" id="3_577ci"]
 
+[sub_resource type="SystemFont" id="SystemFont_ew5by"]
+font_names = PackedStringArray("Helvetica")
+
+[sub_resource type="FontVariation" id="FontVariation_tur5b"]
+base_font = SubResource("SystemFont_ew5by")
+variation_embolden = 0.6
+variation_transform = Transform2D(1.6, 0, 0, 0.67, 0, 0)
+spacing_glyph = 16
+spacing_space = 12
+
 [node name="HudLayer" type="CanvasLayer" unique_id=1636076581]
 script = ExtResource("1_ykr4f")
 dash_texture = ExtResource("1_14gka")
@@ -12,10 +22,10 @@ dash_texture = ExtResource("1_14gka")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -192.0
+offset_left = -320.0
 offset_top = 32.0
-offset_right = 192.0
-offset_bottom = 104.0
+offset_right = 320.0
+offset_bottom = 88.0
 grow_horizontal = 2
 color = Color(0.003921569, 0.07058824, 0.99215686, 1)
 
@@ -46,12 +56,13 @@ alignment = 2
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -140.0
-offset_top = 8.0
-offset_right = 140.0
-offset_bottom = 168.0
+offset_left = -264.0
+offset_top = -8.0
+offset_right = 264.0
+offset_bottom = 152.0
 grow_horizontal = 2
 theme = ExtResource("3_577ci")
+theme_override_fonts/normal_font = SubResource("FontVariation_tur5b")
 theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
 text = "[shake]00:12.583"
