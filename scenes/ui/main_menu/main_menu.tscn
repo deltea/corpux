@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dp1enws2ovmvs" path="res://scenes/ui/button_row/button_row.tscn" id="8_8i8ns"]
 [ext_resource type="Script" uid="uid://b7nvenoqdnhoo" path="res://scripts/ButtonResource.gd" id="9_wv6bh"]
 [ext_resource type="FontVariation" uid="uid://cone7xtqm6jsj" path="res://assets/fonts/helvetica-small.tres" id="10_g6wm5"]
+[ext_resource type="Texture2D" uid="uid://q3btmtp1ythr" path="res://assets/textures/ui/random-shit.png" id="12_jo8o5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wifgs"]
 shader = ExtResource("4_ataax")
@@ -295,5 +296,22 @@ offset_bottom = -71.0
 grow_vertical = 0
 text = "bababooey"
 label_settings = SubResource("LabelSettings_cq3ud")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1348040861]
+self_modulate = Color(0.91764706, 0.91764706, 0.91764706, 1)
+offset_left = 256.0
+offset_top = 336.0
+offset_right = 408.0
+offset_bottom = 712.0
+texture = ExtResource("12_jo8o5")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=357847157]
+self_modulate = Color(0.91764706, 0.91764706, 0.91764706, 1)
+offset_left = 1504.0
+offset_top = 336.0
+offset_right = 1656.0
+offset_bottom = 712.0
+texture = ExtResource("12_jo8o5")
+flip_h = true
 
 [connection signal="button_pressed" from="ButtonRow" to="." method="_on_button_row_button_pressed"]
