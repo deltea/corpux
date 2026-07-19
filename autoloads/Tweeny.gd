@@ -3,6 +3,26 @@ extends Node
 const DEFAULT_TRANS = Tween.TRANS_EXPO
 const DEFAULT_EASE = Tween.EASE_OUT
 
+func tween_property_blink(
+	tween: Tween,
+	object: Object,
+	property: NodePath,
+	start_val: Variant,
+	final_val: Variant,
+	duration: float,
+	iterations: int = 10
+):
+	object.set_indexed(property, start_val)
+	var counted_time = 0.0
+	for i in range(iterations):
+		var wait_time = duration * pow(0.5, i + 1)
+		tween.chain().tween_interval(wait_time / 2)
+		tween.chain().tween_property(object, property, start_val, 0.0)
+		tween.chain().tween_interval(wait_time / 2)
+		tween.chain().tween_property(object, property, final_val, 0.0)
+		counted_time += wait_time * 2
+	tween.tween_property(object, property, final_val, 0.0).set_delay(duration - counted_time)
+
 func tween_property_snapped(
 	tween: Tween,
 	object: Object,

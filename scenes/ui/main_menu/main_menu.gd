@@ -2,6 +2,7 @@ class_name MainMenuScreen extends CanvasLayer
 
 const level_select_scene = preload("res://scenes/ui/level_select/level_select.tscn")
 
+@onready var title_rect: TextureRect = $Title
 @onready var version_label: Label = $VersionLabel
 @onready var time_label: Label = $TimeLabel
 @onready var button_row: ButtonRow = $ButtonRow
@@ -14,6 +15,9 @@ func _ready() -> void:
 	button_row.position.y = 1190.0
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	tween.tween_property(button_row, "position:y", 512.0, 0.5)
+
+	tween = create_tween()
+	Tweeny.tween_property_blink(tween, title_rect, "self_modulate:a", 0.0, 1.0, 0.5)
 
 func _process(dt: float) -> void:
 	time_label.text = Time.get_datetime_string_from_system()
