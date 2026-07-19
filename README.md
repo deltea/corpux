@@ -39,6 +39,7 @@
 - [ ] fix ground decal flickering
 - [ ] fix boomerang tweaking out
 - [ ] animate camera far?
+- [ ] weapon animation revamp
 
 ## very later
 

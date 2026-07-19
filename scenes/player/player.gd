@@ -40,6 +40,7 @@ func _ready() -> void:
 	Events.end_level.connect(_on_end_level)
 	Events.death.connect(_on_death)
 	Events.turn_head_to.connect(_on_turn_head_to)
+	set_dashes_left(DASH_COUNT)
 
 func _process(dt: float) -> void:
 	GlobalCanvas.set_smear(velocity.length() / 15.0)
@@ -47,9 +48,6 @@ func _process(dt: float) -> void:
 func _physics_process(dt: float):
 	check_grounded()
 	check_walled()
-
-	if is_grounded:
-		dashes_left = DASH_COUNT
 
 	if not is_grounded and not is_slamming:
 		if is_super_dashing:
@@ -103,7 +101,7 @@ func _physics_process(dt: float):
 
 func dash():
 	if dashes_left > 0:
-		dashes_left -= 1
+		set_dashes_left(dashes_left - 1)
 		$DashTimer.start()
 		is_dashing = true
 		dash_dir = dir
@@ -118,6 +116,7 @@ func check_grounded():
 			is_grounded = true
 			is_super_dashing = false
 			is_slamming = false
+			set_dashes_left(DASH_COUNT)
 
 func check_walled():
 	if is_walled != is_on_wall():
@@ -127,7 +126,7 @@ func check_walled():
 			is_walled = true
 			is_super_dashing = false
 			is_slamming = false
-			dashes_left = DASH_COUNT
+			set_dashes_left(DASH_COUNT)
 
 func super_dash():
 	$DashTimer.stop()
@@ -136,7 +135,7 @@ func super_dash():
 	velocity.x = dash_dir.x * SUPER_DASH_FORCE
 	velocity.z = dash_dir.z * SUPER_DASH_FORCE
 	velocity.y = sqrt(4 * SUPER_DASH_HEIGHT * SUPER_DASH_GRAVITY)
-	dashes_left = DASH_COUNT
+	set_dashes_left(dashes_left - 1)
 
 func slam():
 	$DashTimer.stop()
@@ -212,6 +211,10 @@ func stair_step_up():
 
 func bounce():
 	velocity.y = sqrt(2 * BOUNCE_HEIGHT * GRAVITY)
+
+func set_dashes_left(value: int):
+	dashes_left = value
+	Events.player_dash_changed.emit(dashes_left)
 
 func _on_turn_head_to(target_pos: Vector3):
 	var to_target = target_pos - global_position

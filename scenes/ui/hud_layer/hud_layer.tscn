@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://bpanf2s3gf4c3"]
 
 [ext_resource type="Texture2D" uid="uid://clro6jlli0o0d" path="res://assets/textures/ui/energy.png" id="1_14gka"]
+[ext_resource type="Script" uid="uid://mjjp4ovw2k57" path="res://scenes/ui/hud_layer/hud_layer.gd" id="1_ykr4f"]
 
 [node name="HudLayer" type="CanvasLayer" unique_id=1636076581]
+script = ExtResource("1_ykr4f")
+dash_texture = ExtResource("1_14gka")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1262586439]
+[node name="DashContainer" type="HBoxContainer" parent="." unique_id=1262586439]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -13,21 +16,3 @@ offset_top = -88.0
 offset_right = 464.0
 grow_vertical = 0
 theme_override_constants/separation = 16
-
-[node name="ColorRect" type="TextureRect" parent="HBoxContainer" unique_id=2142377302]
-custom_minimum_size = Vector2(80, 0)
-custom_maximum_size = Vector2(-1, 40)
-layout_mode = 2
-texture = ExtResource("1_14gka")
-
-[node name="ColorRect2" type="TextureRect" parent="HBoxContainer" unique_id=1660192033]
-custom_minimum_size = Vector2(80, 0)
-custom_maximum_size = Vector2(-1, 40)
-layout_mode = 2
-texture = ExtResource("1_14gka")
-
-[node name="ColorRect3" type="TextureRect" parent="HBoxContainer" unique_id=511022098]
-custom_minimum_size = Vector2(80, 0)
-custom_maximum_size = Vector2(-1, 40)
-layout_mode = 2
-texture = ExtResource("1_14gka")
