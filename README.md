@@ -1,5 +1,7 @@
 # todo
 
+- [ ] dash and stomp particles
+- [ ] tweening system
 - [ ] train entrance and exit
 - [ ] cool hud
 - [ ] add sfx and music

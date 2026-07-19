@@ -21,7 +21,7 @@ shape = SubResource("BoxShape3D_4a83h")
 [node name="Marker" type="Sprite3D" parent="." unique_id=1012418726]
 visible = false
 layers = 2
-pixel_size = 0.035
+pixel_size = 0.03
 billboard = 1
 no_depth_test = true
 texture_filter = 0

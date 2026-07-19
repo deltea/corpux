@@ -11,7 +11,8 @@ func _on_dash_changed(value: int):
 	var child_count = dash_container.get_child_count()
 	if value < child_count:
 		for i in range(child_count - value):
-			dash_container.get_child(i).queue_free()
+			if dash_container.get_child_count() >= child_count - value:
+				dash_container.get_child(i).queue_free()
 	elif value > child_count:
 		for i in range(value - child_count):
 			create_dash_rect()

@@ -1,5 +1,8 @@
 class_name Player extends CharacterBody3D
 
+const stomp_particles_scene = preload("res://scenes/particles/stomp_particles.tscn")
+const dash_particles_scene = preload("res://scenes/particles/dash_particles.tscn")
+
 const CAM_TILT = 0.0
 const MOUSE_SENS = 1.0
 const MAX_SPEED = 32.0
@@ -48,6 +51,9 @@ func _process(dt: float) -> void:
 func _physics_process(dt: float):
 	check_grounded()
 	check_walled()
+
+	if is_grounded:
+		set_dashes_left(DASH_COUNT)
 
 	if not is_grounded and not is_slamming:
 		if is_super_dashing:
@@ -105,6 +111,13 @@ func dash():
 		$DashTimer.start()
 		is_dashing = true
 		dash_dir = dir
+
+		var dash_particles = dash_particles_scene.instantiate() as GPUParticles3D
+		add_child(dash_particles)
+		dash_particles.position += Vector3.LEFT * dash_dir.rotated(Vector3.UP, -rotation.y) * 6
+		dash_particles.global_rotation.y = Vector2(-dash_dir.x, dash_dir.z).angle() - PI / 2.0
+		await Clock.wait(0.15)
+		dash_particles.queue_free()
 	else:
 		print("no dashes left")
 
@@ -116,7 +129,6 @@ func check_grounded():
 			is_grounded = true
 			is_super_dashing = false
 			is_slamming = false
-			set_dashes_left(DASH_COUNT)
 
 func check_walled():
 	if is_walled != is_on_wall():
