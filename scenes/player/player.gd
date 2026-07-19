@@ -26,6 +26,7 @@ const SLAM_VELOCITY = 160.0
 @onready var head: Node3D = $Head
 
 var mouse_delta = Vector2.ZERO
+var slam_particles: GPUParticles3D
 
 var dir = Vector3.ZERO
 var dash_dir = Vector3.ZERO
@@ -115,7 +116,7 @@ func dash():
 		var dash_particles = dash_particles_scene.instantiate() as GPUParticles3D
 		add_child(dash_particles)
 		dash_particles.position += Vector3.LEFT * dash_dir.rotated(Vector3.UP, -rotation.y) * 6
-		dash_particles.global_rotation.y = Vector2(-dash_dir.x, dash_dir.z).angle() - PI / 2.0
+		dash_particles.global_rotation.y = Vector2(-dash_dir.x, dash_dir.z).angle() - PI/2
 		await Clock.wait(0.15)
 		dash_particles.queue_free()
 	else:
@@ -128,7 +129,7 @@ func check_grounded():
 		else:
 			is_grounded = true
 			is_super_dashing = false
-			is_slamming = false
+			stop_slam()
 
 func check_walled():
 	if is_walled != is_on_wall():
@@ -137,8 +138,12 @@ func check_walled():
 		else:
 			is_walled = true
 			is_super_dashing = false
-			is_slamming = false
+			stop_slam()
 			set_dashes_left(DASH_COUNT)
+
+func stop_slam():
+	if slam_particles: slam_particles.queue_free()
+	is_slamming = false
 
 func super_dash():
 	$DashTimer.stop()
@@ -157,6 +162,12 @@ func slam():
 	velocity.y = -SLAM_VELOCITY
 	velocity.x = 0
 	velocity.z = 0
+
+	if slam_particles: slam_particles.queue_free()
+	slam_particles = dash_particles_scene.instantiate() as GPUParticles3D
+	add_child(slam_particles)
+	slam_particles.global_rotation.x = PI/2
+
 
 func get_look_dir():
 	return Vector3.FORWARD.rotated(Vector3.RIGHT, head.rotation.x).rotated(Vector3.UP, rotation.y).normalized()

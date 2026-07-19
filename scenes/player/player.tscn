@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://dj4mhc0ht28ui" path="res://scenes/camera/camera.tscn" id="2_dovo2"]
 [ext_resource type="Script" uid="uid://d0lwg2vbe16hj" path="res://scripts/weapon_manager.gd" id="3_gmlin"]
 [ext_resource type="PackedScene" uid="uid://clg5a2u4nmt7l" path="res://scenes/weapons/revolver/revolver_weapon.tscn" id="4_lvxji"]
-[ext_resource type="PackedScene" uid="uid://tf5y67s71t2n" path="res://scenes/particles/dash_particles.tscn" id="5_p47bc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 
@@ -30,9 +29,5 @@ script = ExtResource("3_gmlin")
 cam = NodePath("..")
 player = NodePath("../../..")
 revolver_scene = ExtResource("4_lvxji")
-
-[node name="DashParticles" parent="." unique_id=1183100327 instance=ExtResource("5_p47bc")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
-visible = false
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
