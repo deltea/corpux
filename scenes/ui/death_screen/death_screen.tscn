@@ -1,104 +1,41 @@
 [gd_scene format=3 uid="uid://xm6dqt1ijhh0"]
 
 [ext_resource type="Script" uid="uid://cv8ew3gv7vwkv" path="res://scenes/ui/death_screen/death_screen.gd" id="1_trwrg"]
-[ext_resource type="Shader" uid="uid://n27aw4kua6ab" path="res://shaders/dither.gdshader" id="1_ypck1"]
 [ext_resource type="Theme" uid="uid://cxmchfsgtgv3e" path="res://theme.tres" id="2_h504w"]
-[ext_resource type="Shader" uid="uid://35fl5r4s2qv8" path="res://shaders/crt.gdshader" id="2_tfxvr"]
 [ext_resource type="FontVariation" uid="uid://tjujv6rc3oaw" path="res://assets/fonts/helvetica-bold.tres" id="3_5ltjm"]
+[ext_resource type="Texture2D" uid="uid://d0l6n8quio0v5" path="res://assets/textures/ui/skull.png" id="4_trwrg"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_aoevb"]
-shader = ExtResource("2_tfxvr")
-shader_parameter/brightness = 1.0000000475
-shader_parameter/contrast = 1.0910000518225
-shader_parameter/saturation = 0.7650000363375
-shader_parameter/gamma = 0.20000000298023
-shader_parameter/curvature = 0.0
-shader_parameter/corner_soften = 0.0
-shader_parameter/vignette = 0.0
-shader_parameter/scanline_strength = 0.0
-shader_parameter/scanline_density = 0.5
-shader_parameter/interlace_strength = 0.2
-shader_parameter/mask_strength = 0.0
-shader_parameter/mask_scale = 1.0
-shader_parameter/chroma_offset_px = 0.0
-shader_parameter/luma_smear_px = 0.0
-shader_parameter/jitter_px = 8.0
-shader_parameter/wobble_px = 5.2650002500875
-shader_parameter/tape_noise = 0.0
-shader_parameter/tape_lines = 0.9190000436525
-shader_parameter/roll_speed = 0.1
-shader_parameter/roll_strength = 0.0
-shader_parameter/glow_strength = 0.0
-shader_parameter/glow_threshold = 0.65
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w4rfi"]
-shader = ExtResource("1_ypck1")
-shader_parameter/step_posterize = 20
-shader_parameter/step_pixelated = 360
-shader_parameter/color_A = Color(0.9843137, 0.047058824, 0.45490196, 1)
-shader_parameter/color_B = Color(0, 0, 0, 1)
-shader_parameter/dithering_bayer = true
-shader_parameter/animated_dithering = false
-shader_parameter/smooth_animate = false
-shader_parameter/interval = 0.10000000149012
-
-[sub_resource type="SystemFont" id="SystemFont_efxa6"]
+[sub_resource type="SystemFont" id="SystemFont_ew5by"]
 font_names = PackedStringArray("Helvetica")
-subpixel_positioning = 0
 
-[sub_resource type="FontVariation" id="FontVariation_h504w"]
-base_font = SubResource("SystemFont_efxa6")
-variation_embolden = 0.8
-variation_transform = Transform2D(1, 0.2, 0, 1, 0, 0)
-spacing_glyph = 89
-spacing_space = 243
+[sub_resource type="FontVariation" id="FontVariation_trwrg"]
+base_font = SubResource("SystemFont_ew5by")
+variation_embolden = 0.6
+variation_transform = Transform2D(0.75, 0, 0, 1, 0, 0)
+spacing_glyph = -3
+spacing_space = 12
+spacing_top = -36
+spacing_bottom = -29
 
 [node name="DeathScreen" type="CanvasLayer" unique_id=1885085409]
 follow_viewport_enabled = true
 script = ExtResource("1_trwrg")
 
-[node name="ContrastFilter" type="ColorRect" parent="." unique_id=775566887]
-material = SubResource("ShaderMaterial_aoevb")
+[node name="Background" type="ColorRect" parent="." unique_id=547228298]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
-
-[node name="BackBufferCopy" type="BackBufferCopy" parent="." unique_id=1502979677]
-copy_mode = 2
-
-[node name="DitherRect" type="ColorRect" parent="." unique_id=483186890]
-material = SubResource("ShaderMaterial_w4rfi")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="DeathLabel" type="RichTextLabel" parent="." unique_id=1164160592]
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 496.0
-grow_horizontal = 2
-theme = ExtResource("2_h504w")
-theme_override_constants/line_separation = 80
-theme_override_fonts/normal_font = SubResource("FontVariation_h504w")
-theme_override_font_sizes/normal_font_size = 100
-bbcode_enabled = true
-text = "[wave amp=120 freq=1]
-WAKE UP"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
+color = Color(0.9843137, 0.047058824, 0.45490196, 1)
 
 [node name="InstructionsLabel" type="RichTextLabel" parent="." unique_id=1262985168]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -496.0
+offset_top = -216.0
+offset_right = -704.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("2_h504w")
@@ -107,3 +44,47 @@ text = "<press r to restart>"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Skull" type="TextureRect" parent="." unique_id=1478097002]
+offset_left = 1272.0
+offset_right = 2352.0
+offset_bottom = 1080.0
+texture = ExtResource("4_trwrg")
+
+[node name="DeathLabel" type="RichTextLabel" parent="." unique_id=380858934]
+offset_left = 88.0
+offset_top = 96.0
+offset_right = 1216.0
+offset_bottom = 856.0
+theme = ExtResource("2_h504w")
+theme_override_fonts/normal_font = SubResource("FontVariation_trwrg")
+theme_override_font_sizes/normal_font_size = 40
+text = "
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+The noise is a fog, look beyond it and you will find success.
+"
+scroll_active = false

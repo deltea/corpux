@@ -1,6 +1,5 @@
 # todo
 
-- [ ] cool hud
 - [ ] tweening system
 - [ ] train entrance and exit
 - [ ] add sfx and music
@@ -10,6 +9,7 @@
 - [ ] tutorial stuff
 - [ ] decorate the level
 - [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
+- [x] cool hud
 - [x] dash and stomp particles
 - [x] vending dialogue camera lock
 - [x] finish first level
