@@ -33,7 +33,6 @@ func _ready() -> void:
 
 		style_button(button)
 
-		await get_tree().process_frame
 		if is_column:
 			button.position.x = -button.size.x / 2
 			button.position.y = size_sum
