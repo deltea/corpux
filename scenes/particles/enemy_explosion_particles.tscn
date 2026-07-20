@@ -32,7 +32,7 @@ scale_max = 2.5
 scale_curve = SubResource("CurveTexture_yb0tb")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yb0tb"]
-shading_mode = 2
+shading_mode = 0
 albedo_color = Color(0.9843137, 0.047058824, 0.45490196, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_yb0tb"]

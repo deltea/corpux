@@ -7,6 +7,7 @@ class_name Enemy extends StaticBody3D
 @onready var marker: Sprite3D = $Marker
 
 var health: int
+var marker_tween: Tween
 
 func _ready() -> void:
 	health = max_health
@@ -34,6 +35,10 @@ func die():
 
 func _on_auto_aim_area_aim_entered() -> void:
 	marker.visible = true
+	marker.scale = Vector3.ONE * 1.3
+	if marker_tween: marker_tween.kill()
+	marker_tween = create_tween()
+	Tweeny.tween_property_snapped(marker_tween, marker, "scale", Vector3.ONE * 1.0, 0.1, Vector3.ONE * 0.3)
 
 func _on_auto_aim_area_aim_exited() -> void:
 	marker.visible = false
