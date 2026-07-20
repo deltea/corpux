@@ -2,12 +2,12 @@
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tibj6"]
 sky_top_color = Color(1, 1, 1, 1)
-sky_horizon_color = Color(0.4867587, 0.6580849, 1, 1)
+sky_horizon_color = Color(0.74, 0.74, 0.74, 1)
+sky_curve = 1e-05
 sky_energy_multiplier = 1.2
-ground_bottom_color = Color(0.84716845, 0.9000119, 0.99999934, 1)
-ground_horizon_color = Color(0.4862745, 0.65882355, 1, 1)
-sun_angle_max = 51.6
-sun_curve = 1e-05
+ground_bottom_color = Color(1, 1, 1, 1)
+ground_horizon_color = Color(0.74, 0.74, 0.74, 1)
+ground_curve = 1e-05
 energy_multiplier = 0.5
 
 [sub_resource type="Sky" id="Sky_7mycd"]
@@ -17,7 +17,7 @@ sky_material = SubResource("ProceduralSkyMaterial_tibj6")
 background_mode = 2
 background_color = Color(1, 1, 1, 1)
 sky = SubResource("Sky_7mycd")
-ambient_light_color = Color(1, 1, 1, 1)
+reflected_light_source = 1
 ssao_intensity = 1.0
 sdfgi_energy = 1.2
 glow_strength = 1.2

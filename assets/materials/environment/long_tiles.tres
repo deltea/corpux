@@ -1,7 +1,7 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://3ipk4fhteaks"]
 
 [ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="1_dm46u"]
-[ext_resource type="Texture2D" uid="uid://bc063ekh4x4lm" path="res://assets/textures/long-tile.png" id="1_mc7q3"]
+[ext_resource type="Texture2D" uid="uid://bv3gyd8ehmbov" path="res://assets/textures/tile.png" id="1_mc7q3"]
 
 [resource]
 shading_mode = 2
