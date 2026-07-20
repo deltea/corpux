@@ -1,0 +1,44 @@
+[gd_scene format=4 uid="uid://v0est4hp6i83"]
+
+[ext_resource type="PackedScene" uid="uid://bofp8v5co0emy" path="res://assets/models/enemy_bullet.blend" id="1_fffda"]
+[ext_resource type="Script" uid="uid://c6wytrbh125m" path="res://scenes/enemy_bullet/enemy_bullet.gd" id="1_t7yew"]
+[ext_resource type="Material" uid="uid://b2y5a1vsiih2k" path="res://assets/materials/enemies/enemy.tres" id="3_yj0vl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bmnbh"]
+radius = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_38or4"]
+material = ExtResource("3_yj0vl")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tonxl"]
+shading_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yj0vl"]
+_surfaces = [{
+"aabb": AABB(-1.2886751, -1.2886751, -1.2886751, 2.5773501, 2.5773501, 2.5773501),
+"attribute_data": PackedByteArray("AAAAAAAAAACrqio/AAAAAKuqqj4AAAAAAACAPwAAAAAAAAAAAAAAP6uqKj8AAAA/q6qqPgAAAD8AAIA/AAAAP6uqqj4AAAAAAAAAAAAAAD+rqio/AAAAAKuqqj4AAAA/q6qqPgAAAD8AAAAAAACAP6uqKj8AAAA/q6qqPgAAgD+rqqo+AAAAP6uqKj8AAAA/q6oqPwAAAD8AAIA/AAAAP6uqqj4AAIA/q6oqPwAAgD+rqio/AACAPwAAgD8AAIA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAAEAAIAAgAEAAYAAQAFAAMAAwAFAAcACAAMAAoACgAMAA4ACQANAAsACwANAA8AEAAUABIAEgAUABYAEQAVABMAEwAVABcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("TvOkv07zpD9O86Q/TvOkP07zpD9O86S/TvOkP07zpD9O86Q/TvOkv07zpD9O86S/TvOkv07zpL9O86Q/TvOkP07zpL9O86S/TvOkP07zpL9O86Q/TvOkv07zpL9O86S/TvOkP07zpD9O86Q/TvOkv07zpD9O86S/TvOkP07zpD9O86S/TvOkv07zpD9O86Q/TvOkP07zpL9O86Q/TvOkv07zpL9O86S/TvOkP07zpL9O86S/TvOkv07zpL9O86Q/TvOkP07zpD9O86Q/TvOkv07zpL9O86Q/TvOkv07zpD9O86Q/TvOkP07zpL9O86Q/TvOkP07zpD9O86S/TvOkv07zpL9O86S/TvOkv07zpD9O86S/TvOkP07zpL9O86S//3//f////7//////AAD/v/9//3////+//////wAA/7//f/9/////v/////8AAP+//3//f////7//////AAD/v///AID/////AAAAgP9//7///wCA/////wAAAID/f/+///8AgP////8AAACA/3//v///AID/////AAAAgP9//78AgP//AAD/vwCAAAD///+/AID//wAA/78AgAAA////vwCA//8AAP+/AIAAAP///78AgP//AAD/vwCAAAD///+/")
+}]
+
+[node name="EnemyBullet" type="Area3D" unique_id=1536106398]
+script = ExtResource("1_t7yew")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=844656900]
+shape = SubResource("SphereShape3D_bmnbh")
+
+[node name="enemy_bullet" parent="." unique_id=2040290743 instance=ExtResource("1_fffda")]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1817904411]
+mesh = SubResource("BoxMesh_38or4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1759769831]
+material_override = SubResource("StandardMaterial3D_tonxl")
+mesh = SubResource("ArrayMesh_yj0vl")
