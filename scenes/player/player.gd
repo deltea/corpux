@@ -235,7 +235,10 @@ func stair_step_up():
 	global_position = global_pos
 
 func bounce():
+	is_dashing = false
 	velocity.y = sqrt(2 * BOUNCE_HEIGHT * GRAVITY)
+	velocity.x = 0
+	velocity.z = 0
 
 func set_dashes_left(value: int):
 	dashes_left = clampi(value, 0, MAX_DASH_COUNT)
@@ -252,6 +255,7 @@ func _on_turn_head_to(target_pos: Vector3):
 	head_tween.tween_property(self, "rotation_degrees:y", target_angle, 1.0)
 
 func _on_dash_timer_timeout() -> void:
+	if not is_dashing: return
 	is_dashing = false
 	velocity.x = dash_dir.x * 20
 	velocity.z = dash_dir.z * 20

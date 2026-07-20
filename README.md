@@ -1,6 +1,5 @@
 # todo
 
-- [ ] shooting enemy
 - [ ] fix slam then dash bug
 - [ ] enemy modele
 - [ ] train entrance and exit
@@ -10,6 +9,7 @@
 - [ ] decorate the level
 - [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
 - [ ] tweening system
+- [x] shooting enemy
 - [x] cool hud
 - [x] dash and stomp particles
 - [x] vending dialogue camera lock

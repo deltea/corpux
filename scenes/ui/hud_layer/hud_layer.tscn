@@ -36,9 +36,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 32.0
-offset_top = -124.0
+offset_top = -140.0
 offset_right = 128.0
-offset_bottom = 132.0
+offset_bottom = 148.0
 grow_vertical = 2
 color = Color(0.7411765, 0.7411765, 0.7372549, 1)
 

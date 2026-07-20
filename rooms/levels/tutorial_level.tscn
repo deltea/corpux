@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://fi26o3a5pvnr" path="res://scenes/enemy/basic/basic_enemy.tscn" id="3_56mwc"]
 [ext_resource type="Material" uid="uid://3ipk4fhteaks" path="res://assets/materials/environment/long_tiles.tres" id="3_oipkf"]
 [ext_resource type="PackedScene" uid="uid://cdisaf5r7mqvl" path="res://scenes/exit/exit.tscn" id="4_56mwc"]
-[ext_resource type="Material" uid="uid://crmwss0n1hs0k" path="res://assets/materials/environment/tiles.tres" id="5_1x0vx"]
 [ext_resource type="PackedScene" uid="uid://5j8qcxhem20l" path="res://scenes/lava/lava.tscn" id="7_0qrrd"]
 [ext_resource type="PackedScene" uid="uid://bo5db0ai8sswt" path="res://assets/models/decoration/hanging_sign.blend" id="8_j432n"]
 [ext_resource type="PackedScene" uid="uid://4mpgrqrodq8t" path="res://assets/models/environment/column.blend" id="8_nh565"]
@@ -264,31 +263,31 @@ material = ExtResource("3_oipkf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -229)
 use_collision = true
 size = Vector3(20, 1, 2)
-material = ExtResource("5_1x0vx")
+material = ExtResource("3_oipkf")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Environment/Obstacles/StartArea" index="18" unique_id=2093006984]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -227)
 use_collision = true
 size = Vector3(20, 2, 2)
-material = ExtResource("5_1x0vx")
+material = ExtResource("3_oipkf")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Environment/Obstacles/StartArea" index="19" unique_id=1241034556]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -225)
 use_collision = true
 size = Vector3(20, 2, 2)
-material = ExtResource("5_1x0vx")
+material = ExtResource("3_oipkf")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="Environment/Obstacles/StartArea" index="20" unique_id=1617113553]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -223)
 use_collision = true
 size = Vector3(20, 3, 2)
-material = ExtResource("5_1x0vx")
+material = ExtResource("3_oipkf")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="Environment/Obstacles/StartArea" index="21" unique_id=122866240]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -221)
 use_collision = true
 size = Vector3(20, 4, 2)
-material = ExtResource("5_1x0vx")
+material = ExtResource("3_oipkf")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="Environment/Obstacles/StartArea" index="22" unique_id=1585396622]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.5, 2.5, -195)
