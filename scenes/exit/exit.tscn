@@ -23,7 +23,7 @@ material = SubResource("StandardMaterial3D_tv5rl")
 size = Vector3(16, 16, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wmb3t"]
-size = Vector3(16, 16, 6)
+size = Vector3(16, 16, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tv5rl"]
 size = Vector3(16, 16, 16)
@@ -43,7 +43,7 @@ omni_range = 12.0
 omni_attenuation = -1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1727638379]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.5)
 shape = SubResource("BoxShape3D_wmb3t")
 
 [node name="DoorLeft" parent="." unique_id=1024078791 instance=ExtResource("3_tv5rl")]

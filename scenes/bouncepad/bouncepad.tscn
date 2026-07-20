@@ -8,9 +8,9 @@ margin = 2.75
 size = Vector3(10, 1, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5i2p4"]
+shading_mode = 0
 diffuse_mode = 2
 albedo_color = Color(0.011764706, 0.5294118, 0.99607843, 1)
-emission = Color(0.5609553, 0.56095487, 0.5609549, 1)
 heightmap_texture = ExtResource("1_1ygid")
 uv1_world_triplanar = true
 texture_filter = 4
@@ -21,6 +21,32 @@ distance_fade_max_distance = 5.0
 material = SubResource("StandardMaterial3D_5i2p4")
 size = Vector3(10, 0.4, 10)
 
+[sub_resource type="Curve" id="Curve_5i2p4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.6863208), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tv5rl"]
+curve = SubResource("Curve_5i2p4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5i2p4"]
+emission_shape = 3
+emission_box_extents = Vector3(5, 0.1, 6)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 5.0
+initial_velocity_max = 8.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_tv5rl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ql6kn"]
+shading_mode = 0
+albedo_color = Color(0.011764706, 0.5294118, 0.99607843, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5i2p4"]
+material = SubResource("StandardMaterial3D_ql6kn")
+size = Vector3(0.5, 0.5, 0.5)
+
 [node name="Bouncepad" type="Area3D" unique_id=393209683]
 script = ExtResource("1_5i2p4")
 
@@ -29,5 +55,13 @@ shape = SubResource("BoxShape3D_73roa")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1446689055]
 mesh = SubResource("BoxMesh_73roa")
+
+[node name="Particles" type="GPUParticles3D" parent="." unique_id=1698849854]
+amount = 16
+lifetime = 0.5
+fixed_fps = 12
+interpolate = false
+process_material = SubResource("ParticleProcessMaterial_5i2p4")
+draw_pass_1 = SubResource("BoxMesh_5i2p4")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

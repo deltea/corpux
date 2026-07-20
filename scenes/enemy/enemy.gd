@@ -25,7 +25,7 @@ func die():
 	Events.enemy_died.emit()
 	Events.add_dash.emit()
 
-	var explosion = explosion_scene.instantiate() as SnappyParticle
+	var explosion = explosion_scene.instantiate() as GPUParticles3D
 	explosion.position = global_position
 	explosion.emitting = true
 	get_tree().current_scene.add_child(explosion)
