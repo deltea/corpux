@@ -1,5 +1,6 @@
 # todo
 
+- [ ] GET TO THE EXIT
 - [ ] special styled platforms and models
 
 - [ ] make some doors

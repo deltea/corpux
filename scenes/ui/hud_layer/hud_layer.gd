@@ -8,10 +8,11 @@ const CROSSHAIR_NORMAL_WIDTH = 16.0
 @export var normal_crosshair_texture: Texture2D
 
 @onready var dash_container: VBoxContainer = $DashContainerBackground/DashContainer
-@onready var time_label: RichTextLabel = $TimeLabel
 @onready var spinny: TextureRect = $Spinny
 @onready var crosshair: NinePatchRect = $CrosshairContainer/Crosshair
 @onready var crosshair_center: TextureRect = $CrosshairContainer/CrosshairCenter
+@onready var time_label: RichTextLabel = $TimeBackground/TimeLabel
+@onready var time_background: ColorRect = $TimeBackground
 
 var crosshair_tween: Tween
 var crosshair_center_tween: Tween
