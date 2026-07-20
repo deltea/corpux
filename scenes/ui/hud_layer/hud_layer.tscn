@@ -3,7 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://clro6jlli0o0d" path="res://assets/textures/ui/energy.png" id="1_14gka"]
 [ext_resource type="Script" uid="uid://mjjp4ovw2k57" path="res://scenes/ui/hud_layer/hud_layer.gd" id="1_ykr4f"]
 [ext_resource type="Theme" uid="uid://cxmchfsgtgv3e" path="res://theme.tres" id="3_577ci"]
+[ext_resource type="Texture2D" uid="uid://dp6iny55ubjtu" path="res://assets/textures/ui/normal-crosshair-center.png" id="4_3amcu"]
 [ext_resource type="Texture2D" uid="uid://d2gijh3et8rgn" path="res://assets/textures/ui/energy-thin.png" id="4_tur5b"]
+[ext_resource type="Texture2D" uid="uid://cn3m4sabw8kqo" path="res://assets/textures/ui/skull-crosshair-center.png" id="5_i3hc6"]
+[ext_resource type="Texture2D" uid="uid://b2tey6qrfw2fh" path="res://assets/textures/ui/crosshair.png" id="5_onesc"]
 
 [sub_resource type="SystemFont" id="SystemFont_ew5by"]
 font_names = PackedStringArray("Helvetica")
@@ -19,6 +22,8 @@ spacing_space = 12
 [node name="HudLayer" type="CanvasLayer" unique_id=1636076581]
 script = ExtResource("1_ykr4f")
 dash_texture = ExtResource("1_14gka")
+enemy_crosshair_texture = ExtResource("5_i3hc6")
+normal_crosshair_texture = ExtResource("4_3amcu")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1328874425]
 clip_children = 2
@@ -78,3 +83,52 @@ offset_right = 1920.0
 offset_bottom = 128.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("4_tur5b")
+
+[node name="CrosshairContainer" type="Control" parent="." unique_id=1428257888]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -20.0
+offset_right = 48.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CrosshairCenter" type="TextureRect" parent="CrosshairContainer" unique_id=511278234]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.000002
+offset_top = -24.0
+offset_right = 24.000002
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_3amcu")
+
+[node name="Crosshair" type="NinePatchRect" parent="CrosshairContainer" unique_id=1694737983]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -2.5
+offset_right = 6.0
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(7, 7)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("5_onesc")
+region_rect = Rect2(0, 0, 6, 5)
+patch_margin_left = 2
+patch_margin_right = 2

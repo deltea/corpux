@@ -1,9 +1,9 @@
 # todo
 
-- [ ] crosshair system
 - [ ] cool ass snapped particles
 - [ ] special styled platforms and models
 
+- [ ] make some doors
 - [ ] fix slam then dash bug
 - [ ] enemy modele
 - [ ] train entrance and exit
@@ -12,6 +12,7 @@
 - [ ] decorate the level
 - [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
 - [ ] tweening system
+- [x] crosshair system
 - [x] shooting enemy
 - [x] cool hud
 - [x] dash and stomp particles

@@ -18,6 +18,7 @@ func trigger_fire():
 		fire()
 
 func fire():
+	Events.fire.emit()
 	fire_timer.start()
 	has_reloaded = false
 
