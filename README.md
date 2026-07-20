@@ -1,6 +1,5 @@
 # todo
 
-- [ ] special styled platforms and models
 
 - [ ] make some doors
 - [ ] fix slam then dash bug
@@ -11,6 +10,7 @@
 - [ ] decorate the level
 - [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
 - [ ] tweening system
+- [x] special styled platforms and models
 - [x] GET TO THE EXIT
 - [x] cool ass snapped particles
 - [x] crosshair system
