@@ -29,7 +29,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 mesh = SubResource("BoxMesh_iylkx")
 
 [node name="Marker" parent="." index="2" unique_id=1012418726]
-transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 
 [node name="AutoAimArea" parent="." index="3" unique_id=219805013]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)

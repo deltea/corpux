@@ -4,9 +4,14 @@ class_name HudLayer extends CanvasLayer
 
 @onready var dash_container: VBoxContainer = $DashContainerBackground/DashContainer
 @onready var time_label: RichTextLabel = $TimeLabel
+@onready var spinny: TextureRect = $Spinny
 
 func _ready() -> void:
 	Events.player_dash_changed.connect(_on_dash_changed)
+
+	var tween = create_tween().set_loops()
+	tween.tween_property(spinny, "rotation", PI / 2, 0.5).as_relative()
+	tween.tween_interval(0.5)
 
 func _process(dt: float) -> void:
 	time_label.text = "[shake]" + Utils.format_time(get_tree().current_scene.curr_time)

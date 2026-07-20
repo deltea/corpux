@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://clro6jlli0o0d" path="res://assets/textures/ui/energy.png" id="1_14gka"]
 [ext_resource type="Script" uid="uid://mjjp4ovw2k57" path="res://scenes/ui/hud_layer/hud_layer.gd" id="1_ykr4f"]
 [ext_resource type="Theme" uid="uid://cxmchfsgtgv3e" path="res://theme.tres" id="3_577ci"]
+[ext_resource type="Texture2D" uid="uid://d2gijh3et8rgn" path="res://assets/textures/ui/energy-thin.png" id="4_tur5b"]
 
 [sub_resource type="SystemFont" id="SystemFont_ew5by"]
 font_names = PackedStringArray("Helvetica")
@@ -70,3 +71,10 @@ bbcode_enabled = true
 text = "[shake]00:12.583"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Spinny" type="TextureRect" parent="." unique_id=1473462417]
+offset_left = 1792.0
+offset_right = 1920.0
+offset_bottom = 128.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("4_tur5b")

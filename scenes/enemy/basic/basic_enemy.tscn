@@ -13,7 +13,15 @@ size = Vector3(4, 4, 4)
 [node name="BasicEnemy" unique_id=541240095 instance=ExtResource("1_b6kpl")]
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=1789538307]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_b6kpl")
 
 [node name="MeshInstance" type="MeshInstance3D" parent="." index="1" unique_id=2142459759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 mesh = SubResource("BoxMesh_38or4")
+
+[node name="Marker" parent="." index="2" unique_id=1012418726]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="AutoAimArea" parent="." index="3" unique_id=219805013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
