@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dihait3xp602" path="res://scenes/weapons/revolver/boomerang_revolver.gd" id="1_v5qf2"]
 [ext_resource type="PackedScene" uid="uid://51ja0nr0ujmj" path="res://assets/models/weapons/revolver.blend" id="2_kypvd"]
 [ext_resource type="Texture2D" uid="uid://bwgbfbt72xidb" path="res://assets/textures/weapons/revolver/revolver.png" id="3_4k7hg"]
-[ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="4_iyp7i"]
 [ext_resource type="Texture2D" uid="uid://dur1ekjkyq2ut" path="res://assets/textures/weapons/revolver/revolver-handle.png" id="5_iyp7i"]
 [ext_resource type="Texture2D" uid="uid://hbgv12k6oa6k" path="res://assets/textures/weapons/revolver/revolver-display.png" id="6_het4p"]
 [ext_resource type="Texture2D" uid="uid://bptlh8l88cn2o" path="res://assets/textures/markers/boomerang-marker.png" id="7_arx16"]
@@ -19,7 +18,6 @@ emission_enabled = true
 emission = Color(0.43904907, 0.43904915, 0.43904895, 1)
 emission_operator = 1
 emission_texture = ExtResource("3_4k7hg")
-heightmap_texture = ExtResource("4_iyp7i")
 uv1_triplanar_sharpness = 1e-05
 texture_filter = 4
 z_clip_scale = 0.9
@@ -30,7 +28,6 @@ distance_fade_max_distance = 5.0
 shading_mode = 2
 diffuse_mode = 2
 albedo_texture = ExtResource("5_iyp7i")
-heightmap_texture = ExtResource("4_iyp7i")
 uv1_world_triplanar = true
 texture_filter = 4
 z_clip_scale = 0.9
@@ -41,7 +38,6 @@ distance_fade_max_distance = 5.0
 shading_mode = 2
 diffuse_mode = 2
 albedo_color = Color(0.9843137, 0.043137256, 0.45490196, 1)
-heightmap_texture = ExtResource("4_iyp7i")
 uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true
 uv1_world_triplanar = true
@@ -58,7 +54,6 @@ emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.2
 emission_operator = 1
 emission_texture = ExtResource("6_het4p")
-heightmap_texture = ExtResource("4_iyp7i")
 uv1_scale = Vector3(39.725, 10.884, 20.552)
 texture_filter = 4
 z_clip_scale = 0.9
@@ -69,7 +64,6 @@ distance_fade_max_distance = 5.0
 shading_mode = 2
 diffuse_mode = 2
 albedo_color = Color(0.9843137, 0.043137256, 0.45490196, 1)
-heightmap_texture = ExtResource("4_iyp7i")
 uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true
 uv1_world_triplanar = true

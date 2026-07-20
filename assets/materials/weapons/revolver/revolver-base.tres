@@ -1,7 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://evwf8twvb7b1"]
 
 [ext_resource type="Texture2D" uid="uid://bwgbfbt72xidb" path="res://assets/textures/weapons/revolver/revolver.png" id="1_1jcnw"]
-[ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="2_wl06g"]
 
 [resource]
 shading_mode = 2
@@ -11,7 +10,6 @@ emission_enabled = true
 emission = Color(0.40641972, 0.40641975, 0.4064196, 1)
 emission_operator = 1
 emission_texture = ExtResource("1_1jcnw")
-heightmap_texture = ExtResource("2_wl06g")
 uv1_triplanar_sharpness = 1e-05
 texture_filter = 4
 use_z_clip_scale = true

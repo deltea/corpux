@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cdqelrqrg87nf" path="res://scenes/vending_machine/vending_machine.gd" id="1_d25df"]
 [ext_resource type="PackedScene" uid="uid://5e52h1xfprfs" path="res://assets/models/environment/vending_machine.blend" id="1_tf6tk"]
 [ext_resource type="Resource" uid="uid://dg5usvn62vden" path="res://dialogue/vending_machine.tres" id="2_8prie"]
-[ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="4_1lndu"]
 [ext_resource type="Shader" uid="uid://d3qweaiaq824q" path="res://shaders/squigglevision.gdshader" id="5_1lndu"]
 [ext_resource type="Texture2D" uid="uid://n7wqfeyl8ea1" path="res://assets/textures/vending-machine/eyes/blink.png" id="5_8yd61"]
 [ext_resource type="Shader" uid="uid://c2qdlk2arkcl" path="res://shaders/pixelate_screen.gdshader" id="6_1lndu"]
@@ -46,7 +45,6 @@ emission = Color(0.3077482, 0.62196684, 0.9999991, 1)
 emission_energy_multiplier = 2.0
 emission_operator = 1
 emission_texture = SubResource("ViewportTexture_fy51u")
-heightmap_texture = ExtResource("4_1lndu")
 detail_mask = SubResource("CompressedTexture2D_uj5xu")
 uv1_scale = Vector3(0.4, 0.4, -0.4)
 uv1_offset = Vector3(0, 0, -0.57)

@@ -1,7 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://g6x4vx4ppkf8"]
 
 [ext_resource type="Texture2D" uid="uid://lcdaaqk6mmjs" path="res://assets/textures/sliding-door.png" id="1_ji88i"]
-[ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="2_6ed06"]
 
 [resource]
 transparency = 1
@@ -10,7 +9,6 @@ emission = Color(0.5609553, 0.56095487, 0.5609549, 1)
 emission_energy_multiplier = 2.0
 emission_operator = 1
 emission_texture = ExtResource("1_ji88i")
-heightmap_texture = ExtResource("2_6ed06")
 uv1_world_triplanar = true
 texture_filter = 4
 distance_fade_min_distance = 25.0

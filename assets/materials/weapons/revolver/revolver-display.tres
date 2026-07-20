@@ -1,13 +1,11 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://cfq8ft0r52atb"]
 
 [ext_resource type="Texture2D" uid="uid://hbgv12k6oa6k" path="res://assets/textures/weapons/revolver/revolver-display.png" id="1_ckl7x"]
-[ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="2_fxuh2"]
 
 [resource]
 shading_mode = 0
 diffuse_mode = 2
 albedo_texture = ExtResource("1_ckl7x")
-heightmap_texture = ExtResource("2_fxuh2")
 uv1_scale = Vector3(39.725, 10.884, 20.552)
 texture_filter = 4
 use_z_clip_scale = true

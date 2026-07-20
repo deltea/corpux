@@ -1,7 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://cw65bu2jitrap"]
 
 [ext_resource type="Texture2D" uid="uid://cmpsbwuqcxbh7" path="res://assets/textures/floor.png" id="1_g8uw3"]
-[ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="2_g8uw3"]
 
 [resource]
 shading_mode = 2
@@ -9,7 +8,6 @@ albedo_texture = ExtResource("1_g8uw3")
 emission = Color(0.4392157, 0.4392157, 0.4392157, 1)
 emission_operator = 1
 emission_texture = ExtResource("1_g8uw3")
-heightmap_texture = ExtResource("2_g8uw3")
 uv1_scale = Vector3(0.03, 0.03, 0.03)
 uv1_triplanar = true
 uv1_world_triplanar = true

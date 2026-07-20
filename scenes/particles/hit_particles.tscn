@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://c8le1ae54fhkw"]
 
-[ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="1_tbs0o"]
-
 [sub_resource type="Curve" id="Curve_kek77"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.3812933, 0.0, 0, 0]
 point_count = 2
@@ -25,7 +23,6 @@ scale_curve = SubResource("CurveTexture_kek77")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w48qg"]
 shading_mode = 0
-heightmap_texture = ExtResource("1_tbs0o")
 uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true
 uv1_world_triplanar = true

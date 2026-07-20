@@ -1,13 +1,11 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://c73ho6hwlpwpl"]
 
-[ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="1_cpc0a"]
 [ext_resource type="Texture2D" uid="uid://cq5a5uwc2vvi1" path="res://assets/textures/train/body.png" id="1_fydpc"]
 
 [resource]
 diffuse_mode = 2
 albedo_texture = ExtResource("1_fydpc")
 emission = Color(0.5609553, 0.56095487, 0.5609549, 1)
-heightmap_texture = ExtResource("1_cpc0a")
 uv1_world_triplanar = true
 texture_filter = 4
 distance_fade_min_distance = 25.0

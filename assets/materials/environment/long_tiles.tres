@@ -1,13 +1,11 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://3ipk4fhteaks"]
 
-[ext_resource type="Texture2D" uid="uid://ck3y1ou4u2vja" path="res://assets/textures/patterns/pattern_07.png" id="1_dm46u"]
 [ext_resource type="Texture2D" uid="uid://bv3gyd8ehmbov" path="res://assets/textures/tile.png" id="1_mc7q3"]
 
 [resource]
 shading_mode = 2
 albedo_texture = ExtResource("1_mc7q3")
 emission = Color(0.5609553, 0.56095487, 0.5609549, 1)
-heightmap_texture = ExtResource("1_dm46u")
 uv1_scale = Vector3(0.25, 0.1, 0.25)
 uv1_triplanar = true
 uv1_world_triplanar = true
