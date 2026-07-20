@@ -1,6 +1,5 @@
 # todo
 
-- [ ] cool ass snapped particles
 - [ ] special styled platforms and models
 
 - [ ] make some doors
@@ -12,6 +11,7 @@
 - [ ] decorate the level
 - [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
 - [ ] tweening system
+- [x] cool ass snapped particles
 - [x] crosshair system
 - [x] shooting enemy
 - [x] cool hud

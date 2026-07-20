@@ -585,10 +585,10 @@ material = ExtResource("3_oipkf")
 transform = Transform3D(13.318802, 0, 0, 0, 1, 0, 0, 0, 3.8, -96.42029, 0.45333862, -179.43962)
 
 [node name="Lava2" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="2" unique_id=1766346705 instance=ExtResource("7_0qrrd")]
-transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 10, -91, -140, -74)
+transform = Transform3D(6, 0, 0, 0, 4, 0, 0, 0, 6, -91, -140, -74)
 
 [node name="Lava3" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="3" unique_id=283719383 instance=ExtResource("7_0qrrd")]
-transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 19, 67, -119, -103)
+transform = Transform3D(4.5, 0, 0, 0, 4, 0, 0, 0, 19, 53, -119, -103)
 
 [node name="column" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="4" unique_id=1336126912 instance=ExtResource("8_nh565")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81, -122, -116)
