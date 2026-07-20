@@ -3,10 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://bmrtp2fpln0ij" path="res://assets/textures/hanging-sign.png" id="1_m6ci1"]
 
 [resource]
-shading_mode = 2
 albedo_texture = ExtResource("1_m6ci1")
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.5
 emission_operator = 1
 emission_texture = ExtResource("1_m6ci1")
 uv1_world_triplanar = true

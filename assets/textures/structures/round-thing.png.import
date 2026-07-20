@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvya7neuf0wtm"
-path.s3tc="res://.godot/imported/platform.png-8198789dee3dd76980969eef04fe8435.s3tc.ctex"
+uid="uid://dt61khkopr8ac"
+path.s3tc="res://.godot/imported/round-thing.png-9e801b27bfb6cb8ce815d4fe6433720f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/structures/platform.png"
-dest_files=["res://.godot/imported/platform.png-8198789dee3dd76980969eef04fe8435.s3tc.ctex"]
+source_file="res://assets/textures/structures/round-thing.png"
+dest_files=["res://.godot/imported/round-thing.png-9e801b27bfb6cb8ce815d4fe6433720f.s3tc.ctex"]
 
 [params]
 

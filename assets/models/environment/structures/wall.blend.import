@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d00u3lhgiphp0"
-path="res://.godot/imported/platform.blend-afdfa28398a23243b06f5a2d8851aa9b.scn"
+uid="uid://ditxwyuopeltf"
+path="res://.godot/imported/wall.blend-48c84d93e7f56986036edd7f0b3f1502.scn"
 
 [deps]
 
-source_file="res://assets/models/environment/platform.blend"
-dest_files=["res://.godot/imported/platform.blend-afdfa28398a23243b06f5a2d8851aa9b.scn"]
+source_file="res://assets/models/environment/structures/wall.blend"
+dest_files=["res://.godot/imported/wall.blend-48c84d93e7f56986036edd7f0b3f1502.scn"]
 
 [params]
 
@@ -38,18 +38,13 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 materials/extract=0
 materials/extract_format=0
-materials/extract_path=""
+materials/extract_path="res://assets/materials"
 _subresources={
 "materials": {
-"Material": {
+"wall": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/environment/floor.tres",
-"use_external/path": "uid://cw65bu2jitrap"
-},
-"Material.001": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/standard.tres",
-"use_external/path": "uid://buvjk5gg3qgni"
+"use_external/fallback_path": "res://assets/materials/structures/wall.tres",
+"use_external/path": "uid://by70bhkkpyxr3"
 }
 }
 }

@@ -1,7 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://buvjk5gg3qgni"]
 
 [resource]
-diffuse_mode = 2
 emission = Color(0.5609553, 0.56095487, 0.5609549, 1)
 uv1_world_triplanar = true
 texture_filter = 4

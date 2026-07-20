@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://by70bhkkpyxr3"]
+
+[ext_resource type="Texture2D" uid="uid://1rmko6meb4hw" path="res://assets/textures/structures/wall.png" id="1_m7q76"]
+
+[resource]
+resource_name = "wall"
+albedo_texture = ExtResource("1_m7q76")
+emission_enabled = true
+emission_energy_multiplier = 0.5
+emission_texture = ExtResource("1_m7q76")
+texture_filter = 2

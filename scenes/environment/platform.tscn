@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://djlr1dtc5r84q"]
-
-[ext_resource type="PackedScene" uid="uid://d00u3lhgiphp0" path="res://assets/models/environment/platform.blend" id="1_51ysa"]
-
-[node name="Platform" unique_id=902836713 instance=ExtResource("1_51ysa")]

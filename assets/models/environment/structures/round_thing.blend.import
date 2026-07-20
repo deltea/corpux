@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cmw7ltg5ti525"
-path="res://.godot/imported/platform.blend-9a4d6d04c5dfa409b188d5952d0f95cd.scn"
+uid="uid://b73dgukc7alc6"
+path="res://.godot/imported/round_thing.blend-b8fe634c081ffe471fa0b9f243e8c1e2.scn"
 
 [deps]
 
-source_file="res://assets/models/environment/structures/platform.blend"
-dest_files=["res://.godot/imported/platform.blend-9a4d6d04c5dfa409b188d5952d0f95cd.scn"]
+source_file="res://assets/models/environment/structures/round_thing.blend"
+dest_files=["res://.godot/imported/round_thing.blend-b8fe634c081ffe471fa0b9f243e8c1e2.scn"]
 
 [params]
 
@@ -41,10 +41,10 @@ materials/extract_format=0
 materials/extract_path="res://assets/materials"
 _subresources={
 "materials": {
-"platform": {
+"round_thing": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/structures/platform.tres",
-"use_external/path": "uid://cq0koi762ti01"
+"use_external/fallback_path": "res://assets/materials/structures/round_thing.tres",
+"use_external/path": "uid://ch0c88j3oxfij"
 }
 }
 }
