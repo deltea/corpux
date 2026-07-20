@@ -18,6 +18,7 @@ const SUPER_DASH_GRAVITY = 60.0
 const SUPER_DASH_DECELERATION = 40.0
 const DASH_FORCE = 120.0
 const DASH_COUNT = 3
+const MAX_DASH_COUNT = 6
 const GRAVITY = 20.0
 const WALL_MAX_Y_VEL = 2.5
 const WALL_MAX_Z_VEL = 1.0
@@ -44,6 +45,7 @@ func _ready() -> void:
 	Events.end_level.connect(_on_end_level)
 	Events.death.connect(_on_death)
 	Events.turn_head_to.connect(_on_turn_head_to)
+	Events.add_dash.connect(_on_add_dash)
 	set_dashes_left(DASH_COUNT)
 
 func _process(dt: float) -> void:
@@ -236,8 +238,11 @@ func bounce():
 	velocity.y = sqrt(2 * BOUNCE_HEIGHT * GRAVITY)
 
 func set_dashes_left(value: int):
-	dashes_left = value
+	dashes_left = clampi(value, 0, MAX_DASH_COUNT)
 	Events.player_dash_changed.emit(dashes_left)
+
+func _on_add_dash():
+	set_dashes_left(dashes_left + 1)
 
 func _on_turn_head_to(target_pos: Vector3):
 	var to_target = target_pos - global_position

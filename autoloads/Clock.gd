@@ -35,7 +35,6 @@ func time_stop(duration: float):
 	if tween: tween.kill()
 	tween = create_tween().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_IN).set_ignore_time_scale()
 	tween.tween_property(Engine, "time_scale", 0.0, 0.1)
-	Events.flashbang.emit(0.1, 0.5)
 	tween.tween_property(Engine, "time_scale", 1.0, duration)
 
 func slowdown(duration: float):
