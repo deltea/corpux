@@ -6,6 +6,7 @@ const CROSSHAIR_NORMAL_WIDTH = 16.0
 @export var dash_texture: Texture2D
 @export var enemy_crosshair_texture: Texture2D
 @export var normal_crosshair_texture: Texture2D
+@export var exit_color: Color
 
 @onready var dash_container: VBoxContainer = $DashContainerBackground/DashContainer
 @onready var spinny: TextureRect = $Spinny
@@ -17,24 +18,28 @@ const CROSSHAIR_NORMAL_WIDTH = 16.0
 var crosshair_tween: Tween
 var crosshair_center_tween: Tween
 
+var is_animating_time = false
+
 func _ready() -> void:
 	Events.player_dash_changed.connect(_on_dash_changed)
 	Events.enemy_died.connect(_on_enemy_died)
 	Events.fire.connect(_on_fire)
+	Events.mission_complete.connect(_on_mission_complete)
 
 	var tween = create_tween().set_loops()
 	tween.tween_property(spinny, "rotation", PI / 2, 0.5).as_relative()
 	tween.tween_interval(0.5)
 
 func _process(dt: float) -> void:
-	time_label.text = "[shake]" + Utils.format_time(get_tree().current_scene.curr_time)
+	if not is_animating_time:
+		time_label.text = "[shake]" + Utils.format_time(get_tree().current_scene.curr_time)
 
 func _on_dash_changed(value: int):
 	var child_count = dash_container.get_child_count()
 	if value < child_count:
 		for i in range(child_count - value):
 			if dash_container.get_child_count() >= child_count - value:
-				dash_container.get_child(i).queue_free()
+				destroy_dash_rect(dash_container.get_child(i))
 	elif value > child_count:
 		for i in range(value - child_count):
 			create_dash_rect()
@@ -45,6 +50,12 @@ func create_dash_rect():
 	texture_rect.custom_minimum_size = Vector2(80, 0)
 	texture_rect.custom_maximum_size = Vector2(-1, 40)
 	dash_container.add_child(texture_rect)
+
+func destroy_dash_rect(dash_rect: TextureRect):
+	var tween = create_tween()
+	dash_rect.reparent(self)
+	Tweeny.tween_property_blink(tween, dash_rect, "self_modulate:a", 1.0, 0.0, 0.2)
+	tween.tween_callback(dash_rect.queue_free)
 
 func _on_enemy_died():
 	crosshair_center.texture = enemy_crosshair_texture
@@ -63,3 +74,23 @@ func _on_fire():
 	crosshair_tween = create_tween().set_ignore_time_scale()
 	crosshair_tween.tween_property(crosshair, "size:x", CROSSHAIR_FIRE_WIDTH, 0.0)
 	crosshair_tween.tween_property(crosshair, "size:x", CROSSHAIR_NORMAL_WIDTH, 0.0).set_delay(0.2)
+
+	_on_mission_complete()
+
+func _on_mission_complete():
+	var tween = create_tween().set_ignore_time_scale()
+	Tweeny.tween_property_blink(tween, time_label, "self_modulate:a", 1.0, 0.0, 0.6)
+	tween.tween_callback(func():
+		is_animating_time = true
+		time_label.text = "GET TO THE EXIT"
+	)
+	Tweeny.tween_property_blink(tween, time_label, "self_modulate:a", 0.0, 1.0, 0.6)
+	tween.tween_interval(1.0)
+	Tweeny.tween_property_blink(tween, time_label, "self_modulate:a", 1.0, 0.0, 0.6)
+	tween.tween_callback(func(): is_animating_time = false)
+	Tweeny.tween_property_blink(tween, time_label, "self_modulate:a", 0.0, 1.0, 0.6)
+
+	var background_tween = create_tween().set_ignore_time_scale()
+	background_tween.tween_property(time_background.material, "shader_parameter/dissolve_amount", 0.0, 0.2).set_delay(0.4)
+	background_tween.tween_callback(func(): time_background.color = exit_color)
+	background_tween.tween_property(time_background.material, "shader_parameter/dissolve_amount", 1.0, 0.2).set_delay(0.4)

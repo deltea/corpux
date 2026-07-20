@@ -6,7 +6,7 @@ class_name Exit extends Area3D
 var is_enabled = false
 
 func _ready() -> void:
-	Events.all_enemies_dead.connect(_on_all_enemies_dead)
+	Events.mission_complete.connect(_on_mission_complete)
 
 func open_doors():
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
@@ -30,5 +30,5 @@ func _on_door_open_area_body_exited(body: Node3D) -> void:
 	if not body is Player or not is_enabled: return
 	close_doors()
 
-func _on_all_enemies_dead():
+func _on_mission_complete():
 	is_enabled = true

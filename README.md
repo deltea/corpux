@@ -1,6 +1,5 @@
 # todo
 
-- [ ] GET TO THE EXIT
 - [ ] special styled platforms and models
 
 - [ ] make some doors
@@ -12,6 +11,7 @@
 - [ ] decorate the level
 - [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
 - [ ] tweening system
+- [x] GET TO THE EXIT
 - [x] cool ass snapped particles
 - [x] crosshair system
 - [x] shooting enemy

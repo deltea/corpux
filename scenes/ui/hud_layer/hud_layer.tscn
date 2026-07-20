@@ -11,7 +11,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3amcu"]
 shader = ExtResource("5_yvv1i")
-shader_parameter/sensitivity = 1.0
+shader_parameter/dissolve_amount = 1.0
 shader_parameter/background_color = Color(1, 1, 1, 0)
 shader_parameter/scale_x = 8.0
 shader_parameter/scale_y = 1.0
@@ -32,6 +32,7 @@ script = ExtResource("1_ykr4f")
 dash_texture = ExtResource("1_14gka")
 enemy_crosshair_texture = ExtResource("5_i3hc6")
 normal_crosshair_texture = ExtResource("4_3amcu")
+exit_color = Color(1, 0.5019608, 0.101960786, 1)
 
 [node name="DashContainerBackground" type="ColorRect" parent="." unique_id=517443420]
 anchors_preset = 4
@@ -62,9 +63,9 @@ material = SubResource("ShaderMaterial_3amcu")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -512.0
+offset_left = -448.0
 offset_top = 32.0
-offset_right = 512.0
+offset_right = 448.0
 offset_bottom = 88.0
 grow_horizontal = 2
 color = Color(0.003921569, 0.07058824, 0.99215686, 1)

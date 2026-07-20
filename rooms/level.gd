@@ -49,7 +49,7 @@ func _on_death():
 
 func _on_enemy_died():
 	if get_tree().get_node_count_in_group("enemies") <= 1:
-		Events.all_enemies_dead.emit()
+		Events.mission_complete.emit()
 
 func get_rank(time: float, cutoffs: Dictionary[String, float]) -> String:
 	for rank in cutoffs.keys():
