@@ -1,7 +1,7 @@
 class_name HudLayer extends CanvasLayer
 
-const CROSSHAIR_FIRE_WIDTH = 16.0
-const CROSSHAIR_NORMAL_WIDTH = 14.0
+const CROSSHAIR_FIRE_WIDTH = 20.0
+const CROSSHAIR_NORMAL_WIDTH = 16.0
 
 @export var dash_texture: Texture2D
 @export var enemy_crosshair_texture: Texture2D
@@ -50,10 +50,12 @@ func _on_enemy_died():
 	if crosshair_center_tween: crosshair_center_tween.kill()
 	crosshair_center_tween = create_tween().set_ignore_time_scale()
 	Tweeny.tween_property_blink(crosshair_center_tween, crosshair_center, "self_modulate:a", 0.0, 1.0, 0.5)
+	crosshair_center_tween.tween_interval(0.25)
+	Tweeny.tween_property_blink(crosshair_center_tween, crosshair_center, "self_modulate:a", 1.0, 0.0, 0.25)
 	crosshair_center_tween.chain().tween_callback(func():
 		crosshair_center.self_modulate.a = 1.0
 		crosshair_center.texture = normal_crosshair_texture
-	).set_delay(0.5)
+	)
 
 func _on_fire():
 	if crosshair_tween: crosshair_tween.kill()
