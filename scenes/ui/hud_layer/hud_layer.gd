@@ -75,8 +75,6 @@ func _on_fire():
 	crosshair_tween.tween_property(crosshair, "size:x", CROSSHAIR_FIRE_WIDTH, 0.0)
 	crosshair_tween.tween_property(crosshair, "size:x", CROSSHAIR_NORMAL_WIDTH, 0.0).set_delay(0.2)
 
-	_on_mission_complete()
-
 func _on_mission_complete():
 	var tween = create_tween().set_ignore_time_scale()
 	Tweeny.tween_property_blink(tween, time_label, "self_modulate:a", 1.0, 0.0, 0.6)
