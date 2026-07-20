@@ -1,14 +1,14 @@
 # todo
 
-- [ ] tweening system
+- [ ] shooting enemy
+- [ ] enemy model
 - [ ] train entrance and exit
 - [ ] add sfx and music
-- [ ] enemy model
-- [ ] shooting enemy
 - [ ] crosshair system
 - [ ] tutorial stuff
 - [ ] decorate the level
 - [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
+- [ ] tweening system
 - [x] cool hud
 - [x] dash and stomp particles
 - [x] vending dialogue camera lock
