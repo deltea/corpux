@@ -70,7 +70,7 @@ func _process(dt: float) -> void:
 	else:
 		shake_duration = 0
 
-	position.y = snappedf(position.y + sin(Clock.time * 4.0) * 0.05, 0.03)
+	position.y = snappedf(position.y + sin(Clock.time * 4.0) * 0.08, 0.04)
 
 func _on_weapon_shake(strength: float, duration: float):
 	shake_strength = strength

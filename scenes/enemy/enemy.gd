@@ -29,7 +29,7 @@ func die():
 	explosion.emitting = true
 	explosion.finished.connect(explosion.queue_free)
 	get_tree().current_scene.add_child(explosion)
-	Clock.time_stop(0.3)
+	Clock.time_stop(0.25)
 	Events.flashbang.emit(0.1, 0.5)
 
 func _on_auto_aim_area_aim_entered() -> void:
