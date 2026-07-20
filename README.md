@@ -1,7 +1,8 @@
 # todo
 
 - [ ] shooting enemy
-- [ ] enemy model
+- [ ] fix slam then dash bug
+- [ ] enemy modele
 - [ ] train entrance and exit
 - [ ] add sfx and music
 - [ ] crosshair system
