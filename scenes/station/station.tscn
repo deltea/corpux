@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d2lsigfcd1rcy"]
 
-[ext_resource type="Material" uid="uid://3ipk4fhteaks" path="res://assets/materials/environment/long_tiles.tres" id="1_5a57x"]
+[ext_resource type="Material" uid="uid://3ipk4fhteaks" path="res://assets/materials/environment/tiles.tres" id="1_5a57x"]
 [ext_resource type="PackedScene" uid="uid://b0mtwvye60alo" path="res://assets/models/environment/station_board.blend" id="3_sc7vk"]
 [ext_resource type="PackedScene" uid="uid://bojpc3sv2hm7m" path="res://assets/models/environment/metro_door.blend" id="4_mm2pm"]
 [ext_resource type="PackedScene" uid="uid://d3c6285e12qkl" path="res://assets/models/environment/train/train_head.blend" id="5_kphry"]

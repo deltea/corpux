@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ccedxpdllf06q" path="res://scenes/environment/arch.tscn" id="2_0rbq8"]
 [ext_resource type="Resource" uid="uid://ctkwtrutqmghf" path="res://levels/level_1.tres" id="2_ahpcb"]
 [ext_resource type="PackedScene" uid="uid://fi26o3a5pvnr" path="res://scenes/enemy/basic/basic_enemy.tscn" id="3_56mwc"]
-[ext_resource type="Material" uid="uid://3ipk4fhteaks" path="res://assets/materials/environment/long_tiles.tres" id="3_oipkf"]
+[ext_resource type="Material" uid="uid://3ipk4fhteaks" path="res://assets/materials/environment/tiles.tres" id="3_oipkf"]
 [ext_resource type="PackedScene" uid="uid://cdisaf5r7mqvl" path="res://scenes/exit/exit.tscn" id="4_56mwc"]
 [ext_resource type="PackedScene" uid="uid://5j8qcxhem20l" path="res://scenes/lava/lava.tscn" id="7_0qrrd"]
 [ext_resource type="PackedScene" uid="uid://cmw7ltg5ti525" path="res://assets/models/environment/structures/platform.blend" id="7_ahpcb"]

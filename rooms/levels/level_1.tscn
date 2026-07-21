@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cql4lfwnvpkhs"]
 
 [ext_resource type="PackedScene" uid="uid://dhy1jr78jeejf" path="res://rooms/level.tscn" id="1_0oin0"]
-[ext_resource type="Material" uid="uid://3ipk4fhteaks" path="res://assets/materials/environment/long_tiles.tres" id="2_nbo3n"]
+[ext_resource type="Material" uid="uid://3ipk4fhteaks" path="res://assets/materials/environment/tiles.tres" id="2_nbo3n"]
 [ext_resource type="Material" uid="uid://cw65bu2jitrap" path="res://assets/materials/environment/floor.tres" id="3_v310g"]
-[ext_resource type="Material" uid="uid://crmwss0n1hs0k" path="res://assets/materials/environment/tiles.tres" id="4_fthdt"]
+[ext_resource type="Material" uid="uid://3ipk4fhteaks" path="res://assets/materials/environment/tiles.tres" id="4_fthdt"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fthdt"]
 size = Vector2(1000, 1000)
