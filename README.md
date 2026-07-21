@@ -1,6 +1,5 @@
 # todo
 
-
 - [ ] make some doors
 - [ ] enemy modele
 - [ ] fix slam then dash bug
