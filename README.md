@@ -2,13 +2,12 @@
 
 - [ ] make some doors
 - [ ] online leaderboard
-- [ ] fix slam then dash bug
 - [ ] train entrance and exit
 - [ ] add sfx and music
 - [ ] tutorial stuff
 - [ ] decorate the level
 - [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
-- [ ] tweening system
+- [ ] fix slam then dash bug
 - [x] enemy modele
 - [x] lanternsa
 - [x] u rank
@@ -43,6 +42,7 @@
 
 ## uhhhhh later
 
+- [ ] tweening system
 - [ ] scene manager
 - [ ] auto aim for throws?? cool lookin frame ui
 - [ ] quake movement revamp
