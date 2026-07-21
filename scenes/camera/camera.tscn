@@ -4,4 +4,5 @@
 
 [node name="Camera" type="Camera3D" unique_id=774764019]
 process_mode = 3
+fov = 80.0
 script = ExtResource("1_xejhd")
