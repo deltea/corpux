@@ -3,7 +3,7 @@
 [resource]
 shading_mode = 0
 diffuse_mode = 2
-albedo_color = Color(0.9843137, 0.047058824, 0.45490196, 1)
+albedo_color = Color(1, 0.5019608, 0.101960786, 1)
 uv1_world_triplanar = true
 texture_filter = 4
 distance_fade_min_distance = 25.0
