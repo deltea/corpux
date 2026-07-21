@@ -3,6 +3,8 @@
 - [ ] make some doors
 - [ ] enemy modele
     - [ ] lanternsa
+- [ ] u rank
+- [ ] online leaderboard
 - [ ] fix slam then dash bug
 - [ ] train entrance and exit
 - [ ] add sfx and music
