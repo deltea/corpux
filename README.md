@@ -3,7 +3,6 @@
 - [ ] make some doors
 - [ ] enemy modele
     - [ ] lanternsa
-- [ ] u rank
 - [ ] online leaderboard
 - [ ] fix slam then dash bug
 - [ ] train entrance and exit
@@ -12,6 +11,7 @@
 - [ ] decorate the level
 - [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
 - [ ] tweening system
+- [x] u rank
 - [x] special styled platforms and models
 - [x] GET TO THE EXIT
 - [x] cool ass snapped particles
