@@ -1,7 +1,5 @@
 # todo
 
-- [ ] enemy modele
-    - [ ] lanternsa
 - [ ] make some doors
 - [ ] online leaderboard
 - [ ] fix slam then dash bug
@@ -11,6 +9,8 @@
 - [ ] decorate the level
 - [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
 - [ ] tweening system
+- [x] enemy modele
+- [x] lanternsa
 - [x] u rank
 - [x] special styled platforms and models
 - [x] GET TO THE EXIT
