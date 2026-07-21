@@ -41,9 +41,9 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"Material": {
+"column": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/column.tres",
+"use_external/fallback_path": "res://assets/materials/environment/column.tres",
 "use_external/path": "uid://dkti1mkgo0o05"
 }
 }
