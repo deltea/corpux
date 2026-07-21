@@ -2,8 +2,8 @@
 
 
 - [ ] make some doors
-- [ ] fix slam then dash bug
 - [ ] enemy modele
+- [ ] fix slam then dash bug
 - [ ] train entrance and exit
 - [ ] add sfx and music
 - [ ] tutorial stuff
