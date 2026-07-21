@@ -52,15 +52,15 @@ enemies=""
 scene={
 "_subresources": {
 "materials": {
-"Base": {
+"basic_enemy_legs": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/standard.tres",
-"use_external/path": "uid://buvjk5gg3qgni"
+"use_external/fallback_path": "res://assets/materials/basic_enemy_legs.tres",
+"use_external/path": "uid://bqehp8uxkibmx"
 },
-"Emission": {
+"basic_enemy_top": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/emissive.tres",
-"use_external/path": "uid://dq5d51j0je03r"
+"use_external/fallback_path": "res://assets/materials/basic_enemy_top.tres",
+"use_external/path": "uid://bb7mbytq45hsn"
 }
 }
 },

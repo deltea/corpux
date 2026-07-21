@@ -6,6 +6,6 @@
 resource_name = "wall"
 albedo_texture = ExtResource("1_m7q76")
 emission_enabled = true
-emission_energy_multiplier = 0.5
+emission_energy_multiplier = 0.4
 emission_texture = ExtResource("1_m7q76")
 texture_filter = 2

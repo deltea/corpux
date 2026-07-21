@@ -44,8 +44,8 @@ func _ready() -> void:
 	original_rot = wind_up_pivot.rotation_degrees
 
 func _process(dt: float) -> void:
-	mesh.rotation_degrees = lerp(mesh.rotation_degrees, target_mesh_rot, 5.0 * dt).snappedf(1.0)
-	pivot.rotation_degrees = lerp(pivot.rotation_degrees, target_pivot_rot, 5.0 * dt).snappedf(1.0)
+	mesh.rotation_degrees = lerp(mesh.rotation_degrees, target_mesh_rot, 5.0 * dt)
+	pivot.rotation_degrees = lerp(pivot.rotation_degrees, target_pivot_rot, 5.0 * dt)
 
 	if is_winding_up:
 		wind_up_time = clampf(wind_up_time + dt, 0.0, MAX_WIND_UP_TIME)

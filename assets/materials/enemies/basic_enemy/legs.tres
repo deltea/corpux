@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cbclcg458c1xr"]
+
+[ext_resource type="Texture2D" uid="uid://c6j6e2epq61re" path="res://assets/textures/enemies/basic_enemy/legs.png" id="1_xr75c"]
+
+[resource]
+resource_name = "basic_enemy_legs"
+shading_mode = 2
+albedo_texture = ExtResource("1_xr75c")
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.4

@@ -46,7 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6375143, -0.23853329, -3.30
 [node name="Pivot" type="Node3D" parent="WindUpPivot" index="0" unique_id=79434447]
 
 [node name="revolver" parent="WindUpPivot/Pivot" index="0" unique_id=1579868623 instance=ExtResource("3_td1f2")]
-transform = Transform3D(-0.021809712, -0.069520324, -0.49466276, 0, 0.49513403, -0.06958655, 0.49952412, -0.0030353253, -0.021597462, 0.64565444, -0.845, -1.805)
+transform = Transform3D(-0.021809712, -0.069520324, -0.49466276, 0, 0.49513403, -0.06958655, 0.49952412, -0.0030353253, -0.021597462, 0.64565444, -0.845, -1.905)
 
 [node name="Cube" parent="WindUpPivot/Pivot/revolver" index="1" unique_id=781856020]
 layers = 2

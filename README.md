@@ -1,8 +1,8 @@
 # todo
 
-- [ ] make some doors
 - [ ] enemy modele
     - [ ] lanternsa
+- [ ] make some doors
 - [ ] online leaderboard
 - [ ] fix slam then dash bug
 - [ ] train entrance and exit

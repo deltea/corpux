@@ -6,7 +6,9 @@
 shading_mode = 2
 diffuse_mode = 2
 albedo_texture = ExtResource("1_vcg4r")
-emission = Color(0.36595514, 0.0021280048, 0.14636153, 1)
+emission_enabled = true
+emission = Color(0.9843137, 0.047058824, 0.45490196, 1)
+emission_energy_multiplier = 0.4
 uv1_world_triplanar = true
 texture_filter = 4
 use_z_clip_scale = true

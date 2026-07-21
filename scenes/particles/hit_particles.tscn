@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c8le1ae54fhkw"]
 
 [sub_resource type="Curve" id="Curve_kek77"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.3812933, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.50251263), -1.1868159, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_kek77"]
@@ -40,5 +40,7 @@ amount = 4
 lifetime = 0.4
 one_shot = true
 explosiveness = 0.9
+fixed_fps = 14
+interpolate = false
 process_material = SubResource("ParticleProcessMaterial_kek77")
 draw_pass_1 = SubResource("BoxMesh_4c57u")

@@ -1,27 +1,27 @@
 [gd_scene format=3 uid="uid://fi26o3a5pvnr"]
 
 [ext_resource type="PackedScene" uid="uid://7y5q2uqhhq41" path="res://scenes/enemy/enemy.tscn" id="1_b6kpl"]
-[ext_resource type="Material" uid="uid://b2y5a1vsiih2k" path="res://assets/materials/enemies/enemy.tres" id="2_5xr37"]
+[ext_resource type="PackedScene" uid="uid://c4uglg51phudt" path="res://assets/models/environment/enemies/basic_enemy.blend" id="3_0ns2y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b6kpl"]
-size = Vector3(4, 4, 4)
+size = Vector3(7, 6, 7)
 
-[sub_resource type="BoxMesh" id="BoxMesh_38or4"]
-material = ExtResource("2_5xr37")
-size = Vector3(4, 4, 4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_5xr37"]
+size = Vector3(7.1, 6.1, 7.1)
 
 [node name="BasicEnemy" unique_id=541240095 instance=ExtResource("1_b6kpl")]
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=1789538307]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 shape = SubResource("BoxShape3D_b6kpl")
 
-[node name="MeshInstance" type="MeshInstance3D" parent="." index="1" unique_id=2142459759]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-mesh = SubResource("BoxMesh_38or4")
-
-[node name="Marker" parent="." index="2" unique_id=1012418726]
+[node name="Marker" parent="." index="1" unique_id=1012418726]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="AutoAimArea" parent="." index="3" unique_id=219805013]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+[node name="AutoAimArea" parent="." index="2" unique_id=219805013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="CollisionShape" parent="AutoAimArea" index="0" unique_id=50076700]
+shape = SubResource("BoxShape3D_5xr37")
+
+[node name="basic_enemy" parent="." index="3" unique_id=1785075363 instance=ExtResource("3_0ns2y")]

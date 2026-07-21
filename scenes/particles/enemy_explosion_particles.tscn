@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://ce5g08imwy782"]
 
+[ext_resource type="Material" uid="uid://b2y5a1vsiih2k" path="res://assets/materials/enemies/enemy.tres" id="1_xwmha"]
+
 [sub_resource type="Curve" id="Curve_yb0tb"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.4974875), 0.0, 0.0, 0, 0]
 point_count = 2
@@ -12,19 +14,16 @@ lifetime_randomness = 0.5
 emission_shape_scale = Vector3(4, 4, 4)
 emission_shape = 1
 emission_sphere_radius = 1.0
-spread = 180.0
+direction = Vector3(0, 1, 0)
+spread = 90.0
 initial_velocity_min = 16.0
 initial_velocity_max = 20.0
 gravity = Vector3(0, 0, 0)
 scale_max = 2.0
 scale_curve = SubResource("CurveTexture_yb0tb")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yb0tb"]
-shading_mode = 0
-albedo_color = Color(0.9843137, 0.047058824, 0.45490196, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_yb0tb"]
-material = SubResource("StandardMaterial3D_yb0tb")
+material = ExtResource("1_xwmha")
 
 [node name="EnemyExplosionParticles" type="GPUParticles3D" unique_id=2035842307]
 emitting = false

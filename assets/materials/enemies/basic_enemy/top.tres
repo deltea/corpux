@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ciy2mmfn2wneg"]
+
+[ext_resource type="Texture2D" uid="uid://bdhjw2kwiwatf" path="res://assets/textures/enemies/basic_enemy/top.png" id="1_lidui"]
+
+[resource]
+resource_name = "basic_enemy_top"
+shading_mode = 2
+albedo_texture = ExtResource("1_lidui")
+emission_enabled = true
+emission_energy_multiplier = 0.4
+emission_texture = ExtResource("1_lidui")
