@@ -44,12 +44,12 @@
 
 - [ ] tweening system
 - [ ] scene manager
-- [ ] auto aim for throws?? cool lookin frame ui
 - [ ] quake movement revamp
-- [ ] fix ground decal flickering
 - [ ] fix boomerang tweaking out
 - [ ] animate camera far?
 - [ ] weapon animation revamp
+- [x] auto aim for throws?? cool lookin frame ui
+- [x] fix ground decal flickering
 
 ## very later
 
