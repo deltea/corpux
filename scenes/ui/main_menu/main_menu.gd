@@ -6,6 +6,7 @@ const level_select_scene = preload("res://scenes/ui/level_select/level_select.ts
 @onready var version_label: Label = $VersionLabel
 @onready var time_label: Label = $TimeLabel
 @onready var button_row: ButtonRow = $ButtonRow
+@onready var username_label: Label = $UsernameLabel
 
 var is_transitioning = false
 
@@ -18,6 +19,9 @@ func _ready() -> void:
 
 	tween = create_tween()
 	Tweeny.tween_property_blink(tween, title_rect, "self_modulate:a", 0.0, 1.0, 0.5)
+
+	if SaveManager.get_player_username():
+		username_label.text = "welcome, " + SaveManager.get_player_username()
 
 func _process(dt: float) -> void:
 	time_label.text = Time.get_datetime_string_from_system()
@@ -36,4 +40,3 @@ func _on_button_row_button_pressed(id: String) -> void:
 		print("there arent any settings bitch")
 	if id == "quit":
 		get_tree().quit()
-

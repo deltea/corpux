@@ -88,7 +88,7 @@ func style_button(button: Button):
 		button.add_theme_color_override("font_hover_color", fg_color)
 		button.add_theme_color_override("font_pressed_color", fg_color)
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	var less = ("up" if is_column else "left")
 	var more = ("down" if is_column else "right")
 	if event.is_action_pressed(less):

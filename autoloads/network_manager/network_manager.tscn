@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://x6uie4siitmq"]
+
+[ext_resource type="Script" uid="uid://do2iqpemfofhx" path="res://autoloads/network_manager/network_manager.gd" id="1_wi2qs"]
+[ext_resource type="Theme" uid="uid://cxmchfsgtgv3e" path="res://theme.tres" id="2_v4g23"]
+
+[node name="NetworkManager" type="CanvasLayer" unique_id=701674995]
+layer = 2
+script = ExtResource("1_wi2qs")
+
+[node name="UsernameContainer" type="Control" parent="." unique_id=1885912008]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="UsernameContainer" unique_id=2063102500]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="UsernameEdit" type="LineEdit" parent="UsernameContainer" unique_id=572147704]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -230.0
+offset_top = -416.0
+offset_right = 230.0
+offset_bottom = -344.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_v4g23")
+placeholder_text = "username"
+max_length = 16
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UsernameContainer" unique_id=2132325286]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -616.0
+offset_top = 352.0
+offset_right = 616.0
+offset_bottom = 448.0
+grow_horizontal = 2
+theme = ExtResource("2_v4g23")
+text = "WHAT IS YOUR NAME, STRANGER?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="text_submitted" from="UsernameContainer/UsernameEdit" to="." method="_on_username_edit_text_submitted"]

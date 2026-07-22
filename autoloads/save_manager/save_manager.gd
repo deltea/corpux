@@ -5,9 +5,7 @@ const SAVE_PATH = "user://data.json"
 
 @export_tool_button("Delete user data", "Remove") var delete_user_data_button = Callable(self, "delete_data")
 
-var game_data = {
-
-}
+var game_data = {}
 
 func _ready() -> void:
 	load_data()
@@ -65,3 +63,12 @@ func delete_data():
 		print("save deleted")
 	else:
 		print("no save file to delete")
+
+func get_player_username():
+	if game_data.has("player_username"):
+		return game_data["player_username"]
+	return null
+
+func set_player_username(new_username: String):
+	game_data["player_username"] = new_username
+	save_data()

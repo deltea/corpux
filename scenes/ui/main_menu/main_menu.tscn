@@ -263,9 +263,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 8.0
+offset_left = -16.0
 offset_top = -28.0
-offset_right = 404.0
+offset_right = 380.0
 offset_bottom = 236.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -273,16 +273,28 @@ button_resources = Array[ExtResource("9_wv6bh")]([SubResource("Resource_11bbh"),
 spacing = 40.0
 is_column = true
 
-[node name="VersionLabel" type="Label" parent="." unique_id=1375976212]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 248.0
-offset_top = -112.0
-offset_right = 448.0
-offset_bottom = -71.0
-grow_vertical = 0
-text = "v1.0.0-beta"
+[node name="UsernameLabel" type="Label" parent="." unique_id=1375976212]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 24.0
+offset_right = 100.0
+offset_bottom = 65.0
+grow_horizontal = 2
+text = "welcome, player_156"
+label_settings = SubResource("LabelSettings_cq3ud")
+
+[node name="VersionLabel" type="Label" parent="." unique_id=214990353]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 256.0
+offset_top = 420.0
+offset_right = 515.0
+offset_bottom = 461.0
+grow_vertical = 2
+text = "v0.1-beta"
 label_settings = SubResource("LabelSettings_cq3ud")
 
 [node name="TimeLabel" type="Label" parent="." unique_id=656069825]
