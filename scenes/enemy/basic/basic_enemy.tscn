@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://fi26o3a5pvnr"]
 
 [ext_resource type="PackedScene" uid="uid://7y5q2uqhhq41" path="res://scenes/enemy/enemy.tscn" id="1_b6kpl"]
+[ext_resource type="Script" uid="uid://b36u4ifassvmo" path="res://scenes/enemy/basic/basic_enemy.gd" id="2_0ns2y"]
 [ext_resource type="PackedScene" uid="uid://c4uglg51phudt" path="res://assets/models/environment/enemies/basic_enemy.blend" id="3_0ns2y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b6kpl"]
@@ -10,6 +11,7 @@ size = Vector3(7, 6, 7)
 size = Vector3(7.1, 6.1, 7.1)
 
 [node name="BasicEnemy" unique_id=541240095 instance=ExtResource("1_b6kpl")]
+script = ExtResource("2_0ns2y")
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=1789538307]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
@@ -25,3 +27,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 shape = SubResource("BoxShape3D_5xr37")
 
 [node name="basic_enemy" parent="." index="3" unique_id=1785075363 instance=ExtResource("3_0ns2y")]
+
+[editable path="basic_enemy"]

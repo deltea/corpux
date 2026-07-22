@@ -6,14 +6,14 @@
 [ext_resource type="Material" uid="uid://b2y5a1vsiih2k" path="res://assets/materials/enemies/enemy.tres" id="3_6xi7d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iylkx"]
-size = Vector3(4, 8, 4)
+size = Vector3(5, 9, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_iylkx"]
 material = ExtResource("3_6xi7d")
 size = Vector3(4, 8, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6xi7d"]
-size = Vector3(4.1, 8.1, 4.1)
+size = Vector3(5.1, 9.1, 5.1)
 
 [node name="ProjectileEnemy" unique_id=541240095 instance=ExtResource("1_1imvy")]
 script = ExtResource("2_iylkx")
