@@ -32,6 +32,7 @@ func _on_end_level():
 	add_child(end_screen)
 	var rank = get_rank(curr_time, level_resource.ranking_cutoffs)
 	SaveManager.update_level_data(level_resource.level_name, curr_time, rank, is_secret_found)
+	NetworkManager.submit_leaderboard_time(level_resource.level_name, curr_time)
 	end_screen.set_info(
 		level_resource.level_name,
 		curr_time,

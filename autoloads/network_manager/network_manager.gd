@@ -42,3 +42,6 @@ func is_username_taken(username: String) -> bool:
 
 func _on_username_edit_text_submitted(_new_text: String) -> void:
 	submit_username()
+
+func submit_leaderboard_time(level_name: String, time: float) -> void:
+	await Talo.leaderboards.add_entry("level_1", time)

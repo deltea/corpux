@@ -143,7 +143,8 @@ func secondary_fire_released():
 	boomerang.global_position = mesh.global_position
 	boomerang.global_rotation = mesh.global_rotation
 	if auto_aim_last_area:
-		var dir = (auto_aim_last_area.global_position - fire_point.global_position).normalized()
+		var diff = (auto_aim_last_area.global_position - fire_point.global_position).normalized()
+		var dir = Vector3(diff.x, diff.y, player.get_look_dir().z)
 		boomerang.throw(dir, throw_distance_curve.sample_baked(wind_up_amount), mesh)
 	else:
 		boomerang.throw(player.get_look_dir(), throw_distance_curve.sample_baked(wind_up_amount), mesh)
