@@ -1,13 +1,9 @@
 # todo
 
-- [ ] make some doors
-- [ ] online leaderboard
+- [ ] shooty enemy model
 - [ ] train entrance and exit
 - [ ] add sfx and music
-- [ ] tutorial stuff
-- [ ] decorate the level
-- [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
-- [ ] fix slam then dash bug
+- [x] online leaderboard
 - [x] enemy modele
 - [x] lanternsa
 - [x] u rank
@@ -42,6 +38,11 @@
 
 ## uhhhhh later
 
+- [ ] make some doors
+- [ ] tutorial stuff
+- [ ] decorate the level
+- [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
+- [ ] fix slam then dash bug
 - [ ] tweening system
 - [ ] scene manager
 - [ ] quake movement revamp
