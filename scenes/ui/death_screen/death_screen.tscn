@@ -53,39 +53,39 @@ offset_bottom = 1080.0
 texture = ExtResource("4_trwrg")
 
 [node name="DeathLabel" type="RichTextLabel" parent="." unique_id=380858934]
-offset_left = 88.0
+offset_left = 80.0
 offset_top = 96.0
-offset_right = 1216.0
+offset_right = 1240.0
 offset_bottom = 856.0
 theme = ExtResource("2_h504w")
 theme_override_fonts/normal_font = SubResource("FontVariation_trwrg")
 theme_override_font_sizes/normal_font_size = 40
 text = "
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
-The noise is a fog, look beyond it and you will find success.
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
+no matter, tomorrow we will run faster, stretch out our arms farther
 "
 scroll_active = false
