@@ -1,13 +1,12 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://dkti1mkgo0o05"]
 
 [ext_resource type="Texture2D" uid="uid://cfvydp3erjymc" path="res://assets/textures/environment/column.png" id="1_fdf6r"]
+[ext_resource type="Material" uid="uid://df78vqvbou6vl" path="res://assets/materials/overlay.tres" id="2_gma3o"]
 
 [resource]
-shading_mode = 2
+next_pass = ExtResource("2_gma3o")
+shading_mode = 0
 albedo_texture = ExtResource("1_fdf6r")
-emission_enabled = true
-emission_energy_multiplier = 0.4
-emission_texture = ExtResource("1_fdf6r")
 uv1_triplanar_sharpness = 86.152466
 texture_filter = 4
 distance_fade_min_distance = 25.0

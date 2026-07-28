@@ -2,10 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://bv3gyd8ehmbov" path="res://assets/textures/tile.png" id="1_8ba18"]
 
-[resource]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ba18"]
+blend_mode = 3
 shading_mode = 2
+shadow_to_opacity = true
+
+[resource]
+next_pass = SubResource("StandardMaterial3D_8ba18")
+shading_mode = 0
 albedo_texture = ExtResource("1_8ba18")
-emission = Color(1, 1, 1, 1)
 uv1_scale = Vector3(0.25, 0.1, 0.25)
 uv1_triplanar = true
 uv1_world_triplanar = true

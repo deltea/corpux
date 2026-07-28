@@ -1,16 +1,14 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://cq0koi762ti01"]
 
 [ext_resource type="Texture2D" uid="uid://bvya7neuf0wtm" path="res://assets/textures/structures/platform.png" id="1_t4rlm"]
+[ext_resource type="Material" uid="uid://df78vqvbou6vl" path="res://assets/materials/overlay.tres" id="2_sf8hx"]
 
 [resource]
 resource_name = "platform"
+next_pass = ExtResource("2_sf8hx")
 cull_mode = 2
-shading_mode = 2
+shading_mode = 0
 albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
 albedo_texture = ExtResource("1_t4rlm")
-roughness = 0.5
-emission_enabled = true
-emission_energy_multiplier = 0.4
-emission_texture = ExtResource("1_t4rlm")
 uv1_world_triplanar = true
 texture_filter = 2

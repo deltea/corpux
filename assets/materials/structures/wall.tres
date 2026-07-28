@@ -1,11 +1,11 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://by70bhkkpyxr3"]
 
 [ext_resource type="Texture2D" uid="uid://1rmko6meb4hw" path="res://assets/textures/structures/wall.png" id="1_m7q76"]
+[ext_resource type="Material" uid="uid://df78vqvbou6vl" path="res://assets/materials/overlay.tres" id="2_o70me"]
 
 [resource]
 resource_name = "wall"
+next_pass = ExtResource("2_o70me")
+shading_mode = 0
 albedo_texture = ExtResource("1_m7q76")
-emission_enabled = true
-emission_energy_multiplier = 0.4
-emission_texture = ExtResource("1_m7q76")
 texture_filter = 2

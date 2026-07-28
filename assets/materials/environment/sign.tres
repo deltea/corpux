@@ -1,13 +1,12 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://cpp0dlh2i36ek"]
 
 [ext_resource type="Texture2D" uid="uid://dcmoqk30pahji" path="res://assets/textures/sign.png" id="1_dctdv"]
+[ext_resource type="Material" uid="uid://df78vqvbou6vl" path="res://assets/materials/overlay.tres" id="2_dfnfr"]
 
 [resource]
-shading_mode = 2
+next_pass = ExtResource("2_dfnfr")
+shading_mode = 0
 albedo_texture = ExtResource("1_dctdv")
-emission = Color(0.63375676, 0.6337568, 0.63375676, 1)
-emission_operator = 1
-emission_texture = ExtResource("1_dctdv")
 uv1_world_triplanar = true
 texture_filter = 4
 distance_fade_min_distance = 25.0

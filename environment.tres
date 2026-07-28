@@ -14,9 +14,10 @@ energy_multiplier = 0.5
 sky_material = SubResource("ProceduralSkyMaterial_tibj6")
 
 [resource]
-background_mode = 2
 background_color = Color(1, 1, 1, 1)
 sky = SubResource("Sky_7mycd")
+ambient_light_source = 2
+ambient_light_color = Color(0.7624039, 0.76240367, 0.76240337, 1)
 reflected_light_source = 1
 ssao_intensity = 1.0
 sdfgi_energy = 1.2

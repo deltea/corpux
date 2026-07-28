@@ -23,6 +23,9 @@ light_energy = 0.5
 light_specular = 16.0
 shadow_enabled = true
 shadow_blur = 0.0
+directional_shadow_split_1 = 0.03
+directional_shadow_split_2 = 0.06
+directional_shadow_max_distance = 1000.0
 
 [node name="EntranceStation" parent="." unique_id=523828664 instance=ExtResource("7_ar4t0")]
 

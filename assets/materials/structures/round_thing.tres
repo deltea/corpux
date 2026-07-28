@@ -1,7 +1,10 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://ch0c88j3oxfij"]
 
 [ext_resource type="Texture2D" uid="uid://dt61khkopr8ac" path="res://assets/textures/structures/round-thing.png" id="1_73hha"]
+[ext_resource type="Material" uid="uid://df78vqvbou6vl" path="res://assets/materials/overlay.tres" id="2_6gx3w"]
 
 [resource]
 resource_name = "round_thing"
+next_pass = ExtResource("2_6gx3w")
+shading_mode = 0
 albedo_texture = ExtResource("1_73hha")
