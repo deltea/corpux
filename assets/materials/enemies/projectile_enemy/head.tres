@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cp7mkpgrxbubp"]
+
+[ext_resource type="Material" uid="uid://df78vqvbou6vl" path="res://assets/materials/overlay.tres" id="1_kfv6n"]
+
+[resource]
+resource_name = "head"
+next_pass = ExtResource("1_kfv6n")
+shading_mode = 0
+albedo_color = Color(0.9843137, 0.047058824, 0.45490196, 1)

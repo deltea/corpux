@@ -1,7 +1,6 @@
 # todo
 
 - [ ] shooty enemy model
-- [ ] train entrance and exit
 - [ ] add sfx and music
 - [x] online leaderboard
 - [x] enemy modele
@@ -38,6 +37,7 @@
 
 ## uhhhhh later
 
+- [ ] train entrance and exit
 - [ ] make some doors
 - [ ] tutorial stuff
 - [ ] decorate the level

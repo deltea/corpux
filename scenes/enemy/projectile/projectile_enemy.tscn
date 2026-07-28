@@ -4,16 +4,17 @@
 [ext_resource type="Script" uid="uid://dmorjierer4er" path="res://scenes/enemy/projectile/projectile_enemy.gd" id="2_iylkx"]
 [ext_resource type="PackedScene" uid="uid://v0est4hp6i83" path="res://scenes/enemy_bullet/enemy_bullet.tscn" id="3_5wrqe"]
 [ext_resource type="Material" uid="uid://b2y5a1vsiih2k" path="res://assets/materials/enemies/enemy.tres" id="3_6xi7d"]
+[ext_resource type="PackedScene" uid="uid://cku3hx421mwa2" path="res://assets/models/environment/enemies/projectile_enemy.blend" id="5_ocdua"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iylkx"]
-size = Vector3(5, 9, 5)
+size = Vector3(5, 12.5, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_iylkx"]
 material = ExtResource("3_6xi7d")
 size = Vector3(4, 8, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6xi7d"]
-size = Vector3(5.1, 9.1, 5.1)
+size = Vector3(5.1, 12.6, 5.1)
 
 [node name="ProjectileEnemy" unique_id=541240095 instance=ExtResource("1_1imvy")]
 script = ExtResource("2_iylkx")
@@ -21,18 +22,19 @@ projectile_scene = ExtResource("3_5wrqe")
 max_health = 2
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=1789538307]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.25, 0)
 shape = SubResource("BoxShape3D_iylkx")
 
 [node name="MeshInstance" type="MeshInstance3D" parent="." index="1" unique_id=841444803]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+visible = false
 mesh = SubResource("BoxMesh_iylkx")
 
 [node name="Marker" parent="." index="2" unique_id=1012418726]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 
 [node name="AutoAimArea" parent="." index="3" unique_id=219805013]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.25, 0)
 
 [node name="CollisionShape" parent="AutoAimArea" index="0" unique_id=50076700]
 shape = SubResource("BoxShape3D_6xi7d")
@@ -44,4 +46,8 @@ autostart = true
 [node name="FirePoint" type="Marker3D" parent="." index="5" unique_id=2066964254]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 
+[node name="projectile_enemy" parent="." index="6" unique_id=1878692402 instance=ExtResource("5_ocdua")]
+
 [connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]
+
+[editable path="projectile_enemy"]

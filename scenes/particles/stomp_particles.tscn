@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://c36hwpalqimqp"]
 
+[ext_resource type="Material" uid="uid://3hb6uqwdt4ax" path="res://assets/materials/particles/dash_particles.tres" id="1_j3giy"]
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rnwgv"]
 emission_shape = 6
 emission_ring_axis = Vector3(0, 1, 0)
@@ -13,16 +15,12 @@ initial_velocity_min = 30.0
 initial_velocity_max = 30.0
 gravity = Vector3(0, 0, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rnwgv"]
-cull_mode = 2
-shading_mode = 0
-billboard_mode = 2
-
 [sub_resource type="QuadMesh" id="QuadMesh_rnwgv"]
-material = SubResource("StandardMaterial3D_rnwgv")
+material = ExtResource("1_j3giy")
 size = Vector2(0.2, 2)
 
 [node name="DashParticles" type="GPUParticles3D" unique_id=1183100327]
+cast_shadow = 0
 amount = 100
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_rnwgv")
