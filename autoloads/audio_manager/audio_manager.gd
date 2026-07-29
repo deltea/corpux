@@ -18,12 +18,15 @@ const music = {
 	"kitsune": preload("res://assets/audio/music/kitsune.mp3"),
 	"rayquaza": preload("res://assets/audio/music/rayquaza ex.mp3"),
 	"fine-night": preload("res://assets/audio/music/fine night.mp3"),
+	"cyan-hardcore": preload("res://assets/audio/music/cyan hardcore.mp3"),
+	"rigged-game": preload("res://assets/audio/music/rigged game.mp3"),
 }
 
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 
 func _ready() -> void:
-	play_music(music.keys()[randi() % music.size()])
+	# play_music(music.keys()[randi() % music.size()])
+	play_music("rigged-game")
 
 func play_music(music_name: String):
 	if not music.has(music_name):

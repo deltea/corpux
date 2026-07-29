@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jqmrmks5q1cw"
+path="res://.godot/imported/cyan hardcore.mp3-91a1fccdb3c5934bb5242238bee30ecb.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/cyan hardcore.mp3"
+dest_files=["res://.godot/imported/cyan hardcore.mp3-91a1fccdb3c5934bb5242238bee30ecb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

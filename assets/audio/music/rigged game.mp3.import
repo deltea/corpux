@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bvlmkhphppd3k"
+path="res://.godot/imported/rigged game.mp3-0c7288b27a290a4280ea2b2d85d906f8.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/rigged game.mp3"
+dest_files=["res://.godot/imported/rigged game.mp3-0c7288b27a290a4280ea2b2d85d906f8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
