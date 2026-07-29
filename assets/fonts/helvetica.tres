@@ -2,6 +2,7 @@
 
 [sub_resource type="SystemFont" id="SystemFont_ew5by"]
 font_names = PackedStringArray("Helvetica")
+subpixel_positioning = 0
 
 [resource]
 base_font = SubResource("SystemFont_ew5by")

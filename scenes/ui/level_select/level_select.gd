@@ -1,6 +1,7 @@
 class_name LevelSelect extends CanvasLayer
 
 const main_menu_scene = preload("res://scenes/ui/main_menu/main_menu.tscn")
+const leaderboard_scene = preload("res://scenes/ui/leaderboard/leaderboard.tscn")
 
 const LINE_OFFSET = 800.0
 const STATION_SEPARATION = 450.0
@@ -27,8 +28,10 @@ var line_curve: Curve2D
 
 var transition_tween: Tween
 var line_tween: Tween
+var original_line_x: float
 
 func _ready() -> void:
+	original_line_x = line.position.x
 	line_curve = Curve2D.new()
 	for p in line.points: line_curve.add_point(p)
 
@@ -51,7 +54,7 @@ func animate_in():
 	transition_tween.tween_property(background, "self_modulate:a", 1.0, 0.8)
 	transition_tween.tween_property(panel_background, "position:x", 0.0, 0.5)
 	transition_tween.tween_property(disc, "position:y", 1072.0, 0.5)
-	transition_tween.tween_property(line, "position:x", -80.0, 0.5).set_delay(0.25)
+	transition_tween.tween_property(line, "position:x", original_line_x, 0.5).set_delay(0.25)
 	transition_tween.tween_property(button_row, "position:y", 904.0, 0.5).set_delay(0.25)
 	transition_tween.tween_property(level_name_label, "visible_ratio", 1.0, 0.5).set_delay(0.25).set_trans(Tween.TRANS_LINEAR)
 	transition_tween.tween_property(level_preview, "rotation_degrees", 0.0, 0.5).set_delay(0.25)
@@ -105,3 +108,6 @@ func _on_buttons_button_pressed(id: String) -> void:
 		get_tree().change_scene_to_file("res://rooms/main_menu.tscn")
 	if id == "enter":
 		get_tree().change_scene_to_file(levels[curr_selected].level_scene_path)
+	if id == "leaderboard":
+		var leaderboard = leaderboard_scene.instantiate() as Leaderboard
+		add_child(leaderboard)

@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://csjgum405x42q"]
+
+[ext_resource type="Script" uid="uid://bfh72q1lxggkk" path="res://scenes/ui/leaderboard/leaderboard.gd" id="1_fh5s4"]
+[ext_resource type="PackedScene" uid="uid://cxum2wbp88l3g" path="res://scenes/ui/leaderboard/leaderboard_entry_container.tscn" id="2_p5tgx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5tgx"]
+
+[sub_resource type="SystemFont" id="SystemFont_p5tgx"]
+font_names = PackedStringArray("Helvetica")
+subpixel_positioning = 0
+
+[sub_resource type="FontVariation" id="FontVariation_ew5by"]
+base_font = SubResource("SystemFont_p5tgx")
+variation_embolden = 1.75
+variation_transform = Transform2D(1, 0.1, 0, 0.6, 0, 0)
+spacing_glyph = -30
+spacing_space = -30
+
+[sub_resource type="LabelSettings" id="LabelSettings_7p4yg"]
+font = SubResource("FontVariation_ew5by")
+font_size = 260
+
+[sub_resource type="SystemFont" id="SystemFont_ew5by"]
+font_names = PackedStringArray("Helvetica")
+subpixel_positioning = 0
+
+[sub_resource type="FontVariation" id="FontVariation_mrx6w"]
+base_font = SubResource("SystemFont_ew5by")
+variation_embolden = 0.6
+variation_transform = Transform2D(0.75, 0, 0, 1, 0, 0)
+spacing_space = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_p5tgx"]
+font = SubResource("FontVariation_mrx6w")
+font_size = 72
+
+[node name="LeaderboardScreen" type="CanvasLayer" unique_id=1223186933]
+layer = 2
+script = ExtResource("1_fh5s4")
+
+[node name="Leaderboard" type="Panel" parent="." unique_id=10100858]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -284.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p5tgx")
+
+[node name="MarginContainer" type="MarginContainer" parent="Leaderboard" unique_id=1661580168]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 16
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Leaderboard/MarginContainer" unique_id=536358268]
+layout_mode = 2
+
+[node name="EntryContainer" type="VBoxContainer" parent="Leaderboard/MarginContainer/ScrollContainer" unique_id=331955080]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LeaderboardEntry" parent="Leaderboard/MarginContainer/ScrollContainer/EntryContainer" unique_id=1304341136 instance=ExtResource("2_p5tgx")]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1496529320]
+offset_right = 1920.0
+offset_bottom = 256.0
+color = Color(0.003921569, 0.07058824, 0.99215686, 1)
+
+[node name="LeaderboardLabel" type="Label" parent="." unique_id=1018615157]
+offset_top = -56.0
+offset_right = 1167.0
+offset_bottom = 295.0
+text = "LEADERBOARD"
+label_settings = SubResource("LabelSettings_7p4yg")
+
+[node name="Label" type="Label" parent="." unique_id=1775033002]
+offset_left = 16.0
+offset_top = 168.0
+offset_right = 344.0
+offset_bottom = 241.0
+text = "initiation"
+label_settings = SubResource("LabelSettings_p5tgx")
+
+[node name="Label2" type="Label" parent="." unique_id=99238825]
+offset_left = 1536.0
+offset_top = 168.0
+offset_right = 1891.0
+offset_bottom = 241.0
+text = "esc to exit"
+label_settings = SubResource("LabelSettings_p5tgx")

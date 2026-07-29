@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://cxum2wbp88l3g"]
+
+[ext_resource type="Script" uid="uid://dv7kcd4iyag64" path="res://scenes/ui/leaderboard/leaderboard_entry_container.gd" id="1_yihgi"]
+
+[sub_resource type="SystemFont" id="SystemFont_ew5by"]
+font_names = PackedStringArray("Helvetica")
+subpixel_positioning = 0
+
+[sub_resource type="FontVariation" id="FontVariation_mrx6w"]
+base_font = SubResource("SystemFont_ew5by")
+variation_embolden = 0.6
+variation_transform = Transform2D(0.75, 0, 0, 1, 0, 0)
+spacing_space = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_mrx6w"]
+font = SubResource("FontVariation_mrx6w")
+font_size = 72
+
+[node name="LeaderboardEntry" type="Control" unique_id=1304341136]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+script = ExtResource("1_yihgi")
+
+[node name="HighlightBackground" type="ColorRect" parent="." unique_id=277720638]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.26666668, 0.30980393, 0.9843137, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1207091619]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=675879700]
+layout_mode = 2
+
+[node name="Background" type="ColorRect" parent="MarginContainer/HBoxContainer" unique_id=882169118]
+layout_mode = 2
+
+[node name="RankNumLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=835637699]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "1. "
+label_settings = SubResource("LabelSettings_mrx6w")
+
+[node name="UsernameLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1031205155]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "deltea"
+label_settings = SubResource("LabelSettings_mrx6w")
+
+[node name="TimeLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=405504951]
+layout_mode = 2
+text = "00:00:00"
+label_settings = SubResource("LabelSettings_mrx6w")
+
+[node name="RankLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1181755130]
+visible = false
+layout_mode = 2
+text = "S+"
+label_settings = SubResource("LabelSettings_mrx6w")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="MarginContainer/HBoxContainer" unique_id=831051006]

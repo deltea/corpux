@@ -33,7 +33,7 @@ func _on_end_level():
 
 	var end_screen = end_screen_scene.instantiate() as EndScreen
 	add_child(end_screen)
-	var rank = get_rank(curr_time, level_resource.ranking_cutoffs)
+	var rank = Utils.get_rank(curr_time, level_resource.ranking_cutoffs)
 	SaveManager.update_level_data(level_resource.level_name, curr_time, rank, is_secret_found)
 	NetworkManager.submit_leaderboard_time(level_resource.level_name, curr_time)
 	end_screen.set_info(
@@ -58,8 +58,3 @@ func _on_enemy_died():
 		await Clock.wait(0.5)
 		AudioManager.play_sound("mission-complete")
 
-func get_rank(time: float, cutoffs: Dictionary[String, float]) -> String:
-	for rank in cutoffs.keys():
-		if time <= cutoffs[rank]:
-			return rank
-	return cutoffs.keys()[-1]

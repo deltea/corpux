@@ -61,7 +61,7 @@ baseline_offset = 0.125
 
 [sub_resource type="Resource" id="Resource_dqdhh"]
 script = ExtResource("12_5sbj7")
-label = "back to menu"
+label = "back"
 id = "back"
 metadata/_custom_type_script = "uid://b7nvenoqdnhoo"
 
@@ -71,12 +71,18 @@ label = "enter"
 id = "enter"
 metadata/_custom_type_script = "uid://b7nvenoqdnhoo"
 
-[sub_resource type="SystemFont" id="SystemFont_efxa6"]
+[sub_resource type="Resource" id="Resource_anl86"]
+script = ExtResource("12_5sbj7")
+label = "leaderboard"
+id = "leaderboard"
+metadata/_custom_type_script = "uid://b7nvenoqdnhoo"
+
+[sub_resource type="SystemFont" id="SystemFont_p5tgx"]
 font_names = PackedStringArray("Helvetica")
 subpixel_positioning = 0
 
 [sub_resource type="FontVariation" id="FontVariation_ew5by"]
-base_font = SubResource("SystemFont_efxa6")
+base_font = SubResource("SystemFont_p5tgx")
 variation_embolden = 1.75
 variation_transform = Transform2D(1, 0.1, 0, 0.6, 0, 0)
 spacing_glyph = -30
@@ -87,8 +93,19 @@ font = SubResource("FontVariation_ew5by")
 font_size = 350
 font_color = Color(0.7775145, 0.77751505, 0.7738904, 1)
 
+[sub_resource type="SystemFont" id="SystemFont_efxa6"]
+font_names = PackedStringArray("Helvetica")
+subpixel_positioning = 0
+
+[sub_resource type="FontVariation" id="FontVariation_ucmw2"]
+base_font = SubResource("SystemFont_efxa6")
+variation_embolden = 1.75
+variation_transform = Transform2D(1, 0.1, 0, 0.6, 0, 0)
+spacing_glyph = -30
+spacing_space = -30
+
 [sub_resource type="LabelSettings" id="LabelSettings_ew5by"]
-font = SubResource("FontVariation_ew5by")
+font = SubResource("FontVariation_ucmw2")
 font_size = 350
 font_color = Color(0.8992584, 0.8992584, 0.8992584, 1)
 
@@ -111,7 +128,7 @@ grow_vertical = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -944.0
+offset_right = -872.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.003921569, 0.07058824, 0.99215686, 1)
@@ -194,9 +211,9 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 976.0
+offset_left = 1048.0
 offset_top = 272.0
-offset_right = 2497.937
+offset_right = 2569.937
 offset_bottom = 400.0
 grow_vertical = 0
 rotation = -1.5707964
@@ -284,20 +301,21 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="ButtonRow" parent="." unique_id=832578793 instance=ExtResource("11_ih84l")]
-offset_left = 96.0
+offset_left = 48.0
 offset_top = 904.0
-offset_right = 136.0
+offset_right = 88.0
 offset_bottom = 944.0
-button_resources = Array[ExtResource("12_5sbj7")]([SubResource("Resource_dqdhh"), SubResource("Resource_t1v37")])
+button_resources = Array[ExtResource("12_5sbj7")]([SubResource("Resource_dqdhh"), SubResource("Resource_t1v37"), SubResource("Resource_anl86")])
+spacing = 60.0
 inverted = true
 curr_selected = 1
 
 [node name="Disc" type="Control" parent="." unique_id=1623452856]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1008.0
+offset_left = 1072.0
 offset_top = 1072.0
-offset_right = 1048.0
+offset_right = 1112.0
 offset_bottom = 1112.0
 rotation = 3.1415927
 
@@ -320,7 +338,7 @@ text = "DISC"
 label_settings = SubResource("LabelSettings_ew5by")
 
 [node name="Line" type="Line2D" parent="." unique_id=1670737907]
-position = Vector2(-80, 0)
+position = Vector2(16, 0)
 points = PackedVector2Array(1616, -1128, 1616.8811, -779.09717, 1256, -125, 1256, 168, 1368, 368, 1368, 736, 1368, 888, 1256, 1080, 1256, 1600, 1552, 1976)
 width = 24.0
 default_color = Color(0.9843137, 0.047058824, 0.45490196, 1)
