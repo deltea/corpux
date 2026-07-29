@@ -6,6 +6,8 @@ this game is made with godot, and talo for the backend
 
 current placeholder music is by machine girl
 
+no ai used for this project other than minimal amounts of github copilot autocomplete
+
 ## todo
 
 - [x] show leaderboard
