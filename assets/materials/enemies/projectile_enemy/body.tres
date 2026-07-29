@@ -6,4 +6,3 @@
 resource_name = "body"
 next_pass = ExtResource("1_67j77")
 shading_mode = 0
-albedo_color = Color(0.9843137, 0.047058824, 0.45490196, 1)

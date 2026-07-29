@@ -2,36 +2,30 @@
 
 [ext_resource type="Material" uid="uid://b2y5a1vsiih2k" path="res://assets/materials/enemies/enemy.tres" id="1_xwmha"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_yb0tb"]
+material = ExtResource("1_xwmha")
+
 [sub_resource type="Curve" id="Curve_yb0tb"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.4974875), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_yb0tb"]
-curve = SubResource("Curve_yb0tb")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yb0tb"]
-lifetime_randomness = 0.5
-emission_shape_scale = Vector3(4, 4, 4)
-emission_shape = 1
-emission_sphere_radius = 1.0
-direction = Vector3(0, 1, 0)
-spread = 90.0
-initial_velocity_min = 16.0
-initial_velocity_max = 20.0
-gravity = Vector3(0, 0, 0)
-scale_max = 2.0
-scale_curve = SubResource("CurveTexture_yb0tb")
-
-[sub_resource type="BoxMesh" id="BoxMesh_yb0tb"]
-material = ExtResource("1_xwmha")
-
-[node name="EnemyExplosionParticles" type="GPUParticles3D" unique_id=2035842307]
+[node name="EnemyExplosionParticles" type="CPUParticles3D" unique_id=190069852]
 emitting = false
 amount = 10
 lifetime = 0.4
 one_shot = true
-explosiveness = 1.0
+explosiveness = 0.2
+randomness = 1.0
+lifetime_randomness = 0.5
 fixed_fps = 14
-interpolate = false
-process_material = SubResource("ParticleProcessMaterial_yb0tb")
-draw_pass_1 = SubResource("BoxMesh_yb0tb")
+visibility_aabb = AABB(-6.4565787, -1.3226099, -5.2797623, 10.284082, 8.95099, 12.874737)
+mesh = SubResource("BoxMesh_yb0tb")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 1, 0)
+spread = 90.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 16.0
+initial_velocity_max = 20.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_yb0tb")

@@ -1,7 +1,7 @@
 # todo
 
-- [ ] shooty enemy model
 - [ ] add sfx and music
+- [x] shooty enemy model
 - [x] online leaderboard
 - [x] enemy modele
 - [x] lanternsa
