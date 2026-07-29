@@ -8,7 +8,7 @@ current placeholder music is by machine girl
 
 no ai used for this project other than minimal amounts of github copilot autocomplete
 
-itch.io page here: [https://github.com/deltea/corpux](https://github.com/deltea/corpux)
+itch.io page here: [https://deltea.itch.io/300kmh](https://deltea.itch.io/300kmh)
 password is "iloveultrakill"
 
 ## todo
