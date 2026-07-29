@@ -74,6 +74,8 @@ func fire():
 
 	super.fire()
 
+	AudioManager.play_sound("gunshot", randf_range(0.9, 1.1))
+
 	mesh.rotation_degrees.z = -15.0
 	pivot.rotation_degrees.x = 20.0
 

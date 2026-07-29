@@ -25,6 +25,7 @@ const WALL_MAX_Z_VEL = 1.0
 const SLAM_VELOCITY = 160.0
 
 @onready var head: Node3D = $Head
+@onready var slamming_sound: AudioStreamPlayer = $Slamming
 
 var mouse_delta = Vector2.ZERO
 var slam_particles: GPUParticles3D
@@ -66,6 +67,7 @@ func _physics_process(dt: float):
 
 	if Input.is_action_just_pressed("jump") and is_grounded:
 		velocity.y = sqrt(2 * JUMP_HEIGHT * GRAVITY)
+		AudioManager.play_sound("jump", randf_range(0.9, 1.1))
 	elif is_walled and not is_grounded:
 		if Input.is_action_just_pressed("jump"):
 			var normal = get_wall_normal()
@@ -110,6 +112,7 @@ func _physics_process(dt: float):
 
 func dash():
 	if dashes_left > 0:
+		AudioManager.play_sound("dash", randf_range(0.9, 1.1))
 		set_dashes_left(dashes_left - 1)
 		$DashTimer.start()
 		is_dashing = true
@@ -132,6 +135,8 @@ func check_grounded():
 			is_grounded = true
 			is_super_dashing = false
 			stop_slam()
+			AudioManager.play_sound("slam", randf_range(0.9, 1.1))
+			slamming_sound.stop()
 
 func check_walled():
 	if is_walled != is_on_wall():
@@ -157,6 +162,7 @@ func super_dash():
 	set_dashes_left(dashes_left - 1)
 
 func slam():
+	slamming_sound.play()
 	$DashTimer.stop()
 	is_slamming = true
 	is_super_dashing = false
@@ -280,3 +286,6 @@ func _on_end_level():
 func _on_death():
 	process_mode = Node.PROCESS_MODE_DISABLED
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	AudioManager.play_sound("die")
+	await Clock.wait(0.5)
+	AudioManager.play_sound("mission-failed")

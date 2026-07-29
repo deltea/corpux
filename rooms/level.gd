@@ -49,8 +49,11 @@ func _on_death():
 	add_child(death_screen)
 
 func _on_enemy_died():
+	AudioManager.play_sound("enemy-killed")
 	if get_tree().get_node_count_in_group("enemies") <= 1:
 		Events.mission_complete.emit()
+		await Clock.wait(0.5)
+		AudioManager.play_sound("mission-complete")
 
 func get_rank(time: float, cutoffs: Dictionary[String, float]) -> String:
 	for rank in cutoffs.keys():
