@@ -1,10 +1,11 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://ciy2mmfn2wneg"]
 
 [ext_resource type="Texture2D" uid="uid://bdhjw2kwiwatf" path="res://assets/textures/enemies/basic_enemy/top.png" id="1_lidui"]
-[ext_resource type="Material" uid="uid://df78vqvbou6vl" path="res://assets/materials/overlay.tres" id="2_gnelw"]
 
 [resource]
 resource_name = "basic_enemy_top"
-next_pass = ExtResource("2_gnelw")
-shading_mode = 0
+shading_mode = 2
 albedo_texture = ExtResource("1_lidui")
+emission_enabled = true
+emission = Color(0.9843137, 0.047058824, 0.45490196, 1)
+emission_energy_multiplier = 0.25

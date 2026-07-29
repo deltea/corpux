@@ -14,6 +14,7 @@ emitting = false
 amount = 10
 lifetime = 0.4
 one_shot = true
+preprocess = 0.1
 explosiveness = 0.2
 randomness = 1.0
 lifetime_randomness = 0.5

@@ -26,9 +26,9 @@ func die():
 	Events.add_dash.emit()
 
 	var explosion = explosion_scene.instantiate() as CPUParticles3D
+	get_tree().current_scene.add_child(explosion)
 	explosion.position = global_position
 	explosion.emitting = true
-	get_tree().current_scene.add_child(explosion)
 	Clock.time_stop(0.25)
 	Events.flashbang.emit(0.1, 0.5)
 
