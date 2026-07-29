@@ -19,8 +19,9 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n1x3u"]
 shader = ExtResource("2_n1x3u")
-shader_parameter/speed_x = 0.5
-shader_parameter/speed_y = 0.5
+shader_parameter/speed_x = 0.25
+shader_parameter/speed_y = 0.25
+shader_parameter/step = 0.2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8qm4d"]
 shader = ExtResource("7_uhiru")
