@@ -75,7 +75,10 @@ func animate_in():
 
 	tween.chain().tween_callback(func(): rank_label.visible = true)
 	tween.chain().tween_property(rank_label, "scale", Vector2.ONE * 1.0, 0.4).set_ease(Tween.EASE_IN)
-	tween.chain().tween_callback(func(): Events.flashbang.emit(1.0))
+	tween.chain().tween_callback(func():
+		Events.flashbang.emit(1.0)
+		AudioManager.play_sound("slam")
+	)
 	tween.chain().tween_property(button_row, "position:y", 875.0, 0.25).set_delay(0.3)
 
 func _on_button_row_button_pressed(id: String) -> void:
