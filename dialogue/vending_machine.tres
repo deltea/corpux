@@ -9,14 +9,44 @@ script = ExtResource("1_2qk04")
 status = "happy"
 speaker = "random ahh vending machine"
 voice = ExtResource("2_2ae0j")
-text = "[wave]yoooooooooo[/wave] wsg twinn"
+text = "[wave]yoooooooooo[/wave] wsg horizon reviewer!"
+metadata/_custom_type_script = "uid://doiy3xjk34nme"
+
+[sub_resource type="Resource" id="Resource_ofxfp"]
+script = ExtResource("1_2qk04")
+speaker = "random ahh vending machine"
+voice = ExtResource("2_2ae0j")
+text = "so basically, im just gonna dump all the info on you right now cuz im lowk too lazy to make an actual tutorial, sound good?"
+metadata/_custom_type_script = "uid://doiy3xjk34nme"
+
+[sub_resource type="Resource" id="Resource_k64sa"]
+script = ExtResource("1_2qk04")
+speaker = "random ahh vending machine"
+voice = ExtResource("2_2ae0j")
+text = "alr so heres the deal: your goal is to kill all the enemies, and get to the exit"
+metadata/_custom_type_script = "uid://doiy3xjk34nme"
+
+[sub_resource type="Resource" id="Resource_7s05u"]
+script = ExtResource("1_2qk04")
+status = "happy"
+speaker = "random ahh vending machine"
+voice = ExtResource("2_2ae0j")
+text = "AS      FAST      AS    YOU      POSSIBLY      CAN       got it?"
+metadata/_custom_type_script = "uid://doiy3xjk34nme"
+
+[sub_resource type="Resource" id="Resource_7o0j4"]
+script = ExtResource("1_2qk04")
+speaker = "random ahh vending machine"
+voice = ExtResource("2_2ae0j")
+text = "press [wave][b][i]<left mouse button>[/i][/b][/wave] for primary fire with your revolver"
 metadata/_custom_type_script = "uid://doiy3xjk34nme"
 
 [sub_resource type="Resource" id="Resource_2qk04"]
 script = ExtResource("1_2qk04")
+status = "happy"
 speaker = "random ahh vending machine"
 voice = ExtResource("2_2ae0j")
-text = "did you know if you press the [wave][b][i]<right mouse button>[/i][/b][/wave] you can throw your revolver like a boomerang??"
+text = "and press [wave][b][i]<right mouse button>[/i][/b][/wave] to throw your revolver like a boomerang!!"
 metadata/_custom_type_script = "uid://doiy3xjk34nme"
 
 [sub_resource type="Resource" id="Resource_pyby6"]
@@ -27,15 +57,37 @@ voice = ExtResource("2_2ae0j")
 text = "you can even hold the [wave][b][i]<right mouse button>[/i][/b][/wave] to charge your throw for farther range!"
 metadata/_custom_type_script = "uid://doiy3xjk34nme"
 
-[sub_resource type="Resource" id="Resource_ofxfp"]
+[sub_resource type="Resource" id="Resource_2ae0j"]
 script = ExtResource("1_2qk04")
 status = "happy"
 speaker = "random ahh vending machine"
 voice = ExtResource("2_2ae0j")
-text = "so cool!!!"
+text = "very cool!!!"
+metadata/_custom_type_script = "uid://doiy3xjk34nme"
+
+[sub_resource type="Resource" id="Resource_b148f"]
+script = ExtResource("1_2qk04")
+speaker = "random ahh vending machine"
+voice = ExtResource("2_2ae0j")
+text = "along with the basic fps movement controls, try dashing with [wave][b][i]<shift>[/i][/b][/wave] then immediately pressing [wave][b][i]<space>[/i][/b][/wave] to do a super jump for extra speed!"
+metadata/_custom_type_script = "uid://doiy3xjk34nme"
+
+[sub_resource type="Resource" id="Resource_tfvfu"]
+script = ExtResource("1_2qk04")
+speaker = "random ahh vending machine"
+voice = ExtResource("2_2ae0j")
+text = "(keep in mind, this is a super unpolished and buggy prototype, the final result will likely be very different)"
+metadata/_custom_type_script = "uid://doiy3xjk34nme"
+
+[sub_resource type="Resource" id="Resource_bt6p0"]
+script = ExtResource("1_2qk04")
+status = "happy"
+speaker = "random ahh vending machine"
+voice = ExtResource("2_2ae0j")
+text = "alr that should be all you need to get going, good luck and don't die!!!!!"
 metadata/_custom_type_script = "uid://doiy3xjk34nme"
 
 [resource]
 script = ExtResource("2_ofxfp")
-lines = Array[ExtResource("1_2qk04")]([SubResource("Resource_c5ats"), SubResource("Resource_2qk04"), SubResource("Resource_pyby6"), SubResource("Resource_ofxfp")])
+lines = Array[ExtResource("1_2qk04")]([SubResource("Resource_c5ats"), SubResource("Resource_ofxfp"), SubResource("Resource_k64sa"), SubResource("Resource_7s05u"), SubResource("Resource_7o0j4"), SubResource("Resource_2qk04"), SubResource("Resource_pyby6"), SubResource("Resource_2ae0j"), SubResource("Resource_b148f"), SubResource("Resource_tfvfu"), SubResource("Resource_bt6p0")])
 metadata/_custom_type_script = "uid://8svh44qbgj65"

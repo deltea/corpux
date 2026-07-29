@@ -1,6 +1,6 @@
 # todo
 
-- [ ] show leaderboard
+- [x] show leaderboard
 - [x] add sfx and music
 - [x] shooty enemy model
 - [x] online leaderboard

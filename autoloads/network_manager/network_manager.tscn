@@ -31,15 +31,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -230.0
+offset_left = -320.0
 offset_top = -416.0
-offset_right = 230.0
+offset_right = 320.0
 offset_bottom = -344.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("2_v4g23")
 placeholder_text = "username"
-max_length = 16
+max_length = 24
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UsernameContainer" unique_id=2132325286]
 layout_mode = 1
@@ -53,6 +53,22 @@ offset_bottom = 448.0
 grow_horizontal = 2
 theme = ExtResource("2_v4g23")
 text = "WHAT IS YOUR NAME, STRANGER?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoadingLabel" type="RichTextLabel" parent="UsernameContainer" unique_id=884315966]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -616.0
+offset_top = 664.0
+offset_right = 616.0
+offset_bottom = 760.0
+grow_horizontal = 2
+theme = ExtResource("2_v4g23")
+text = "LOADING..."
 horizontal_alignment = 1
 vertical_alignment = 1
 

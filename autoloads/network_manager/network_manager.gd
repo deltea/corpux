@@ -2,9 +2,11 @@ extends CanvasLayer
 
 @onready var username_edit: LineEdit = $UsernameContainer/UsernameEdit
 @onready var username_container: Control = $UsernameContainer
+@onready var loading_label: RichTextLabel = $UsernameContainer/LoadingLabel
 
 func _ready() -> void:
 	username_container.hide()
+	loading_label.hide()
 
 	# check if player is registering or logging in
 	if SaveManager.get_player_username():
@@ -27,8 +29,12 @@ func login(username: String) -> void:
 
 func submit_username():
 	var username = username_edit.text.strip_edges()
+	loading_label.show()
+	username_edit.hide()
 	if await is_username_taken(username):
 		print("username is taken!")
+		loading_label.hide()
+		username_edit.show()
 		return
 
 	await login(username)
