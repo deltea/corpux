@@ -34,6 +34,8 @@ func load_leaderboard() -> void:
 
 	loading_label.queue_free()
 
+	var tween := create_tween().set_parallel().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+
 	for i in range(entries.size()):
 		var entry = entries[i]
 		var entry_row = leaderboard_entry_scene.instantiate() as LeaderboardEntryContainer
@@ -44,6 +46,8 @@ func load_leaderboard() -> void:
 			entry.score,
 			entry.player_alias.id == Talo.current_alias.id
 		)
+		entry_row.modulate.a = 0.0
+		tween.tween_property(entry_row, "modulate:a", 1.0, 0.5).set_delay(i * 0.2)
 
 	print("leaderboard entries loaded!")
 

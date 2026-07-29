@@ -1,5 +1,7 @@
 class_name EndScreen extends CanvasLayer
 
+const leaderboard_scene = preload("res://scenes/ui/leaderboard/leaderboard.tscn")
+
 @onready var background: TextureRect = $Background
 @onready var left_panel: Control = $LeftPanel
 @onready var weapon_model: Node3D = $LeftPanel/WeaponContainer/SubViewport/weapon
@@ -74,7 +76,7 @@ func animate_in():
 	tween.chain().tween_callback(func(): rank_label.visible = true)
 	tween.chain().tween_property(rank_label, "scale", Vector2.ONE * 1.0, 0.4).set_ease(Tween.EASE_IN)
 	tween.chain().tween_callback(func(): Events.flashbang.emit(1.0))
-	tween.chain().tween_property(button_row, "position:y", 840.0, 0.25).set_delay(0.3)
+	tween.chain().tween_property(button_row, "position:y", 875.0, 0.25).set_delay(0.3)
 
 func _on_button_row_button_pressed(id: String) -> void:
 	if id == "restart":
@@ -82,3 +84,6 @@ func _on_button_row_button_pressed(id: String) -> void:
 	if id == "menu":
 		print("go back to menu")
 		get_tree().change_scene_to_file("res://rooms/main_menu.tscn")
+	if id == "leaderboard":
+		var leaderboard = leaderboard_scene.instantiate() as Leaderboard
+		add_child(leaderboard)
