@@ -1,4 +1,12 @@
-# todo
+# 300 kilometers per hour
+
+this is a super speedy speedrunning first person shooter game, where your only goal is to elimnate all the enemies and get to the exit
+i wanted to try out a different aesthetic mainly sorta webcore
+this game is made with godot, and talo for the backend
+
+current placeholder music is by machine girl
+
+## todo
 
 - [x] show leaderboard
 - [x] add sfx and music
