@@ -1,6 +1,6 @@
 class_name EnemyBullet extends Area3D
 
-const SPEED = 20.0
+const SPEED = 32.0
 
 var dir = Vector2.RIGHT
 

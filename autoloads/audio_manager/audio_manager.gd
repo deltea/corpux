@@ -24,15 +24,14 @@ const music = {
 
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 
-func _ready() -> void:
-	# play_music(music.keys()[randi() % music.size()])
-	play_music("rigged-game")
+var is_music_playing = false
 
 func play_music(music_name: String):
 	if not music.has(music_name):
 		push_error(music_name + " is not a valid music track")
 		return
 
+	is_music_playing = true
 	music_player.stream = music[music_name]
 	music_player.play()
 

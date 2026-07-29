@@ -96,7 +96,7 @@ func throw(throw_dir: Vector3, throw_force: float, return_node: Node3D):
 
 func _on_hit_area_body_entered(body: Node3D) -> void:
 	if body is Enemy:
-		body.take_damage(2.0)
+		body.take_damage(3.0)
 		Clock.hitstop(0.2)
 		AudioManager.play_sound("gunshot")
 		# is_returning = true

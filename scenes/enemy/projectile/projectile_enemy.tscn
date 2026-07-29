@@ -19,7 +19,7 @@ size = Vector3(5.1, 12.6, 5.1)
 [node name="ProjectileEnemy" unique_id=541240095 instance=ExtResource("1_1imvy")]
 script = ExtResource("2_iylkx")
 projectile_scene = ExtResource("3_5wrqe")
-max_health = 2
+max_health = 3
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=1789538307]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.25, 0)
