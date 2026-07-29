@@ -47,7 +47,7 @@ func load_leaderboard() -> void:
 			entry.player_alias.id == Talo.current_alias.id
 		)
 		entry_row.modulate.a = 0.0
-		tween.tween_property(entry_row, "modulate:a", 1.0, 0.5).set_delay(i * 0.2)
+		tween.tween_property(entry_row, "modulate:a", 1.0, 0.5).set_delay(i * 0.1)
 
 	print("leaderboard entries loaded!")
 

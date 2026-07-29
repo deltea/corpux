@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://1rmko6meb4hw"
 path.s3tc="res://.godot/imported/wall.png-ae2a11973d8215b5d5d86ca7d79806e4.s3tc.ctex"
+path.etc2="res://.godot/imported/wall.png-ae2a11973d8215b5d5d86ca7d79806e4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/structures/wall.png"
-dest_files=["res://.godot/imported/wall.png-ae2a11973d8215b5d5d86ca7d79806e4.s3tc.ctex"]
+dest_files=["res://.godot/imported/wall.png-ae2a11973d8215b5d5d86ca7d79806e4.s3tc.ctex", "res://.godot/imported/wall.png-ae2a11973d8215b5d5d86ca7d79806e4.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://crcrt8klbpn2s"
 path.s3tc="res://.godot/imported/enemy-marker.png-1b3f1a8d806f576511e421216c34079e.s3tc.ctex"
+path.etc2="res://.godot/imported/enemy-marker.png-1b3f1a8d806f576511e421216c34079e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/markers/enemy-marker.png"
-dest_files=["res://.godot/imported/enemy-marker.png-1b3f1a8d806f576511e421216c34079e.s3tc.ctex"]
+dest_files=["res://.godot/imported/enemy-marker.png-1b3f1a8d806f576511e421216c34079e.s3tc.ctex", "res://.godot/imported/enemy-marker.png-1b3f1a8d806f576511e421216c34079e.etc2.ctex"]
 
 [params]
 
