@@ -54,6 +54,7 @@ func _ready() -> void:
 func set_selected(value: int):
 	curr_selected = clampi(value, 0, buttons.size() - 1)
 	# selector_ping_timer.start()
+	AudioManager.play_sound("ui-select")
 
 	if tween: tween.kill()
 	var target_pos = buttons[curr_selected].position - Vector2(selector_spacing_x / 2, selector_spacing_y / 2)
@@ -97,3 +98,4 @@ func _unhandled_input(event: InputEvent) -> void:
 		set_selected(curr_selected + 1)
 	if event.is_action_pressed("interact") or event.is_action_pressed("jump"):
 		button_pressed.emit(button_resources[curr_selected].id)
+		AudioManager.play_sound("enemy-killed")

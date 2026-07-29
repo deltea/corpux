@@ -10,7 +10,28 @@ const sounds = {
 	"mission-failed": preload("res://assets/audio/sfx/mission-failed.wav"),
 	"slam": preload("res://assets/audio/sfx/slam.wav"),
 	"slamming": preload("res://assets/audio/sfx/slamming.wav"),
+
+	"ui-select": preload("res://assets/audio/sfx/ui-select.wav"),
 }
+
+const music = {
+	"kitsune": preload("res://assets/audio/music/kitsune.mp3"),
+	"rayquaza": preload("res://assets/audio/music/rayquaza ex.mp3"),
+	"fine-night": preload("res://assets/audio/music/fine night.mp3"),
+}
+
+@onready var music_player: AudioStreamPlayer = $MusicPlayer
+
+func _ready() -> void:
+	play_music(music.keys()[randi() % music.size()])
+
+func play_music(music_name: String):
+	if not music.has(music_name):
+		push_error(music_name + " is not a valid music track")
+		return
+
+	music_player.stream = music[music_name]
+	music_player.play()
 
 func play_sound(sound_name: String, pitch: float = 1.0):
 	if not sounds.has(sound_name):
