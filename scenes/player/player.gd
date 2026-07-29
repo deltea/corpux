@@ -267,7 +267,7 @@ func _on_dash_timer_timeout() -> void:
 	velocity.z = dash_dir.z * 20
 	velocity.y = 0
 
-func _unhandled_input(event: InputEvent):
+func _input(event: InputEvent):
 	if event.is_action_pressed("esc"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if event is InputEventMouseButton:
