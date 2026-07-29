@@ -4,7 +4,7 @@ class_name LevelResource extends Resource
 @export var station_name = "L1"
 @export_file("*.tscn", "*.scn") var level_scene_path: String
 @export var ranking_cutoffs: Dictionary[String, float] = {
-	"U": 35,
+	"U": 25,
 	"S+": 45,
 	"S": 60,
 	"A": 90,
