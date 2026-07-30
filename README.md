@@ -4,6 +4,8 @@ this is a super speedy speedrunning first person shooter game, where your only g
 i wanted to try out a different aesthetic mainly sorta webcore
 this game is made with godot, and talo for the backend
 
+try interacting with the vending machine at the start by pressing E near it!
+
 current placeholder music is by machine girl
 
 no ai used for this project other than minimal amounts of github copilot autocomplete
