@@ -102,7 +102,7 @@ func fire():
 		endpoint = ray.to_global(ray.target_position)
 	hitscan_line.points[1] = endpoint
 
-	cam.rotation_degrees.z = 1.5 if randf() > 0.5 else -1.5
+	# cam.rotation_degrees.z = 1.5 if randf() > 0.5 else -1.5
 
 	if ray.is_colliding():
 		var hit_particle = hit_particle_scene.instantiate() as GPUParticles3D

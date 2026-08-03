@@ -1,10 +1,12 @@
 class_name Player extends CharacterBody3D
 
+
 const stomp_particles_scene = preload("res://scenes/particles/stomp_particles.tscn")
 const dash_particles_scene = preload("res://scenes/particles/dash_particles.tscn")
 
-const CAM_TILT = 0.0
+
 const MOUSE_SENS = 1.0
+const CAM_TILT = 3.0
 const MAX_SPEED = 32.0
 const DECELERATION = 50.0
 const ACCELERATION = 100.0
@@ -24,8 +26,11 @@ const WALL_MAX_Y_VEL = 2.5
 const WALL_MAX_Z_VEL = 1.0
 const SLAM_VELOCITY = 160.0
 
+
 @onready var head: Node3D = $Head
 @onready var slamming_sound: AudioStreamPlayer = $Slamming
+@onready var cam: Camera = $Head/Camera
+
 
 var mouse_delta = Vector2.ZERO
 var slam_particles: GPUParticles3D
@@ -41,6 +46,7 @@ var dashes_left = DASH_COUNT
 
 var head_tween: Tween
 
+
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Events.end_level.connect(_on_end_level)
@@ -49,8 +55,10 @@ func _ready() -> void:
 	Events.add_dash.connect(_on_add_dash)
 	set_dashes_left(DASH_COUNT)
 
+
 func _process(dt: float) -> void:
 	GlobalCanvas.set_smear(velocity.length() / 15.0)
+
 
 func _physics_process(dt: float):
 	check_grounded()
@@ -108,7 +116,10 @@ func _physics_process(dt: float):
 
 	stair_step_up()
 
+	cam.set_rot(input.x * CAM_TILT)
+
 	move_and_slide()
+
 
 func dash():
 	if dashes_left > 0:
@@ -127,6 +138,7 @@ func dash():
 	else:
 		print("no dashes left")
 
+
 func check_grounded():
 	if is_grounded != is_on_floor():
 		if is_grounded:
@@ -138,6 +150,7 @@ func check_grounded():
 			AudioManager.play_sound("slam", randf_range(0.9, 1.1))
 			slamming_sound.stop()
 
+
 func check_walled():
 	if is_walled != is_on_wall():
 		if is_walled:
@@ -148,9 +161,11 @@ func check_walled():
 			stop_slam()
 			# set_dashes_left(DASH_COUNT)
 
+
 func stop_slam():
 	if slam_particles: slam_particles.queue_free()
 	is_slamming = false
+
 
 func super_dash():
 	$DashTimer.stop()
@@ -160,6 +175,7 @@ func super_dash():
 	velocity.z = dash_dir.z * SUPER_DASH_FORCE
 	velocity.y = sqrt(4 * SUPER_DASH_HEIGHT * SUPER_DASH_GRAVITY)
 	set_dashes_left(dashes_left - 1)
+
 
 func slam():
 	slamming_sound.play()
@@ -179,6 +195,7 @@ func slam():
 
 func get_look_dir():
 	return Vector3.FORWARD.rotated(Vector3.RIGHT, head.rotation.x).rotated(Vector3.UP, rotation.y).normalized()
+
 
 func stair_step_up():
 	if dir == Vector3.ZERO:
@@ -240,18 +257,22 @@ func stair_step_up():
 	global_pos.y = test_transform.origin.y
 	global_position = global_pos
 
+
 func bounce():
 	is_dashing = false
 	velocity.y = sqrt(2 * BOUNCE_HEIGHT * GRAVITY)
 	velocity.x = 0
 	velocity.z = 0
 
+
 func set_dashes_left(value: int):
 	dashes_left = clampi(value, 0, MAX_DASH_COUNT)
 	Events.player_dash_changed.emit(dashes_left)
 
+
 func _on_add_dash():
 	set_dashes_left(dashes_left + 1)
+
 
 func _on_turn_head_to(target_pos: Vector3):
 	var to_target = target_pos - global_position
@@ -260,12 +281,14 @@ func _on_turn_head_to(target_pos: Vector3):
 	head_tween = create_tween().set_parallel().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	head_tween.tween_property(self, "rotation_degrees:y", target_angle, 1.0)
 
+
 func _on_dash_timer_timeout() -> void:
 	if not is_dashing: return
 	is_dashing = false
 	velocity.x = dash_dir.x * 20
 	velocity.z = dash_dir.z * 20
 	velocity.y = 0
+
 
 func _input(event: InputEvent):
 	if event.is_action_pressed("esc"):
@@ -279,9 +302,11 @@ func _input(event: InputEvent):
 			head.rotate_x(-event.relative.y * MOUSE_SENS * 0.002)
 			head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
+
 func _on_end_level():
 	process_mode = Node.PROCESS_MODE_DISABLED
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
 
 func _on_death():
 	process_mode = Node.PROCESS_MODE_DISABLED
