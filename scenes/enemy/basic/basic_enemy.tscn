@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://c4uglg51phudt" path="res://assets/models/environment/enemies/basic_enemy.blend" id="3_0ns2y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b6kpl"]
-size = Vector3(7, 6, 7)
+size = Vector3(8, 6, 8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5xr37"]
-size = Vector3(7.1, 6.1, 7.1)
+size = Vector3(8.1, 6.1, 8.1)
 
 [node name="BasicEnemy" unique_id=541240095 instance=ExtResource("1_b6kpl")]
 script = ExtResource("2_0ns2y")

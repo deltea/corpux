@@ -116,7 +116,7 @@ func _physics_process(dt: float):
 
 	stair_step_up()
 
-	cam.set_rot(input.x * CAM_TILT)
+	cam.set_rot(-input.x * CAM_TILT)
 
 	move_and_slide()
 
