@@ -20,6 +20,19 @@ const music = {
 	"fine-night": preload("res://assets/audio/music/fine night.mp3"),
 	"cyan-hardcore": preload("res://assets/audio/music/cyan hardcore.mp3"),
 	"rigged-game": preload("res://assets/audio/music/rigged game.mp3"),
+
+	"break": preload("res://assets/audio/music/Kick It Break.mp3"),
+	"rainmaker": preload("res://assets/audio/music/Rainmaker.mp3"),
+	"rave": preload("res://assets/audio/music/Ms.Rave & Mr.Bounce.mp3"),
+	"touch": preload("res://assets/audio/music/touch.mp3"),
+	"sweeet": preload("res://assets/audio/music/sweeet.mp3"),
+	"around": preload("res://assets/audio/music/around.mp3"),
+	"time": preload("res://assets/audio/music/time.mp3"),
+	"honeymoon": preload("res://assets/audio/music/honeymoon.mp3"),
+	"chrysalis": preload("res://assets/audio/music/chrysalis.mp3"),
+	"eurolife": preload("res://assets/audio/music/eurolife.mp3"),
+	"2000": preload("res://assets/audio/music/2000.mp3"),
+	"jungle": preload("res://assets/audio/music/jungle.mp3"),
 }
 
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
