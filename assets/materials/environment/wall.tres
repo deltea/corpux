@@ -1,11 +1,11 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://bxhr5arvhcw11"]
 
-[ext_resource type="Texture2D" uid="uid://bck06vp6ljhpv" path="res://assets/textures/wall.png" id="1_xt8cb"]
+[ext_resource type="Texture2D" uid="uid://bv3gyd8ehmbov" path="res://assets/textures/tile.png" id="1_xt8cb"]
 
 [resource]
 shading_mode = 2
 albedo_texture = ExtResource("1_xt8cb")
-uv1_scale = Vector3(1, 0.1, 1)
+uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true
 uv1_world_triplanar = true
 texture_filter = 2
