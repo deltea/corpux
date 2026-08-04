@@ -17,7 +17,7 @@ func _ready() -> void:
 	Events.enemy_died.connect(_on_enemy_died)
 
 	if not AudioManager.is_music_playing:
-		AudioManager.play_music("jungle")
+		AudioManager.play_music("rigged-game")
 
 	await Clock.wait(1.0)
 	is_timer_started = true

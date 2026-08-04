@@ -2,22 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc063ekh4x4lm"
-path.s3tc="res://.godot/imported/long-tile.png-57519d0092286d939f58ce5c30426199.s3tc.ctex"
-path.etc2="res://.godot/imported/long-tile.png-57519d0092286d939f58ce5c30426199.etc2.ctex"
+uid="uid://bck06vp6ljhpv"
+path="res://.godot/imported/wall.png-35b80c25b8f7299ed1631f28676b0e6a.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/long-tile.png"
-dest_files=["res://.godot/imported/long-tile.png-57519d0092286d939f58ce5c30426199.s3tc.ctex", "res://.godot/imported/long-tile.png-57519d0092286d939f58ce5c30426199.etc2.ctex"]
+source_file="res://assets/textures/wall.png"
+dest_files=["res://.godot/imported/wall.png-35b80c25b8f7299ed1631f28676b0e6a.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

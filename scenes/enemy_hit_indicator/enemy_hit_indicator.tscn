@@ -6,7 +6,6 @@
 [node name="EnemyHitIndicator" type="Sprite3D" unique_id=1459915454]
 modulate = Color(0.9843137, 0.047058824, 0.45490196, 1)
 pixel_size = 0.0025
-no_depth_test = true
 fixed_size = true
 texture_filter = 0
 texture = ExtResource("1_xbxks")

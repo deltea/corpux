@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://5j8qcxhem20l" path="res://scenes/lava/lava.tscn" id="7_0qrrd"]
 [ext_resource type="PackedScene" uid="uid://cmw7ltg5ti525" path="res://assets/models/environment/structures/platform.blend" id="7_ahpcb"]
 [ext_resource type="Material" uid="uid://cq0koi762ti01" path="res://assets/materials/structures/platform.tres" id="7_ubd40"]
+[ext_resource type="Material" uid="uid://bxhr5arvhcw11" path="res://assets/materials/environment/wall.tres" id="8_6lf2b"]
 [ext_resource type="PackedScene" uid="uid://bo5db0ai8sswt" path="res://assets/models/decoration/hanging_sign.blend" id="8_j432n"]
 [ext_resource type="PackedScene" uid="uid://4mpgrqrodq8t" path="res://assets/models/environment/column.blend" id="8_nh565"]
 [ext_resource type="PackedScene" uid="uid://b73dgukc7alc6" path="res://assets/models/environment/structures/round_thing.blend" id="8_okgc4"]
@@ -345,7 +346,7 @@ material = ExtResource("3_oipkf")
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 18.935715, 10, -240.88571)
 use_collision = true
 size = Vector3(4, 20, 17.9)
-material = ExtResource("3_oipkf")
+material = ExtResource("8_6lf2b")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Environment/Obstacles/StartArea" index="30" unique_id=2118056633]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74, -90.5, -7.5)
