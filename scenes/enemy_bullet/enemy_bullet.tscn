@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://v0est4hp6i83"]
 
-[ext_resource type="PackedScene" uid="uid://bofp8v5co0emy" path="res://assets/models/enemy_bullet.blend" id="1_fffda"]
 [ext_resource type="Script" uid="uid://c6wytrbh125m" path="res://scenes/enemy_bullet/enemy_bullet.gd" id="1_t7yew"]
 [ext_resource type="Material" uid="uid://b2y5a1vsiih2k" path="res://assets/materials/enemies/enemy.tres" id="3_yj0vl"]
 
@@ -8,7 +7,6 @@
 radius = 1.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_38or4"]
-material = ExtResource("3_yj0vl")
 size = Vector3(2, 2, 2)
 
 [node name="EnemyBullet" type="Area3D" unique_id=1536106398]
@@ -17,10 +15,13 @@ script = ExtResource("1_t7yew")
 [node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=844656900]
 shape = SubResource("SphereShape3D_bmnbh")
 
-[node name="enemy_bullet" parent="." unique_id=2040290743 instance=ExtResource("1_fffda")]
-visible = false
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1817904411]
+material_override = ExtResource("3_yj0vl")
 mesh = SubResource("BoxMesh_38or4")
 
+[node name="FlashTimer" type="Timer" parent="." unique_id=1474466741]
+wait_time = 0.1
+autostart = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]

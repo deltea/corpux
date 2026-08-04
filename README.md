@@ -14,6 +14,20 @@ itch.io page here: [https://deltea.itch.io/300kmh](https://deltea.itch.io/300kmh
 
 ## todo
 
+- [ ] train entrance and exit
+- [ ] make some doors
+- [ ] tutorial stuff
+- [ ] decorate the level
+- [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
+- [ ] fix slam then dash bug
+- [ ] quake movement revamp
+- [ ] fix boomerang tweaking out
+- [x] tweening system
+- [x] scene manager
+- [x] animate camera far?
+- [x] weapon animation revamp
+- [x] auto aim for throws?? cool lookin frame ui
+- [x] fix ground decal flickering
 - [x] show leaderboard
 - [x] add sfx and music
 - [x] shooty enemy model
@@ -49,23 +63,6 @@ itch.io page here: [https://deltea.itch.io/300kmh](https://deltea.itch.io/300kmh
 - [x] weapon disable animation
 - [x] better system for bini expressions
 - [x] make stairs work
-
-## uhhhhh later
-
-- [ ] train entrance and exit
-- [ ] make some doors
-- [ ] tutorial stuff
-- [ ] decorate the level
-- [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
-- [ ] fix slam then dash bug
-- [ ] tweening system
-- [ ] scene manager
-- [ ] quake movement revamp
-- [ ] fix boomerang tweaking out
-- [ ] animate camera far?
-- [ ] weapon animation revamp
-- [x] auto aim for throws?? cool lookin frame ui
-- [x] fix ground decal flickering
 
 ## very later
 

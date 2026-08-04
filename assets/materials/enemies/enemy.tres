@@ -1,11 +1,12 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://b2y5a1vsiih2k"]
 
-[ext_resource type="Material" uid="uid://df78vqvbou6vl" path="res://assets/materials/overlay.tres" id="1_c8lno"]
-
 [resource]
-next_pass = ExtResource("1_c8lno")
-shading_mode = 0
+resource_local_to_scene = true
+shading_mode = 2
 albedo_color = Color(0.9843137, 0.043137256, 0.45490196, 1)
+emission_enabled = true
+emission = Color(0.9843137, 0.047058824, 0.45490196, 1)
+emission_energy_multiplier = 0.25
 uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_world_triplanar = true
 texture_filter = 4

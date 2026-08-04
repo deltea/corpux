@@ -1,6 +1,8 @@
 class_name RevolverWeapon extends Weapon
 
+
 const MAX_WIND_UP_TIME = 1.0
+
 
 @export var wind_up_pos = Vector3.ZERO
 @export var wind_up_rot = Vector3.ZERO
@@ -10,7 +12,9 @@ const MAX_WIND_UP_TIME = 1.0
 @export var line_scene: PackedScene
 @export var muzzle_flash_texture: Texture2D
 @export var hit_particle_scene: PackedScene
+@export var enemy_hit_particle_scene: PackedScene
 @export var boomerang_scene: PackedScene
+
 
 @onready var ray: RayCast3D = $RayCast
 @onready var auto_aim_cast: RayCast3D = $AutoAimCast
@@ -18,6 +22,7 @@ const MAX_WIND_UP_TIME = 1.0
 @onready var display_mesh: MeshInstance3D = $WindUpPivot/Pivot/revolver/Cube_004
 @onready var mesh: Node3D = $WindUpPivot/Pivot/revolver
 @onready var pivot: Node3D = $WindUpPivot/Pivot
+
 
 var is_winding_up = false
 var wind_up_time = 0.0
@@ -34,6 +39,7 @@ var target_pivot_rot: Vector3
 var original_pos: Vector3
 var original_rot: Vector3
 
+
 func _ready() -> void:
 	super._ready()
 	original_mesh_rot = mesh.rotation_degrees
@@ -42,6 +48,7 @@ func _ready() -> void:
 	target_pivot_rot = original_pivot_rot
 	original_pos = wind_up_pivot.position
 	original_rot = wind_up_pivot.rotation_degrees
+
 
 func _process(dt: float) -> void:
 	mesh.rotation_degrees = lerp(mesh.rotation_degrees, target_mesh_rot, 5.0 * dt)
@@ -57,6 +64,7 @@ func _process(dt: float) -> void:
 		wind_up_pivot.position = wind_up_pivot.position.lerp(original_pos, 10.0 * dt)
 		wind_up_pivot.rotation_degrees = wind_up_pivot.rotation_degrees.lerp(original_rot, 10.0 * dt)
 
+
 func _physics_process(dt: float) -> void:
 	if auto_aim_cast.is_colliding() and auto_aim_cast.get_collider() is AutoAimArea:
 		var collider = auto_aim_cast.get_collider()
@@ -68,6 +76,7 @@ func _physics_process(dt: float) -> void:
 	elif auto_aim_last_area != null:
 		auto_aim_last_area.aim_exited.emit()
 		auto_aim_last_area = null
+
 
 func fire():
 	if not can_fire: return
@@ -102,7 +111,7 @@ func fire():
 		endpoint = ray.to_global(ray.target_position)
 	hitscan_line.points[1] = endpoint
 
-	# cam.rotation_degrees.z = 1.5 if randf() > 0.5 else -1.5
+	cam.rotation_degrees.z = 1.5 if randf() > 0.5 else -1.5
 
 	if ray.is_colliding():
 		var hit_particle = hit_particle_scene.instantiate() as GPUParticles3D
@@ -113,23 +122,19 @@ func fire():
 
 	get_tree().current_scene.add_child(hitscan_line)
 	var tween = get_tree().create_tween().set_parallel()
-	# tween.tween_property(muzzle_flash, "modulate:a", 0, 0.11)
-	# tween.tween_property(muzzle_flash, "modulate:a", 0, 0.0).set_delay(0.11)
-	# tween.tween_property(muzzle_flash, "scale", Vector3.ZERO, 0.12)
 	Tweeny.tween_property_snapped(tween, muzzle_flash, "scale", Vector3.ZERO, 0.12, Vector3.ONE * 3.0)
-	# tween.tween_property(muzzle_flash, "scale", Vector3.ZERO, 0.0).set_delay(0.12)
 	tween.tween_property(hitscan_line, "startThickness", 0, 0.15)
-	# tween.tween_property(hitscan_line, "startThickness", 0, 0.0).set_delay(0.15)
-	# tween.tween_property(hitscan_line, "endThickness", 0, 0.15)
 	tween.tween_property(hitscan_line, "endThickness", 0, 0.0).set_delay(0.15)
 	tween.tween_property(cam, "rotation_degrees:z", 0.0, 0.1)
 	tween.chain().tween_callback(hitscan_line.queue_free)
 	tween.tween_callback(muzzle_flash.queue_free)
 
+
 # start wind up
 func secondary_fire():
 	if not can_fire: return
 	is_winding_up = true
+
 
 # throw the gun
 func secondary_fire_released():
@@ -156,6 +161,7 @@ func secondary_fire_released():
 	wind_up_amount = 0.0
 	wind_up_time = 0.0
 
+
 func _on_boomerang_caught():
 	can_fire = true
 	mesh.visible = true
@@ -168,6 +174,7 @@ func _on_boomerang_caught():
 		secondary_fire()
 		position = original_pos
 		rotation_degrees = original_rot
+
 
 func _on_animation_timer_timeout() -> void:
 	var mat = display_mesh.mesh.surface_get_material(0)
