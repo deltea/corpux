@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bwxw8lrkh6the"]
+
+[ext_resource type="Texture2D" uid="uid://dce1gy1f2rpi2" path="res://assets/textures/ui/x-big.png" id="1_xbxks"]
+[ext_resource type="Script" uid="uid://bjq1fkg2k703e" path="res://scenes/enemy_hit_indicator/enemy_hit_indicator.gd" id="2_xbxks"]
+
+[node name="EnemyHitIndicator" type="Sprite3D" unique_id=1459915454]
+modulate = Color(0.9843137, 0.047058824, 0.45490196, 1)
+pixel_size = 0.0025
+no_depth_test = true
+fixed_size = true
+texture_filter = 0
+texture = ExtResource("1_xbxks")
+script = ExtResource("2_xbxks")

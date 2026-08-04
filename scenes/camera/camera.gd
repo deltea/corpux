@@ -41,4 +41,4 @@ func change_fov(value: float):
 
 func set_rot(new_rotation: float, dt: float) -> void:
 	# rotation_degrees.z = new_rotation
-	rotation_degrees.z = lerp(rotation_degrees.z, new_rotation, 20.0 * dt)
+	rotation_degrees.z = lerp(rotation_degrees.z, new_rotation, 30.0 * dt)

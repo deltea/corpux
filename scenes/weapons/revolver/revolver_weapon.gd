@@ -12,8 +12,8 @@ const MAX_WIND_UP_TIME = 1.0
 @export var line_scene: PackedScene
 @export var muzzle_flash_texture: Texture2D
 @export var hit_particle_scene: PackedScene
-@export var enemy_hit_particle_scene: PackedScene
 @export var boomerang_scene: PackedScene
+@export var enemy_hit_indicator_scene: PackedScene
 
 
 @onready var ray: RayCast3D = $RayCast
@@ -107,18 +107,21 @@ func fire():
 		var collider = ray.get_collider()
 		if collider is Enemy:
 			collider.take_damage(1.0)
+
+			var enemy_hit_indicator = enemy_hit_indicator_scene.instantiate() as EnemyHitIndicator
+			get_tree().current_scene.add_child(enemy_hit_indicator)
+			enemy_hit_indicator.global_position = endpoint
+		else:
+			var hit_particle = hit_particle_scene.instantiate() as GPUParticles3D
+			get_tree().current_scene.add_child(hit_particle)
+			hit_particle.global_position = endpoint
+			hit_particle.emitting = true
+			hit_particle.finished.connect(hit_particle.queue_free)
 	else:
 		endpoint = ray.to_global(ray.target_position)
 	hitscan_line.points[1] = endpoint
 
 	cam.rotation_degrees.z = 1.5 if randf() > 0.5 else -1.5
-
-	if ray.is_colliding():
-		var hit_particle = hit_particle_scene.instantiate() as GPUParticles3D
-		get_tree().current_scene.add_child(hit_particle)
-		hit_particle.global_position = endpoint
-		hit_particle.emitting = true
-		hit_particle.finished.connect(hit_particle.queue_free)
 
 	get_tree().current_scene.add_child(hitscan_line)
 	var tween = get_tree().create_tween().set_parallel()

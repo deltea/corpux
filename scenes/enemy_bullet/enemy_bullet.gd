@@ -29,7 +29,6 @@ func _on_body_entered(body: Node3D) -> void:
 
 
 func _on_flash_timer_timeout() -> void:
-	print(mesh.material_override.albedo_color)
 	if mesh.material_override.albedo_color == Color.WHITE:
 		mesh.material_override.albedo_color = original_color
 		mesh.material_override.emission = original_color

@@ -1,6 +1,8 @@
 class_name MainMenuScreen extends CanvasLayer
 
+
 const level_select_scene = preload("res://scenes/ui/level_select/level_select.tscn")
+
 
 @onready var title_rect: TextureRect = $Title
 @onready var version_label: Label = $VersionLabel
@@ -8,7 +10,9 @@ const level_select_scene = preload("res://scenes/ui/level_select/level_select.ts
 @onready var button_row: ButtonRow = $ButtonRow
 @onready var username_label: Label = $UsernameLabel
 
+
 var is_transitioning = false
+
 
 func _ready() -> void:
 	version_label.text = ProjectSettings.get_setting_with_override("application/config/version")
@@ -23,8 +27,10 @@ func _ready() -> void:
 	if SaveManager.get_player_username():
 		username_label.text = "welcome, " + SaveManager.get_player_username()
 
+
 func _process(dt: float) -> void:
 	time_label.text = Time.get_datetime_string_from_system()
+
 
 func _on_button_row_button_pressed(id: String) -> void:
 	if is_transitioning: return

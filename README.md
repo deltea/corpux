@@ -14,14 +14,15 @@ itch.io page here: [https://deltea.itch.io/300kmh](https://deltea.itch.io/300kmh
 
 ## todo
 
+- [ ] exes
 - [ ] train entrance and exit
 - [ ] make some doors
-- [ ] tutorial stuff
 - [ ] decorate the level
 - [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
 - [ ] fix slam then dash bug
 - [ ] quake movement revamp
 - [ ] fix boomerang tweaking out
+- [ ] tutorial stuff
 - [x] tweening system
 - [x] scene manager
 - [x] animate camera far?
