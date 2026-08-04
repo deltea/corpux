@@ -14,7 +14,6 @@ itch.io page here: [https://deltea.itch.io/300kmh](https://deltea.itch.io/300kmh
 
 ## todo
 
-- [ ] exes
 - [ ] train entrance and exit
 - [ ] make some doors
 - [ ] decorate the level
@@ -23,6 +22,7 @@ itch.io page here: [https://deltea.itch.io/300kmh](https://deltea.itch.io/300kmh
 - [ ] quake movement revamp
 - [ ] fix boomerang tweaking out
 - [ ] tutorial stuff
+- [x] exes
 - [x] tweening system
 - [x] scene manager
 - [x] animate camera far?
