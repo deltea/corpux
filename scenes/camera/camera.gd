@@ -39,5 +39,6 @@ func change_fov(value: float):
 	tween.tween_property(self, "fov", value, 0.5)
 
 
-func set_rot(new_rotation: float) -> void:
-	rotation_degrees.z = new_rotation
+func set_rot(new_rotation: float, dt: float) -> void:
+	# rotation_degrees.z = new_rotation
+	rotation_degrees.z = lerp(rotation_degrees.z, new_rotation, 20.0 * dt)
