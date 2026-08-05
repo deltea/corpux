@@ -10,6 +10,7 @@ radius = 1.0
 size = Vector3(2, 2, 2)
 
 [node name="EnemyBullet" type="Area3D" unique_id=1536106398]
+collision_layer = 2
 script = ExtResource("1_t7yew")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=844656900]

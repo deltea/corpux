@@ -1,12 +1,16 @@
 class_name HudLayer extends CanvasLayer
 
+
 const CROSSHAIR_FIRE_WIDTH = 20.0
 const CROSSHAIR_NORMAL_WIDTH = 16.0
+const ENEMY_MARKER_PADDING = 20.0
+
 
 @export var dash_texture: Texture2D
 @export var enemy_crosshair_texture: Texture2D
 @export var normal_crosshair_texture: Texture2D
 @export var exit_color: Color
+
 
 @onready var dash_container: VBoxContainer = $DashContainerBackground/DashContainer
 @onready var spinny: TextureRect = $Spinny
@@ -14,25 +18,42 @@ const CROSSHAIR_NORMAL_WIDTH = 16.0
 @onready var crosshair_center: TextureRect = $CrosshairContainer/CrosshairCenter
 @onready var time_label: RichTextLabel = $TimeBackground/TimeLabel
 @onready var time_background: ColorRect = $TimeBackground
+@onready var enemy_marker: NinePatchRect = $EnemyMarker
+
 
 var crosshair_tween: Tween
 var crosshair_center_tween: Tween
+var marker_tween: Tween
 
 var is_animating_time = false
+var curr_enemy_aimed: Enemy = null
+
 
 func _ready() -> void:
 	Events.player_dash_changed.connect(_on_dash_changed)
 	Events.enemy_died.connect(_on_enemy_died)
 	Events.fire.connect(_on_fire)
 	Events.mission_complete.connect(_on_mission_complete)
+	Events.enemy_aim_enter.connect(_on_enemy_aim_enter)
+	Events.enemy_aim_exit.connect(_on_enemy_aim_exit)
+
+	enemy_marker.hide()
 
 	var tween = create_tween().set_loops()
 	tween.tween_property(spinny, "rotation", PI / 2, 0.5).as_relative()
 	tween.tween_interval(0.5)
 
+
 func _process(dt: float) -> void:
 	if not is_animating_time:
 		time_label.text = "[shake]" + Utils.format_time(get_tree().current_scene.curr_time)
+
+	if curr_enemy_aimed:
+		var rect := curr_enemy_aimed.get_screen_rect()
+		var padding := Vector2.ONE * ENEMY_MARKER_PADDING
+		enemy_marker.position = rect.position - padding / 2.0
+		enemy_marker.size = rect.size + padding
+
 
 func _on_dash_changed(value: int):
 	var child_count = dash_container.get_child_count()
@@ -44,6 +65,7 @@ func _on_dash_changed(value: int):
 		for i in range(value - child_count):
 			create_dash_rect()
 
+
 func create_dash_rect():
 	var texture_rect = TextureRect.new()
 	texture_rect.texture = dash_texture
@@ -51,11 +73,13 @@ func create_dash_rect():
 	texture_rect.custom_maximum_size = Vector2(-1, 40)
 	dash_container.add_child(texture_rect)
 
+
 func destroy_dash_rect(dash_rect: TextureRect):
 	var tween = create_tween()
 	dash_rect.reparent(self)
 	Tweeny.tween_property_blink(tween, dash_rect, "self_modulate:a", 1.0, 0.0, 0.2)
 	tween.tween_callback(dash_rect.queue_free)
+
 
 func _on_enemy_died():
 	crosshair_center.texture = enemy_crosshair_texture
@@ -69,11 +93,13 @@ func _on_enemy_died():
 		crosshair_center.texture = normal_crosshair_texture
 	)
 
+
 func _on_fire():
 	if crosshair_tween: crosshair_tween.kill()
 	crosshair_tween = create_tween().set_ignore_time_scale()
 	crosshair_tween.tween_property(crosshair, "size:x", CROSSHAIR_FIRE_WIDTH, 0.0)
 	crosshair_tween.tween_property(crosshair, "size:x", CROSSHAIR_NORMAL_WIDTH, 0.0).set_delay(0.2)
+
 
 func _on_mission_complete():
 	var tween = create_tween().set_ignore_time_scale()
@@ -92,3 +118,18 @@ func _on_mission_complete():
 	background_tween.tween_property(time_background.material, "shader_parameter/dissolve_amount", 0.0, 0.2).set_delay(0.4)
 	background_tween.tween_callback(func(): time_background.color = exit_color)
 	background_tween.tween_property(time_background.material, "shader_parameter/dissolve_amount", 1.0, 0.2).set_delay(0.4)
+
+
+func _on_enemy_aim_enter(enemy: Enemy) -> void:
+	curr_enemy_aimed = enemy
+
+	enemy_marker.visible = true
+	enemy_marker.scale = Vector2.ONE * 1.2
+	if marker_tween: marker_tween.kill()
+	marker_tween = create_tween()
+	Tweeny.tween_property_snapped(marker_tween, enemy_marker, "scale", Vector2.ONE * 1.0, 0.1, Vector2.ONE * 0.3)
+
+
+func _on_enemy_aim_exit() -> void:
+	curr_enemy_aimed = null
+	enemy_marker.visible = false
