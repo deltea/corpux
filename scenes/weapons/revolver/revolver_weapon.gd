@@ -59,7 +59,7 @@ func _process(dt: float) -> void:
 		wind_up_amount = wind_up_time / MAX_WIND_UP_TIME
 		wind_up_pivot.position = wind_up_pivot.position.lerp(wind_up_pos, 10.0 * dt)
 		wind_up_pivot.rotation_degrees = wind_up_pivot.rotation_degrees.lerp(wind_up_rot, 10.0 * dt)
-		weapon_shake.emit(wind_up_amount * 0.02, 0.01)
+		weapon_shake.emit(wind_up_amount * 0.03, 0.01)
 	else:
 		wind_up_pivot.position = wind_up_pivot.position.lerp(original_pos, 10.0 * dt)
 		wind_up_pivot.rotation_degrees = wind_up_pivot.rotation_degrees.lerp(original_rot, 10.0 * dt)
