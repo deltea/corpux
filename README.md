@@ -14,6 +14,7 @@ itch.io page here: [https://deltea.itch.io/300kmh](https://deltea.itch.io/300kmh
 
 ## todo
 
+- [ ] better enemy indicator drawing (with correct sizing)
 - [ ] decorate the level
 - [ ] train entrance and exit
 - [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)

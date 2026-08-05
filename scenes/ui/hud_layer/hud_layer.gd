@@ -62,7 +62,7 @@ func _on_enemy_died():
 	if crosshair_center_tween: crosshair_center_tween.kill()
 	crosshair_center_tween = create_tween().set_ignore_time_scale()
 	Tweeny.tween_property_blink(crosshair_center_tween, crosshair_center, "self_modulate:a", 0.0, 1.0, 0.5)
-	crosshair_center_tween.tween_interval(0.25)
+	crosshair_center_tween.tween_interval(0.0)
 	Tweeny.tween_property_blink(crosshair_center_tween, crosshair_center, "self_modulate:a", 1.0, 0.0, 0.25)
 	crosshair_center_tween.chain().tween_callback(func():
 		crosshair_center.self_modulate.a = 1.0

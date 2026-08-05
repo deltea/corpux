@@ -5,7 +5,7 @@ const stomp_particles_scene = preload("res://scenes/particles/stomp_particles.ts
 const dash_particles_scene = preload("res://scenes/particles/dash_particles.tscn")
 
 
-const MOUSE_SENS = 0.8
+const MOUSE_SENS = 1.0
 const CAM_TILT = 3.0
 const MAX_SPEED = 32.0
 const DECELERATION = 50.0
