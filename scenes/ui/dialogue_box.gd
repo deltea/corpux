@@ -1,9 +1,12 @@
 class_name DialogueBox extends Control
 
+
 signal char_typed(char: String)
+
 
 const TYPE_SPEED = 0.01
 const CLOSED_Y_POS = 384.0
+
 
 @onready var dither: TextureRect = $DitherTransition
 @onready var background: ColorRect = $Background
@@ -13,30 +16,35 @@ const CLOSED_Y_POS = 384.0
 @onready var speaker_background: ColorRect = $ColorRect
 @onready var spinning_square: ColorRect = $SpinningSquare
 
-var is_typing = false
+
+var is_typing := false
 var curr_text: String
+
 
 func _process(dt: float) -> void:
 	arrow.visible = not is_typing
 	arrow.position.x = 1792.0 + snappedf(sin(Clock.time * 5.0) * 5.0, 8.0)
 	spinning_square.rotation_degrees += 100.0 * dt
 
-func set_color(color: Color):
+
+func set_color(color: Color) -> void:
 	dither.self_modulate = color
 	background.color = color
 	speaker_label.add_theme_color_override("default_color", color)
 
-func set_speaker(speaker: String):
+
+func set_speaker(speaker: String) -> void:
 	speaker_label.text = "[wave][b]%s[/b][/wave]" % speaker
 	speaker_background.size.x = 40.0 * 2 + speaker_label.get_content_width()
 
-func type_text(text: String):
+
+func type_text(text: String) -> void:
 	is_typing = true
 	curr_text = text
 	label.text = text
 	label.visible_characters = 0
 
-	var length = label.get_parsed_text().length()
+	var length := label.get_parsed_text().length()
 	for i in range(length):
 		label.visible_characters += 1
 		char_typed.emit(label.get_parsed_text()[i])
@@ -44,21 +52,25 @@ func type_text(text: String):
 
 	is_typing = false
 
-func finish_typing():
+
+func finish_typing() -> void:
 	is_typing = false
 	label.text = curr_text
 
-func clear():
+
+func clear() -> void:
 	label.text = ""
 
-func animate_open():
-	var t = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+
+func animate_open() -> void:
+	var t := create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 	position.y = CLOSED_Y_POS
 	t.tween_property(self, "position:y", 0.0, 0.5)
 	await t.finished
 
-func animate_close():
-	var t = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN)
+
+func animate_close() -> void:
+	var t := create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN)
 	position.y = 0.0
 	t.tween_property(self, "position:y", CLOSED_Y_POS, 0.5)
 	await t.finished

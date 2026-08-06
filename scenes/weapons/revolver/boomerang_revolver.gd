@@ -1,5 +1,6 @@
 class_name BoomerangRevolver extends Node3D
 
+
 const FLOOR_FLOAT_HEIGHT = 0.5
 const MAX_SPEED = 120.0
 const MAX_SPIN_SPEED = 2000.0
@@ -7,60 +8,67 @@ const MAX_DISTANCE = 52.0
 const DECELERATION = 250.0
 const RETURN_ACCELERATION = 200.0
 
+
 @onready var marker: Sprite3D = $Marker
 @onready var collider: CollisionShape3D = $HitArea/CollisionShape
 @onready var raycast_top: RayCast3D = $RayCastTop
 @onready var raycast_bottom: RayCast3D = $RayCastBottom
 
-var is_returning = false
-var is_caught = false
-var is_slowing = false
-var is_bounce_back = false
-var dir = Vector3.FORWARD
-var home: Node3D
-var distance_travelled = 0.0
 
-var speed = 0.0
-var target_distance = 0.0
-var spin_speed = 0.0
+var is_returning := false
+var is_caught := false
+var is_slowing := false
+var is_bounce_back := false
+var dir := Vector3.FORWARD
+var home: Node3D
+var distance_travelled := 0.0
+
+var speed := 0.0
+var target_distance := 0.0
+var spin_speed := 0.0
 
 var original_rot: Vector3
 var original_pos: Vector3
 
+
 signal caught()
+
 
 func _ready() -> void:
 	# make sure its rotated correctly
 	marker.visible = false
 	marker.scale.x = 5.0
-	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
+	var tween := create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
 	tween.tween_property(self, "global_rotation:x", -PI/2, 0.5)
 	tween.tween_property(self, "global_rotation:z", 0.0, 0.5)
-	tween.tween_callback(func(): marker.visible = true).set_delay(0.15)
+	tween.tween_callback(func() -> void: marker.visible = true).set_delay(0.15)
 	tween.tween_property(marker, "scale:x", 1.0, 0.5).set_delay(0.15)
 
-func come_back():
+
+func come_back() -> void:
 	is_returning = true
+
 
 func _process(dt: float) -> void:
 	if is_caught: return
-	var spin_dir = (-1 if is_bounce_back else 1)
+	var spin_dir := (-1 if is_bounce_back else 1)
 	# rotation_degrees.y += spin_speed * spin_dir * dt
 	rotation_degrees.y = snappedf(rotation_degrees.y + spin_speed * spin_dir * dt, 45.0)
+
 
 func _physics_process(dt: float) -> void:
 	if is_caught: return
 	if is_returning:
 		speed += RETURN_ACCELERATION * dt
-		var target_pos = home.global_position
-		var to_target = global_position.direction_to(target_pos)
+		var target_pos := home.global_position
+		var to_target := global_position.direction_to(target_pos)
 
 		global_position += to_target * speed * dt
 
 		if global_position.distance_to(target_pos) < 1.0:
 			catch()
 	else:
-		var velocity = dir * speed * dt
+		var velocity := dir * speed * dt
 		global_position += velocity
 		distance_travelled += velocity.length()
 
@@ -72,18 +80,21 @@ func _physics_process(dt: float) -> void:
 				is_returning = true
 
 		if raycast_bottom.is_colliding():
-			var normal = raycast_bottom.get_collision_normal()
+			var normal := raycast_bottom.get_collision_normal()
 			if normal == Vector3.UP:
 				global_position.y = max(global_position.y, raycast_bottom.get_collision_point().y + FLOOR_FLOAT_HEIGHT)
-func catch():
+
+
+func catch() -> void:
 	is_caught = true
 	speed = 0.0
 	spin_speed = 0.0
 	caught.emit()
 	queue_free()
 
+
 # throw_force is a value from 0 to 1
-func throw(throw_dir: Vector3, throw_force: float, return_node: Node3D):
+func throw(throw_dir: Vector3, throw_force: float, return_node: Node3D) -> void:
 	original_rot = global_rotation
 	original_pos = global_position
 
@@ -94,6 +105,7 @@ func throw(throw_dir: Vector3, throw_force: float, return_node: Node3D):
 	target_distance = throw_force * MAX_DISTANCE
 	spin_speed = MAX_SPIN_SPEED
 
+
 func _on_hit_area_body_entered(body: Node3D) -> void:
 	if body is Enemy:
 		body.take_damage(3.0)
@@ -101,6 +113,7 @@ func _on_hit_area_body_entered(body: Node3D) -> void:
 		AudioManager.play_sound("gunshot")
 		# is_returning = true
 		# is_bounce_back = true
+
 
 func _on_bounce_back_area_body_entered(body: Node3D) -> void:
 	if body is Enemy or body is Player: return

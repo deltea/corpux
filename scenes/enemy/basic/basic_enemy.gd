@@ -2,7 +2,7 @@ class_name BasicEnemy extends Enemy
 
 @onready var top: MeshInstance3D = $basic_enemy/Cylinder
 
-var rand_offset = 0.0
+var rand_offset := 0.0
 
 func _ready() -> void:
 	rand_offset = randf_range(0.0, 5.0)

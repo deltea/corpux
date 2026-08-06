@@ -25,7 +25,7 @@ var crosshair_tween: Tween
 var crosshair_center_tween: Tween
 var marker_tween: Tween
 
-var is_animating_time = false
+var is_animating_time := false
 var curr_enemy_aimed: Enemy = null
 
 
@@ -39,12 +39,12 @@ func _ready() -> void:
 
 	enemy_marker.hide()
 
-	var tween = create_tween().set_loops()
+	var tween := create_tween().set_loops()
 	tween.tween_property(spinny, "rotation", PI / 2, 0.5).as_relative()
 	tween.tween_interval(0.5)
 
 
-func _process(dt: float) -> void:
+func _process(_dt: float) -> void:
 	if not is_animating_time:
 		time_label.text = "[shake]" + Utils.format_time(get_tree().current_scene.curr_time)
 
@@ -55,8 +55,8 @@ func _process(dt: float) -> void:
 		enemy_marker.size = rect.size + padding
 
 
-func _on_dash_changed(value: int):
-	var child_count = dash_container.get_child_count()
+func _on_dash_changed(value: int) -> void:
+	var child_count := dash_container.get_child_count()
 	if value < child_count:
 		for i in range(child_count - value):
 			if dash_container.get_child_count() >= child_count - value:
@@ -66,57 +66,57 @@ func _on_dash_changed(value: int):
 			create_dash_rect()
 
 
-func create_dash_rect():
-	var texture_rect = TextureRect.new()
+func create_dash_rect() -> void:
+	var texture_rect := TextureRect.new()
 	texture_rect.texture = dash_texture
 	texture_rect.custom_minimum_size = Vector2(80, 0)
 	texture_rect.custom_maximum_size = Vector2(-1, 40)
 	dash_container.add_child(texture_rect)
 
 
-func destroy_dash_rect(dash_rect: TextureRect):
-	var tween = create_tween()
+func destroy_dash_rect(dash_rect: TextureRect) -> void:
+	var tween := create_tween()
 	dash_rect.reparent(self)
 	Tweeny.tween_property_blink(tween, dash_rect, "self_modulate:a", 1.0, 0.0, 0.2)
 	tween.tween_callback(dash_rect.queue_free)
 
 
-func _on_enemy_died():
+func _on_enemy_died() -> void:
 	crosshair_center.texture = enemy_crosshair_texture
 	if crosshair_center_tween: crosshair_center_tween.kill()
 	crosshair_center_tween = create_tween().set_ignore_time_scale()
 	Tweeny.tween_property_blink(crosshair_center_tween, crosshair_center, "self_modulate:a", 0.0, 1.0, 0.5)
 	crosshair_center_tween.tween_interval(0.0)
 	Tweeny.tween_property_blink(crosshair_center_tween, crosshair_center, "self_modulate:a", 1.0, 0.0, 0.25)
-	crosshair_center_tween.chain().tween_callback(func():
+	crosshair_center_tween.chain().tween_callback(func() -> void:
 		crosshair_center.self_modulate.a = 1.0
 		crosshair_center.texture = normal_crosshair_texture
 	)
 
 
-func _on_fire():
+func _on_fire() -> void:
 	if crosshair_tween: crosshair_tween.kill()
 	crosshair_tween = create_tween().set_ignore_time_scale()
 	crosshair_tween.tween_property(crosshair, "size:x", CROSSHAIR_FIRE_WIDTH, 0.0)
 	crosshair_tween.tween_property(crosshair, "size:x", CROSSHAIR_NORMAL_WIDTH, 0.0).set_delay(0.2)
 
 
-func _on_mission_complete():
-	var tween = create_tween().set_ignore_time_scale()
+func _on_mission_complete() -> void:
+	var tween := create_tween().set_ignore_time_scale()
 	Tweeny.tween_property_blink(tween, time_label, "self_modulate:a", 1.0, 0.0, 0.6)
-	tween.tween_callback(func():
+	tween.tween_callback(func() -> void:
 		is_animating_time = true
 		time_label.text = "GET TO THE EXIT"
 	)
 	Tweeny.tween_property_blink(tween, time_label, "self_modulate:a", 0.0, 1.0, 0.6)
 	tween.tween_interval(1.0)
 	Tweeny.tween_property_blink(tween, time_label, "self_modulate:a", 1.0, 0.0, 0.6)
-	tween.tween_callback(func(): is_animating_time = false)
+	tween.tween_callback(func() -> void: is_animating_time = false)
 	Tweeny.tween_property_blink(tween, time_label, "self_modulate:a", 0.0, 1.0, 0.6)
 
-	var background_tween = create_tween().set_ignore_time_scale()
+	var background_tween := create_tween().set_ignore_time_scale()
 	background_tween.tween_property(time_background.material, "shader_parameter/dissolve_amount", 0.0, 0.2).set_delay(0.4)
-	background_tween.tween_callback(func(): time_background.color = exit_color)
+	background_tween.tween_callback(func() -> void: time_background.color = exit_color)
 	background_tween.tween_property(time_background.material, "shader_parameter/dissolve_amount", 1.0, 0.2).set_delay(0.4)
 
 

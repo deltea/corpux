@@ -1,5 +1,6 @@
 class_name DialogueLineResource extends Resource
 
+
 ## the status of the speaker, can get passed to the speaker
 @export var status: String = "neutral"
 

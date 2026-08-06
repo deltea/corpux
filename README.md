@@ -14,6 +14,7 @@ itch.io page here: [https://deltea.itch.io/300kmh](https://deltea.itch.io/300kmh
 
 ## todo
 
+- [ ] clean up da code
 - [ ] decorate the level
 - [ ] train entrance and exit
 - [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)

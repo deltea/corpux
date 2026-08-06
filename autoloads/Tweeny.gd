@@ -1,7 +1,9 @@
 extends Node
 
+
 const DEFAULT_TRANS = Tween.TRANS_EXPO
 const DEFAULT_EASE = Tween.EASE_OUT
+
 
 func tween_property_blink(
 	tween: Tween,
@@ -11,12 +13,12 @@ func tween_property_blink(
 	final_val: Variant,
 	duration: float,
 	iterations: int = 10
-):
+) -> void:
 	var subtween := create_tween()
 
 	object.set_indexed(property, start_val)
 	for i in range(iterations):
-		var wait_time = duration * pow(0.5, i + 1)
+		var wait_time := duration * pow(0.5, i + 1)
 		subtween.tween_interval(wait_time / 2)
 		subtween.tween_property(object, property, start_val, 0.0)
 		subtween.tween_interval(wait_time / 2)
@@ -34,7 +36,7 @@ func tween_property_snapped(
 ) -> MethodTweener:
 	var start_val: Variant = object.get_indexed(property)
 	var tweener := tween.tween_method(
-		func(current_val: Variant):
+		func(current_val: Variant) -> void:
 			var snapped_val: Variant
 
 			if current_val is Vector2:

@@ -1,6 +1,8 @@
 class_name EndScreen extends CanvasLayer
 
+
 const leaderboard_scene = preload("res://scenes/ui/leaderboard/leaderboard.tscn")
+
 
 @onready var background: TextureRect = $Background
 @onready var left_panel: Control = $LeftPanel
@@ -18,7 +20,9 @@ const leaderboard_scene = preload("res://scenes/ui/leaderboard/leaderboard.tscn"
 @onready var success_label_1: RichTextLabel = $LeftPanel/Success/Scroller/RichTextLabel
 @onready var success_label_2: RichTextLabel = $LeftPanel/Success/Scroller/RichTextLabelCopy
 
-var success_text_length = 0.0
+
+var success_text_length := 0.0
+
 
 func _ready() -> void:
 	animate_in()
@@ -26,6 +30,7 @@ func _ready() -> void:
 	success_label_2.text = success_label_1.text
 	success_text_length = success_label_1.get_combined_minimum_size().x
 	success_label_2.position.y = success_text_length
+
 
 func _process(dt: float) -> void:
 	weapon_model.rotation_degrees.y += 50.0 * dt
@@ -35,13 +40,14 @@ func _process(dt: float) -> void:
 	if abs(success_scroller.position.y) >= success_text_length:
 		success_scroller.position.y = 0
 
+
 func set_info(
 	level_name: String,
 	time: float,
 	rank: String,
 	best_time: float,
 	secret: bool
-):
+) -> void:
 	level_name_label.text = "[wave freq=2 amp=100]" + level_name
 	time_label.text = "TIME  //  " + str(Utils.format_time(time))
 	best_label.text = "BEST  //  " + str(Utils.format_time(best_time))
@@ -49,7 +55,8 @@ func set_info(
 	rank_label.text = "[shake level=20 rate=40]" + rank
 	# add weapon later
 
-func animate_in():
+
+func animate_in() -> void:
 	background.self_modulate.a = 0.0
 	left_panel.position.x = -1400
 	success.position.x = -96
@@ -63,7 +70,7 @@ func animate_in():
 	weapon_container.position.y = 1088.0
 	button_row.position.y = 1120.0
 
-	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
+	var tween := create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
 	tween.chain().tween_property(background, "self_modulate:a", 1.0, 0.5)
 	tween.chain().tween_property(left_panel, "position:x", 0.0, 0.25)
 	tween.chain().tween_property(success, "position:x", 0.0, 0.25)
@@ -73,13 +80,14 @@ func animate_in():
 	tween.tween_property(secret_label, "visible_ratio", 1.0, 0.25).set_trans(Tween.TRANS_LINEAR).set_delay(0.3)
 	tween.tween_property(weapon_container, "position:y", 560.0, 0.4).set_delay(0.4)
 
-	tween.chain().tween_callback(func(): rank_label.visible = true)
+	tween.chain().tween_callback(rank_label.show)
 	tween.chain().tween_property(rank_label, "scale", Vector2.ONE * 1.0, 0.4).set_ease(Tween.EASE_IN)
-	tween.chain().tween_callback(func():
+	tween.chain().tween_callback(func() -> void:
 		Events.flashbang.emit(1.0)
 		AudioManager.play_sound("slam")
 	)
 	tween.chain().tween_property(button_row, "position:y", 875.0, 0.25).set_delay(0.3)
+
 
 func _on_button_row_button_pressed(id: String) -> void:
 	if id == "restart":
@@ -88,5 +96,5 @@ func _on_button_row_button_pressed(id: String) -> void:
 		print("go back to menu")
 		get_tree().change_scene_to_file("res://rooms/main_menu.tscn")
 	if id == "leaderboard":
-		var leaderboard = leaderboard_scene.instantiate() as Leaderboard
+		var leaderboard := leaderboard_scene.instantiate() as Leaderboard
 		add_child(leaderboard)

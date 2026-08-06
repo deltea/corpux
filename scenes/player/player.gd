@@ -32,17 +32,17 @@ const SLAM_VELOCITY = 160.0
 @onready var cam: Camera = $Head/Camera
 
 
-var mouse_delta = Vector2.ZERO
+var mouse_delta := Vector2.ZERO
 var slam_particles: GPUParticles3D
 
-var dir = Vector3.ZERO
-var dash_dir = Vector3.ZERO
-var is_dashing = false
-var is_super_dashing = false
-var is_slamming = false
-var is_grounded = false
-var is_walled = false
-var dashes_left = DASH_COUNT
+var dir := Vector3.ZERO
+var dash_dir := Vector3.ZERO
+var is_dashing := false
+var is_super_dashing := false
+var is_slamming := false
+var is_grounded := false
+var is_walled := false
+var dashes_left := DASH_COUNT
 
 var head_tween: Tween
 
@@ -56,11 +56,11 @@ func _ready() -> void:
 	set_dashes_left(DASH_COUNT)
 
 
-func _process(dt: float) -> void:
+func _process(_dt: float) -> void:
 	GlobalCanvas.set_smear(velocity.length() / 15.0)
 
 
-func _physics_process(dt: float):
+func _physics_process(dt: float) -> void:
 	check_grounded()
 	check_walled()
 
@@ -78,12 +78,12 @@ func _physics_process(dt: float):
 		AudioManager.play_sound("jump", randf_range(0.9, 1.1))
 	elif is_walled and not is_grounded:
 		if Input.is_action_just_pressed("jump"):
-			var normal = get_wall_normal()
+			var normal := get_wall_normal()
 			velocity.y = WALL_JUMP_FORCE
 			velocity.x = normal.x * WALL_JUMP_PUSHBACK
 			velocity.z = normal.z * WALL_JUMP_PUSHBACK
 
-	var input = Input.get_vector("left", "right", "forward", "backward")
+	var input := Input.get_vector("left", "right", "forward", "backward")
 	dir = Vector3(input.x, 0, input.y).rotated(Vector3.UP, rotation.y).normalized()
 	if Input.is_action_just_pressed("dash") and dir != Vector3.ZERO:
 		dash()
@@ -121,7 +121,7 @@ func _physics_process(dt: float):
 	move_and_slide()
 
 
-func dash():
+func dash() -> void:
 	if dashes_left > 0:
 		AudioManager.play_sound("dash", randf_range(0.9, 1.1))
 		set_dashes_left(dashes_left - 1)
@@ -129,7 +129,7 @@ func dash():
 		is_dashing = true
 		dash_dir = dir
 
-		var dash_particles = dash_particles_scene.instantiate() as GPUParticles3D
+		var dash_particles := dash_particles_scene.instantiate() as GPUParticles3D
 		add_child(dash_particles)
 		dash_particles.position += Vector3.LEFT * dash_dir.rotated(Vector3.UP, -rotation.y) * 6
 		dash_particles.global_rotation.y = Vector2(-dash_dir.x, dash_dir.z).angle() - PI/2
@@ -139,7 +139,7 @@ func dash():
 		print("no dashes left")
 
 
-func check_grounded():
+func check_grounded() -> void:
 	if is_grounded != is_on_floor():
 		if is_grounded:
 			is_grounded = false
@@ -151,7 +151,7 @@ func check_grounded():
 			slamming_sound.stop()
 
 
-func check_walled():
+func check_walled() -> void:
 	if is_walled != is_on_wall():
 		if is_walled:
 			is_walled = false
@@ -162,12 +162,12 @@ func check_walled():
 			# set_dashes_left(DASH_COUNT)
 
 
-func stop_slam():
+func stop_slam() -> void:
 	if slam_particles: slam_particles.queue_free()
 	is_slamming = false
 
 
-func super_dash():
+func super_dash() -> void:
 	$DashTimer.stop()
 	is_dashing = false
 	is_super_dashing = true
@@ -177,7 +177,7 @@ func super_dash():
 	set_dashes_left(dashes_left - 1)
 
 
-func slam():
+func slam() -> void:
 	slamming_sound.play()
 	$DashTimer.stop()
 	is_slamming = true
@@ -193,29 +193,29 @@ func slam():
 	slam_particles.global_rotation.x = PI/2
 
 
-func get_look_dir():
+func get_look_dir() -> Vector3:
 	return Vector3.FORWARD.rotated(Vector3.RIGHT, head.rotation.x).rotated(Vector3.UP, rotation.y).normalized()
 
 
-func stair_step_up():
+func stair_step_up() -> void:
 	if dir == Vector3.ZERO:
 		return
 
-	var body_test_params = PhysicsTestMotionParameters3D.new()
-	var body_test_result = PhysicsTestMotionResult3D.new()
+	var body_test_params := PhysicsTestMotionParameters3D.new()
+	var body_test_result := PhysicsTestMotionResult3D.new()
 
-	var test_transform = global_transform
-	var distance = dir * 1.0
+	var test_transform := global_transform
+	var distance := dir * 1.0
 	body_test_params.from = self.global_transform
 	body_test_params.motion = distance
 
 	if !PhysicsServer3D.body_test_motion(self.get_rid(), body_test_params, body_test_result):
 		return
 
-	var remainder = body_test_result.get_remainder()
+	var remainder := body_test_result.get_remainder()
 	test_transform = test_transform.translated(body_test_result.get_travel())
 
-	var step_up = 1.0 * Vector3.UP
+	var step_up := 1.0 * Vector3.UP
 	body_test_params.from = test_transform
 	body_test_params.motion = step_up
 	PhysicsServer3D.body_test_motion(self.get_rid(), body_test_params, body_test_result)
@@ -227,11 +227,11 @@ func stair_step_up():
 	test_transform = test_transform.translated(body_test_result.get_travel())
 
 	if body_test_result.get_collision_count() != 0:
-		remainder = body_test_result.get_remainder().length()
+		remainder = body_test_result.get_remainder()
 
-		var wall_normal = body_test_result.get_collision_normal()
-		var dot_div_mag = dir.dot(wall_normal) / (wall_normal * wall_normal).length()
-		var projected_vector = (dir - dot_div_mag * wall_normal).normalized()
+		var wall_normal := body_test_result.get_collision_normal()
+		var dot_div_mag := dir.dot(wall_normal) / (wall_normal * wall_normal).length()
+		var projected_vector := (dir - dot_div_mag * wall_normal).normalized()
 
 		body_test_params.from = test_transform
 		body_test_params.motion = remainder * projected_vector
@@ -246,37 +246,37 @@ func stair_step_up():
 
 	test_transform = test_transform.translated(body_test_result.get_travel())
 
-	var surface_normal = body_test_result.get_collision_normal()
+	var surface_normal := body_test_result.get_collision_normal()
 	if (snappedf(surface_normal.angle_to(Vector3.UP), 0.001) > floor_max_angle):
 		return
 
-	var global_pos = global_position
-	var step_up_dist = test_transform.origin.y - global_pos.y
+	var global_pos := global_position
+	var step_up_dist := test_transform.origin.y - global_pos.y
 
 	velocity.y = 0
 	global_pos.y = test_transform.origin.y
 	global_position = global_pos
 
 
-func bounce():
+func bounce() -> void:
 	is_dashing = false
 	velocity.y = sqrt(2 * BOUNCE_HEIGHT * GRAVITY)
 	velocity.x = 0
 	velocity.z = 0
 
 
-func set_dashes_left(value: int):
+func set_dashes_left(value: int) -> void:
 	dashes_left = clampi(value, 0, MAX_DASH_COUNT)
 	Events.player_dash_changed.emit(dashes_left)
 
 
-func _on_add_dash():
+func _on_add_dash() -> void:
 	set_dashes_left(dashes_left + 1)
 
 
-func _on_turn_head_to(target_pos: Vector3):
-	var to_target = target_pos - global_position
-	var target_angle = rad_to_deg(atan2(-to_target.x, -to_target.z))
+func _on_turn_head_to(target_pos: Vector3) -> void:
+	var to_target := target_pos - global_position
+	var target_angle := rad_to_deg(atan2(-to_target.x, -to_target.z))
 	if head_tween: head_tween.kill()
 	head_tween = create_tween().set_parallel().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	head_tween.tween_property(self, "rotation_degrees:y", target_angle, 1.0)
@@ -290,7 +290,7 @@ func _on_dash_timer_timeout() -> void:
 	velocity.y = 0
 
 
-func _input(event: InputEvent):
+func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("esc"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if event is InputEventMouseButton:
@@ -303,12 +303,12 @@ func _input(event: InputEvent):
 			head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 
-func _on_end_level():
+func _on_end_level() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
-func _on_death():
+func _on_death() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	AudioManager.play_sound("die")

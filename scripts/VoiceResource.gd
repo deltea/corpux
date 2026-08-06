@@ -1,6 +1,8 @@
 class_name VoiceResource extends Resource
 
+
 @export_category("alphabet")
+
 
 @export var a: VoiceAlphabetResource
 @export var b: VoiceAlphabetResource

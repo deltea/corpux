@@ -1,6 +1,8 @@
 class_name WeaponManager extends Node3D
 
+
 const SHAKE_DAMP_SPEED = 2.0
+
 
 @export var cam: Camera
 @export var player: Player
@@ -8,48 +10,54 @@ const SHAKE_DAMP_SPEED = 2.0
 @export_category("weapon scenes")
 @export var revolver_scene: PackedScene
 
+
 var equipped_weapon: Weapon
-var shake_duration = 0.0
-var shake_strength = 0.0
+var shake_duration := 0.0
+var shake_strength := 0.0
 var original_pos: Vector3
-var is_disabled = false
+var is_disabled := false
 var tween: Tween
+
 
 func _ready() -> void:
 	original_pos = position
 
-	DialogueManager.dialogue_started.connect(func(): disable_weapon())
-	DialogueManager.dialogue_ended.connect(func(): enable_weapon())
+	DialogueManager.dialogue_started.connect(disable_weapon)
+	DialogueManager.dialogue_ended.connect(enable_weapon)
 
 	equip_weapon(revolver_scene)
 
-func equip_weapon(weapon: PackedScene):
+
+func equip_weapon(weapon: PackedScene) -> void:
 	equipped_weapon = weapon.instantiate() as Weapon
 	add_child(equipped_weapon)
 	equipped_weapon.cam = cam
 	equipped_weapon.player = player
 	equipped_weapon.weapon_shake.connect(_on_weapon_shake)
 
-func unequip_weapon():
+
+func unequip_weapon() -> void:
 	equipped_weapon.queue_free()
 
-func disable_weapon():
+func disable_weapon() -> void:
 	if not equipped_weapon: return
 	is_disabled = true
 
 	if tween: tween.kill()
 	tween = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "position:y", original_pos.y - 2.5, 0.5)
-	tween.tween_callback(func(): hide())
+	tween.tween_callback(hide)
 
-func enable_weapon():
+
+func enable_weapon() -> void:
 	if not equipped_weapon: return
 
 	show()
 	if tween: tween.kill()
 	tween = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "position:y", original_pos.y, 0.5)
-	tween.tween_callback(func(): is_disabled = false)
+	tween.tween_callback(func() -> void: is_disabled = false)
+
 
 func _process(dt: float) -> void:
 	if not equipped_weapon or is_disabled: return
@@ -72,6 +80,7 @@ func _process(dt: float) -> void:
 
 	position.y = snappedf(position.y + sin(Clock.time * 4.0) * 0.08, 0.04)
 
-func _on_weapon_shake(strength: float, duration: float):
+
+func _on_weapon_shake(strength: float, duration: float) -> void:
 	shake_strength = strength
 	shake_duration = duration

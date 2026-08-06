@@ -32,6 +32,11 @@ Tweeny="*uid://bnu647eh05r25"
 Talo="*uid://bpmdn8oc34pg7"
 NetworkManager="*uid://x6uie4siitmq"
 
+[debug]
+
+gdscript/warnings/unused_signal=0
+gdscript/warnings/untyped_declaration=1
+
 [display]
 
 window/size/viewport_width=1920

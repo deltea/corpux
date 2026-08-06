@@ -4,8 +4,8 @@ class_name RevolverWeapon extends Weapon
 const MAX_WIND_UP_TIME = 1.0
 
 
-@export var wind_up_pos = Vector3.ZERO
-@export var wind_up_rot = Vector3.ZERO
+@export var wind_up_pos := Vector3.ZERO
+@export var wind_up_rot := Vector3.ZERO
 @export var throw_distance_curve: Curve
 
 @export var fire_point: Node3D
@@ -24,11 +24,11 @@ const MAX_WIND_UP_TIME = 1.0
 @onready var pivot: Node3D = $WindUpPivot/Pivot
 
 
-var is_winding_up = false
-var wind_up_time = 0.0
+var is_winding_up := false
+var wind_up_time := 0.0
 # a value from 0 to 1 that specifies how charged up the throw is
-var wind_up_amount = 0.0
-var can_fire = true
+var wind_up_amount := 0.0
+var can_fire := true
 var auto_aim_last_area: AutoAimArea
 
 var original_mesh_rot: Vector3
@@ -65,9 +65,9 @@ func _process(dt: float) -> void:
 		wind_up_pivot.rotation_degrees = wind_up_pivot.rotation_degrees.lerp(original_rot, 10.0 * dt)
 
 
-func _physics_process(dt: float) -> void:
+func _physics_process(_dt: float) -> void:
 	if auto_aim_cast.is_colliding() and auto_aim_cast.get_collider() is AutoAimArea:
-		var collider = auto_aim_cast.get_collider()
+		var collider := auto_aim_cast.get_collider()
 		if collider != auto_aim_last_area:
 			if auto_aim_last_area != null:
 				auto_aim_last_area.aim_exited.emit()
@@ -78,7 +78,7 @@ func _physics_process(dt: float) -> void:
 		auto_aim_last_area = null
 
 
-func fire():
+func fire() -> void:
 	if not can_fire: return
 
 	super.fire()
@@ -88,7 +88,7 @@ func fire():
 	mesh.rotation_degrees.z = -15.0
 	pivot.rotation_degrees.x = 20.0
 
-	var muzzle_flash = Sprite3D.new()
+	var muzzle_flash := Sprite3D.new()
 	get_tree().current_scene.add_child(muzzle_flash)
 	muzzle_flash.scale = Vector3.ONE * 7.5
 	muzzle_flash.texture = muzzle_flash_texture
@@ -97,22 +97,22 @@ func fire():
 	muzzle_flash.look_at(cam.global_position)
 	muzzle_flash.rotation_degrees.z = randf_range(0, 360)
 
-	var hitscan_line = line_scene.instantiate() as LineRenderer
+	var hitscan_line := line_scene.instantiate() as LineRenderer
 	hitscan_line.startThickness = 0.2
 	hitscan_line.endThickness = 0.2
 	hitscan_line.points[0] = fire_point.global_position
 	var endpoint: Vector3
 	if ray.is_colliding():
 		endpoint = ray.get_collision_point()
-		var collider = ray.get_collider()
+		var collider := ray.get_collider()
 		if collider is Enemy:
 			collider.take_damage(1.0)
 
-			var enemy_hit_indicator = enemy_hit_indicator_scene.instantiate() as EnemyHitIndicator
+			var enemy_hit_indicator := enemy_hit_indicator_scene.instantiate() as EnemyHitIndicator
 			get_tree().current_scene.add_child(enemy_hit_indicator)
 			enemy_hit_indicator.global_position = endpoint
 		else:
-			var hit_particle = hit_particle_scene.instantiate() as GPUParticles3D
+			var hit_particle := hit_particle_scene.instantiate() as GPUParticles3D
 			get_tree().current_scene.add_child(hit_particle)
 			hit_particle.global_position = endpoint
 			hit_particle.emitting = true
@@ -124,7 +124,7 @@ func fire():
 	cam.rotation_degrees.z = 1.5 if randf() > 0.5 else -1.5
 
 	get_tree().current_scene.add_child(hitscan_line)
-	var tween = get_tree().create_tween().set_parallel()
+	var tween := get_tree().create_tween().set_parallel()
 	Tweeny.tween_property_snapped(tween, muzzle_flash, "scale", Vector3.ZERO, 0.12, Vector3.ONE * 3.0)
 	tween.tween_property(hitscan_line, "startThickness", 0, 0.15)
 	tween.tween_property(hitscan_line, "endThickness", 0, 0.0).set_delay(0.15)
@@ -134,20 +134,20 @@ func fire():
 
 
 # start wind up
-func secondary_fire():
+func secondary_fire() -> void:
 	if not can_fire: return
 	is_winding_up = true
 
 
 # throw the gun
-func secondary_fire_released():
+func secondary_fire_released() -> void:
 	if not can_fire: return
 
 	# hide and pause the actual revolver
 	mesh.visible = false
 	process_mode = Node.PROCESS_MODE_DISABLED
 
-	var boomerang = boomerang_scene.instantiate() as BoomerangRevolver
+	var boomerang := boomerang_scene.instantiate() as BoomerangRevolver
 	get_tree().current_scene.add_child(boomerang)
 	boomerang.caught.connect(_on_boomerang_caught)
 	boomerang.global_position = mesh.global_position
@@ -165,7 +165,7 @@ func secondary_fire_released():
 	wind_up_time = 0.0
 
 
-func _on_boomerang_caught():
+func _on_boomerang_caught() -> void:
 	can_fire = true
 	mesh.visible = true
 	process_mode = Node.PROCESS_MODE_INHERIT
@@ -180,8 +180,8 @@ func _on_boomerang_caught():
 
 
 func _on_animation_timer_timeout() -> void:
-	var mat = display_mesh.mesh.surface_get_material(0)
+	var mat := display_mesh.mesh.surface_get_material(0)
 	if mat:
-		var unique = mat.duplicate()
+		var unique := mat.duplicate()
 		unique.uv1_offset.y += 0.1
 		display_mesh.mesh.surface_set_material(0, unique)

@@ -1,17 +1,21 @@
 extends CanvasLayer
 
+
 signal dialogue_started
 signal dialogue_ended
 signal dialogue_line_changed(line: DialogueLineResource)
 signal char_typed(is_valid: bool)
 
+
 @export var dialogue_box_scene: PackedScene
+
 
 var dialogue_box: DialogueBox
 var dialogue: DialogueResource
-var curr_line = 0
-var is_active = false
-var is_animating = false
+var curr_line := 0
+var is_active := false
+var is_animating := false
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") or event.is_action_pressed("mouse_left"):
@@ -23,7 +27,8 @@ func _input(event: InputEvent) -> void:
 			if not dialogue_box.is_typing:
 				continue_dialogue()
 
-func start_dialogue(dialogue_resource: DialogueResource):
+
+func start_dialogue(dialogue_resource: DialogueResource) -> void:
 	if is_active: return
 	dialogue = dialogue_resource
 	curr_line = 0
@@ -37,21 +42,24 @@ func start_dialogue(dialogue_resource: DialogueResource):
 	is_active = true
 	dialogue_box.animate_open()
 
-func continue_dialogue():
+
+func continue_dialogue() -> void:
 	curr_line += 1
 	if curr_line >= dialogue.lines.size():
 		end_dialogue()
 	else:
 		show_curr_line()
 
-func show_curr_line():
-	var line = dialogue.lines[curr_line]
+
+func show_curr_line() -> void:
+	var line := dialogue.lines[curr_line]
 	dialogue_box.set_color(line.color)
 	dialogue_box.set_speaker(line.speaker)
 	dialogue_box.type_text(line.text)
 	dialogue_line_changed.emit(line)
 
-func end_dialogue():
+
+func end_dialogue() -> void:
 	if not is_active: return
 
 	dialogue_ended.emit()
@@ -62,8 +70,9 @@ func end_dialogue():
 	dialogue = null
 	dialogue_box.queue_free()
 
-func _on_char_typed(c: String):
-	var line = dialogue.lines[curr_line]
+
+func _on_char_typed(c: String) -> void:
+	var line := dialogue.lines[curr_line]
 	char_typed.emit(c.to_lower() in line.voice)
 	if c.to_lower() in line.voice:
 		AudioManager.play_sound_from_stream(line.voice[c.to_lower()].stream, randf_range(0.8, 1.2))
