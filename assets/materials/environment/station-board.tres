@@ -1,10 +1,8 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://c7mb7o0h3ru6c"]
 
 [ext_resource type="Texture2D" uid="uid://fiexwxc2xrdw" path="res://assets/textures/station-board.png" id="1_yo8oo"]
-[ext_resource type="Material" uid="uid://df78vqvbou6vl" path="res://assets/materials/overlay.tres" id="2_yo8oo"]
 
 [resource]
-next_pass = ExtResource("2_yo8oo")
 shading_mode = 0
 albedo_texture = ExtResource("1_yo8oo")
 uv1_world_triplanar = true
