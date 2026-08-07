@@ -41,15 +41,20 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"Glass": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/train/visor.tres",
-"use_external/path": "uid://djie8k142oe0u"
-},
-"Material.001": {
+"body": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://assets/materials/train/body.tres",
 "use_external/path": "uid://c73ho6hwlpwpl"
+},
+"filter": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/train/filter.tres",
+"use_external/path": "uid://4tmb1mnlliq2"
+},
+"glass": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/train/glass.tres",
+"use_external/path": "uid://b1s1xksmutov7"
 }
 }
 }

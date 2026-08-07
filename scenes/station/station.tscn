@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d2lsigfcd1rcy"]
 
 [ext_resource type="Material" uid="uid://3ipk4fhteaks" path="res://assets/materials/environment/tiles.tres" id="1_5a57x"]
+[ext_resource type="Script" uid="uid://cnf2k31osjtcs" path="res://scenes/station/train_station.gd" id="1_kphry"]
 [ext_resource type="PackedScene" uid="uid://bojpc3sv2hm7m" path="res://assets/models/environment/metro_door.blend" id="4_mm2pm"]
 [ext_resource type="PackedScene" uid="uid://d3c6285e12qkl" path="res://assets/models/environment/train/train_head.blend" id="5_kphry"]
 
@@ -22,6 +23,7 @@ material = SubResource("StandardMaterial3D_tv5rl")
 size = Vector3(23, 20, 10)
 
 [node name="Station" type="Node3D" unique_id=523828664]
+script = ExtResource("1_kphry")
 
 [node name="CSGBox3D22" type="CSGBox3D" parent="." unique_id=1161611505]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 10, -5)
@@ -80,5 +82,5 @@ omni_attenuation = -1.0
 [node name="metro_door" parent="." unique_id=1974318859 instance=ExtResource("4_mm2pm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 20)
 
-[node name="train_head" parent="." unique_id=726041996 instance=ExtResource("5_kphry")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107, 0, 7)
+[node name="train" parent="." unique_id=726041996 instance=ExtResource("5_kphry")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)

@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://4tmb1mnlliq2"]
+
+[ext_resource type="Shader" uid="uid://cnbcl6jbbdf8m" path="res://shaders/entrance_filter.gdshader" id="1_xhgy2"]
+
+[resource]
+resource_name = "filter"
+render_priority = 0
+shader = ExtResource("1_xhgy2")
+shader_parameter/pixel_size = 1.0
+shader_parameter/posterize = 20
+shader_parameter/color_A = Color(0.8551798, 5.7756904e-07, 0.51144975, 1)
+shader_parameter/color_B = Color(0.1, 0.1, 0.1, 1)

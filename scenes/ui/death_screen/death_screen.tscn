@@ -3,7 +3,15 @@
 [ext_resource type="Script" uid="uid://cv8ew3gv7vwkv" path="res://scenes/ui/death_screen/death_screen.gd" id="1_trwrg"]
 [ext_resource type="Theme" uid="uid://cxmchfsgtgv3e" path="res://theme.tres" id="2_h504w"]
 [ext_resource type="FontVariation" uid="uid://tjujv6rc3oaw" path="res://assets/fonts/helvetica-bold.tres" id="3_5ltjm"]
+[ext_resource type="Shader" uid="uid://bqdr2qleslhkl" path="res://shaders/pixel_dissolve.gdshader" id="4_tfxvr"]
 [ext_resource type="Texture2D" uid="uid://d0l6n8quio0v5" path="res://assets/textures/ui/skull.png" id="4_trwrg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_trwrg"]
+shader = ExtResource("4_tfxvr")
+shader_parameter/dissolve_amount = 1.0
+shader_parameter/background_color = Color(1, 1, 1, 0)
+shader_parameter/scale_x = 1.5
+shader_parameter/scale_y = 1.5
 
 [sub_resource type="SystemFont" id="SystemFont_ew5by"]
 font_names = PackedStringArray("Helvetica")
@@ -47,15 +55,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Skull" type="TextureRect" parent="." unique_id=1478097002]
-offset_left = 1272.0
-offset_right = 2352.0
+material = SubResource("ShaderMaterial_trwrg")
+offset_left = 1360.0
+offset_right = 2440.0
 offset_bottom = 1080.0
 texture = ExtResource("4_trwrg")
 
 [node name="DeathLabel" type="RichTextLabel" parent="." unique_id=380858934]
-offset_left = 80.0
+offset_left = 96.0
 offset_top = 96.0
-offset_right = 1240.0
+offset_right = 1256.0
 offset_bottom = 856.0
 theme = ExtResource("2_h504w")
 theme_override_fonts/normal_font = SubResource("FontVariation_trwrg")
