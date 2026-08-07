@@ -1,5 +1,6 @@
 class_name VendingMachine extends Node3D
 
+
 @export var dialogue: DialogueResource
 
 @export_category("eyes expressions")
@@ -12,19 +13,23 @@ class_name VendingMachine extends Node3D
 @export var mouth_closed_texture: Texture2D
 @export var mouth_open_texture: Texture2D
 
+
 @onready var face: Control = $SubViewport/Face
 @onready var eyes: TextureRect = $SubViewport/Face/Eyes
 @onready var mouth: TextureRect = $SubViewport/Face/Mouth
 @onready var background: ColorRect = $SubViewport/Background
 
-var is_in_range = false
+
+var is_in_range := false
 var original_bg_color: Color
-var status = "neutral"
+var status := "neutral"
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and is_in_range and not DialogueManager.is_active:
 		DialogueManager.start_dialogue(dialogue)
-		Events.turn_head_to.emit(global_position)
+		# Events.turn_head_to.emit(global_position)
+
 
 func _ready() -> void:
 	DialogueManager.dialogue_line_changed.connect(_on_dialogue_line_changed)
@@ -32,11 +37,13 @@ func _ready() -> void:
 	original_bg_color = background.color
 	DialogueManager.char_typed.connect(_on_char_typed)
 
-func _process(dt: float) -> void:
-	face.position.y = sin(Clock.time * 3.0) * 5.0
-	face.rotation_degrees = sin(Clock.time * 1.0) * 5.0
 
-func set_status(new_status: String):
+func _process(_dt: float) -> void:
+	face.position.y = sin(Clock.time * 6.0) * 5.0
+	face.rotation_degrees = sin(Clock.time * 3.0) * 5.0
+
+
+func set_status(new_status: String) -> void:
 	status = new_status
 	match status:
 		"neutral": eyes.texture = eyes_neutral_texture
@@ -51,20 +58,24 @@ func set_status(new_status: String):
 		background.color = original_bg_color
 		mouth.show()
 
-func _on_dialogue_line_changed(line: DialogueLineResource):
+
+func _on_dialogue_line_changed(line: DialogueLineResource) -> void:
 	set_status(line.status)
 
-func _on_dialogue_ended():
+
+func _on_dialogue_ended() -> void:
 	if is_in_range:
 		set_status("interact")
 	else:
 		await Clock.wait(1.0)
 		set_status("neutral")
 
+
 func _on_dialogue_area_body_entered(body: Node3D) -> void:
 	if not body is Player: return
 	is_in_range = true
 	set_status("interact")
+
 
 func _on_dialogue_area_body_exited(body: Node3D) -> void:
 	if not body is Player: return
@@ -73,11 +84,14 @@ func _on_dialogue_area_body_exited(body: Node3D) -> void:
 	if status == "interact":
 		set_status("neutral")
 
+
 func _on_watch_area_body_entered(body: Node3D) -> void:
 	if not body is Player: return
 
+
 func _on_watch_area_body_exited(body: Node3D) -> void:
 	if not body is Player: return
+
 
 func _on_blink_timer_timeout() -> void:
 	if not status == "neutral": return
@@ -86,7 +100,8 @@ func _on_blink_timer_timeout() -> void:
 	if not status == "neutral": return
 	eyes.texture = eyes_neutral_texture
 
-func _on_char_typed(is_valid: bool):
+
+func _on_char_typed(is_valid: bool) -> void:
 	if not is_valid: return
 	mouth.texture = mouth_open_texture
 	await Clock.wait(0.005)
