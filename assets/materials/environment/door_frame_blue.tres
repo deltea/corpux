@@ -1,8 +1,8 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://dhdqmiy884yee"]
 
 [resource]
-diffuse_mode = 2
-albedo_color = Color(0.011764706, 0.5294118, 0.99607843, 1)
+shading_mode = 2
+albedo_color = Color(0.26666668, 0.30980393, 0.9843137, 1)
 emission = Color(0.5609553, 0.56095487, 0.5609549, 1)
 uv1_world_triplanar = true
 texture_filter = 4

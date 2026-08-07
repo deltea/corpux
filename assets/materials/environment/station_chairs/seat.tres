@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bvmnbv68kluhk"]
+
+[ext_resource type="Material" uid="uid://df78vqvbou6vl" path="res://assets/materials/overlay.tres" id="1_sky4g"]
+
+[resource]
+resource_name = "seat"
+next_pass = ExtResource("1_sky4g")
+shading_mode = 0
+albedo_color = Color(1, 0.5019608, 0.101960786, 1)

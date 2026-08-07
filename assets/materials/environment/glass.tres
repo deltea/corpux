@@ -4,8 +4,7 @@
 
 [resource]
 transparency = 1
-albedo_texture = ExtResource("1_pw6fx")
-emission_enabled = true
+albedo_color = Color(1, 1, 1, 0)
 emission = Color(0.5609553, 0.56095487, 0.5609549, 1)
 emission_energy_multiplier = 2.0
 emission_operator = 1
