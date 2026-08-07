@@ -714,16 +714,16 @@ transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -141
 [node name="Light17" parent="Environment/Decoration" parent_id_path=PackedInt32Array(1521980672) index="29" unique_id=925449296 instance=ExtResource("10_0qrrd")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -141, -120.440475, -70)
 
-[node name="VendingMachine" parent="Environment/Interactables" parent_id_path=PackedInt32Array(2083965449) index="0" unique_id=1780406410 instance=ExtResource("13_fylor")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -22.6, 3, -253)
-
-[node name="HudLayer" parent="." index="5" unique_id=1636076581 instance=ExtResource("17_ahpcb")]
-
-[node name="station_chairs3" parent="." index="6" unique_id=934930034 instance=ExtResource("22_qm5l7")]
+[node name="station_chairs3" parent="Environment/Decoration" parent_id_path=PackedInt32Array(1521980672) index="30" unique_id=934930034 instance=ExtResource("22_qm5l7")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 21, 1.3, -257)
 
-[node name="station_chairs4" parent="." index="7" unique_id=2012012097 instance=ExtResource("22_qm5l7")]
+[node name="station_chairs4" parent="Environment/Decoration" parent_id_path=PackedInt32Array(1521980672) index="31" unique_id=2012012097 instance=ExtResource("22_qm5l7")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 21, 1.3, -269)
 
-[node name="station_chairs6" parent="." index="8" unique_id=321158074 instance=ExtResource("22_qm5l7")]
+[node name="station_chairs6" parent="Environment/Decoration" parent_id_path=PackedInt32Array(1521980672) index="32" unique_id=321158074 instance=ExtResource("22_qm5l7")]
 transform = Transform3D(-2.1855693e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855693e-07, -21, 1.3, -263)
+
+[node name="VendingMachine" parent="Environment/Interactables" parent_id_path=PackedInt32Array(2083965449) index="0" unique_id=1780406410 instance=ExtResource("13_fylor")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -22.6, 0, -253)
+
+[node name="HudLayer" parent="." index="5" unique_id=1636076581 instance=ExtResource("17_ahpcb")]
