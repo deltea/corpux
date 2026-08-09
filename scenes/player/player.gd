@@ -53,6 +53,7 @@ func _ready() -> void:
 	Events.death.connect(_on_death)
 	Events.turn_head_to.connect(_on_turn_head_to)
 	Events.add_dash.connect(_on_add_dash)
+
 	set_dashes_left(DASH_COUNT)
 
 

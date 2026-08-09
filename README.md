@@ -14,8 +14,9 @@ itch.io page here: [https://deltea.itch.io/300kmh](https://deltea.itch.io/300kmh
 
 ## todo
 
-- [ ] decorate the level
 - [ ] train entrance and exit
+- [ ] sum kinda fluid anim spirited away type shi
+- [ ] decorate the level
 - [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
 - [ ] fix slam then dash bug
 - [ ] tutorial stuff

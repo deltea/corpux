@@ -7,6 +7,9 @@ class_name Level extends Room
 @export var death_screen_scene: PackedScene
 
 
+@onready var station: TrainStation = $EntranceStation
+
+
 var curr_time := 0.0
 var is_timer_started := false
 var is_secret_found := false
@@ -19,10 +22,12 @@ func _ready() -> void:
 	Events.death.connect(_on_death)
 	Events.enemy_died.connect(_on_enemy_died)
 
-	if not AudioManager.is_music_playing:
-		AudioManager.play_music("rigged-game")
+	# if not AudioManager.is_music_playing:
+	# 	AudioManager.play_music("rigged-game")
 
-	await Clock.wait(1.0)
+	# await Clock.wait(1.0)
+
+	# station.animate_train_enter()
 	is_timer_started = true
 
 

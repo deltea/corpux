@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dlcq7x6stncen"]
+
+[ext_resource type="PackedScene" uid="uid://d3c6285e12qkl" path="res://assets/models/environment/train/train_head.blend" id="1_xitas"]
+
+[node name="train" unique_id=1049095889 instance=ExtResource("1_xitas")]
