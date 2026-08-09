@@ -33,6 +33,7 @@ const music = {
 	"eurolife": preload("res://assets/audio/music/eurolife.mp3"),
 	"2000": preload("res://assets/audio/music/2000.mp3"),
 	"jungle": preload("res://assets/audio/music/jungle.mp3"),
+	"clarity": preload("res://assets/audio/music/clarity.mp3"),
 }
 
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
