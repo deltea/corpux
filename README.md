@@ -14,13 +14,12 @@ itch.io page here: [https://deltea.itch.io/300kmh](https://deltea.itch.io/300kmh
 
 ## todo
 
-- [ ] train entrance and exit
+- [ ] font rehaul
 - [ ] sum kinda fluid anim spirited away type shi
 - [ ] decorate the level
 - [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
-- [ ] fix slam then dash bug
 - [ ] tutorial stuff
-- [ ] fix boomerang tweaking out
+- [x] train entrance and exit
 - [x] clean up da code
 - [x] better enemy indicator drawing (with correct sizing)
 - [x] exes
@@ -68,6 +67,8 @@ itch.io page here: [https://deltea.itch.io/300kmh](https://deltea.itch.io/300kmh
 
 ## later
 
+- [ ] fix slam then dash bug
+- [ ] fix boomerang tweaking out
 - [ ] quake movement revamp
 - [ ] make some doors
 - [ ] clean up project
