@@ -2,8 +2,8 @@
 
 [ext_resource type="Material" uid="uid://3ipk4fhteaks" path="res://assets/materials/environment/tiles.tres" id="1_5a57x"]
 [ext_resource type="Script" uid="uid://cnf2k31osjtcs" path="res://scenes/station/train_station.gd" id="1_kphry"]
+[ext_resource type="PackedScene" uid="uid://dlcq7x6stncen" path="res://scenes/station/train.tscn" id="4_5a57x"]
 [ext_resource type="PackedScene" uid="uid://bojpc3sv2hm7m" path="res://assets/models/environment/metro_door.blend" id="4_mm2pm"]
-[ext_resource type="PackedScene" uid="uid://d3c6285e12qkl" path="res://assets/models/environment/train/train_head.blend" id="5_kphry"]
 
 [sub_resource type="Animation" id="Animation_kphry"]
 length = 0.001
@@ -67,13 +67,13 @@ callback_mode_process = 2
 libraries/ = SubResource("AnimationLibrary_kphry")
 
 [node name="CSGBox3D22" type="CSGBox3D" parent="." unique_id=1161611505]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 10, -5)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 10, -12)
 use_collision = true
 size = Vector3(4, 20, 100)
 material = ExtResource("1_5a57x")
 
 [node name="CSGBox3D25" type="CSGBox3D" parent="." unique_id=1394968838]
-transform = Transform3D(-4.371139e-08, 0, 1, 1, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, 1.9106855e-15, 0, 22, 7)
+transform = Transform3D(-4.371139e-08, 0, 1, 1, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, 1.9106855e-15, 0, 22, 0)
 use_collision = true
 size = Vector3(4, 28, 100)
 material = ExtResource("1_5a57x")
@@ -81,19 +81,19 @@ material = ExtResource("1_5a57x")
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=506101694]
 
 [node name="CSGBox3D23" type="CSGBox3D" parent="CSGCombiner3D" unique_id=879588336]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 10, 19)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 10, 12)
 use_collision = true
 size = Vector3(4, 20, 100)
 material = ExtResource("1_5a57x")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1860630307]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 19)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 12)
 operation = 2
 size = Vector3(48, 20, 8)
 material = ExtResource("1_5a57x")
 
 [node name="CSGBox3D26" type="CSGBox3D" parent="." unique_id=1283411809]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 16, 19.000002)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 16, 12)
 use_collision = true
 size = Vector3(4, 8, 48)
 material = ExtResource("1_5a57x")
@@ -125,11 +125,8 @@ omni_range = 12.0
 omni_attenuation = -1.0
 
 [node name="metro_door" parent="." unique_id=1974318859 instance=ExtResource("4_mm2pm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 13)
 
 [node name="TrainAnchor" type="Node3D" parent="." unique_id=1141254399]
 
-[node name="train" parent="TrainAnchor" unique_id=726041996 instance=ExtResource("5_kphry")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
-
-[editable path="TrainAnchor/train"]
+[node name="train" parent="TrainAnchor" unique_id=1049095889 instance=ExtResource("4_5a57x")]
