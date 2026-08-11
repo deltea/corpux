@@ -8,6 +8,8 @@ sky_energy_multiplier = 1.2
 ground_bottom_color = Color(1, 1, 1, 1)
 ground_horizon_color = Color(0.74, 0.74, 0.74, 1)
 ground_curve = 1e-05
+sun_angle_max = 20.0
+sun_curve = 5.0
 energy_multiplier = 0.5
 
 [sub_resource type="Sky" id="Sky_7mycd"]

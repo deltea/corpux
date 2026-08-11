@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b0mtwvye60alo"
-path="res://.godot/imported/station_board.blend-d0d61f2aad2875c83938bd3718a435fb.scn"
+uid="uid://bbdfxqw7lapc3"
+path="res://.godot/imported/platform_board.blend-83b4eb71e88228957d46e74f3beea533.scn"
 
 [deps]
 
-source_file="res://assets/models/environment/station_board.blend"
-dest_files=["res://.godot/imported/station_board.blend-d0d61f2aad2875c83938bd3718a435fb.scn"]
+source_file="res://assets/models/environment/platform_board.blend"
+dest_files=["res://.godot/imported/platform_board.blend-83b4eb71e88228957d46e74f3beea533.scn"]
 
 [params]
 
@@ -38,13 +38,13 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 materials/extract=0
 materials/extract_format=0
-materials/extract_path=""
+materials/extract_path="res://assets/materials"
 _subresources={
 "materials": {
-"Material": {
+"platform_board": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/environment/station-board.tres",
-"use_external/path": "uid://c7mb7o0h3ru6c"
+"use_external/fallback_path": "res://assets/materials/environment/platform_board.tres",
+"use_external/path": "uid://creu5a00r0ing"
 }
 }
 }

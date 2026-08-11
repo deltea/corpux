@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://creu5a00r0ing"]
+
+[ext_resource type="Texture2D" uid="uid://b1lplnsdalukx" path="res://assets/textures/environment/platform_board.png" id="1_u1fky"]
+
+[resource]
+resource_name = "platform_board"
+shading_mode = 0
+albedo_texture = ExtResource("1_u1fky")
+texture_filter = 0
