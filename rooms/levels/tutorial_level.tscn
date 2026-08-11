@@ -576,31 +576,38 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 45, 
 [node name="platform2" parent="Environment/Obstacles/StartArea" index="65" unique_id=1358488563 instance=ExtResource("7_ahpcb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59, -98, -120)
 
-[node name="platform3" parent="Environment/Obstacles/StartArea" index="66" unique_id=1887050943 instance=ExtResource("7_ahpcb")]
+[node name="platform5" parent="Environment/Obstacles/StartArea" index="66" unique_id=174513798 instance=ExtResource("7_ahpcb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91, -101.5, -75)
+
+[node name="platform3" parent="Environment/Obstacles/StartArea" index="67" unique_id=1887050943 instance=ExtResource("7_ahpcb")]
 transform = Transform3D(-4.3711392e-08, -2.9, 0, 1.0000001, -1.2676303e-07, 0, 0, 0, 1.3, -47, -128.5, -72)
 
-[node name="platform4" parent="Environment/Obstacles/StartArea" index="67" unique_id=1159836113 instance=ExtResource("7_ahpcb")]
+[node name="platform4" parent="Environment/Obstacles/StartArea" index="68" unique_id=1159836113 instance=ExtResource("7_ahpcb")]
 transform = Transform3D(-1, 0, -2.1855695e-07, 0, 1, 0, 8.742278e-08, 0, -2.5, -121.5, -97.5, -74.5)
 
-[node name="wall" parent="Environment/Obstacles/StartArea" index="68" unique_id=596747743 instance=ExtResource("9_vb1k0")]
+[node name="wall" parent="Environment/Obstacles/StartArea" index="69" unique_id=596747743 instance=ExtResource("9_vb1k0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -92, -87.5)
 
-[node name="wall2" parent="Environment/Obstacles/StartArea" index="69" unique_id=456677679 instance=ExtResource("9_vb1k0")]
+[node name="wall2" parent="Environment/Obstacles/StartArea" index="70" unique_id=456677679 instance=ExtResource("9_vb1k0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -92, -57.5)
 
-[node name="Skyhole" parent="Environment/Obstacles/StartArea" index="70" unique_id=397603186 instance=ExtResource("12_qrmpo")]
+[node name="Skyhole" parent="Environment/Obstacles/StartArea" index="71" unique_id=397603186 instance=ExtResource("12_qrmpo")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 22, -262)
 
-[node name="Skyhole2" parent="Environment/Obstacles/StartArea" index="71" unique_id=1542755653 instance=ExtResource("12_qrmpo")]
+[node name="Skyhole2" parent="Environment/Obstacles/StartArea" index="72" unique_id=1542755653 instance=ExtResource("12_qrmpo")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -111, 22, -144.5)
 size = Vector3(16, 24, 8)
 
-[node name="Skyhole3" parent="Environment/Obstacles/StartArea" index="72" unique_id=627539990 instance=ExtResource("12_qrmpo")]
+[node name="Skyhole3" parent="Environment/Obstacles/StartArea" index="73" unique_id=627539990 instance=ExtResource("12_qrmpo")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -86, -51, -72)
 size = Vector3(32, 32, 8)
 
-[node name="Skyhole4" parent="Environment/Obstacles/StartArea" index="73" unique_id=948862418 instance=ExtResource("12_qrmpo")]
+[node name="Skyhole4" parent="Environment/Obstacles/StartArea" index="74" unique_id=948862418 instance=ExtResource("12_qrmpo")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -50, -63, -156.5)
+size = Vector3(48, 16, 30)
+
+[node name="Skyhole5" parent="Environment/Obstacles/StartArea" index="75" unique_id=1312060312 instance=ExtResource("12_qrmpo")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 3, -63, -156.5)
 size = Vector3(48, 16, 30)
 
 [node name="Lava" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="1" unique_id=1102745254 instance=ExtResource("7_0qrrd")]
@@ -627,19 +634,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, -122, -52)
 [node name="Bouncepad" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="8" unique_id=393209683 instance=ExtResource("9_d6tof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.17567, -136.5, -50)
 
-[node name="Bouncepad2" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="9" unique_id=1215705029 instance=ExtResource("9_d6tof")]
+[node name="Bouncepad7" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="9" unique_id=1430637822 instance=ExtResource("9_d6tof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91, -99.3, -75)
+
+[node name="Bouncepad2" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="10" unique_id=1215705029 instance=ExtResource("9_d6tof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.17567, -136.5, -96)
 
-[node name="Bouncepad5" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="10" unique_id=749547452 instance=ExtResource("9_d6tof")]
+[node name="Bouncepad5" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="11" unique_id=749547452 instance=ExtResource("9_d6tof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.175667, -136.5, -157)
 
-[node name="Bouncepad6" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="11" unique_id=7464531 instance=ExtResource("9_d6tof")]
+[node name="Bouncepad6" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="12" unique_id=7464531 instance=ExtResource("9_d6tof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.175667, -116, -157)
 
-[node name="Bouncepad3" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="12" unique_id=527038075 instance=ExtResource("9_d6tof")]
+[node name="Bouncepad3" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="13" unique_id=527038075 instance=ExtResource("9_d6tof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.175667, -102.5, -73)
 
-[node name="Bouncepad4" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="13" unique_id=1009042943 instance=ExtResource("9_d6tof")]
+[node name="Bouncepad4" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="14" unique_id=1009042943 instance=ExtResource("9_d6tof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -164.17566, -136.5, -74)
 
 [node name="Arch" parent="Environment/Decoration" parent_id_path=PackedInt32Array(1521980672) index="0" unique_id=1744136896 instance=ExtResource("2_0rbq8")]
