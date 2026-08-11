@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://d3fw1ukn5eumx"]
 
+[ext_resource type="Material" uid="uid://cq0koi762ti01" path="res://assets/materials/structures/platform.tres" id="1_uvpeg"]
+
 [node name="Skyhole" type="CSGBox3D" unique_id=397603186]
 operation = 2
 size = Vector3(16, 16, 8)
+material = ExtResource("1_uvpeg")

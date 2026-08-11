@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://ce1ter0sesihi" path="res://scenes/vending_machine/vending_machine.tscn" id="13_fylor"]
 [ext_resource type="PackedScene" uid="uid://bpanf2s3gf4c3" path="res://scenes/ui/hud_layer/hud_layer.tscn" id="17_ahpcb"]
 [ext_resource type="PackedScene" uid="uid://cg458mwxo65d0" path="res://scenes/enemy/projectile/projectile_enemy.tscn" id="17_ubd40"]
-[ext_resource type="PackedScene" uid="uid://bbdfxqw7lapc3" path="res://assets/models/environment/platform_board.blend" id="20_qm5l7"]
 [ext_resource type="PackedScene" uid="uid://cjirxt5f0jnqo" path="res://assets/models/environment/station_chairs.blend" id="22_qm5l7"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qqxsm"]
@@ -38,7 +37,7 @@ transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 5
 platform_on_leave = 1
 
 [node name="DirectionalLight" parent="." index="2" unique_id=1478651605]
-transform = Transform3D(-0.7071069, -0.49999985, -0.49999994, -1.06770145e-07, -0.70710665, 0.7071068, -0.7071067, 0.5000001, 0.49999997, 0, 10, 0)
+transform = Transform3D(0.8660254, -5.856215e-09, -0.50000006, 0.50000006, 2.1855696e-08, 0.8660254, 5.856215e-09, -1, 2.1855696e-08, 0, 10, 0)
 light_specular = 8.0
 
 [node name="EntranceStation" parent="." index="3" unique_id=523828664 node_paths=PackedStringArray("player")]
@@ -411,8 +410,8 @@ size = Vector3(30, 89, 4)
 material = ExtResource("8_6lf2b")
 
 [node name="CSGBox3D64" type="CSGBox3D" parent="Environment/Obstacles/StartArea" index="40" unique_id=628607076]
-transform = Transform3D(-3.090862e-08, 0.70710677, 0.70710677, 3.090862e-08, 0.70710677, -0.70710677, -1, 0, -4.371139e-08, -107.954056, -85.454056, -158.5)
-size = Vector3(30, 116, 4)
+transform = Transform3D(-3.090862e-08, 0.70710677, 0.70710677, 3.090862e-08, 0.70710677, -0.70710677, -1, 0, -4.371139e-08, -111.48959, -88.98959, -158.5)
+size = Vector3(30, 106, 4)
 material = ExtResource("8_6lf2b")
 
 [node name="CSGBox3D66" type="CSGBox3D" parent="Environment/Obstacles/StartArea" index="41" unique_id=2051658430]
@@ -524,7 +523,7 @@ size = Vector3(52, 22.5, 17.5)
 material = ExtResource("3_oipkf")
 
 [node name="round_thing" parent="Environment/Obstacles/StartArea/CSGCombiner3D5" index="3" unique_id=1069795369 instance=ExtResource("8_okgc4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88, -55, -74)
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -129, -55, -74)
 
 [node name="CSGBox3D58" type="CSGBox3D" parent="Environment/Obstacles/StartArea" index="59" unique_id=842270769]
 transform = Transform3D(-1.3113417e-07, -1, -4.37114e-08, -8.742278e-08, -4.371139e-08, 1, -1, 1.3113416e-07, -8.742278e-08, -165.75, -86.75, -112.5)
@@ -595,6 +594,14 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2
 [node name="Skyhole2" parent="Environment/Obstacles/StartArea" index="71" unique_id=1542755653 instance=ExtResource("12_qrmpo")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -111, 22, -144.5)
 size = Vector3(16, 24, 8)
+
+[node name="Skyhole3" parent="Environment/Obstacles/StartArea" index="72" unique_id=627539990 instance=ExtResource("12_qrmpo")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -86, -51, -72)
+size = Vector3(32, 32, 8)
+
+[node name="Skyhole4" parent="Environment/Obstacles/StartArea" index="73" unique_id=948862418 instance=ExtResource("12_qrmpo")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -50, -63, -156.5)
+size = Vector3(48, 16, 30)
 
 [node name="Lava" parent="Environment/Obstacles" parent_id_path=PackedInt32Array(1723269265) index="1" unique_id=1102745254 instance=ExtResource("7_0qrrd")]
 transform = Transform3D(13.318802, 0, 0, 0, 1, 0, 0, 0, 3.8, -96.42029, 0.45333862, -179.43962)
@@ -733,9 +740,6 @@ transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 21, 
 
 [node name="station_chairs6" parent="Environment/Decoration" parent_id_path=PackedInt32Array(1521980672) index="32" unique_id=321158074 instance=ExtResource("22_qm5l7")]
 transform = Transform3D(-2.1855693e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855693e-07, -21, 1.3, -263)
-
-[node name="platform_board" parent="Environment/Decoration" parent_id_path=PackedInt32Array(1521980672) index="33" unique_id=2073184741 instance=ExtResource("20_qm5l7")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.5, 0, 16, -279)
 
 [node name="VendingMachine" parent="Environment/Interactables" parent_id_path=PackedInt32Array(2083965449) index="0" unique_id=1780406410 instance=ExtResource("13_fylor")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -22.6, 0, -253)

@@ -15,13 +15,13 @@ itch.io page here: [https://deltea.itch.io/300kmh](https://deltea.itch.io/300kmh
 ## todo
 
 - [ ] decorate the level
-- [ ] sum kinda fluid anim spirited away type shi
 - [ ] animate the bouncepad
 - [ ] add more sfx to things (bouncepad, projectile enemy, train station)
 - [ ] screen space boomerang marker
 - [ ] font/ui rehaul
 - [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
 - [ ] tutorial stuff
+- [ ] sum kinda fluid anim spirited away type shi
 - [x] button row disabled button
 - [x] train entrance and exit
 - [x] clean up da code

@@ -18,8 +18,8 @@ environment = ExtResource("1_4ve75")
 [node name="Player" parent="." unique_id=1918663283 instance=ExtResource("1_hx7to")]
 
 [node name="DirectionalLight" type="DirectionalLight3D" parent="." unique_id=1478651605]
-transform = Transform3D(-0.7071069, 0.49999997, 0.5, 6.1817246e-08, -0.7071068, 0.7071068, 0.70710677, 0.5000001, 0.5, 0, 10, 0)
-light_energy = 0.8
+transform = Transform3D(-0.7071069, 0.49999988, 0.49999994, 1.06770145e-07, -0.7071067, 0.7071068, 0.7071067, 0.5000002, 0.49999997, 0, 10, 0)
+light_energy = 0.75
 light_specular = 16.0
 shadow_enabled = true
 shadow_blur = 0.0
