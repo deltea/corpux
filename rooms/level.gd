@@ -22,6 +22,8 @@ func _ready() -> void:
 	Events.death.connect(_on_death)
 	Events.enemy_died.connect(_on_enemy_died)
 
+	# AudioManager.play_music("rigged-game")
+
 	# await Clock.wait(2.0)
 	station.animate_train_enter()
 	is_timer_started = true

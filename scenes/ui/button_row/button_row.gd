@@ -98,6 +98,10 @@ func style_button(button: Button) -> void:
 		button.add_theme_color_override("font_pressed_color", fg_color)
 
 
+func get_button(index: int) -> Button:
+	return buttons[clampi(index, 0, buttons.size() - 1)]
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	var less := ("up" if is_column else "left")
 	var more := ("down" if is_column else "right")

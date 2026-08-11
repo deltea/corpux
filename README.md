@@ -14,11 +14,13 @@ itch.io page here: [https://deltea.itch.io/300kmh](https://deltea.itch.io/300kmh
 
 ## todo
 
-- [ ] font rehaul
+- [ ] screen space boomerang marker
+- [ ] font/ui rehaul
 - [ ] sum kinda fluid anim spirited away type shi
 - [ ] decorate the level
 - [ ] persona ahh enemy hit effect (https://www.instagram.com/reel/DaS90-ioIGX/)
 - [ ] tutorial stuff
+- [x] button row disabled button
 - [x] train entrance and exit
 - [x] clean up da code
 - [x] better enemy indicator drawing (with correct sizing)

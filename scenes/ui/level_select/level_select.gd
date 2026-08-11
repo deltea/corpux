@@ -87,7 +87,8 @@ func set_selected(value: int) -> void:
 
 	var level_name := levels[curr_selected].level_name
 	level_name_label.text = "[wave freq=2 amp=100]" + level_name
-	if SaveManager.get_level_time(level_name):
+	var has_time := SaveManager.get_level_time(level_name) != null
+	if has_time:
 		rank_label.text = "[shake level=20 rate=40]" + SaveManager.get_level_rank(level_name)
 		best_label.text = "BEST  //  " + str(Utils.format_time(SaveManager.get_level_time(level_name)))
 		secret_label.text = "SECRET  //  " + get_yes_no(SaveManager.get_level_secret(level_name))
@@ -100,6 +101,8 @@ func set_selected(value: int) -> void:
 	line_tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	var target_y := 540 - stations[curr_selected].global_position.y - stations[curr_selected].size.y / 2
 	line_tween.tween_property(line, "global_position:y", target_y, 0.5).as_relative()
+
+	button_row.get_button(1).disabled = not has_time
 
 
 func get_yes_no(val: bool) -> String:
@@ -117,7 +120,8 @@ func _on_buttons_button_pressed(id: String) -> void:
 	if id == "back":
 		get_tree().change_scene_to_file("res://rooms/main_menu.tscn")
 	if id == "enter":
-		get_tree().change_scene_to_file(levels[curr_selected].level_scene_path)
+		if levels[curr_selected].level_scene_path:
+			get_tree().change_scene_to_file(levels[curr_selected].level_scene_path)
 	if id == "leaderboard":
 		var leaderboard := leaderboard_scene.instantiate() as Leaderboard
 		add_child(leaderboard)
