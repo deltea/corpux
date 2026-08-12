@@ -37,6 +37,12 @@ albedo_color = Color(0.011764706, 0.5294118, 0.99607843, 1)
 material = SubResource("StandardMaterial3D_ql6kn")
 size = Vector3(0.5, 0.5, 0.5)
 
+[sub_resource type="BoxMesh" id="BoxMesh_ql6kn"]
+size = Vector3(12, 0.2, 12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rjofl"]
+size = Vector3(12, 0.4, 12)
+
 [node name="Bouncepad" type="Area3D" unique_id=393209683]
 script = ExtResource("1_5i2p4")
 
@@ -53,5 +59,16 @@ fixed_fps = 14
 interpolate = false
 process_material = SubResource("ParticleProcessMaterial_5i2p4")
 draw_pass_1 = SubResource("BoxMesh_5i2p4")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1727113425]
+
+[node name="Outer" type="CSGMesh3D" parent="CSGCombiner3D" unique_id=865615154]
+mesh = SubResource("BoxMesh_ql6kn")
+material = ExtResource("2_5i2p4")
+
+[node name="Inner" type="CSGMesh3D" parent="CSGCombiner3D" unique_id=1887035294]
+operation = 2
+mesh = SubResource("BoxMesh_rjofl")
+material = ExtResource("2_5i2p4")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
