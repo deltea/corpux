@@ -14,6 +14,7 @@ itch.io page here: [https://deltea.itch.io/300kmh](https://deltea.itch.io/300kmh
 
 ## todo
 
+- [ ] use subtweens for stuff
 - [ ] add more sfx to things (bouncepad, projectile enemy, train station)
 - [ ] screen space boomerang marker
 - [ ] font/ui rehaul
