@@ -21,7 +21,7 @@ itch.io page here: [https://deltea.itch.io/300kmh](https://deltea.itch.io/300kmh
 - [ ] tutorial stuff
 - [ ] sum kinda fluid anim spirited away type shi
 - [ ] use subtweens for stuff
-- [ ] timer starts after exiting train
+- [x] timer starts after exiting train
 - [x] animate the bouncepad
 - [x] decorate the level
 - [x] button row disabled button
