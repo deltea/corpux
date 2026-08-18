@@ -21,12 +21,10 @@ func _ready() -> void:
 	Events.end_level.connect(_on_end_level)
 	Events.death.connect(_on_death)
 	Events.enemy_died.connect(_on_enemy_died)
-
-	# AudioManager.play_music("rigged-game")
+	Events.level_start.connect(_on_level_start)
 
 	# await Clock.wait(2.0)
 	station.animate_train_enter()
-	is_timer_started = true
 
 
 func _process(dt: float) -> void:
@@ -58,6 +56,7 @@ func _on_death() -> void:
 	GlobalCanvas.set_smear(0.0)
 	var death_screen := death_screen_scene.instantiate() as DeathScreen
 	add_child(death_screen)
+	AudioManager.stop_music()
 
 
 func _on_enemy_died() -> void:
@@ -66,3 +65,10 @@ func _on_enemy_died() -> void:
 		Events.mission_complete.emit()
 		await Clock.wait(0.5)
 		AudioManager.play_sound("mission-complete")
+
+
+func _on_level_start() -> void:
+	if is_timer_started:
+		return
+	is_timer_started = true
+	AudioManager.play_music("rigged-game")

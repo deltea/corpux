@@ -39,3 +39,8 @@ func animate_train_enter() -> void:
 	# player.position.y = 10.0
 	# await Clock.wait(5.0)
 	animation_player.play("train_enter")
+
+
+func _on_train_area_body_exited(body: Node3D) -> void:
+	if body is Player:
+		Events.level_start.emit()

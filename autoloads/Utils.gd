@@ -34,6 +34,7 @@ func get_screen_rect(aabb: AABB) -> Rect2:
 	var screen_points: Array[Vector2] = []
 	for pt in local_points:
 		var world_pt := aabb.position * pt
+		# var world_pt :=
 
 		if camera.is_position_behind(world_pt):
 			continue

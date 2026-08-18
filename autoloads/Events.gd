@@ -14,6 +14,7 @@ signal player_dash_changed()
 signal add_dash()
 signal fire()
 signal player_logged_in()
+signal level_start()
 
 signal enemy_aim_enter(enemy: Enemy)
 signal enemy_aim_exit()

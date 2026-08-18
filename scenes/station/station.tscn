@@ -60,6 +60,9 @@ distance_fade_max_distance = 5.0
 material = SubResource("StandardMaterial3D_tv5rl")
 size = Vector3(20, 20, 10)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kphry"]
+size = Vector3(50, 15, 19)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_5a57x"]
 size = Vector2(600, 28)
 
@@ -139,6 +142,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 13.5)
 
 [node name="train" parent="TrainAnchor" unique_id=1049095889 instance=ExtResource("4_5a57x")]
 
+[node name="TrainArea" type="Area3D" parent="TrainAnchor/train" unique_id=1629345522]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrainAnchor/train/TrainArea" unique_id=757323275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+shape = SubResource("BoxShape3D_kphry")
+
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1002234587]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=99934716]
@@ -152,3 +162,5 @@ shape = SubResource("BoxShape3D_5a57x")
 
 [node name="platform_board" parent="." unique_id=1733368686 instance=ExtResource("5_kphry")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.5, 0, 16, 14)
+
+[connection signal="body_exited" from="TrainAnchor/train/TrainArea" to="." method="_on_train_area_body_exited"]
